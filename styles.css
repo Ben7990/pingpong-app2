@@ -7,7 +7,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 10px;
+    padding: 15px;
     min-height: 100vh;
 }
 
@@ -15,8 +15,8 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     overflow: hidden;
 }
 
@@ -31,7 +31,7 @@ body {
 
 .auth-card {
     background: white;
-    padding: 30px;
+    padding: 35px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.2);
     width: 100%;
@@ -41,19 +41,19 @@ body {
 
 .auth-card h1 {
     color: #1e3c72;
-    margin-bottom: 20px;
-    font-size: 22px;
+    margin-bottom: 25px;
+    font-size: 24px;
 }
 
 .auth-tabs {
     display: flex;
     gap: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .auth-tab {
     flex: 1;
-    padding: 8px;
+    padding: 10px;
     border: none;
     background: #f0f0f0;
     cursor: pointer;
@@ -77,8 +77,8 @@ body {
 
 .auth-input {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
+    padding: 12px;
+    margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 14px;
@@ -97,13 +97,12 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 16px;
-    padding: 5px;
+    font-size: 18px;
 }
 
 .auth-btn {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background: linear-gradient(135deg, #4CAF50, #45a049);
     color: white;
     border: none;
@@ -117,20 +116,20 @@ body {
     background: #607d8b;
     color: white;
     border: none;
-    padding: 8px;
+    padding: 10px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 13px;
     width: 100%;
     margin-top: 8px;
 }
 
 .ad-banner-small {
     margin-top: 15px;
-    padding: 6px;
+    padding: 8px;
     background: #f8f9fa;
     border-radius: 8px;
-    font-size: 9px;
+    font-size: 10px;
     color: #666;
     text-align: center;
 }
@@ -139,22 +138,22 @@ body {
 .header {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
-    padding: 12px 15px;
+    padding: 15px;
 }
 
 .header h1 {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .logout-btn, .sub-btn, .lang-toggle-btn {
     background: rgba(255,255,255,0.2);
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s;
-    font-size: 11px;
+    font-size: 12px;
     white-space: nowrap;
 }
 
@@ -167,40 +166,40 @@ body {
 }
 
 .tournament-info input {
-    padding: 5px 10px;
+    padding: 6px 12px;
     border: none;
     border-radius: 5px;
-    font-size: 11px;
+    font-size: 12px;
     background: rgba(255,255,255,0.9);
 }
 
 /* Ad Banner */
 .ad-banner {
     background: linear-gradient(135deg, #ffd89b, #c7e9fb);
-    padding: 8px 12px;
+    padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 10px;
+    font-size: 12px;
     border-bottom: 1px solid #ddd;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .upgrade-banner-btn {
     background: #ff4757;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 11px;
 }
 
 /* Game Area */
 .game-area {
-    padding: 12px;
+    padding: 15px;
 }
 
 /* Верхняя строка с игроками */
@@ -208,80 +207,80 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 15px;
+    margin-bottom: 15px;
     flex-wrap: wrap;
 }
 
 .player-card {
     flex: 1;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border-radius: 12px;
-    padding: 8px;
+    border-radius: 15px;
+    padding: 12px;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .player-header h2 {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .serve-indicator {
     background: #ff6b6b;
     color: white;
-    padding: 2px 6px;
+    padding: 3px 8px;
     border-radius: 20px;
-    font-size: 8px;
+    font-size: 9px;
     display: inline-block;
     margin-top: 5px;
 }
 
 .player-name, .player-country {
     width: 95%;
-    padding: 4px;
-    margin: 4px 0;
+    padding: 6px;
+    margin: 5px 0;
     border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 10px;
+    border-radius: 8px;
+    font-size: 11px;
     text-align: center;
 }
 
 .score-display {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
-    margin: 5px 0;
+    margin: 8px 0;
     color: #2c3e50;
 }
 
 .points-history {
-    font-size: 8px;
+    font-size: 9px;
     color: #666;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 .vs-area {
     text-align: center;
-    min-width: 120px;
+    min-width: 140px;
 }
 
 .set-score {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
     color: #2c3e50;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .match-control-buttons {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 
 .reset-match, .start-match-btn, .finish-match-btn {
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: 8px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 11px;
     border: none;
     font-weight: bold;
 }
@@ -304,18 +303,18 @@ body {
 /* Кнопки очков */
 .game-buttons {
     display: flex;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 15px;
+    margin-bottom: 15px;
     flex-wrap: wrap;
 }
 
 .point-btn {
     flex: 1;
-    padding: 10px;
-    font-size: 12px;
+    padding: 12px;
+    font-size: 14px;
     font-weight: bold;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -338,8 +337,8 @@ body {
 .three-columns {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 12px;
+    gap: 15px;
+    margin-bottom: 15px;
     flex-wrap: wrap;
 }
 
@@ -347,24 +346,24 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     background: #f8f9fa;
-    padding: 8px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 12px;
 }
 
 .player1-col {
-    border-left: 3px solid #4CAF50;
+    border-left: 4px solid #4CAF50;
 }
 
 .player2-col {
-    border-right: 3px solid #2196F3;
+    border-right: 4px solid #2196F3;
 }
 
 .player-buttons-col .special-btn {
     width: 100%;
-    padding: 8px 4px;
-    font-size: 9px;
+    padding: 10px 6px;
+    font-size: 11px;
     font-weight: bold;
     text-align: center;
 }
@@ -373,20 +372,20 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
     background: #e8ecf1;
-    padding: 8px;
-    border-radius: 10px;
+    padding: 12px;
+    border-radius: 12px;
 }
 
 .center-buttons-col .control-btn {
     width: 100%;
-    padding: 8px 4px;
-    font-size: 9px;
+    padding: 10px 6px;
+    font-size: 11px;
     background: #607d8b;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s;
     white-space: nowrap;
@@ -400,7 +399,7 @@ body {
 /* Стили специальных кнопок */
 .special-btn {
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s;
     font-weight: 600;
@@ -409,7 +408,11 @@ body {
 .special-btn:not(.warning):not(.yellow):not(.red) {
     background: #2c3e50;
     color: #ecf0f1;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.special-btn:not(.warning):not(.yellow):not(.red):hover {
+    background: #1a2632;
 }
 
 .special-btn.warning {
@@ -417,9 +420,17 @@ body {
     color: white;
 }
 
+.special-btn.warning:hover {
+    background: #e68900;
+}
+
 .special-btn.yellow {
     background: #ffc107;
     color: #333;
+}
+
+.special-btn.yellow:hover {
+    background: #e0a800;
 }
 
 .special-btn.red {
@@ -427,100 +438,104 @@ body {
     color: white;
 }
 
-/* Protocol Section - компактный */
+.special-btn.red:hover {
+    background: #d32f2f;
+}
+
+/* Protocol Section */
 .protocol-section {
     background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 12px;
+    margin-top: 10px;
 }
 
 .protocol-section h3 {
     color: #2c3e50;
-    margin-bottom: 8px;
-    font-size: 13px;
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 
 .protocol-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 8px;
-    margin-bottom: 10px;
-    padding: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 10px;
     background: #f8f9fa;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .protocol-item {
     display: flex;
-    gap: 5px;
+    gap: 8px;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .protocol-item strong {
-    font-size: 9px;
+    font-size: 10px;
 }
 
 .protocol-item input {
-    font-size: 9px;
-    padding: 3px 6px;
-    width: 120px;
+    font-size: 10px;
+    padding: 4px 8px;
+    width: 130px;
 }
 
 .log-area {
     background: #2c3e50;
     color: #ecf0f1;
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    max-height: 120px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    max-height: 130px;
     overflow-y: auto;
 }
 
 .log-area h4 {
-    margin-bottom: 5px;
-    font-size: 10px;
+    margin-bottom: 8px;
+    font-size: 11px;
 }
 
 #eventLog {
     font-family: 'Courier New', monospace;
-    font-size: 8px;
+    font-size: 10px;
 }
 
 .export-buttons {
     display: flex;
-    gap: 6px;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
 .export-btn {
     flex: 1;
-    padding: 6px 3px;
+    padding: 8px 5px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 8px;
+    font-size: 10px;
     transition: transform 0.2s;
     white-space: nowrap;
 }
 
 .export-btn:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 /* Футер */
 .app-footer {
     background: #f5f5f5;
-    padding: 8px 12px;
+    padding: 10px 15px;
     text-align: center;
-    font-size: 9px;
+    font-size: 10px;
     border-top: 1px solid #ddd;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* Modal */
@@ -539,9 +554,9 @@ body {
 
 .modal-content {
     background: white;
-    padding: 20px;
-    border-radius: 15px;
-    max-width: 400px;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 450px;
     width: 90%;
     text-align: center;
     position: relative;
@@ -550,68 +565,66 @@ body {
 }
 
 .modal-content h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .close-modal, .close-reset-modal {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 22px;
+    top: 12px;
+    right: 18px;
+    font-size: 24px;
     cursor: pointer;
     color: #999;
 }
 
-/* ========== АДАПТИВНОСТЬ ========== */
-
-/* Для горизонтальной ориентации */
-@media (orientation: landscape) {
-    .game-area {
-        padding: 8px;
+/* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА (ВЕРТИКАЛЬНЫЙ РЕЖИМ) ========== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
     }
     
     .players-top-row {
-        gap: 8px;
-        margin-bottom: 8px;
+        gap: 10px;
     }
     
     .player-card {
-        padding: 5px;
+        padding: 10px;
     }
     
     .score-display {
+        font-size: 36px;
+    }
+    
+    .set-score {
         font-size: 28px;
     }
     
-    .three-columns {
-        gap: 8px;
-        margin-bottom: 8px;
-    }
-    
-    .player-buttons-col,
-    .center-buttons-col {
-        padding: 6px;
+    .point-btn {
+        padding: 10px;
+        font-size: 12px;
     }
     
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        padding: 6px 3px;
-        font-size: 8px;
+        padding: 8px 4px;
+        font-size: 10px;
+        white-space: normal;
+        line-height: 1.3;
     }
     
-    .protocol-section {
-        padding: 6px;
-        margin-top: 6px;
+    .export-btn {
+        white-space: normal;
+        font-size: 9px;
     }
     
-    .log-area {
-        max-height: 80px;
+    .logout-btn, .sub-btn, .lang-toggle-btn {
+        font-size: 10px;
+        padding: 4px 8px;
     }
     
-    .protocol-info {
-        gap: 5px;
-        padding: 5px;
+    .header h1 {
+        font-size: 16px;
     }
     
     .protocol-item input {
@@ -619,95 +632,108 @@ body {
     }
 }
 
-/* Для вертикальной ориентации на телефоне */
-@media (max-width: 700px) {
+/* Для горизонтальной ориентации на телефоне */
+@media (orientation: landscape) and (max-height: 600px) {
+    .game-area {
+        padding: 10px;
+    }
+    
     .players-top-row {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    
-    .player-card {
-        min-width: 140px;
-    }
-    
-    .three-columns {
-        flex-direction: row;
         gap: 8px;
+        margin-bottom: 8px;
     }
     
-    .player-buttons-col .special-btn {
-        font-size: 8px;
-        padding: 6px 2px;
-        white-space: normal;
-        line-height: 1.2;
-    }
-    
-    .center-buttons-col .control-btn {
-        font-size: 8px;
-        padding: 6px 2px;
-        white-space: normal;
-        line-height: 1.2;
-    }
-    
-    .export-btn {
-        white-space: normal;
-        font-size: 7px;
-    }
-    
-    .logout-btn, .sub-btn, .lang-toggle-btn {
-        font-size: 8px;
-        padding: 3px 6px;
-    }
-    
-    .header h1 {
-        font-size: 12px;
-    }
-    
-    .protocol-item input {
-        width: 90px;
-    }
-}
-
-/* Для очень маленьких экранов */
-@media (max-width: 500px) {
     .player-card {
-        min-width: 120px;
+        padding: 6px;
     }
     
     .score-display {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .set-score {
-        font-size: 22px;
+        font-size: 24px;
     }
     
     .point-btn {
         padding: 8px;
-        font-size: 10px;
+        font-size: 11px;
     }
     
-    .player-buttons-col .special-btn {
-        font-size: 7px;
-        padding: 5px 2px;
+    .player-buttons-col,
+    .center-buttons-col {
+        padding: 8px;
+        gap: 5px;
     }
     
+    .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        font-size: 7px;
-        padding: 5px 2px;
+        padding: 6px 3px;
+        font-size: 9px;
+    }
+    
+    .log-area {
+        max-height: 90px;
+    }
+    
+    .protocol-section {
+        padding: 8px;
+    }
+    
+    .app-footer {
+        padding: 6px 10px;
+        margin-top: 8px;
     }
 }
 
-/* Для немецкого языка */
+/* Для очень маленьких телефонов */
+@media (max-width: 480px) {
+    .players-top-row {
+        flex-direction: column;
+    }
+    
+    .player-card {
+        width: 100%;
+    }
+    
+    .vs-area {
+        order: 3;
+        margin-top: 5px;
+    }
+    
+    .three-columns {
+        flex-direction: row;
+    }
+    
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        font-size: 9px;
+        padding: 6px 2px;
+    }
+    
+    .score-display {
+        font-size: 32px;
+    }
+    
+    .auth-card {
+        padding: 25px;
+    }
+}
+
+/* Для немецкого языка - чуть меньше шрифт */
 html[lang="de"] .player-buttons-col .special-btn,
 html[data-lang="de"] .player-buttons-col .special-btn,
 html[lang="de"] .center-buttons-col .control-btn,
-html[data-lang="de"] .center-buttons-col .control-btn,
-html[lang="de"] .export-btn,
-html[data-lang="de"] .export-btn {
-    font-size: 7px;
+html[data-lang="de"] .center-buttons-col .control-btn {
+    font-size: 9px;
     white-space: normal;
     line-height: 1.2;
+}
+
+html[lang="de"] .export-btn,
+html[data-lang="de"] .export-btn {
+    font-size: 8px;
+    white-space: normal;
 }
 
 /* Language Menu */
