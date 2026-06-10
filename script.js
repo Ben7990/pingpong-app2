@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v13 - полная оптимизация с PDF');
+console.log('Скрипт загружен v15 - полная версия с 8 языками');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 
@@ -103,12 +103,14 @@ const translations = {
         'passwordPlaceholder': 'Пароль',
         'namePlaceholder': 'Имя',
         'point': '🎾 Очко заработал игрок {player}',
+        'point_accelerated': '⚡ Очко (ускорение) заработал игрок {player}',
         'set_end': '🏆 Партия {set} завершена. Победил игрок {winner}',
         'set_start': '🎬 Начало {set}-й партии. Подает игрок {server}',
         'serve_auto_change': '🔄 Автоматическая смена подачи. Теперь подает игрок {server}',
+        'serve_auto_change_accelerated': '⚡ Ускорение: смена подачи после каждого очка. Теперь подает игрок {server}',
         'serve_manual_change': '🖐️ Ручная смена подачи. Теперь подает игрок {server}',
         'side_change': '↔ Смена сторон (после {set}-й партии)',
-        'accelerate_on': '⚡ Включена система ускорения',
+        'accelerate_on': '⚡ Включена система ускорения. Подача меняется после каждого очка!',
         'timeout_event': '⏸ Тайм-аут взят игроком {player}',
         'timeout_error': '❌ У игрока {player} нет тайм-аутов',
         'warning_event': '⚠️ Предупреждение игроку {player}',
@@ -198,12 +200,14 @@ const translations = {
         'passwordPlaceholder': 'Password',
         'namePlaceholder': 'Name',
         'point': '🎾 Point scored by player {player}',
+        'point_accelerated': '⚡ Point (acceleration) scored by player {player}',
         'set_end': '🏆 Set {set} completed. Player {winner} wins',
         'set_start': '🎬 Start of set {set}. Player {server} serves',
         'serve_auto_change': '🔄 Automatic serve change. Player {server} now serves',
+        'serve_auto_change_accelerated': '⚡ Acceleration: serve changes every point. Player {server} now serves',
         'serve_manual_change': '🖐️ Manual serve change. Player {server} now serves',
         'side_change': '↔ Side change (after set {set})',
-        'accelerate_on': '⚡ Acceleration system activated',
+        'accelerate_on': '⚡ Acceleration system activated. Serve changes every point!',
         'timeout_event': '⏸ Timeout taken by player {player}',
         'timeout_error': '❌ Player {player} has no timeouts left',
         'warning_event': '⚠️ Warning to player {player}',
@@ -232,11 +236,590 @@ const translations = {
         'set': 'Set',
         'player1': 'Player 1',
         'player2': 'Player 2'
+    },
+    de: {
+        'appName': 'SCHIEDSRICHTERPROTOKOLL',
+        'login': 'Anmelden',
+        'register': 'Registrieren',
+        'loginBtn': 'Anmelden',
+        'registerBtn': 'Registrieren',
+        'logout': '🚪 Abmelden',
+        'deleteAccount': '🗑️ Konto löschen',
+        'confirmDelete': 'Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Alle Ihre Daten werden dauerhaft gelöscht.',
+        'deleteSuccess': 'Konto erfolgreich gelöscht. Auf Wiedersehen!',
+        'deleteError': 'Fehler beim Löschen des Kontos. Bitte versuchen Sie es erneut.',
+        'waiting': 'WARTEN',
+        'playing': 'IM SPIEL',
+        'finished': 'BEENDET',
+        'disqualified': 'DISQUALIFIZIERT',
+        'cancel': 'Abbrechen',
+        'injury': 'Verletzung',
+        'forfeit': 'Nichtantritt',
+        'technical': 'Technisch',
+        'finishMatchTitle': 'Spiel beenden',
+        'finishMatchText': 'Grund wählen:',
+        'player1Title': 'SPIELER 1',
+        'player2Title': 'SPIELER 2',
+        'serve': 'AUFSCHLAG',
+        'newMatch': '🔄 NEUES SPIEL',
+        'startMatch': '🎬 STARTEN',
+        'finishMatch': '🏁 BEENDEN',
+        'pointToPlayer1': '➕ PUNKT SPIELER 1',
+        'pointToPlayer2': '➕ PUNKT SPIELER 2',
+        'timeout': '⏸ AUSZEIT',
+        'warning': '⚠️ VERWARNUNG',
+        'yellow': '🟨 GELBE KARTE',
+        'red': '🟥 ROTE KARTE',
+        'changeServe': '🔄 AUFSCHLAG WECHSELN',
+        'changeSide': '↔ SEITEN WECHSELN',
+        'undoPoint': '↩ PUNKT ZURÜCK',
+        'accelerate': '⚡ BESCHLEUNIGUNG',
+        'protocol': '📋 SPIELPROTOKOLL',
+        'referee': 'Schiedsrichter:',
+        'startTime': 'Startzeit:',
+        'currentTime': 'Aktuelle Zeit:',
+        'status': 'Status:',
+        'eventLog': 'EREIGNISPROTOKOLL',
+        'exportJSON': '💾 EXPORT JSON',
+        'exportCSV': '📊 EXPORT CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORT CSV (UTF-8)',
+        'exportPDF': '📄 EXPORT PDF',
+        'print': '🖨 DRUCKEN',
+        'resetPassword': '🔑 Passwort vergessen?',
+        'sendCode': 'Code senden',
+        'changePassword': 'Passwort ändern',
+        'enterEmail': 'E-Mail-Adresse eingeben',
+        'enterCode': 'Code aus der E-Mail eingeben',
+        'newPassword': 'Neues Passwort',
+        'codeSent': 'Code wurde gesendet',
+        'privacy': '📄 Datenschutz',
+        'emailPlaceholder': 'E-Mail',
+        'passwordPlaceholder': 'Passwort',
+        'namePlaceholder': 'Name',
+        'point': '🎾 Punkt für Spieler {player}',
+        'point_accelerated': '⚡ Punkt (Beschleunigung) für Spieler {player}',
+        'set_end': '🏆 Satz {set} beendet. Spieler {winner} gewinnt',
+        'set_start': '🎬 Beginn von Satz {set}. Spieler {server} schlägt auf',
+        'serve_auto_change': '🔄 Automatischer Aufschlagwechsel. Spieler {server} schlägt jetzt auf',
+        'serve_auto_change_accelerated': '⚡ Beschleunigung: Aufschlagwechsel nach jedem Punkt. Spieler {server} schlägt jetzt auf',
+        'serve_manual_change': '🖐️ Manueller Aufschlagwechsel. Spieler {server} schlägt jetzt auf',
+        'side_change': '↔ Seitenwechsel (nach Satz {set})',
+        'accelerate_on': '⚡ Beschleunigungssystem aktiviert. Aufschlag wechselt nach jedem Punkt!',
+        'timeout_event': '⏸ Auszeit genommen von Spieler {player}',
+        'timeout_error': '❌ Spieler {player} hat keine Auszeiten mehr',
+        'warning_event': '⚠️ Verwarnung für Spieler {player}',
+        'yellow_event': '🟨 Gelbe Karte für Spieler {player}',
+        'red_event': '🟥 ROTE KARTE für Spieler {player} - Disqualifikation!',
+        'undo': '↩ Letzter Punkt zurückgenommen',
+        'match_start': '🏓 Spiel offiziell gestartet. Spieler {server} schlägt auf',
+        'match_end_sporting': '🏁 Spiel beendet. Sieger: Spieler {winner}. Ergebnis: {sets}',
+        'match_end_early': '🏁 Spiel vorzeitig beendet. Grund: {reason}',
+        'error_not_started': '❌ Spiel noch nicht gestartet! Klicken Sie "SPIEL STARTEN"',
+        'error_finished': '❌ Spiel beendet, keine weiteren Punkte',
+        'exportTitle': 'Spielprotokoll',
+        'tournament': 'Turnier',
+        'date': 'Datum',
+        'table': 'Tisch',
+        'refereeName': 'Schiedsrichter',
+        'result': 'Ergebnis',
+        'eventLogTitle': 'Ereignisprotokoll',
+        'time': 'Zeit',
+        'event': 'Ereignis',
+        'score': 'Punktstand',
+        'vs': 'gegen',
+        'winner': 'Sieger',
+        'endTime': 'Endzeit',
+        'toss_winner': '🎲 Los: Spieler {winner} gewinnt. Spieler {server} schlägt auf',
+        'set': 'Satz',
+        'player1': 'Spieler 1',
+        'player2': 'Spieler 2'
+    },
+    es: {
+        'appName': 'PROTOCOLO ARBITRAL',
+        'login': 'Iniciar sesión',
+        'register': 'Registrarse',
+        'loginBtn': 'Iniciar',
+        'registerBtn': 'Registrar',
+        'logout': '🚪 Salir',
+        'deleteAccount': '🗑️ Eliminar cuenta',
+        'confirmDelete': '¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible. Todos tus datos serán eliminados permanentemente.',
+        'deleteSuccess': 'Cuenta eliminada con éxito. ¡Adiós!',
+        'deleteError': 'Error al eliminar la cuenta. Por favor, inténtalo de nuevo.',
+        'waiting': 'ESPERANDO',
+        'playing': 'JUGANDO',
+        'finished': 'FINALIZADO',
+        'disqualified': 'DESCALIFICADO',
+        'cancel': 'Cancelar',
+        'injury': 'Lesión',
+        'forfeit': 'No presentado',
+        'technical': 'Técnico',
+        'finishMatchTitle': 'Finalizar partido',
+        'finishMatchText': 'Motivo:',
+        'player1Title': 'JUGADOR 1',
+        'player2Title': 'JUGADOR 2',
+        'serve': 'SAQUE',
+        'newMatch': '🔄 NUEVO',
+        'startMatch': '🎬 INICIAR',
+        'finishMatch': '🏁 FINALIZAR',
+        'pointToPlayer1': '➕ PUNTO J1',
+        'pointToPlayer2': '➕ PUNTO J2',
+        'timeout': '⏸ TIEMPO',
+        'warning': '⚠️ ADVERTENCIA',
+        'yellow': '🟨 TARJETA AMARILLA',
+        'red': '🟥 TARJETA ROJA',
+        'changeServe': '🔄 CAMBIAR SAQUE',
+        'changeSide': '↔ CAMBIAR LADO',
+        'undoPoint': '↩ DESHACER',
+        'accelerate': '⚡ ACELERACIÓN',
+        'protocol': '📋 PROTOCOLO',
+        'referee': 'Árbitro:',
+        'startTime': 'Inicio:',
+        'currentTime': 'Ahora:',
+        'status': 'Estado:',
+        'eventLog': 'REGISTRO',
+        'exportJSON': '💾 EXPORTAR JSON',
+        'exportCSV': '📊 EXPORTAR CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORTAR CSV (UTF-8)',
+        'exportPDF': '📄 EXPORTAR PDF',
+        'print': '🖨 IMPRIMIR',
+        'resetPassword': '🔑 ¿Olvidó contraseña?',
+        'sendCode': 'Enviar código',
+        'changePassword': 'Cambiar contraseña',
+        'enterEmail': 'Email de registro',
+        'enterCode': 'Código del email',
+        'newPassword': 'Nueva contraseña',
+        'codeSent': 'Código enviado',
+        'privacy': '📄 Privacidad',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Contraseña',
+        'namePlaceholder': 'Nombre',
+        'point': '🎾 Punto jugador {player}',
+        'point_accelerated': '⚡ Punto (aceleración) jugador {player}',
+        'set_end': '🏆 Set {set} completado. Gana jugador {winner}',
+        'set_start': '🎬 Set {set}. Saca jugador {server}',
+        'serve_auto_change': '🔄 Cambio de saque. Saca jugador {server}',
+        'serve_auto_change_accelerated': '⚡ Aceleración: cambio de saque después de cada punto. Saca jugador {server}',
+        'serve_manual_change': '🖐️ Cambio manual. Saca jugador {server}',
+        'side_change': '↔ Cambio de lado (set {set})',
+        'accelerate_on': '⚡ Aceleración activada. ¡El saque cambia después de cada punto!',
+        'timeout_event': '⏸ Tiempo jugador {player}',
+        'timeout_error': '❌ Sin tiempos',
+        'warning_event': '⚠️ Advertencia jugador {player}',
+        'yellow_event': '🟨 Tarjeta amarilla jugador {player}',
+        'red_event': '🟥 TARJETA ROJA - descalificado!',
+        'undo': '↩ Último punto anulado',
+        'match_start': '🏓 Partido iniciado. Saca jugador {server}',
+        'match_end_sporting': '🏁 Finalizado. Ganador: jugador {winner}. {sets}',
+        'match_end_early': '🏁 Finalizado anticipado. Motivo: {reason}',
+        'error_not_started': '❌ Partido no iniciado!',
+        'error_finished': '❌ Partido finalizado',
+        'exportTitle': 'Protocolo',
+        'tournament': 'Torneo',
+        'date': 'Fecha',
+        'table': 'Mesa',
+        'refereeName': 'Árbitro',
+        'result': 'Resultado',
+        'eventLogTitle': 'Registro',
+        'time': 'Hora',
+        'event': 'Evento',
+        'score': 'Marcador',
+        'vs': 'vs',
+        'winner': 'Ganador',
+        'endTime': 'Fin',
+        'toss_winner': '🎲 Sorteo: gana jugador {winner}. Saca jugador {server}',
+        'set': 'Set',
+        'player1': 'Jugador 1',
+        'player2': 'Jugador 2'
+    },
+    it: {
+        'appName': 'PROTOCOLLO ARBITRALE',
+        'login': 'Accedi',
+        'register': 'Registrati',
+        'loginBtn': 'Accedi',
+        'registerBtn': 'Registrati',
+        'logout': '🚪 Esci',
+        'deleteAccount': '🗑️ Elimina account',
+        'confirmDelete': 'Sei sicuro di voler eliminare il tuo account? Questa azione è irreversibile. Tutti i tuoi dati verranno cancellati permanentemente.',
+        'deleteSuccess': 'Account eliminato con successo. Arrivederci!',
+        'deleteError': 'Errore durante l\'eliminazione dell\'account. Riprova.',
+        'waiting': 'IN ATTESA',
+        'playing': 'IN GIOCO',
+        'finished': 'TERMINATA',
+        'disqualified': 'SQUALIFICATO',
+        'cancel': 'Annulla',
+        'injury': 'Infortunio',
+        'forfeit': 'Forfait',
+        'technical': 'Tecnico',
+        'finishMatchTitle': 'Termina partita',
+        'finishMatchText': 'Motivo:',
+        'player1Title': 'GIOCATORE 1',
+        'player2Title': 'GIOCATORE 2',
+        'serve': 'BATTUTA',
+        'newMatch': '🔄 NUOVA PARTITA',
+        'startMatch': '🎬 INIZIA',
+        'finishMatch': '🏁 TERMINA',
+        'pointToPlayer1': '➕ PUNTO G1',
+        'pointToPlayer2': '➕ PUNTO G2',
+        'timeout': '⏸ TIME OUT',
+        'warning': '⚠️ AMMONIZIONE',
+        'yellow': '🟨 CARTELLINO GIALLO',
+        'red': '🟥 CARTELLINO ROSSO',
+        'changeServe': '🔄 CAMBIA BATTUTA',
+        'changeSide': '↔ CAMBIA LATO',
+        'undoPoint': '↩ ANNULLA',
+        'accelerate': '⚡ ACCELERAZIONE',
+        'protocol': '📋 PROTOCOLLO',
+        'referee': 'Arbitro:',
+        'startTime': 'Inizio:',
+        'currentTime': 'Ora:',
+        'status': 'Stato:',
+        'eventLog': 'REGISTRO',
+        'exportJSON': '💾 ESPORTA JSON',
+        'exportCSV': '📊 ESPORTA CSV (ANSI)',
+        'exportCSVUtf8': '📊 ESPORTA CSV (UTF-8)',
+        'exportPDF': '📄 ESPORTA PDF',
+        'print': '🖨 STAMPA',
+        'resetPassword': '🔑 Password dimenticata?',
+        'sendCode': 'Invia codice',
+        'changePassword': 'Cambia password',
+        'enterEmail': 'Email di registrazione',
+        'enterCode': 'Codice ricevuto',
+        'newPassword': 'Nuova password',
+        'codeSent': 'Codice inviato',
+        'privacy': '📄 Privacy',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Password',
+        'namePlaceholder': 'Nome',
+        'point': '🎾 Punto giocatore {player}',
+        'point_accelerated': '⚡ Punto (accelerazione) giocatore {player}',
+        'set_end': '🏆 Set {set} completato. Vince giocatore {winner}',
+        'set_start': '🎬 Set {set}. Batte giocatore {server}',
+        'serve_auto_change': '🔄 Cambio battuta. Batte giocatore {server}',
+        'serve_auto_change_accelerated': '⚡ Accelerazione: cambio battuta dopo ogni punto. Batte giocatore {server}',
+        'serve_manual_change': '🖐️ Cambio manuale. Batte giocatore {server}',
+        'side_change': '↔ Cambio lato (set {set})',
+        'accelerate_on': '⚡ Accelerazione attivata. La battuta cambia dopo ogni punto!',
+        'timeout_event': '⏸ Time out giocatore {player}',
+        'timeout_error': '❌ Nessun time out',
+        'warning_event': '⚠️ Ammonizione giocatore {player}',
+        'yellow_event': '🟨 Cartellino giallo giocatore {player}',
+        'red_event': '🟥 CARTELLINO ROSSO - squalifica!',
+        'undo': '↩ Ultimo punto annullato',
+        'match_start': '🏓 Partita iniziata. Batte giocatore {server}',
+        'match_end_sporting': '🏁 Partita terminata. Vince giocatore {winner}. {sets}',
+        'match_end_early': '🏁 Terminata anticipatamente. Motivo: {reason}',
+        'error_not_started': '❌ Partita non iniziata!',
+        'error_finished': '❌ Partita terminata',
+        'exportTitle': 'Protocollo',
+        'tournament': 'Torneo',
+        'date': 'Data',
+        'table': 'Tavolo',
+        'refereeName': 'Arbitro',
+        'result': 'Risultato',
+        'eventLogTitle': 'Registro',
+        'time': 'Ora',
+        'event': 'Evento',
+        'score': 'Punteggio',
+        'vs': 'vs',
+        'winner': 'Vincitore',
+        'endTime': 'Fine',
+        'toss_winner': '🎲 Sorteggio: vince giocatore {winner}. Batte giocatore {server}',
+        'set': 'Set',
+        'player1': 'Giocatore 1',
+        'player2': 'Giocatore 2'
+    },
+    fr: {
+        'appName': 'PROTOCOLE ARBITRAL',
+        'login': 'Connexion',
+        'register': 'Inscription',
+        'loginBtn': 'Se connecter',
+        'registerBtn': "S'inscrire",
+        'logout': '🚪 Déconnexion',
+        'deleteAccount': '🗑️ Supprimer le compte',
+        'confirmDelete': 'Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible. Toutes vos données seront définitivement supprimées.',
+        'deleteSuccess': 'Compte supprimé avec succès. Au revoir !',
+        'deleteError': 'Erreur lors de la suppression du compte. Veuillez réessayer.',
+        'waiting': 'EN ATTENTE',
+        'playing': 'EN COURS',
+        'finished': 'TERMINÉ',
+        'disqualified': 'DISQUALIFIÉ',
+        'cancel': 'Annuler',
+        'injury': 'Blessure',
+        'forfeit': 'Forfait',
+        'technical': 'Technique',
+        'finishMatchTitle': 'Terminer le match',
+        'finishMatchText': 'Raison:',
+        'player1Title': 'JOUEUR 1',
+        'player2Title': 'JOUEUR 2',
+        'serve': 'SERVICE',
+        'newMatch': '🔄 NOUVEAU MATCH',
+        'startMatch': '🎬 COMMENCER',
+        'finishMatch': '🏁 TERMINER',
+        'pointToPlayer1': '➕ POINT J1',
+        'pointToPlayer2': '➕ POINT J2',
+        'timeout': '⏸ TEMPS MORT',
+        'warning': '⚠️ AVERTISSEMENT',
+        'yellow': '🟨 CARTON JAUNE',
+        'red': '🟥 CARTON ROUGE',
+        'changeServe': '🔄 CHANGER SERVICE',
+        'changeSide': '↔ CHANGER CÔTÉ',
+        'undoPoint': '↩ ANNULER',
+        'accelerate': '⚡ ACCÉLÉRATION',
+        'protocol': '📋 PROTOCOLE',
+        'referee': 'Arbitre:',
+        'startTime': 'Début:',
+        'currentTime': 'Actuel:',
+        'status': 'Statut:',
+        'eventLog': 'JOURNAL',
+        'exportJSON': '💾 EXPORTER JSON',
+        'exportCSV': '📊 EXPORTER CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORTER CSV (UTF-8)',
+        'exportPDF': '📄 EXPORTER PDF',
+        'print': '🖨 IMPRIMER',
+        'resetPassword': '🔑 Mot de passe oublié?',
+        'sendCode': 'Envoyer code',
+        'changePassword': 'Changer mot de passe',
+        'enterEmail': 'Email inscription',
+        'enterCode': 'Code reçu',
+        'newPassword': 'Nouveau mot de passe',
+        'codeSent': 'Code envoyé',
+        'privacy': '📄 Confidentialité',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Mot de passe',
+        'namePlaceholder': 'Nom',
+        'point': '🎾 Point joueur {player}',
+        'point_accelerated': '⚡ Point (accélération) joueur {player}',
+        'set_end': '🏆 Set {set} terminé. Joueur {winner} gagne',
+        'set_start': '🎬 Set {set}. Joueur {server} sert',
+        'serve_auto_change': '🔄 Changement service. Joueur {server} sert',
+        'serve_auto_change_accelerated': '⚡ Accélération: changement de service après chaque point. Joueur {server} sert',
+        'serve_manual_change': '🖐️ Changement manuel. Joueur {server} sert',
+        'side_change': '↔ Changement côté (set {set})',
+        'accelerate_on': '⚡ Accélération activée. Le service change après chaque point!',
+        'timeout_event': '⏸ Temps mort joueur {player}',
+        'timeout_error': '❌ Plus de temps mort',
+        'warning_event': '⚠️ Avertissement joueur {player}',
+        'yellow_event': '🟨 Carton jaune joueur {player}',
+        'red_event': '🟥 CARTON ROUGE - disqualification!',
+        'undo': '↩ Dernier point annulé',
+        'match_start': '🏓 Match commencé. Joueur {server} sert',
+        'match_end_sporting': '🏁 Match terminé. Vainqueur: joueur {winner}. {sets}',
+        'match_end_early': '🏁 Terminé tôt. Raison: {reason}',
+        'error_not_started': '❌ Match non commencé!',
+        'error_finished': '❌ Match terminé',
+        'exportTitle': 'Protocole',
+        'tournament': 'Tournoi',
+        'date': 'Date',
+        'table': 'Table',
+        'refereeName': 'Arbitre',
+        'result': 'Résultat',
+        'eventLogTitle': 'Journal',
+        'time': 'Heure',
+        'event': 'Événement',
+        'score': 'Score',
+        'vs': 'vs',
+        'winner': 'Vainqueur',
+        'endTime': 'Fin',
+        'toss_winner': '🎲 Tirage: joueur {winner} gagne. Joueur {server} sert',
+        'set': 'Set',
+        'player1': 'Joueur 1',
+        'player2': 'Joueur 2'
+    },
+    zh: {
+        'appName': '裁判记录表',
+        'login': '登录',
+        'register': '注册',
+        'loginBtn': '登录',
+        'registerBtn': '注册',
+        'logout': '🚪 退出',
+        'deleteAccount': '🗑️ 删除账号',
+        'confirmDelete': '您确定要删除您的账号吗？此操作不可逆。所有数据将被永久删除。',
+        'deleteSuccess': '账号已成功删除。再见！',
+        'deleteError': '删除账号时出错。请重试。',
+        'waiting': '等待开始',
+        'playing': '比赛中',
+        'finished': '已结束',
+        'disqualified': '取消资格',
+        'cancel': '取消',
+        'injury': '受伤',
+        'forfeit': '弃权',
+        'technical': '技术问题',
+        'finishMatchTitle': '结束比赛',
+        'finishMatchText': '选择原因：',
+        'player1Title': '选手 1',
+        'player2Title': '选手 2',
+        'serve': '发球',
+        'newMatch': '🔄 新比赛',
+        'startMatch': '🎬 开始',
+        'finishMatch': '🏁 结束',
+        'pointToPlayer1': '➕ 选手1得分',
+        'pointToPlayer2': '➕ 选手2得分',
+        'timeout': '⏸ 暂停',
+        'warning': '⚠️ 警告',
+        'yellow': '🟨 黄牌',
+        'red': '🟥 红牌',
+        'changeServe': '🔄 换发球',
+        'changeSide': '↔ 交换场地',
+        'undoPoint': '↩ 撤销得分',
+        'accelerate': '⚡ 加速',
+        'protocol': '📋 比赛记录表',
+        'referee': '主裁判：',
+        'startTime': '开始时间：',
+        'currentTime': '当前时间：',
+        'status': '状态：',
+        'eventLog': '事件日志',
+        'exportJSON': '💾 导出 JSON',
+        'exportCSV': '📊 导出 CSV (ANSI)',
+        'exportCSVUtf8': '📊 导出 CSV (UTF-8)',
+        'exportPDF': '📄 导出 PDF',
+        'print': '🖨 打印',
+        'resetPassword': '🔑 忘记密码？',
+        'sendCode': '发送验证码',
+        'changePassword': '修改密码',
+        'enterEmail': '输入注册邮箱',
+        'enterCode': '输入验证码',
+        'newPassword': '新密码',
+        'codeSent': '验证码已发送',
+        'privacy': '📄 隐私政策',
+        'emailPlaceholder': '电子邮箱',
+        'passwordPlaceholder': '密码',
+        'namePlaceholder': '姓名',
+        'point': '🎾 选手{player}得分',
+        'point_accelerated': '⚡ 得分（加速）选手{player}',
+        'set_end': '🏆 第{set}局结束。选手{winner}获胜',
+        'set_start': '🎬 第{set}局开始。选手{server}发球',
+        'serve_auto_change': '🔄 自动换发球。现在选手{server}发球',
+        'serve_auto_change_accelerated': '⚡ 加速：每分换发球。现在选手{server}发球',
+        'serve_manual_change': '🖐️ 手动换发球。现在选手{server}发球',
+        'side_change': '↔ 交换场地（第{set}局后）',
+        'accelerate_on': '⚡ 加速系统已开启。每分换发球！',
+        'timeout_event': '⏸ 选手{player}请求暂停',
+        'timeout_error': '❌ 选手{player}没有暂停机会了',
+        'warning_event': '⚠️ 警告选手{player}',
+        'yellow_event': '🟨 黄牌警告选手{player}',
+        'red_event': '🟥 红牌罚下选手{player} - 取消比赛资格！',
+        'undo': '↩ 撤销最后一分',
+        'match_start': '🏓 比赛正式开始。选手{server}先发球',
+        'match_end_sporting': '🏁 比赛结束。获胜者：选手{winner}。比分：{sets}',
+        'match_end_early': '🏁 比赛提前结束。原因：{reason}',
+        'error_not_started': '❌ 比赛尚未开始！请点击"开始"',
+        'error_finished': '❌ 比赛已结束，不能再得分',
+        'exportTitle': '比赛记录表',
+        'tournament': '比赛名称',
+        'date': '日期',
+        'table': '球台号',
+        'refereeName': '主裁判',
+        'result': '比赛结果',
+        'eventLogTitle': '事件日志',
+        'time': '时间',
+        'event': '事件',
+        'score': '比分',
+        'vs': '对阵',
+        'winner': '获胜者',
+        'endTime': '结束时间',
+        'toss_winner': '🎲 抽签：选手{winner}获胜。选手{server}发球',
+        'set': '局',
+        'player1': '选手1',
+        'player2': '选手2'
+    },
+    pt: {
+        'appName': 'PROTOCOLO ARBITRAL',
+        'login': 'Entrar',
+        'register': 'Registrar',
+        'loginBtn': 'Entrar',
+        'registerBtn': 'Registrar',
+        'logout': '🚪 Sair',
+        'deleteAccount': '🗑️ Excluir conta',
+        'confirmDelete': 'Tem certeza que deseja excluir sua conta? Esta ação é irreversível. Todos os seus dados serão permanentemente excluídos.',
+        'deleteSuccess': 'Conta excluída com sucesso. Adeus!',
+        'deleteError': 'Erro ao excluir a conta. Por favor, tente novamente.',
+        'waiting': 'AGUARDANDO',
+        'playing': 'EM JOGO',
+        'finished': 'FINALIZADO',
+        'disqualified': 'DESCLASSIFICADO',
+        'cancel': 'Cancelar',
+        'injury': 'Lesão',
+        'forfeit': 'Desistência',
+        'technical': 'Técnico',
+        'finishMatchTitle': 'Finalizar partida',
+        'finishMatchText': 'Motivo:',
+        'player1Title': 'JOGADOR 1',
+        'player2Title': 'JOGADOR 2',
+        'serve': 'SAQUE',
+        'newMatch': '🔄 NOVA PARTIDA',
+        'startMatch': '🎬 INICIAR',
+        'finishMatch': '🏁 FINALIZAR',
+        'pointToPlayer1': '➕ PONTO J1',
+        'pointToPlayer2': '➕ PONTO J2',
+        'timeout': '⏸ TEMPO',
+        'warning': '⚠️ ADVERTÊNCIA',
+        'yellow': '🟨 CARTÃO AMARELO',
+        'red': '🟥 CARTÃO VERMELHO',
+        'changeServe': '🔄 TROCAR SAQUE',
+        'changeSide': '↔ TROCAR LADO',
+        'undoPoint': '↩ DESFAZER',
+        'accelerate': '⚡ ACELERAÇÃO',
+        'protocol': '📋 PROTOCOLO',
+        'referee': 'Árbitro:',
+        'startTime': 'Início:',
+        'currentTime': 'Agora:',
+        'status': 'Status:',
+        'eventLog': 'REGISTRO',
+        'exportJSON': '💾 EXPORTAR JSON',
+        'exportCSV': '📊 EXPORTAR CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORTAR CSV (UTF-8)',
+        'exportPDF': '📄 EXPORTAR PDF',
+        'print': '🖨 IMPRIMIR',
+        'resetPassword': '🔑 Esqueceu a senha?',
+        'sendCode': 'Enviar código',
+        'changePassword': 'Alterar senha',
+        'enterEmail': 'Email de registro',
+        'enterCode': 'Código recebido',
+        'newPassword': 'Nova senha',
+        'codeSent': 'Código enviado',
+        'privacy': '📄 Privacidade',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Senha',
+        'namePlaceholder': 'Nome',
+        'point': '🎾 Ponto jogador {player}',
+        'point_accelerated': '⚡ Ponto (aceleração) jogador {player}',
+        'set_end': '🏆 Set {set} concluído. Jogador {winner} vence',
+        'set_start': '🎬 Set {set}. Jogador {server} saca',
+        'serve_auto_change': '🔄 Troca de saque. Jogador {server} saca',
+        'serve_auto_change_accelerated': '⚡ Aceleração: troca de saque após cada ponto. Jogador {server} saca',
+        'serve_manual_change': '🖐️ Troca manual. Jogador {server} saca',
+        'side_change': '↔ Troca de lado (set {set})',
+        'accelerate_on': '⚡ Aceleração ativada. O saque muda após cada ponto!',
+        'timeout_event': '⏸ Tempo jogador {player}',
+        'timeout_error': '❌ Sem tempos',
+        'warning_event': '⚠️ Advertência jogador {player}',
+        'yellow_event': '🟨 Cartão amarelo jogador {player}',
+        'red_event': '🟥 CARTÃO VERMELHO - desclassificado!',
+        'undo': '↩ Último ponto desfeito',
+        'match_start': '🏓 Partida iniciada. Jogador {server} saca',
+        'match_end_sporting': '🏁 Partida finalizada. Vencedor: jogador {winner}. {sets}',
+        'match_end_early': '🏁 Finalizada cedo. Motivo: {reason}',
+        'error_not_started': '❌ Partida não iniciada!',
+        'error_finished': '❌ Partida finalizada',
+        'exportTitle': 'Protocolo',
+        'tournament': 'Torneio',
+        'date': 'Data',
+        'table': 'Mesa',
+        'refereeName': 'Árbitro',
+        'result': 'Resultado',
+        'eventLogTitle': 'Registro',
+        'time': 'Hora',
+        'event': 'Evento',
+        'score': 'Placar',
+        'vs': 'vs',
+        'winner': 'Vencedor',
+        'endTime': 'Fim',
+        'toss_winner': '🎲 Sorteio: jogador {winner} vence. Jogador {server} saca',
+        'set': 'Set',
+        'player1': 'Jogador 1',
+        'player2': 'Jogador 2'
     }
 };
-
-// Для экономии места переводы для de, es, it, fr, zh, pt добавьте аналогично
-// В полной версии они должны быть, здесь показана структура
 
 let currentLang = localStorage.getItem('app_language') || 'ru';
 
@@ -431,7 +1014,7 @@ function exportToPDF() {
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Судейский протокол - ${escapeHtml(data.players[1].name)} vs ${escapeHtml(data.players[2].name)}</title>
+            <title>${t('exportTitle')} - ${escapeHtml(data.players[1].name)} vs ${escapeHtml(data.players[2].name)}</title>
             <style>
                 * { margin: 0; padding: 0; box-sizing: border-box; }
                 body { font-family: 'Times New Roman', 'Segoe UI', 'Arial', sans-serif; background: white; padding: 20px; color: #333; }
@@ -474,14 +1057,14 @@ function exportToPDF() {
         <body>
             <div class="protocol-container">
                 <div class="header">
-                    <h1>🏓 СУДЕЙСКИЙ ПРОТОКОЛ</h1>
-                    <h2>Настольный теннис</h2>
+                    <h1>🏓 ${t('exportTitle')}</h1>
+                    <h2>${t('appName')}</h2>
                     <div class="tournament-info">
                         <span>📅 ${escapeHtml(data.date || currentDate)}</span>
-                        <span>🏆 ${escapeHtml(data.tournament || 'Турнир')}</span>
-                        <span>🪑 Стол №${escapeHtml(data.tableNumber || '1')}</span>
-                        <span>⏱️ Время начала: ${data.startTime || '--:--:--'}</span>
-                        <span>⏱️ Время окончания: ${data.endTime || '--:--:--'}</span>
+                        <span>🏆 ${escapeHtml(data.tournament || t('tournament'))}</span>
+                        <span>🪑 ${t('table')} №${escapeHtml(data.tableNumber || '1')}</span>
+                        <span>⏱️ ${t('startTime')} ${data.startTime || '--:--:--'}</span>
+                        <span>⏱️ ${t('endTime')} ${data.endTime || '--:--:--'}</span>
                     </div>
                 </div>
                 
@@ -500,15 +1083,15 @@ function exportToPDF() {
                 </div>
                 
                 <div class="match-info">
-                    <div class="info-item"><span class="info-label">Главный судья:</span> <span class="info-value">${escapeHtml(data.referee || '_________________')}</span></div>
-                    <div class="info-item"><span class="info-label">Статус матча:</span> <span class="info-value">${data.isFinished ? 'Завершён' : (data.isStarted ? 'В процессе' : 'Ожидание')}</span></div>
-                    ${data.isAccelerated ? '<div class="info-item"><span class="info-label">⚡ Система ускорения:</span> <span class="info-value">Активирована</span></div>' : ''}
+                    <div class="info-item"><span class="info-label">${t('referee')}</span> <span class="info-value">${escapeHtml(data.referee || '_________________')}</span></div>
+                    <div class="info-item"><span class="info-label">${t('status')}</span> <span class="info-value">${data.isFinished ? t('finished') : (data.isStarted ? t('playing') : t('waiting'))}</span></div>
+                    ${data.isAccelerated ? '<div class="info-item"><span class="info-label">⚡ ' + t('accelerate') + ':</span> <span class="info-value">' + t('accelerate_on').split('.')[0] + '</span></div>' : ''}
                 </div>
                 
                 ${data.setHistory && data.setHistory.length > 0 ? `
-                <h3 class="events-title">📊 Счёт по партиям</h3>
+                <h3 class="events-title">📊 ${t('result')}</h3>
                 <table class="sets-table">
-                    <thead><tr><th>Партия</th><th>Победитель</th><th>Счёт</th></tr></thead>
+                    <thead><tr><th>${t('set')}</th><th>${t('winner')}</th><th>${t('score')}</th></tr></thead>
                     <tbody>
                         ${data.setHistory.map(set => `
                             <tr><td>${set.set}</td><td>${escapeHtml(set.winner === 1 ? data.players[1].name : data.players[2].name)}</td><td>${set.score}</td></tr>
@@ -518,9 +1101,9 @@ function exportToPDF() {
                 ` : ''}
                 
                 <div class="events-section">
-                    <h3 class="events-title">📋 ЖУРНАЛ СОБЫТИЙ</h3>
+                    <h3 class="events-title">📋 ${t('eventLog')}</h3>
                     <table class="events-table">
-                        <thead><tr><th>Время</th><th>Событие</th><th>Счёт</th></tr></thead>
+                        <thead><tr><th>${t('time')}</th><th>${t('event')}</th><th>${t('score')}</th></tr></thead>
                         <tbody>
                             ${data.events.slice().reverse().slice(0, 50).map(e => `
                                 <tr><td>${e.time}</td><td>${escapeHtml(e.description)}</td><td>${e.score || '-'}</td></tr>
@@ -530,19 +1113,19 @@ function exportToPDF() {
                 </div>
                 
                 <div class="signatures">
-                    <div class="signature-line"><div class="line"></div><div>Подпись судьи</div></div>
-                    <div class="signature-line"><div class="line"></div><div>Подпись игрока 1</div></div>
-                    <div class="signature-line"><div class="line"></div><div>Подпись игрока 2</div></div>
+                    <div class="signature-line"><div class="line"></div><div>${t('referee')}</div></div>
+                    <div class="signature-line"><div class="line"></div><div>${t('player1')}</div></div>
+                    <div class="signature-line"><div class="line"></div><div>${t('player2')}</div></div>
                 </div>
                 
                 <div class="footer">
-                    <p>Протокол сгенерирован автоматически • ${currentDate} ${currentTime}</p>
-                    <p>Судья Пинг-Понг PRO • Профессиональная система учёта матчей по настольному теннису</p>
+                    <p>${t('exportTitle')} • ${currentDate} ${currentTime}</p>
+                    <p>${t('appName')} • ${t('protocol')}</p>
                 </div>
             </div>
             <div class="no-print" style="text-align:center; margin-top:20px;">
-                <button onclick="window.print()" style="padding:10px 20px; background:#1e3c72; color:white; border:none; border-radius:5px; cursor:pointer;">🖨 Распечатать протокол</button>
-                <button onclick="window.close()" style="padding:10px 20px; background:#95a5a6; color:white; border:none; border-radius:5px; cursor:pointer; margin-left:10px;">✖ Закрыть</button>
+                <button onclick="window.print()" style="padding:10px 20px; background:#1e3c72; color:white; border:none; border-radius:5px; cursor:pointer;">🖨 ${t('print')}</button>
+                <button onclick="window.close()" style="padding:10px 20px; background:#95a5a6; color:white; border:none; border-radius:5px; cursor:pointer; margin-left:10px;">✖ ${t('cancel')}</button>
             </div>
         </body>
         </html>
@@ -551,7 +1134,11 @@ function exportToPDF() {
     printWindow.document.close();
 }
 
-// ==================== БЕЗОПАСНАЯ АВТОРИЗАЦИЯ ====================
+// Далее идут те же функции: AuthSystem, TableTennisMatch и инициализация
+// (продолжение следует, но из-за ограничения по длине сообщения, 
+// остальные функции такие же как в предыдущей версии)
+
+// ==================== АВТОРИЗАЦИЯ ====================
 class AuthSystem {
     constructor() {
         this.currentUser = null;
@@ -661,7 +1248,7 @@ class AuthSystem {
     }
 }
 
-// ==================== КЛАСС МАТЧА ====================
+// ==================== ИСПРАВЛЕННЫЙ КЛАСС МАТЧА ====================
 class TableTennisMatch {
     constructor() {
         this.matchId = Date.now();
@@ -682,6 +1269,7 @@ class TableTennisMatch {
         this.currentSet = 1;
         this.setHistory = [];
         this.pointHistory = [];
+        this.lastSideChangeSet = 0;
     }
     
     getEventDescription(eventKey, params) {
@@ -737,17 +1325,29 @@ class TableTennisMatch {
         return true;
     }
     
-    isAlternateServe() { return this.players[1].score >= 10 && this.players[2].score >= 10; }
+    isAlternateServe() { 
+        if (this.isAccelerated) return true;
+        return this.players[1].score >= 10 && this.players[2].score >= 10; 
+    }
     
     updateDeuceIndicator() {
         const deuceDiv = getElement('deuceIndicator');
         if (deuceDiv) {
-            deuceDiv.style.display = (this.players[1].score >= 10 && this.players[2].score >= 10) ? 'block' : 'none';
+            deuceDiv.style.display = (this.players[1].score >= 10 && this.players[2].score >= 10 && !this.isAccelerated) ? 'block' : 'none';
         }
     }
     
     autoChangeServe() {
         if (!this.isStarted) return;
+        
+        if (this.isAccelerated) {
+            this.currentServer = this.currentServer === 1 ? 2 : 1;
+            this.pointsInCurrentServe = 0;
+            this.addEvent('serve_auto_change_accelerated', { server: this.currentServer }, this.currentServer);
+            this.updateServeIndicator();
+            return;
+        }
+        
         this.pointsInCurrentServe++;
         let shouldChangeServe = this.isAlternateServe() || this.pointsInCurrentServe >= 2;
         if (shouldChangeServe) {
@@ -770,7 +1370,10 @@ class TableTennisMatch {
         
         this.players[playerId].score++;
         this.pointHistory.push({ player: playerId, time: new Date().toLocaleTimeString('ru-RU'), score: `${this.players[1].score}:${this.players[2].score}` });
-        this.addEvent('point', { player: playerId }, playerId);
+        
+        const eventKey = this.isAccelerated ? 'point_accelerated' : 'point';
+        this.addEvent(eventKey, { player: playerId }, playerId);
+        
         this.autoChangeServe();
         this.updateDeuceIndicator();
         
@@ -796,8 +1399,11 @@ class TableTennisMatch {
         this.addEvent('set_end', { set: this.currentSet, winner: winner }, winner);
         this.players[1].score = 0; this.players[2].score = 0;
         
-        if (this.currentSet % 2 === 1) {
-            this.changeSide();
+        if (this.currentSet % 2 === 1 && this.lastSideChangeSet !== this.currentSet) {
+            this.lastSideChangeSet = this.currentSet;
+            this.currentSide = this.currentSide === 1 ? 2 : 1;
+            this.addEvent('side_change', { set: this.currentSet }, null);
+            updateUI();
         }
         
         this.currentSet++;
@@ -833,7 +1439,10 @@ class TableTennisMatch {
         const lastPoint = this.pointHistory.pop();
         this.players[lastPoint.player].score--;
         this.pointsInCurrentServe--;
-        if (this.pointsInCurrentServe < 0) { this.pointsInCurrentServe = 1; this.currentServer = this.currentServer === 1 ? 2 : 1; }
+        if (this.pointsInCurrentServe < 0) { 
+            this.pointsInCurrentServe = this.isAccelerated ? 0 : 1; 
+            this.currentServer = this.currentServer === 1 ? 2 : 1; 
+        }
         this.addEvent('undo', {}, lastPoint.player);
         this.updateDeuceIndicator();
         updateUI();
@@ -883,6 +1492,7 @@ class TableTennisMatch {
     changeSide() { 
         if (!this.isStarted || this.isFinished) return false; 
         this.currentSide = this.currentSide === 1 ? 2 : 1; 
+        this.lastSideChangeSet = this.currentSet;
         this.addEvent('side_change', { set: this.currentSet }, null);
         updateUI();
         return true; 
@@ -892,7 +1502,9 @@ class TableTennisMatch {
         if (!this.isStarted || this.isFinished) return false; 
         if (!this.isAccelerated) { 
             this.isAccelerated = true; 
+            this.pointsInCurrentServe = 0;
             this.addEvent('accelerate_on', {}); 
+            this.updateDeuceIndicator();
             updateUI();
         } 
         return true; 
@@ -1138,7 +1750,7 @@ function setupEventListeners() {
                 exportToPDF();
                 break;
             case 'printProtocol':
-                printProtocol();
+                exportToPDF();
                 break;
             case 'deleteAccountBtn':
                 if (auth) await auth.deleteAccount();
@@ -1219,10 +1831,6 @@ function exportJSON() {
     }
 }
 
-function printProtocol() {
-    exportToPDF();
-}
-
 function downloadFile(content, filename, mimeType) {
     const blob = content instanceof Blob ? content : new Blob([content], { type: mimeType });
     const link = document.createElement('a');
@@ -1261,7 +1869,13 @@ function setLanguage(lang) {
 function showLanguageMenu() {
     const languages = [
         { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-        { code: 'en', name: 'English', flag: '🇬🇧' }
+        { code: 'en', name: 'English', flag: '🇬🇧' },
+        { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+        { code: 'es', name: 'Español', flag: '🇪🇸' },
+        { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+        { code: 'fr', name: 'Français', flag: '🇫🇷' },
+        { code: 'zh', name: '中文', flag: '🇨🇳' },
+        { code: 'pt', name: 'Português', flag: '🇵🇹' }
     ];
     
     const menu = document.createElement('div');
@@ -1281,7 +1895,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Оптимизированная версия v13 с PDF');
+    console.log('DOMContentLoaded fired - Полная версия с 8 языками v15');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
