@@ -64,8 +64,6 @@ const translations = {
         'namePlaceholder': 'Имя',
         'player1Name': 'Алексей Смирнов',
         'player2Name': 'Дмитрий Петров',
-        'countryRussia': 'Россия',
-        'countryChad': 'Чад',
         'player1NameCustom': 'Турбин Сергей',
         'player2NameCustom': 'Турбин Сергей',
         'point': '🎾 Очко заработал игрок {player}',
@@ -98,7 +96,13 @@ const translations = {
         'score': 'Счет',
         'vs': 'против',
         'winner': 'Победитель',
-        'endTime': 'Время окончания'
+        'endTime': 'Время окончания',
+        // Словарь стран
+        'country_Russia': 'Россия',
+        'country_Chad': 'Чад',
+        'country_Belarus': 'Беларусь',
+        'country_Ukraine': 'Украина',
+        'country_Kazakhstan': 'Казахстан'
     },
     en: {
         'appName': 'REFEREE PROTOCOL',
@@ -162,8 +166,6 @@ const translations = {
         'namePlaceholder': 'Name',
         'player1Name': 'Alexey Smirnov',
         'player2Name': 'Dmitry Petrov',
-        'countryRussia': 'Russia',
-        'countryChad': 'Chad',
         'player1NameCustom': 'Sergey Turbin',
         'player2NameCustom': 'Sergey Turbin',
         'point': '🎾 Point scored by player {player}',
@@ -196,7 +198,13 @@ const translations = {
         'score': 'Score',
         'vs': 'vs',
         'winner': 'Winner',
-        'endTime': 'End time'
+        'endTime': 'End time',
+        // Словарь стран
+        'country_Russia': 'Russia',
+        'country_Chad': 'Chad',
+        'country_Belarus': 'Belarus',
+        'country_Ukraine': 'Ukraine',
+        'country_Kazakhstan': 'Kazakhstan'
     },
     de: {
         'appName': 'SCHIEDSRICHTERPROTOKOLL',
@@ -260,8 +268,6 @@ const translations = {
         'namePlaceholder': 'Name',
         'player1Name': 'Alexej Smirnow',
         'player2Name': 'Dmitri Petrow',
-        'countryRussia': 'Russland',
-        'countryChad': 'Tschad',
         'player1NameCustom': 'Sergei Turbin',
         'player2NameCustom': 'Sergei Turbin',
         'point': '🎾 Punkt für Spieler {player}',
@@ -294,7 +300,13 @@ const translations = {
         'score': 'Punktstand',
         'vs': 'gegen',
         'winner': 'Sieger',
-        'endTime': 'Endzeit'
+        'endTime': 'Endzeit',
+        // Словарь стран
+        'country_Russia': 'Russland',
+        'country_Chad': 'Tschad',
+        'country_Belarus': 'Belarus',
+        'country_Ukraine': 'Ukraine',
+        'country_Kazakhstan': 'Kasachstan'
     },
     es: {
         'appName': 'PROTOCOLO DE ÁRBITRO',
@@ -358,8 +370,6 @@ const translations = {
         'namePlaceholder': 'Nombre',
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
-        'countryRussia': 'Rusia',
-        'countryChad': 'Chad',
         'player1NameCustom': 'Sergei Turbin',
         'player2NameCustom': 'Sergei Turbin',
         'point': '🎾 Punto anotado por jugador {player}',
@@ -392,7 +402,13 @@ const translations = {
         'score': 'Marcador',
         'vs': 'contra',
         'winner': 'Ganador',
-        'endTime': 'Hora final'
+        'endTime': 'Hora final',
+        // Словарь стран
+        'country_Russia': 'Rusia',
+        'country_Chad': 'Chad',
+        'country_Belarus': 'Bielorrusia',
+        'country_Ukraine': 'Ucrania',
+        'country_Kazakhstan': 'Kazajistán'
     },
     it: {
         'appName': 'PROTOCOLLO ARBITRALE',
@@ -456,8 +472,6 @@ const translations = {
         'namePlaceholder': 'Nome',
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
-        'countryRussia': 'Russia',
-        'countryChad': 'Ciad',
         'player1NameCustom': 'Sergei Turbin',
         'player2NameCustom': 'Sergei Turbin',
         'point': '🎾 Punto segnato dal giocatore {player}',
@@ -490,7 +504,13 @@ const translations = {
         'score': 'Punteggio',
         'vs': 'contro',
         'winner': 'Vincitore',
-        'endTime': 'Ora fine'
+        'endTime': 'Ora fine',
+        // Словарь стран
+        'country_Russia': 'Russia',
+        'country_Chad': 'Ciad',
+        'country_Belarus': 'Bielorussia',
+        'country_Ukraine': 'Ucraina',
+        'country_Kazakhstan': 'Kazakistan'
     },
     fr: {
         'appName': 'PROTOCOLE D\'ARBITRAGE',
@@ -554,8 +574,6 @@ const translations = {
         'namePlaceholder': 'Nom',
         'player1Name': 'Alexeï Smirnov',
         'player2Name': 'Dmitri Petrov',
-        'countryRussia': 'Russie',
-        'countryChad': 'Tchad',
         'player1NameCustom': 'Sergueï Turbine',
         'player2NameCustom': 'Sergueï Turbine',
         'point': '🎾 Point marqué par le joueur {player}',
@@ -588,7 +606,13 @@ const translations = {
         'score': 'Score',
         'vs': 'contre',
         'winner': 'Vainqueur',
-        'endTime': 'Heure de fin'
+        'endTime': 'Heure de fin',
+        // Словарь стран
+        'country_Russia': 'Russie',
+        'country_Chad': 'Tchad',
+        'country_Belarus': 'Biélorussie',
+        'country_Ukraine': 'Ukraine',
+        'country_Kazakhstan': 'Kazakhstan'
     },
     zh: {
         'appName': '裁判记录表',
@@ -652,8 +676,6 @@ const translations = {
         'namePlaceholder': '姓名',
         'player1Name': '阿列克谢·斯米尔诺夫',
         'player2Name': '德米特里·彼得罗夫',
-        'countryRussia': '俄罗斯',
-        'countryChad': '乍得',
         'player1NameCustom': '谢尔盖·图尔宾',
         'player2NameCustom': '谢尔盖·图尔宾',
         'point': '🎾 选手{player}得分',
@@ -686,7 +708,13 @@ const translations = {
         'score': '比分',
         'vs': '对阵',
         'winner': '获胜者',
-        'endTime': '结束时间'
+        'endTime': '结束时间',
+        // Словарь стран
+        'country_Russia': '俄罗斯',
+        'country_Chad': '乍得',
+        'country_Belarus': '白俄罗斯',
+        'country_Ukraine': '乌克兰',
+        'country_Kazakhstan': '哈萨克斯坦'
     },
     pt: {
         'appName': 'PROTOCOLO DO ÁRBITRO',
@@ -750,8 +778,6 @@ const translations = {
         'namePlaceholder': 'Nome',
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
-        'countryRussia': 'Rússia',
-        'countryChad': 'Chade',
         'player1NameCustom': 'Sergei Turbin',
         'player2NameCustom': 'Sergei Turbin',
         'point': '🎾 Ponto marcado pelo jogador {player}',
@@ -784,17 +810,51 @@ const translations = {
         'score': 'Placar',
         'vs': 'contra',
         'winner': 'Vencedor',
-        'endTime': 'Hora final'
+        'endTime': 'Hora final',
+        // Словарь стран
+        'country_Russia': 'Rússia',
+        'country_Chad': 'Chade',
+        'country_Belarus': 'Bielorrússia',
+        'country_Ukraine': 'Ucrânia',
+        'country_Kazakhstan': 'Cazaquistão'
     }
 };
 
 let currentLang = localStorage.getItem('app_language') || 'ru';
 let originalNames = {
     player1: '',
-    player2: '',
-    country1: '',
-    country2: ''
+    player2: ''
 };
+
+// Функция перевода страны по словарю
+function translateCountry(countryName) {
+    // Словарь соответствий (русское название -> ключ для перевода)
+    const countryMap = {
+        'Россия': 'country_Russia',
+        'Чад': 'country_Chad',
+        'Беларусь': 'country_Belarus',
+        'Украина': 'country_Ukraine',
+        'Казахстан': 'country_Kazakhstan',
+        'Russia': 'country_Russia',
+        'Chad': 'country_Chad',
+        'Belarus': 'country_Belarus',
+        'Ukraine': 'country_Ukraine',
+        'Kazakhstan': 'country_Kazakhstan',
+        'Russland': 'country_Russia',
+        'Tschad': 'country_Chad',
+        'Rusia': 'country_Russia',
+        'Rússia': 'country_Russia',
+        'Chade': 'country_Chad',
+        'Ciad': 'country_Chad',
+        'Tchad': 'country_Chad'
+    };
+    
+    const key = countryMap[countryName];
+    if (key && translations[currentLang][key]) {
+        return translations[currentLang][key];
+    }
+    return countryName;
+}
 
 function t(key, params = {}) {
     let text = translations[currentLang][key];
@@ -807,60 +867,60 @@ function t(key, params = {}) {
 }
 
 function applyTranslations() {
-    const t = translations[currentLang];
-    if (!t) return;
+    const trans = translations[currentLang];
+    if (!trans) return;
     
-    // ========== ГЛАВНОЕ: ПЕРЕВОД КНОПОК "ВХОД" И "РЕГИСТРАЦИЯ" ==========
+    // ========== ПЕРЕВОД КНОПОК "ВХОД" И "РЕГИСТРАЦИЯ" ==========
     const loginTab = document.getElementById('loginTab');
     const registerTab = document.getElementById('registerTab');
-    if (loginTab) loginTab.textContent = t.login;
-    if (registerTab) registerTab.textContent = t.register;
+    if (loginTab) loginTab.textContent = trans.login;
+    if (registerTab) registerTab.textContent = trans.register;
     
     // Основные элементы интерфейса
     const elements = {
-        'mainTitle': t.appName,
-        'authTitle': '🏓 ' + t.appName,
-        'doLogin': t.loginBtn,
-        'doRegister': t.registerBtn,
-        'logoutBtn': t.logout,
-        'subscriptionBtn': t.support,
-        'upgradeFromBanner': t.buyPro,
-        'adBannerText': t.adBanner,
-        'authAd': t.authAd,
-        'player1Title': t.player1Title,
-        'player2Title': t.player2Title,
-        'serve1': '🎾 ' + t.serve,
-        'serve2': '🎾 ' + t.serve,
-        'resetMatch': t.newMatch,
-        'startMatch': t.startMatch,
-        'forceFinish': t.finishMatch,
-        'point1': t.pointToPlayer1,
-        'point2': t.pointToPlayer2,
-        'timeout1': t.timeout,
-        'timeout2': t.timeout,
-        'warning1': t.warning,
-        'warning2': t.warning,
-        'yellowCard1': t.yellow,
-        'yellowCard2': t.yellow,
-        'redCard1': t.red,
-        'redCard2': t.red,
-        'changeServe': t.changeServe,
-        'changeSide': t.changeSide,
-        'undoPoint': t.undoPoint,
-        'accelerate': t.accelerate,
-        'protocolTitle': t.protocol,
-        'refereeLabel': t.referee,
-        'startTimeLabel': t.startTime,
-        'currentTimeLabel': t.currentTime,
-        'statusLabel': t.status,
-        'eventLogTitle': t.eventLog,
-        'exportJSON': t.exportJSON,
-        'exportCSV': t.exportCSV,
-        'exportCSV_UTF8': t.exportCSVUtf8,
-        'printProtocol': t.print,
-        'forgotPasswordBtn': t.resetPassword,
-        'sendResetCode': t.sendCode,
-        'confirmReset': t.changePassword
+        'mainTitle': trans.appName,
+        'authTitle': '🏓 ' + trans.appName,
+        'doLogin': trans.loginBtn,
+        'doRegister': trans.registerBtn,
+        'logoutBtn': trans.logout,
+        'subscriptionBtn': trans.support,
+        'upgradeFromBanner': trans.buyPro,
+        'adBannerText': trans.adBanner,
+        'authAd': trans.authAd,
+        'player1Title': trans.player1Title,
+        'player2Title': trans.player2Title,
+        'serve1': '🎾 ' + trans.serve,
+        'serve2': '🎾 ' + trans.serve,
+        'resetMatch': trans.newMatch,
+        'startMatch': trans.startMatch,
+        'forceFinish': trans.finishMatch,
+        'point1': trans.pointToPlayer1,
+        'point2': trans.pointToPlayer2,
+        'timeout1': trans.timeout,
+        'timeout2': trans.timeout,
+        'warning1': trans.warning,
+        'warning2': trans.warning,
+        'yellowCard1': trans.yellow,
+        'yellowCard2': trans.yellow,
+        'redCard1': trans.red,
+        'redCard2': trans.red,
+        'changeServe': trans.changeServe,
+        'changeSide': trans.changeSide,
+        'undoPoint': trans.undoPoint,
+        'accelerate': trans.accelerate,
+        'protocolTitle': trans.protocol,
+        'refereeLabel': trans.referee,
+        'startTimeLabel': trans.startTime,
+        'currentTimeLabel': trans.currentTime,
+        'statusLabel': trans.status,
+        'eventLogTitle': trans.eventLog,
+        'exportJSON': trans.exportJSON,
+        'exportCSV': trans.exportCSV,
+        'exportCSV_UTF8': trans.exportCSVUtf8,
+        'printProtocol': trans.print,
+        'forgotPasswordBtn': trans.resetPassword,
+        'sendResetCode': trans.sendCode,
+        'confirmReset': trans.changePassword
     };
     
     for (const [id, text] of Object.entries(elements)) {
@@ -870,59 +930,56 @@ function applyTranslations() {
         }
     }
     
-    // ========== ПЕРЕВОД ИМЁН И СТРАН ИГРОКОВ ==========
+    // ========== ПЕРЕВОД ИМЁН ИГРОКОВ ==========
     const player1NameInput = document.getElementById('player1Name');
     const player2NameInput = document.getElementById('player2Name');
-    const player1CountryInput = document.getElementById('player1Country');
-    const player2CountryInput = document.getElementById('player2Country');
     
     // Сохраняем оригинальные имена при первом запуске
     if (originalNames.player1 === '' && player1NameInput) {
         originalNames.player1 = player1NameInput.value;
         originalNames.player2 = player2NameInput?.value || '';
-        originalNames.country1 = player1CountryInput?.value || '';
-        originalNames.country2 = player2CountryInput?.value || '';
     }
     
     // Определяем, были ли введены кастомные имена
     const defaultRuPlayer1 = translations.ru.player1Name;
     const defaultRuPlayer2 = translations.ru.player2Name;
-    const defaultRuCountry = translations.ru.countryRussia;
     
     const isPlayer1Custom = originalNames.player1 !== defaultRuPlayer1;
     const isPlayer2Custom = originalNames.player2 !== defaultRuPlayer2;
-    const isCountry1Custom = originalNames.country1 !== defaultRuCountry;
-    const isCountry2Custom = originalNames.country2 !== defaultRuCountry;
     
     if (player1NameInput) {
-        if (isPlayer1Custom && t.player1NameCustom) {
-            player1NameInput.value = t.player1NameCustom;
+        if (isPlayer1Custom && trans.player1NameCustom) {
+            player1NameInput.value = trans.player1NameCustom;
         } else {
-            player1NameInput.value = t.player1Name;
+            player1NameInput.value = trans.player1Name;
         }
     }
     
     if (player2NameInput) {
-        if (isPlayer2Custom && t.player2NameCustom) {
-            player2NameInput.value = t.player2NameCustom;
+        if (isPlayer2Custom && trans.player2NameCustom) {
+            player2NameInput.value = trans.player2NameCustom;
         } else {
-            player2NameInput.value = t.player2Name;
+            player2NameInput.value = trans.player2Name;
         }
     }
     
+    // ========== ПЕРЕВОД СТРАН (ВСЕГДА ПО СЛОВАРЮ) ==========
+    const player1CountryInput = document.getElementById('player1Country');
+    const player2CountryInput = document.getElementById('player2Country');
+    
     if (player1CountryInput) {
-        if (isCountry1Custom && originalNames.country1 === 'Чад' && t.countryChad) {
-            player1CountryInput.value = t.countryChad;
-        } else {
-            player1CountryInput.value = t.countryRussia;
+        const currentCountry = player1CountryInput.value;
+        const translatedCountry = translateCountry(currentCountry);
+        if (translatedCountry !== currentCountry) {
+            player1CountryInput.value = translatedCountry;
         }
     }
     
     if (player2CountryInput) {
-        if (isCountry2Custom && originalNames.country2 === 'Чад' && t.countryChad) {
-            player2CountryInput.value = t.countryChad;
-        } else {
-            player2CountryInput.value = t.countryRussia;
+        const currentCountry = player2CountryInput.value;
+        const translatedCountry = translateCountry(currentCountry);
+        if (translatedCountry !== currentCountry) {
+            player2CountryInput.value = translatedCountry;
         }
     }
     
@@ -944,37 +1001,37 @@ function applyTranslations() {
     const resetCode = document.getElementById('resetCode');
     const newPassword = document.getElementById('newPassword');
     
-    if (loginEmail) loginEmail.placeholder = t.emailPlaceholder;
-    if (loginPassword) loginPassword.placeholder = t.passwordPlaceholder;
-    if (regName) regName.placeholder = t.namePlaceholder;
-    if (regEmail) regEmail.placeholder = t.emailPlaceholder;
-    if (regPassword) regPassword.placeholder = t.passwordPlaceholder;
-    if (resetEmail) resetEmail.placeholder = t.emailPlaceholder;
-    if (resetCode) resetCode.placeholder = t.enterCode;
-    if (newPassword) newPassword.placeholder = t.newPassword;
+    if (loginEmail) loginEmail.placeholder = trans.emailPlaceholder;
+    if (loginPassword) loginPassword.placeholder = trans.passwordPlaceholder;
+    if (regName) regName.placeholder = trans.namePlaceholder;
+    if (regEmail) regEmail.placeholder = trans.emailPlaceholder;
+    if (regPassword) regPassword.placeholder = trans.passwordPlaceholder;
+    if (resetEmail) resetEmail.placeholder = trans.emailPlaceholder;
+    if (resetCode) resetCode.placeholder = trans.enterCode;
+    if (newPassword) newPassword.placeholder = trans.newPassword;
     
     // ПЕРЕВОД ССЫЛКИ "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ"
     const privacyLink = document.querySelector('.auth-card a[href="privacy.html"]');
     if (privacyLink) {
-        privacyLink.textContent = t.privacy;
+        privacyLink.textContent = trans.privacy;
     }
     
     // ПЕРЕВОД ТЕКСТА В МОДАЛЬНОМ ОКНЕ
     const resetModalTitle = document.querySelector('#resetPasswordModal h2');
-    if (resetModalTitle) resetModalTitle.textContent = '🔑 ' + t.resetPassword;
+    if (resetModalTitle) resetModalTitle.textContent = '🔑 ' + trans.resetPassword;
     
     const resetModalText = document.querySelector('#resetPasswordModal p');
-    if (resetModalText) resetModalText.textContent = t.enterEmail;
+    if (resetModalText) resetModalText.textContent = trans.enterEmail;
     
     const resetStep2Text = document.querySelector('#resetStep2 p');
-    if (resetStep2Text) resetStep2Text.textContent = t.codeSent;
+    if (resetStep2Text) resetStep2Text.textContent = trans.codeSent;
     
     // Обновляем статус матча
     const statusEl = document.getElementById('matchStatus');
     if (statusEl && window.match) {
-        if (!window.match.isStarted) statusEl.textContent = '● ' + t.waiting;
-        else if (window.match.isFinished) statusEl.textContent = '● ' + t.finished;
-        else statusEl.textContent = '● ' + t.playing;
+        if (!window.match.isStarted) statusEl.textContent = '● ' + trans.waiting;
+        else if (window.match.isFinished) statusEl.textContent = '● ' + trans.finished;
+        else statusEl.textContent = '● ' + trans.playing;
     }
     
     // При смене языка ПЕРЕВОДИМ ВЕСЬ ЖУРНАЛ СОБЫТИЙ
@@ -1485,7 +1542,7 @@ function printProtocol() {
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
             <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
-            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</table></tr>`).join('')}
+            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
             </table>
         </body></html>`);
         w.document.close();
