@@ -197,7 +197,7 @@ body {
     font-size: 9px;
 }
 
-/* Game Area - позволяет скроллить всю страницу */
+/* Game Area */
 .game-area {
     padding: 12px;
 }
@@ -426,7 +426,7 @@ body {
     color: white;
 }
 
-/* Protocol Section - журнал событий, виден всегда */
+/* Protocol Section - журнал событий УМЕНЬШЕН до 5 строк */
 .protocol-section {
     background: #fff;
     border: 1px solid #e0e0e0;
@@ -469,31 +469,31 @@ body {
     width: 110px;
 }
 
-/* ЖУРНАЛ СОБЫТИЙ - ВИДЕН ВСЕГДА, БЕЗ СКРЫТИЯ */
+/* ЖУРНАЛ СОБЫТИЙ - ТОЛЬКО 5 СТРОК С ПРОКРУТКОЙ */
 .log-area {
     background: #2c3e50;
     color: #ecf0f1;
-    padding: 12px;
+    padding: 8px;
     border-radius: 8px;
     margin-bottom: 12px;
-    max-height: none;
-    overflow-y: visible;
+    max-height: 160px;
+    overflow-y: auto;
 }
 
 .log-area h4 {
-    font-size: 12px;
-    margin-bottom: 8px;
+    font-size: 11px;
+    margin-bottom: 6px;
     color: #ecf0f1;
 }
 
 #eventLog {
     font-family: 'Courier New', monospace;
-    font-size: 11px;
-    line-height: 1.5;
+    font-size: 10px;
+    line-height: 1.4;
 }
 
 #eventLog div {
-    padding: 4px 0;
+    padding: 3px 0;
     border-bottom: 1px solid #34495e;
 }
 
@@ -603,8 +603,12 @@ body {
         font-size: 9px;
     }
     
+    .log-area {
+        max-height: 140px;
+    }
+    
     #eventLog {
-        font-size: 10px;
+        font-size: 9px;
     }
 }
 
@@ -661,8 +665,12 @@ body {
         padding: 6px;
     }
     
+    .log-area {
+        max-height: 100px;
+    }
+    
     #eventLog {
-        font-size: 9px;
+        font-size: 8px;
     }
     
     .export-btn {
