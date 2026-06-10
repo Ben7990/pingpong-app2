@@ -812,13 +812,15 @@ function applyTranslations() {
     
     // Обновляем текст в модальном окне жеребьевки
     const tossTitle = document.querySelector('#tossModal h2');
-    if (tossTitle) tossTitle.textContent = '🎲 ' + (currentLang === 'ru' ? 'ЖЕРЕБЬЕВКА' : 
-        currentLang === 'en' ? 'TOSS' :
-        currentLang === 'de' ? 'LOS' :
-        currentLang === 'es' ? 'SORTEO' :
-        currentLang === 'it' ? 'SORTEGGIO' :
-        currentLang === 'fr' ? 'TIRAGE' :
-        currentLang === 'zh' ? '抽签' : 'SORTEIO');
+    if (tossTitle) {
+        tossTitle.textContent = currentLang === 'ru' ? '🎲 ЖЕРЕБЬЕВКА' :
+            currentLang === 'en' ? '🎲 TOSS' :
+            currentLang === 'de' ? '🎲 LOS' :
+            currentLang === 'es' ? '🎲 SORTEO' :
+            currentLang === 'it' ? '🎲 SORTEGGIO' :
+            currentLang === 'fr' ? '🎲 TIRAGE' :
+            currentLang === 'zh' ? '🎲 抽签' : '🎲 SORTEIO';
+    }
     
     const tossResultSpan = document.getElementById('tossResult');
     if (tossResultSpan && !window.tossInProgress) {
@@ -829,17 +831,28 @@ function applyTranslations() {
             currentLang === 'it' ? 'Clicca sulla moneta' :
             currentLang === 'fr' ? 'Cliquez sur la pièce' :
             currentLang === 'zh' ? '点击硬币抛掷' : 'Clique na moeda';
-        
-        const skipTossBtn = document.getElementById('skipToss');
-        if (skipTossBtn) {
-            skipTossBtn.textContent = currentLang === 'ru' ? 'Пропустить (подает Игрок 1)' :
-                currentLang === 'en' ? 'Skip (Player 1 serves)' :
-                currentLang === 'de' ? 'Überspringen (Spieler 1 schlägt auf)' :
-                currentLang === 'es' ? 'Saltar (Jugador 1 saca)' :
-                currentLang === 'it' ? 'Salta (Giocatore 1 batte)' :
-                currentLang === 'fr' ? 'Ignorer (Joueur 1 sert)' :
-                currentLang === 'zh' ? '跳过（选手1发球）' : 'Pular (Jogador 1 saca)';
-        }
+    }
+    
+    const doTossBtn = document.getElementById('doToss');
+    if (doTossBtn) {
+        doTossBtn.textContent = currentLang === 'ru' ? '🎲 ПОДБРОСИТЬ МОНЕТКУ' :
+            currentLang === 'en' ? '🎲 FLIP COIN' :
+            currentLang === 'de' ? '🎲 MÜNZE WERFEN' :
+            currentLang === 'es' ? '🎲 LANZAR MONEDA' :
+            currentLang === 'it' ? '🎲 LANCIARE MONETA' :
+            currentLang === 'fr' ? '🎲 LANCER LA PIÈCE' :
+            currentLang === 'zh' ? '🎲 抛硬币' : '🎲 LANÇAR MOEDA';
+    }
+    
+    const skipTossBtn = document.getElementById('skipToss');
+    if (skipTossBtn) {
+        skipTossBtn.textContent = currentLang === 'ru' ? 'Пропустить (подает Игрок 1)' :
+            currentLang === 'en' ? 'Skip (Player 1 serves)' :
+            currentLang === 'de' ? 'Überspringen (Spieler 1 schlägt auf)' :
+            currentLang === 'es' ? 'Saltar (Jugador 1 saca)' :
+            currentLang === 'it' ? 'Salta (Giocatore 1 batte)' :
+            currentLang === 'fr' ? 'Ignorer (Joueur 1 sert)' :
+            currentLang === 'zh' ? '跳过（选手1发球）' : 'Pular (Jogador 1 saca)';
     }
 }
 
@@ -1238,7 +1251,18 @@ function showTossModal() {
         
         let isFlipping = false;
         
-        // Обновляем текст на текущем языке
+        // Обновляем ВСЕ тексты на текущем языке
+        const tossTitle = document.querySelector('#tossModal h2');
+        if (tossTitle) {
+            tossTitle.textContent = currentLang === 'ru' ? '🎲 ЖЕРЕБЬЕВКА' :
+                currentLang === 'en' ? '🎲 TOSS' :
+                currentLang === 'de' ? '🎲 LOS' :
+                currentLang === 'es' ? '🎲 SORTEO' :
+                currentLang === 'it' ? '🎲 SORTEGGIO' :
+                currentLang === 'fr' ? '🎲 TIRAGE' :
+                currentLang === 'zh' ? '🎲 抽签' : '🎲 SORTEIO';
+        }
+        
         tossResult.textContent = currentLang === 'ru' ? 'Кликните на монетку, чтобы подбросить' :
             currentLang === 'en' ? 'Click the coin to flip' :
             currentLang === 'de' ? 'Klicken Sie auf die Münze' :
@@ -1246,6 +1270,14 @@ function showTossModal() {
             currentLang === 'it' ? 'Clicca sulla moneta' :
             currentLang === 'fr' ? 'Cliquez sur la pièce' :
             currentLang === 'zh' ? '点击硬币抛掷' : 'Clique na moeda';
+        
+        doTossBtn.textContent = currentLang === 'ru' ? '🎲 ПОДБРОСИТЬ МОНЕТКУ' :
+            currentLang === 'en' ? '🎲 FLIP COIN' :
+            currentLang === 'de' ? '🎲 MÜNZE WERFEN' :
+            currentLang === 'es' ? '🎲 LANZAR MONEDA' :
+            currentLang === 'it' ? '🎲 LANCIARE MONETA' :
+            currentLang === 'fr' ? '🎲 LANCER LA PIÈCE' :
+            currentLang === 'zh' ? '🎲 抛硬币' : '🎲 LANÇAR MOEDA';
         
         skipTossBtn.textContent = currentLang === 'ru' ? 'Пропустить (подает Игрок 1)' :
             currentLang === 'en' ? 'Skip (Player 1 serves)' :
@@ -1283,7 +1315,7 @@ function showTossModal() {
                 tossResult.textContent = winnerText;
                 
                 setTimeout(() => {
-                    const serveChoice = confirm(result === 1 ? 
+                    const confirmMessage = result === 1 ? 
                         (currentLang === 'ru' ? 'Игрок 1 выиграл жребий. Передать подачу Игроку 1?' :
                          currentLang === 'en' ? 'Player 1 won the toss. Give serve to Player 1?' :
                          currentLang === 'de' ? 'Spieler 1 gewann den Münzwurf. Aufschlag an Spieler 1?' :
@@ -1297,7 +1329,9 @@ function showTossModal() {
                          currentLang === 'es' ? 'El Jugador 2 ganó el sorteo. ¿Dar saque al Jugador 2?' :
                          currentLang === 'it' ? 'Il Giocatore 2 ha vinto il sorteggio. Dare la battuta al Giocatore 2?' :
                          currentLang === 'fr' ? 'Le Joueur 2 a gagné le tirage. Donner le service au Joueur 2?' :
-                         currentLang === 'zh' ? '选手2赢得了抛硬币。让选手2发球？' : 'Jogador 2 venceu o sorteio. Dar saque para o Jogador 2?'));
+                         currentLang === 'zh' ? '选手2赢得了抛硬币。让选手2发球？' : 'Jogador 2 venceu o sorteio. Dar saque para o Jogador 2?');
+                    
+                    const serveChoice = confirm(confirmMessage);
                     const server = serveChoice ? result : (result === 1 ? 2 : 1);
                     resolve(server);
                     modal.style.display = 'none';
