@@ -62,7 +62,6 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Пароль',
         'namePlaceholder': 'Имя',
-        // Перевод имён игроков и стран (стандартные значения)
         'player1Name': 'Алексей Смирнов',
         'player2Name': 'Дмитрий Петров',
         'countryRussia': 'Россия',
@@ -782,12 +781,16 @@ function applyTranslations() {
     const t = translations[currentLang];
     if (!t) return;
     
+    // ====== ВАЖНО: ПЕРЕВОД КНОПОК "ВХОД" И "РЕГИСТРАЦИЯ" ======
+    const loginTab = document.getElementById('loginTab');
+    const registerTab = document.getElementById('registerTab');
+    if (loginTab) loginTab.textContent = t.login;
+    if (registerTab) registerTab.textContent = t.register;
+    
     // Основные элементы интерфейса
     const elements = {
         'mainTitle': t.appName,
         'authTitle': '🏓 ' + t.appName,
-        'loginTab': t.login,
-        'registerTab': t.register,
         'doLogin': t.loginBtn,
         'doRegister': t.registerBtn,
         'logoutBtn': t.logout,
@@ -844,7 +847,6 @@ function applyTranslations() {
     const player1CountryInput = document.getElementById('player1Country');
     const player2CountryInput = document.getElementById('player2Country');
     
-    // Сохраняем оригинальные значения, если они не были изменены пользователем
     if (!userChangedNames.player1 && player1NameInput) {
         player1NameInput.value = t.player1Name;
     }
@@ -884,7 +886,7 @@ function applyTranslations() {
         });
     }
     
-    // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ В ПОЛЯХ ВВОДА
+    // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ
     const loginEmail = document.getElementById('loginEmail');
     const loginPassword = document.getElementById('loginPassword');
     const regName = document.getElementById('regName');
@@ -909,7 +911,7 @@ function applyTranslations() {
         privacyLink.textContent = t.privacy;
     }
     
-    // ПЕРЕВОД ТЕКСТА В МОДАЛЬНОМ ОКНЕ ВОССТАНОВЛЕНИЯ ПАРОЛЯ
+    // ПЕРЕВОД ТЕКСТА В МОДАЛЬНОМ ОКНЕ
     const resetModalTitle = document.querySelector('#resetPasswordModal h2');
     if (resetModalTitle) resetModalTitle.textContent = '🔑 ' + t.resetPassword;
     
@@ -1434,8 +1436,8 @@ function printProtocol() {
             <h2>Результат</h2>
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
-            <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
-            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
+            <tr><th>Время</th><th>Событие</th><th>Счет</th></tr>
+            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}<tr></tr>`).join('')}
             </table>
         </body></html>`);
         w.document.close();
