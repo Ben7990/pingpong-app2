@@ -444,12 +444,12 @@ body {
     color: white;
 }
 
-/* Protocol Section */
+/* ========== ЖУРНАЛ СОБЫТИЙ - УВЕЛИЧЕН И ВИДИМ ========== */
 .protocol-section {
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
-    padding: 10px;
+    padding: 12px;
     margin-top: 8px;
     flex-shrink: 0;
 }
@@ -457,13 +457,14 @@ body {
 .protocol-section h3 {
     font-size: 14px;
     margin-bottom: 10px;
+    color: #2c3e50;
 }
 
 .protocol-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     padding: 8px;
     background: #f8f9fa;
     border-radius: 8px;
@@ -487,24 +488,34 @@ body {
     width: 110px;
 }
 
+/* ЖУРНАЛ СОБЫТИЙ - ОСНОВНАЯ ОБЛАСТЬ */
 .log-area {
     background: #2c3e50;
     color: #ecf0f1;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
-    margin-bottom: 10px;
-    max-height: 200px;
+    margin-bottom: 12px;
+    min-height: 150px;
+    max-height: 250px;
     overflow-y: auto;
 }
 
 .log-area h4 {
     font-size: 12px;
     margin-bottom: 8px;
+    color: #ecf0f1;
 }
 
 #eventLog {
     font-family: 'Courier New', monospace;
     font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Стили для записей в журнале */
+#eventLog div {
+    padding: 4px 0;
+    border-bottom: 1px solid #34495e;
 }
 
 .export-buttons {
@@ -524,6 +535,10 @@ body {
     font-size: 10px;
     transition: transform 0.2s;
     white-space: nowrap;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
 }
 
 /* Футер */
@@ -577,10 +592,11 @@ body {
     color: #999;
 }
 
-/* Адаптация */
+/* Адаптация для разных размеров экрана */
 @media (max-width: 768px) and (orientation: portrait) {
     .log-area {
-        max-height: 160px;
+        max-height: 200px;
+        min-height: 120px;
     }
     #eventLog {
         font-size: 10px;
@@ -589,7 +605,8 @@ body {
 
 @media (orientation: landscape) and (max-height: 600px) {
     .log-area {
-        max-height: 100px;
+        max-height: 140px;
+        min-height: 100px;
     }
     #eventLog {
         font-size: 9px;
@@ -603,7 +620,8 @@ body {
 
 @media (min-width: 1024px) {
     .log-area {
-        max-height: 250px;
+        max-height: 300px;
+        min-height: 180px;
     }
     #eventLog {
         font-size: 12px;
@@ -623,6 +641,10 @@ body {
     }
     .three-columns {
         flex-direction: row;
+    }
+    .log-area {
+        max-height: 180px;
+        min-height: 100px;
     }
 }
 
