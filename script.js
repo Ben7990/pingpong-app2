@@ -774,11 +774,17 @@ function applyTranslations() {
         if (el && el.tagName !== 'INPUT') el.textContent = text;
     }
     
+    // Обновляем статус матча
     const statusEl = document.getElementById('matchStatus');
     if (statusEl && window.match) {
         if (!window.match.isStarted) statusEl.textContent = '● ' + t('waiting');
         else if (window.match.isFinished) statusEl.textContent = '● ' + t('finished');
         else statusEl.textContent = '● ' + t('playing');
+    }
+    
+    // При смене языка ПЕРЕВОДИМ ВЕСЬ ЖУРНАЛ СОБЫТИЙ
+    if (window.match && window.match.events) {
+        window.match.refreshEventLog();
     }
 }
 
@@ -912,52 +918,41 @@ class TableTennisMatch {
         this.pointHistory = [];
     }
     
-    logEvent(eventKey, params = {}, player = null) {
-        const description = this.getEventDescriptionText(eventKey, params);
-        this.events.push({ 
-            id: this.events.length + 1, 
-            timestamp: new Date().toISOString(), 
-            time: new Date().toLocaleTimeString('ru-RU'), 
+    // Получить переведённое описание события
+    getEventDescription(eventKey, params) {
+        return t(eventKey, params);
+    }
+    
+    // Добавить событие в журнал
+    addEvent(eventKey, params = {}, player = null) {
+        const description = this.getEventDescription(eventKey, params);
+        this.events.push({
+            id: this.events.length + 1,
+            timestamp: new Date().toISOString(),
+            time: new Date().toLocaleTimeString('ru-RU'),
             eventKey: eventKey,
             params: { ...params },
             description: description,
-            player: player, 
-            set: this.currentSet, 
-            score: `${this.players[1].score}:${this.players[2].score}`, 
-            setsScore: `${this.players[1].sets}:${this.players[2].sets}` 
+            player: player,
+            set: this.currentSet,
+            score: `${this.players[1].score}:${this.players[2].score}`,
+            setsScore: `${this.players[1].sets}:${this.players[2].sets}`
         });
-        this.updateEventLogDisplay();
+        this.refreshEventLog();
         return this.events[this.events.length - 1];
     }
     
-    getEventDescriptionText(eventKey, params) {
-        switch(eventKey) {
-            case 'point': return t('point', { player: params.player });
-            case 'set_end': return t('set_end', { set: params.set, winner: params.winner });
-            case 'set_start': return t('set_start', { set: params.set, server: params.server });
-            case 'serve_auto_change': return t('serve_auto_change', { server: params.server });
-            case 'serve_manual_change': return t('serve_manual_change', { server: params.server });
-            case 'side_change': return t('side_change');
-            case 'accelerate_on': return t('accelerate_on');
-            case 'timeout': return t('timeout_event', { player: params.player });
-            case 'timeout_error': return t('timeout_error', { player: params.player });
-            case 'warning': return t('warning_event', { player: params.player });
-            case 'yellow': return t('yellow_event', { player: params.player });
-            case 'red': return t('red_event', { player: params.player });
-            case 'undo': return t('undo');
-            case 'match_start': return t('match_start');
-            case 'match_end_sporting': return t('match_end_sporting', { winner: params.winner, sets: params.sets });
-            case 'match_end_early': return t('match_end_early', { reason: params.reason });
-            case 'error_not_started': return t('error_not_started');
-            case 'error_finished': return t('error_finished');
-            default: return eventKey;
-        }
-    }
-    
-    updateEventLogDisplay() {
+    // Обновить отображение журнала (перевести все события)
+    refreshEventLog() {
         const log = document.getElementById('eventLog');
         if (log) {
-            log.innerHTML = this.events.slice().reverse().slice(0, 30).map(e => 
+            // Переводим каждое событие заново
+            const translatedEvents = this.events.map(e => ({
+                ...e,
+                description: this.getEventDescription(e.eventKey, e.params)
+            }));
+            
+            log.innerHTML = translatedEvents.slice().reverse().slice(0, 30).map(e => 
                 `<div style="padding:5px;border-bottom:1px solid #34495e;font-size:11px;">
                     <span style="color:#3498db;">[${e.time}]</span> 
                     <span style="color:#ecf0f1;">${e.description}</span>
@@ -971,7 +966,7 @@ class TableTennisMatch {
         if (this.isStarted) return false;
         this.isStarted = true;
         this.startTime = new Date().toLocaleTimeString('ru-RU');
-        this.logEvent('match_start', {});
+        this.addEvent('match_start', {});
         document.getElementById('matchStatus').textContent = '● ' + t('playing');
         enableGameControls(true);
         return true;
@@ -986,7 +981,7 @@ class TableTennisMatch {
         if (shouldChangeServe) {
             this.currentServer = this.currentServer === 1 ? 2 : 1;
             this.pointsInCurrentServe = 0;
-            this.logEvent('serve_auto_change', { server: this.currentServer }, this.currentServer);
+            this.addEvent('serve_auto_change', { server: this.currentServer }, this.currentServer);
             this.updateServeIndicator();
         }
     }
@@ -1003,7 +998,7 @@ class TableTennisMatch {
         
         this.players[playerId].score++;
         this.pointHistory.push({ player: playerId, time: new Date().toLocaleTimeString('ru-RU'), score: `${this.players[1].score}:${this.players[2].score}` });
-        this.logEvent('point', { player: playerId }, playerId);
+        this.addEvent('point', { player: playerId }, playerId);
         this.autoChangeServe();
         
         if (this.checkSetWinner()) this.endSet();
@@ -1025,13 +1020,13 @@ class TableTennisMatch {
         const winner = this.players[1].score > this.players[2].score ? 1 : 2;
         this.players[winner].sets++;
         this.setHistory.push({ set: this.currentSet, winner, score: `${this.players[1].score}:${this.players[2].score}` });
-        this.logEvent('set_end', { set: this.currentSet, winner: winner }, winner);
+        this.addEvent('set_end', { set: this.currentSet, winner: winner }, winner);
         this.players[1].score = 0; this.players[2].score = 0;
         this.currentSet++;
         this.currentServer = this.currentServer === 1 ? 2 : 1;
         this.pointsInCurrentServe = 0;
         this.changeSide();
-        this.logEvent('set_start', { set: this.currentSet, server: this.currentServer }, this.currentServer);
+        this.addEvent('set_start', { set: this.currentSet, server: this.currentServer }, this.currentServer);
         updateUI();
     }
     
@@ -1042,7 +1037,7 @@ class TableTennisMatch {
         this.isFinished = true;
         this.endTime = new Date().toLocaleTimeString('ru-RU');
         this.finishReason = reason;
-        this.logEvent(eventKey, params, null);
+        this.addEvent(eventKey, params, null);
         document.getElementById('matchStatus').textContent = '● ' + t('finished');
         enableGameControls(false);
         if (window.auth && !window.auth.isPro() && this.isStarted) {
@@ -1064,7 +1059,7 @@ class TableTennisMatch {
         this.players[lastPoint.player].score--;
         this.pointsInCurrentServe--;
         if (this.pointsInCurrentServe < 0) { this.pointsInCurrentServe = 1; this.currentServer = this.currentServer === 1 ? 2 : 1; }
-        this.logEvent('undo', {}, lastPoint.player);
+        this.addEvent('undo', {}, lastPoint.player);
         updateUI();
         return true;
     }
@@ -1072,14 +1067,14 @@ class TableTennisMatch {
     addWarning(playerId, type) {
         if (!this.isStarted || this.isFinished) return false;
         let eventKey = '';
-        if (type === 'WARNING') eventKey = 'warning';
-        if (type === 'YELLOW') eventKey = 'yellow';
-        if (type === 'RED') eventKey = 'red';
+        if (type === 'WARNING') eventKey = 'warning_event';
+        if (type === 'YELLOW') eventKey = 'yellow_event';
+        if (type === 'RED') eventKey = 'red_event';
         
         this.players[playerId].warnings.push({ type, time: new Date().toLocaleTimeString('ru-RU') });
-        this.logEvent(eventKey, { player: playerId }, playerId);
+        this.addEvent(eventKey, { player: playerId }, playerId);
         if (type === 'RED') { 
-            this.endMatch('DISQUALIFICATION', 'red', { player: playerId }); 
+            this.endMatch('DISQUALIFICATION', 'red_event', { player: playerId }); 
             document.getElementById('matchStatus').textContent = '● ' + t('disqualified');
         }
         updateUI();
@@ -1089,11 +1084,11 @@ class TableTennisMatch {
     addTimeout(playerId) {
         if (!this.isStarted || this.isFinished) return false;
         if (this.players[playerId].timeouts >= 1) { 
-            this.logEvent('timeout_error', { player: playerId }, playerId);
+            this.addEvent('timeout_error', { player: playerId }, playerId);
             return false; 
         }
         this.players[playerId].timeouts++;
-        this.logEvent('timeout', { player: playerId }, playerId);
+        this.addEvent('timeout_event', { player: playerId }, playerId);
         updateUI();
         return true;
     }
@@ -1102,7 +1097,7 @@ class TableTennisMatch {
         if (!this.isStarted || this.isFinished) return false;
         this.currentServer = this.currentServer === 1 ? 2 : 1;
         this.pointsInCurrentServe = 0;
-        this.logEvent('serve_manual_change', { server: this.currentServer }, this.currentServer);
+        this.addEvent('serve_manual_change', { server: this.currentServer }, this.currentServer);
         this.updateServeIndicator();
         updateUI();
         return true;
@@ -1111,7 +1106,7 @@ class TableTennisMatch {
     changeSide() { 
         if (!this.isStarted || this.isFinished) return false; 
         this.currentSide = this.currentSide === 1 ? 2 : 1; 
-        this.logEvent('side_change', {}); 
+        this.addEvent('side_change', {}); 
         updateUI();
         return true; 
     }
@@ -1120,7 +1115,7 @@ class TableTennisMatch {
         if (!this.isStarted || this.isFinished) return false; 
         if (!this.isAccelerated) { 
             this.isAccelerated = true; 
-            this.logEvent('accelerate_on', {}); 
+            this.addEvent('accelerate_on', {}); 
             updateUI();
         } 
         return true; 
@@ -1142,7 +1137,7 @@ class TableTennisMatch {
     getExportData() {
         const exportedEvents = this.events.map(e => ({
             time: e.time,
-            description: e.description,
+            description: this.getEventDescription(e.eventKey, e.params),
             score: e.score
         }));
         
@@ -1257,7 +1252,7 @@ function updateUI() {
     document.getElementById('history1').textContent = last5Points1.map(p => '●').join(' ');
     document.getElementById('history2').textContent = last5Points2.map(p => '●').join(' ');
     
-    if (match.updateEventLogDisplay) match.updateEventLogDisplay();
+    if (match.refreshEventLog) match.refreshEventLog();
 }
 
 function updateTime() {
@@ -1298,7 +1293,7 @@ function printProtocol() {
             <h2>Результат</h2>
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
-            <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
+            </table><th>Время</th><th>Событие</th><th>Счет</th></tr>
             ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
             </table>
         </body></html>`);
@@ -1326,13 +1321,42 @@ function setLanguage(lang) {
         localStorage.setItem('app_language', lang);
         document.documentElement.setAttribute('lang', lang);
         document.documentElement.setAttribute('data-lang', lang);
+        
+        // Применяем переводы ко всем элементам интерфейса
         applyTranslations();
+        
         const langNames = { ru: 'Русский', en: 'English', de: 'Deutsch', es: 'Español', it: 'Italiano', fr: 'Français', zh: '中文', pt: 'Português' };
         document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
             btn.innerHTML = `🌐 ${langNames[lang]}`;
         });
-        if (match && match.events) {
-            match.updateEventLogDisplay();
+        
+        // Обновляем кнопки под игроками
+        const timeoutBtns = document.querySelectorAll('.player-buttons-col .special-btn:not(.warning):not(.yellow):not(.red)');
+        timeoutBtns.forEach(btn => btn.textContent = t('timeout'));
+        
+        const warningBtns = document.querySelectorAll('.special-btn.warning');
+        warningBtns.forEach(btn => btn.textContent = t('warning'));
+        
+        const yellowBtns = document.querySelectorAll('.special-btn.yellow');
+        yellowBtns.forEach(btn => btn.textContent = t('yellow'));
+        
+        const redBtns = document.querySelectorAll('.special-btn.red');
+        redBtns.forEach(btn => btn.textContent = t('red'));
+        
+        // Обновляем центральные кнопки
+        document.getElementById('changeServe').textContent = t('changeServe');
+        document.getElementById('changeSide').textContent = t('changeSide');
+        document.getElementById('undoPoint').textContent = t('undoPoint');
+        document.getElementById('accelerate').textContent = t('accelerate');
+        
+        // Обновляем статус матча
+        if (match) {
+            if (!match.isStarted) document.getElementById('matchStatus').textContent = '● ' + t('waiting');
+            else if (match.isFinished) document.getElementById('matchStatus').textContent = '● ' + t('finished');
+            else document.getElementById('matchStatus').textContent = '● ' + t('playing');
+            
+            // ПЕРЕВОДИМ ВЕСЬ ЖУРНАЛ СОБЫТИЙ
+            match.refreshEventLog();
         }
     }
 }
