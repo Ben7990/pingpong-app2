@@ -11,8 +11,7 @@ html, body {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 10px;
-    min-height: 100vh;
+    padding: 8px;
     height: 100%;
 }
 
@@ -147,53 +146,53 @@ body {
 .header {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
-    padding: 15px;
+    padding: 12px;
     flex-shrink: 0;
 }
 
 .header h1 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .logout-btn, .sub-btn, .lang-toggle-btn {
     background: rgba(255,255,255,0.2);
     color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s;
-    font-size: 12px;
+    font-size: 11px;
     white-space: nowrap;
 }
 
 .tournament-info {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .tournament-info input {
-    padding: 6px 12px;
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 11px;
     background: rgba(255,255,255,0.9);
 }
 
 /* Ad Banner */
 .ad-banner {
     background: linear-gradient(135deg, #ffd89b, #c7e9fb);
-    padding: 8px 12px;
+    padding: 6px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 11px;
+    font-size: 10px;
     border-bottom: 1px solid #ddd;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
     flex-shrink: 0;
 }
 
@@ -201,20 +200,21 @@ body {
     background: #ff4757;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 9px;
 }
 
 /* Game Area - растягиваем на всю высоту */
 .game-area {
-    padding: 15px;
+    padding: 12px;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 0;
 }
 
 /* Верхняя строка с игроками */
@@ -222,8 +222,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 12px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
     flex-shrink: 0;
 }
@@ -231,72 +231,72 @@ body {
 .player-card {
     flex: 1;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border-radius: 15px;
-    padding: 12px;
+    border-radius: 12px;
+    padding: 10px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .player-header h2 {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .serve-indicator {
     background: #ff6b6b;
     color: white;
-    padding: 3px 8px;
+    padding: 2px 6px;
     border-radius: 20px;
-    font-size: 9px;
+    font-size: 8px;
     display: inline-block;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .player-name, .player-country {
     width: 95%;
-    padding: 6px;
-    margin: 5px 0;
+    padding: 5px;
+    margin: 4px 0;
     border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 11px;
+    border-radius: 6px;
+    font-size: 10px;
     text-align: center;
 }
 
 .score-display {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
-    margin: 8px 0;
+    margin: 6px 0;
     color: #2c3e50;
 }
 
 .points-history {
-    font-size: 9px;
+    font-size: 8px;
     color: #666;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .vs-area {
     text-align: center;
-    min-width: 140px;
+    min-width: 120px;
 }
 
 .set-score {
-    font-size: 34px;
+    font-size: 28px;
     font-weight: bold;
     color: #2c3e50;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .match-control-buttons {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
 }
 
 .reset-match, .start-match-btn, .finish-match-btn {
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 11px;
+    font-size: 10px;
     border: none;
     font-weight: bold;
 }
@@ -319,16 +319,16 @@ body {
 /* Кнопки очков */
 .game-buttons {
     display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 12px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
     flex-shrink: 0;
 }
 
 .point-btn {
     flex: 1;
-    padding: 14px;
-    font-size: 16px;
+    padding: 12px;
+    font-size: 14px;
     font-weight: bold;
     border: none;
     border-radius: 10px;
@@ -350,12 +350,12 @@ body {
     color: white;
 }
 
-/* Три колонки - растягиваем */
+/* Три колонки - одинаковой ширины */
 .three-columns {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 12px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
     flex: 1;
     min-height: 0;
@@ -363,13 +363,13 @@ body {
 
 .player-buttons-col {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     background: #f8f9fa;
-    padding: 15px;
+    padding: 12px;
     border-radius: 12px;
-    justify-content: space-around;
 }
 
 .player1-col {
@@ -382,34 +382,33 @@ body {
 
 .player-buttons-col .special-btn {
     width: 100%;
-    padding: 14px 6px;
-    font-size: 13px;
+    padding: 12px 4px;
+    font-size: 11px;
     font-weight: bold;
     text-align: center;
 }
 
 .center-buttons-col {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     background: #e8ecf1;
-    padding: 15px;
+    padding: 12px;
     border-radius: 12px;
-    justify-content: space-around;
 }
 
 .center-buttons-col .control-btn {
     width: 100%;
-    padding: 14px 6px;
-    font-size: 13px;
+    padding: 12px 4px;
+    font-size: 11px;
     background: #607d8b;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s;
-    white-space: nowrap;
     font-weight: 500;
 }
 
@@ -432,17 +431,9 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.special-btn:not(.warning):not(.yellow):not(.red):hover {
-    background: #1a2632;
-}
-
 .special-btn.warning {
     background: #ff9800;
     color: white;
-}
-
-.special-btn.warning:hover {
-    background: #e68900;
 }
 
 .special-btn.yellow {
@@ -450,114 +441,101 @@ body {
     color: #333;
 }
 
-.special-btn.yellow:hover {
-    background: #e0a800;
-}
-
 .special-btn.red {
     background: #f44336;
     color: white;
 }
 
-.special-btn.red:hover {
-    background: #d32f2f;
-}
-
-/* Protocol Section - компактный но читаемый */
+/* Protocol Section - компактный */
 .protocol-section {
     background: #fff;
-    border: 2px solid #e0e0e0;
-    border-radius: 15px;
-    padding: 12px;
-    margin-top: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 8px;
+    margin-top: 8px;
     flex-shrink: 0;
 }
 
 .protocol-section h3 {
-    color: #2c3e50;
-    margin-bottom: 10px;
-    font-size: 15px;
+    font-size: 13px;
+    margin-bottom: 8px;
 }
 
 .protocol-info {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 10px;
-    margin-bottom: 10px;
-    padding: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 6px;
+    margin-bottom: 8px;
+    padding: 6px;
     background: #f8f9fa;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .protocol-item {
     display: flex;
-    gap: 8px;
+    gap: 5px;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .protocol-item strong {
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .protocol-item input {
-    font-size: 10px;
-    padding: 4px 8px;
-    width: 120px;
+    font-size: 9px;
+    padding: 3px 6px;
+    width: 100px;
 }
 
 .log-area {
     background: #2c3e50;
     color: #ecf0f1;
-    padding: 8px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    max-height: 120px;
+    padding: 6px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    max-height: 100px;
     overflow-y: auto;
 }
 
 .log-area h4 {
-    margin-bottom: 6px;
-    font-size: 11px;
+    font-size: 10px;
+    margin-bottom: 4px;
 }
 
 #eventLog {
     font-family: 'Courier New', monospace;
-    font-size: 9px;
+    font-size: 8px;
 }
 
 .export-buttons {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
 }
 
 .export-btn {
     flex: 1;
-    padding: 8px 5px;
+    padding: 6px 3px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 9px;
     transition: transform 0.2s;
     white-space: nowrap;
-}
-
-.export-btn:hover {
-    transform: translateY(-2px);
 }
 
 /* Футер */
 .app-footer {
     background: #f5f5f5;
-    padding: 8px 12px;
+    padding: 6px 10px;
     text-align: center;
-    font-size: 9px;
+    font-size: 8px;
     border-top: 1px solid #ddd;
-    margin-top: 10px;
+    margin-top: 8px;
     flex-shrink: 0;
 }
 
@@ -577,9 +555,9 @@ body {
 
 .modal-content {
     background: white;
-    padding: 25px;
-    border-radius: 20px;
-    max-width: 450px;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
     width: 90%;
     text-align: center;
     position: relative;
@@ -588,87 +566,147 @@ body {
 }
 
 .modal-content h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 12px;
 }
 
 .close-modal, .close-reset-modal {
     position: absolute;
-    top: 12px;
-    right: 18px;
-    font-size: 24px;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
     cursor: pointer;
     color: #999;
 }
 
-/* ========== АДАПТАЦИЯ ДЛЯ ВЕРТИКАЛЬНОГО РЕЖИМА ТЕЛЕФОНА ========== */
+/* ========== ВЕРТИКАЛЬНЫЙ РЕЖИМ ТЕЛЕФОНА (РАСТЯГИВАЕМ НА ВСЮ ВЫСОТУ) ========== */
 @media (max-width: 768px) and (orientation: portrait) {
     body {
         padding: 5px;
     }
     
     .game-area {
-        padding: 10px;
+        padding: 8px;
     }
     
     .players-top-row {
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: 8px;
+        margin-bottom: 8px;
     }
     
     .player-card {
-        padding: 10px;
-    }
-    
-    .player-header h2 {
-        font-size: 14px;
+        padding: 8px;
     }
     
     .score-display {
-        font-size: 38px;
+        font-size: 32px;
     }
     
     .set-score {
-        font-size: 30px;
+        font-size: 26px;
     }
     
     .point-btn {
-        padding: 12px;
-        font-size: 14px;
+        padding: 10px;
+        font-size: 13px;
     }
     
     .three-columns {
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: 8px;
+        margin-bottom: 8px;
         flex: 1;
     }
     
     .player-buttons-col,
     .center-buttons-col {
         padding: 10px;
-        gap: 8px;
+        gap: 6px;
     }
     
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        padding: 12px 5px;
-        font-size: 11px;
-    }
-    
-    .protocol-section {
-        padding: 10px;
+        padding: 10px 3px;
+        font-size: 10px;
     }
     
     .log-area {
-        max-height: 140px;
-    }
-    
-    .protocol-item input {
-        width: 100px;
+        max-height: 110px;
     }
 }
 
-/* ========== ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ТЕЛЕФОНОВ ВЕРТИКАЛЬНО ========== */
+/* ========== ГОРИЗОНТАЛЬНЫЙ РЕЖИМ ТЕЛЕФОНА (ВСЁ ПОМЕЩАЕТСЯ) ========== */
+@media (orientation: landscape) and (max-height: 600px) {
+    body {
+        padding: 5px;
+    }
+    
+    .game-area {
+        padding: 5px;
+    }
+    
+    .players-top-row {
+        gap: 8px;
+        margin-bottom: 5px;
+    }
+    
+    .player-card {
+        padding: 5px;
+    }
+    
+    .player-header h2 {
+        font-size: 12px;
+    }
+    
+    .score-display {
+        font-size: 28px;
+    }
+    
+    .set-score {
+        font-size: 22px;
+    }
+    
+    .point-btn {
+        padding: 6px;
+        font-size: 11px;
+    }
+    
+    .three-columns {
+        gap: 6px;
+        margin-bottom: 5px;
+    }
+    
+    .player-buttons-col,
+    .center-buttons-col {
+        padding: 6px;
+        gap: 4px;
+    }
+    
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        padding: 6px 2px;
+        font-size: 8px;
+    }
+    
+    .protocol-section {
+        padding: 5px;
+    }
+    
+    .log-area {
+        max-height: 70px;
+    }
+    
+    .export-btn {
+        padding: 4px 2px;
+        font-size: 7px;
+    }
+    
+    .app-footer {
+        padding: 4px 6px;
+        font-size: 7px;
+    }
+}
+
+/* Для очень маленьких телефонов в вертикальном режиме */
 @media (max-width: 480px) and (orientation: portrait) {
     .players-top-row {
         flex-direction: column;
@@ -688,91 +726,7 @@ body {
     }
     
     .score-display {
-        font-size: 36px;
-    }
-    
-    .point-btn {
-        padding: 10px;
-        font-size: 13px;
-    }
-    
-    .player-buttons-col .special-btn,
-    .center-buttons-col .control-btn {
-        font-size: 10px;
-        padding: 10px 4px;
-    }
-}
-
-/* ========== АДАПТАЦИЯ ДЛЯ ГОРИЗОНТАЛЬНОГО РЕЖИМА ========== */
-@media (orientation: landscape) {
-    body {
-        padding: 8px 15px;
-    }
-    
-    .container {
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .players-top-row {
-        gap: 15px;
-    }
-    
-    .score-display {
-        font-size: 44px;
-    }
-    
-    .set-score {
-        font-size: 34px;
-    }
-    
-    .three-columns {
-        gap: 15px;
-    }
-    
-    .player-buttons-col .special-btn,
-    .center-buttons-col .control-btn {
-        padding: 12px 6px;
-        font-size: 12px;
-    }
-}
-
-/* Для горизонтальной ориентации на телефоне */
-@media (orientation: landscape) and (max-height: 600px) {
-    .game-area {
-        padding: 8px;
-    }
-    
-    .players-top-row {
-        gap: 10px;
-        margin-bottom: 8px;
-    }
-    
-    .player-card {
-        padding: 8px;
-    }
-    
-    .score-display {
-        font-size: 32px;
-    }
-    
-    .set-score {
-        font-size: 26px;
-    }
-    
-    .point-btn {
-        padding: 8px;
-        font-size: 12px;
-    }
-    
-    .player-buttons-col .special-btn,
-    .center-buttons-col .control-btn {
-        padding: 8px 4px;
-        font-size: 10px;
-    }
-    
-    .log-area {
-        max-height: 90px;
+        font-size: 30px;
     }
 }
 
@@ -781,23 +735,17 @@ html[lang="de"] .player-buttons-col .special-btn,
 html[data-lang="de"] .player-buttons-col .special-btn,
 html[lang="de"] .center-buttons-col .control-btn,
 html[data-lang="de"] .center-buttons-col .control-btn {
-    font-size: 10px;
+    font-size: 9px;
     white-space: normal;
     line-height: 1.2;
 }
 
-html[lang="de"] .export-btn,
-html[data-lang="de"] .export-btn {
-    font-size: 8px;
-    white-space: normal;
-}
-
-@media (max-width: 768px) and (orientation: portrait) {
+@media (orientation: landscape) and (max-height: 600px) {
     html[lang="de"] .player-buttons-col .special-btn,
     html[data-lang="de"] .player-buttons-col .special-btn,
     html[lang="de"] .center-buttons-col .control-btn,
     html[data-lang="de"] .center-buttons-col .control-btn {
-        font-size: 9px;
+        font-size: 7px;
     }
 }
 
