@@ -245,7 +245,7 @@ body {
     gap: 6px;
 }
 
-.reset-match, .start-match-btn, .finish-match-btn {
+.reset-match, .start-match-btn, .finish-match-btn, .save-match-btn {
     padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;
@@ -269,7 +269,17 @@ body {
     color: white;
 }
 
-/* Кнопки очков - УВЕЛИЧЕН ШРИФТ */
+.save-match-btn {
+    background: #27ae60;
+    color: white;
+}
+
+.save-match-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Кнопки очков */
 .game-buttons {
     display: flex;
     gap: 12px;
@@ -302,7 +312,7 @@ body {
     color: white;
 }
 
-/* Три колонки - УВЕЛИЧЕН ШРИФТ */
+/* Три колонки */
 .three-columns {
     display: flex;
     justify-content: space-between;
@@ -531,13 +541,40 @@ body {
     margin-bottom: 12px;
 }
 
-.close-modal, .close-reset-modal {
+.close-modal, .close-reset-modal, .close-saved-modal {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 22px;
     cursor: pointer;
     color: #999;
+}
+
+/* Список сохраненных матчей */
+.saved-matches-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.saved-match-item {
+    background: #f8f9fa;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-left: 3px solid #3498db;
+    text-align: left;
+}
+
+.saved-match-item:hover {
+    background: #e8ecf1;
+}
+
+.match-date {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
 }
 
 /* Адаптация для телефонов */
@@ -705,4 +742,16 @@ html[data-lang="de"] .center-buttons-col .control-btn {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
     }
+}
+
+/* Анимация для жеребьевки */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.coin-animation {
+    animation: spin 0.5s ease-out;
+    display: inline-block;
+    font-size: 48px;
 }
