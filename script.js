@@ -62,7 +62,7 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Пароль',
         'namePlaceholder': 'Имя',
-        // Перевод имён игроков и стран
+        // Перевод имён игроков и стран (стандартные значения)
         'player1Name': 'Алексей Смирнов',
         'player2Name': 'Дмитрий Петров',
         'countryRussia': 'Россия',
@@ -766,6 +766,7 @@ const translations = {
 };
 
 let currentLang = localStorage.getItem('app_language') || 'ru';
+let userChangedNames = { player1: false, player2: false, country1: false, country2: false };
 
 function t(key, params = {}) {
     let text = translations[currentLang][key];
@@ -837,16 +838,51 @@ function applyTranslations() {
         }
     }
     
-    // ПЕРЕВОД ИМЁН И СТРАН ИГРОКОВ
-    const player1Name = document.getElementById('player1Name');
-    const player2Name = document.getElementById('player2Name');
-    const player1Country = document.getElementById('player1Country');
-    const player2Country = document.getElementById('player2Country');
+    // ПЕРЕВОД ИМЁН И СТРАН ИГРОКОВ (только если пользователь их не менял)
+    const player1NameInput = document.getElementById('player1Name');
+    const player2NameInput = document.getElementById('player2Name');
+    const player1CountryInput = document.getElementById('player1Country');
+    const player2CountryInput = document.getElementById('player2Country');
     
-    if (player1Name) player1Name.value = t.player1Name;
-    if (player2Name) player2Name.value = t.player2Name;
-    if (player1Country) player1Country.value = t.countryRussia;
-    if (player2Country) player2Country.value = t.countryRussia;
+    // Сохраняем оригинальные значения, если они не были изменены пользователем
+    if (!userChangedNames.player1 && player1NameInput) {
+        player1NameInput.value = t.player1Name;
+    }
+    if (!userChangedNames.player2 && player2NameInput) {
+        player2NameInput.value = t.player2Name;
+    }
+    if (!userChangedNames.country1 && player1CountryInput) {
+        player1CountryInput.value = t.countryRussia;
+    }
+    if (!userChangedNames.country2 && player2CountryInput) {
+        player2CountryInput.value = t.countryRussia;
+    }
+    
+    // Обработчики для отслеживания изменений пользователем
+    if (player1NameInput && !player1NameInput.hasAttribute('data-listener')) {
+        player1NameInput.setAttribute('data-listener', 'true');
+        player1NameInput.addEventListener('input', () => {
+            userChangedNames.player1 = true;
+        });
+    }
+    if (player2NameInput && !player2NameInput.hasAttribute('data-listener')) {
+        player2NameInput.setAttribute('data-listener', 'true');
+        player2NameInput.addEventListener('input', () => {
+            userChangedNames.player2 = true;
+        });
+    }
+    if (player1CountryInput && !player1CountryInput.hasAttribute('data-listener')) {
+        player1CountryInput.setAttribute('data-listener', 'true');
+        player1CountryInput.addEventListener('input', () => {
+            userChangedNames.country1 = true;
+        });
+    }
+    if (player2CountryInput && !player2CountryInput.hasAttribute('data-listener')) {
+        player2CountryInput.setAttribute('data-listener', 'true');
+        player2CountryInput.addEventListener('input', () => {
+            userChangedNames.country2 = true;
+        });
+    }
     
     // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ В ПОЛЯХ ВВОДА
     const loginEmail = document.getElementById('loginEmail');
@@ -1398,7 +1434,7 @@ function printProtocol() {
             <h2>Результат</h2>
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
-            <tr><th>Время</th><th>Событие</th><th>Счет</th></tr>
+            <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
             ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
             </table>
         </body></html>`);
