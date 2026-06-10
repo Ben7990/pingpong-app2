@@ -64,8 +64,28 @@ const translations = {
         'namePlaceholder': 'Имя',
         'player1Name': 'Алексей Смирнов',
         'player2Name': 'Дмитрий Петров',
-        'player1NameCustom': 'Турбин Сергей',
-        'player2NameCustom': 'Турбин Сергей',
+        'player1NameEn': 'Alexey Smirnov',
+        'player2NameEn': 'Dmitry Petrov',
+        'player1NameDe': 'Alexej Smirnow',
+        'player2NameDe': 'Dmitri Petrow',
+        'player1NameEs': 'Alexei Smirnov',
+        'player2NameEs': 'Dmitri Petrov',
+        'player1NameIt': 'Alexei Smirnov',
+        'player2NameIt': 'Dmitri Petrov',
+        'player1NameFr': 'Alexeï Smirnov',
+        'player2NameFr': 'Dmitri Petrov',
+        'player1NameZh': '阿列克谢·斯米尔诺夫',
+        'player2NameZh': '德米特里·彼得罗夫',
+        'player1NamePt': 'Alexei Smirnov',
+        'player2NamePt': 'Dmitri Petrov',
+        'country_Russia': 'Россия',
+        'country_RussiaEn': 'Russia',
+        'country_RussiaDe': 'Russland',
+        'country_RussiaEs': 'Rusia',
+        'country_RussiaIt': 'Russia',
+        'country_RussiaFr': 'Russie',
+        'country_RussiaZh': '俄罗斯',
+        'country_RussiaPt': 'Rússia',
         'point': '🎾 Очко заработал игрок {player}',
         'set_end': '🏆 Партия {set} завершена. Победил игрок {winner}',
         'set_start': '🎬 Начало {set}-й партии. Подает игрок {server}',
@@ -96,12 +116,7 @@ const translations = {
         'score': 'Счет',
         'vs': 'против',
         'winner': 'Победитель',
-        'endTime': 'Время окончания',
-        'country_Russia': 'Россия',
-        'country_Chad': 'Чад',
-        'country_Belarus': 'Беларусь',
-        'country_Ukraine': 'Украина',
-        'country_Kazakhstan': 'Казахстан'
+        'endTime': 'Время окончания'
     },
     en: {
         'appName': 'REFEREE PROTOCOL',
@@ -165,8 +180,7 @@ const translations = {
         'namePlaceholder': 'Name',
         'player1Name': 'Alexey Smirnov',
         'player2Name': 'Dmitry Petrov',
-        'player1NameCustom': 'Sergey Turbin',
-        'player2NameCustom': 'Sergey Turbin',
+        'country_Russia': 'Russia',
         'point': '🎾 Point scored by player {player}',
         'set_end': '🏆 Set {set} completed. Player {winner} wins',
         'set_start': '🎬 Start of set {set}. Player {server} serves',
@@ -197,12 +211,7 @@ const translations = {
         'score': 'Score',
         'vs': 'vs',
         'winner': 'Winner',
-        'endTime': 'End time',
-        'country_Russia': 'Russia',
-        'country_Chad': 'Chad',
-        'country_Belarus': 'Belarus',
-        'country_Ukraine': 'Ukraine',
-        'country_Kazakhstan': 'Kazakhstan'
+        'endTime': 'End time'
     },
     de: {
         'appName': 'SCHIEDSRICHTERPROTOKOLL',
@@ -266,8 +275,7 @@ const translations = {
         'namePlaceholder': 'Name',
         'player1Name': 'Alexej Smirnow',
         'player2Name': 'Dmitri Petrow',
-        'player1NameCustom': 'Sergei Turbin',
-        'player2NameCustom': 'Sergei Turbin',
+        'country_Russia': 'Russland',
         'point': '🎾 Punkt für Spieler {player}',
         'set_end': '🏆 Satz {set} beendet. Spieler {winner} gewinnt',
         'set_start': '🎬 Beginn von Satz {set}. Spieler {server} schlägt auf',
@@ -298,12 +306,7 @@ const translations = {
         'score': 'Punktstand',
         'vs': 'gegen',
         'winner': 'Sieger',
-        'endTime': 'Endzeit',
-        'country_Russia': 'Russland',
-        'country_Chad': 'Tschad',
-        'country_Belarus': 'Belarus',
-        'country_Ukraine': 'Ukraine',
-        'country_Kazakhstan': 'Kasachstan'
+        'endTime': 'Endzeit'
     },
     es: {
         'appName': 'PROTOCOLO DE ÁRBITRO',
@@ -367,8 +370,7 @@ const translations = {
         'namePlaceholder': 'Nombre',
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
-        'player1NameCustom': 'Sergei Turbin',
-        'player2NameCustom': 'Sergei Turbin',
+        'country_Russia': 'Rusia',
         'point': '🎾 Punto anotado por jugador {player}',
         'set_end': '🏆 Set {set} completado. Jugador {winner} gana',
         'set_start': '🎬 Inicio del set {set}. Saca el jugador {server}',
@@ -399,12 +401,7 @@ const translations = {
         'score': 'Marcador',
         'vs': 'contra',
         'winner': 'Ganador',
-        'endTime': 'Hora final',
-        'country_Russia': 'Rusia',
-        'country_Chad': 'Chad',
-        'country_Belarus': 'Bielorrusia',
-        'country_Ukraine': 'Ucrania',
-        'country_Kazakhstan': 'Kazajistán'
+        'endTime': 'Hora final'
     },
     it: {
         'appName': 'PROTOCOLLO ARBITRALE',
@@ -468,8 +465,7 @@ const translations = {
         'namePlaceholder': 'Nome',
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
-        'player1NameCustom': 'Sergei Turbin',
-        'player2NameCustom': 'Sergei Turbin',
+        'country_Russia': 'Russia',
         'point': '🎾 Punto segnato dal giocatore {player}',
         'set_end': '🏆 Set {set} completato. Giocatore {winner} vince',
         'set_start': '🎬 Inizio del set {set}. Batte il giocatore {server}',
@@ -500,12 +496,7 @@ const translations = {
         'score': 'Punteggio',
         'vs': 'contro',
         'winner': 'Vincitore',
-        'endTime': 'Ora fine',
-        'country_Russia': 'Russia',
-        'country_Chad': 'Ciad',
-        'country_Belarus': 'Bielorussia',
-        'country_Ukraine': 'Ucraina',
-        'country_Kazakhstan': 'Kazakistan'
+        'endTime': 'Ora fine'
     },
     fr: {
         'appName': 'PROTOCOLE D\'ARBITRAGE',
@@ -569,8 +560,7 @@ const translations = {
         'namePlaceholder': 'Nom',
         'player1Name': 'Alexeï Smirnov',
         'player2Name': 'Dmitri Petrov',
-        'player1NameCustom': 'Sergueï Turbine',
-        'player2NameCustom': 'Sergueï Turbine',
+        'country_Russia': 'Russie',
         'point': '🎾 Point marqué par le joueur {player}',
         'set_end': '🏆 Set {set} terminé. Joueur {winner} gagne',
         'set_start': '🎬 Début du set {set}. Le joueur {server} sert',
@@ -601,12 +591,7 @@ const translations = {
         'score': 'Score',
         'vs': 'contre',
         'winner': 'Vainqueur',
-        'endTime': 'Heure de fin',
-        'country_Russia': 'Russie',
-        'country_Chad': 'Tchad',
-        'country_Belarus': 'Biélorussie',
-        'country_Ukraine': 'Ukraine',
-        'country_Kazakhstan': 'Kazakhstan'
+        'endTime': 'Heure de fin'
     },
     zh: {
         'appName': '裁判记录表',
@@ -670,8 +655,7 @@ const translations = {
         'namePlaceholder': '姓名',
         'player1Name': '阿列克谢·斯米尔诺夫',
         'player2Name': '德米特里·彼得罗夫',
-        'player1NameCustom': '谢尔盖·图尔宾',
-        'player2NameCustom': '谢尔盖·图尔宾',
+        'country_Russia': '俄罗斯',
         'point': '🎾 选手{player}得分',
         'set_end': '🏆 第{set}局结束。选手{winner}获胜',
         'set_start': '🎬 第{set}局开始。选手{server}发球',
@@ -702,12 +686,7 @@ const translations = {
         'score': '比分',
         'vs': '对阵',
         'winner': '获胜者',
-        'endTime': '结束时间',
-        'country_Russia': '俄罗斯',
-        'country_Chad': '乍得',
-        'country_Belarus': '白俄罗斯',
-        'country_Ukraine': '乌克兰',
-        'country_Kazakhstan': '哈萨克斯坦'
+        'endTime': '结束时间'
     },
     pt: {
         'appName': 'PROTOCOLO DO ÁRBITRO',
@@ -771,8 +750,7 @@ const translations = {
         'namePlaceholder': 'Nome',
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
-        'player1NameCustom': 'Sergei Turbin',
-        'player2NameCustom': 'Sergei Turbin',
+        'country_Russia': 'Rússia',
         'point': '🎾 Ponto marcado pelo jogador {player}',
         'set_end': '🏆 Set {set} concluído. Jogador {winner} vence',
         'set_start': '🎬 Início do set {set}. Jogador {server} saca',
@@ -803,48 +781,11 @@ const translations = {
         'score': 'Placar',
         'vs': 'contra',
         'winner': 'Vencedor',
-        'endTime': 'Hora final',
-        'country_Russia': 'Rússia',
-        'country_Chad': 'Chade',
-        'country_Belarus': 'Bielorrússia',
-        'country_Ukraine': 'Ucrânia',
-        'country_Kazakhstan': 'Cazaquistão'
+        'endTime': 'Hora final'
     }
 };
 
 let currentLang = localStorage.getItem('app_language') || 'ru';
-let originalNames = {
-    player1: '',
-    player2: ''
-};
-
-function translateCountry(countryName) {
-    const countryMap = {
-        'Россия': 'country_Russia',
-        'Чад': 'country_Chad',
-        'Беларусь': 'country_Belarus',
-        'Украина': 'country_Ukraine',
-        'Казахстан': 'country_Kazakhstan',
-        'Russia': 'country_Russia',
-        'Chad': 'country_Chad',
-        'Belarus': 'country_Belarus',
-        'Ukraine': 'country_Ukraine',
-        'Kazakhstan': 'country_Kazakhstan',
-        'Russland': 'country_Russia',
-        'Tschad': 'country_Chad',
-        'Rusia': 'country_Russia',
-        'Rússia': 'country_Russia',
-        'Chade': 'country_Chad',
-        'Ciad': 'country_Chad',
-        'Tchad': 'country_Chad'
-    };
-    
-    const key = countryMap[countryName];
-    if (key && translations[currentLang][key]) {
-        return translations[currentLang][key];
-    }
-    return countryName;
-}
 
 function t(key, params = {}) {
     let text = translations[currentLang][key];
@@ -860,19 +801,12 @@ function applyTranslations() {
     const trans = translations[currentLang];
     if (!trans) return;
     
-    // ========== ГЛАВНОЕ: ПЕРЕВОД КНОПОК "ВХОД" И "РЕГИСТРАЦИЯ" ==========
-    // Ищем все элементы с классом auth-tab (это кнопки входа и регистрации)
+    // ========== КНОПКИ "ВХОД" И "РЕГИСТРАЦИЯ" ==========
     const authTabs = document.querySelectorAll('.auth-tab');
     if (authTabs.length >= 2) {
-        authTabs[0].textContent = trans.login;      // Вход
-        authTabs[1].textContent = trans.register;   // Регистрация
+        authTabs[0].textContent = trans.login;
+        authTabs[1].textContent = trans.register;
     }
-    
-    // Также обновляем конкретные ID на всякий случай
-    const loginTab = document.getElementById('loginTab');
-    const registerTab = document.getElementById('registerTab');
-    if (loginTab) loginTab.textContent = trans.login;
-    if (registerTab) registerTab.textContent = trans.register;
     
     // Основные элементы интерфейса
     const elements = {
@@ -932,31 +866,11 @@ function applyTranslations() {
     const player1NameInput = document.getElementById('player1Name');
     const player2NameInput = document.getElementById('player2Name');
     
-    if (originalNames.player1 === '' && player1NameInput) {
-        originalNames.player1 = player1NameInput.value;
-        originalNames.player2 = player2NameInput?.value || '';
-    }
-    
-    const defaultRuPlayer1 = translations.ru.player1Name;
-    const defaultRuPlayer2 = translations.ru.player2Name;
-    
-    const isPlayer1Custom = originalNames.player1 !== defaultRuPlayer1;
-    const isPlayer2Custom = originalNames.player2 !== defaultRuPlayer2;
-    
     if (player1NameInput) {
-        if (isPlayer1Custom && trans.player1NameCustom) {
-            player1NameInput.value = trans.player1NameCustom;
-        } else {
-            player1NameInput.value = trans.player1Name;
-        }
+        player1NameInput.value = trans.player1Name;
     }
-    
     if (player2NameInput) {
-        if (isPlayer2Custom && trans.player2NameCustom) {
-            player2NameInput.value = trans.player2NameCustom;
-        } else {
-            player2NameInput.value = trans.player2Name;
-        }
+        player2NameInput.value = trans.player2Name;
     }
     
     // ========== ПЕРЕВОД СТРАН ==========
@@ -964,19 +878,10 @@ function applyTranslations() {
     const player2CountryInput = document.getElementById('player2Country');
     
     if (player1CountryInput) {
-        const currentCountry = player1CountryInput.value;
-        const translatedCountry = translateCountry(currentCountry);
-        if (translatedCountry !== currentCountry) {
-            player1CountryInput.value = translatedCountry;
-        }
+        player1CountryInput.value = trans.country_Russia;
     }
-    
     if (player2CountryInput) {
-        const currentCountry = player2CountryInput.value;
-        const translatedCountry = translateCountry(currentCountry);
-        if (translatedCountry !== currentCountry) {
-            player2CountryInput.value = translatedCountry;
-        }
+        player2CountryInput.value = trans.country_Russia;
     }
     
     // Обновляем match
@@ -1538,7 +1443,7 @@ function printProtocol() {
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
             <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
-            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
+            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</tr></tr>`).join('')}
             </table>
         </body></html>`);
         w.document.close();
