@@ -62,30 +62,6 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Пароль',
         'namePlaceholder': 'Имя',
-        'player1Name': 'Алексей Смирнов',
-        'player2Name': 'Дмитрий Петров',
-        'player1NameEn': 'Alexey Smirnov',
-        'player2NameEn': 'Dmitry Petrov',
-        'player1NameDe': 'Alexej Smirnow',
-        'player2NameDe': 'Dmitri Petrow',
-        'player1NameEs': 'Alexei Smirnov',
-        'player2NameEs': 'Dmitri Petrov',
-        'player1NameIt': 'Alexei Smirnov',
-        'player2NameIt': 'Dmitri Petrov',
-        'player1NameFr': 'Alexeï Smirnov',
-        'player2NameFr': 'Dmitri Petrov',
-        'player1NameZh': '阿列克谢·斯米尔诺夫',
-        'player2NameZh': '德米特里·彼得罗夫',
-        'player1NamePt': 'Alexei Smirnov',
-        'player2NamePt': 'Dmitri Petrov',
-        'country_Russia': 'Россия',
-        'country_RussiaEn': 'Russia',
-        'country_RussiaDe': 'Russland',
-        'country_RussiaEs': 'Rusia',
-        'country_RussiaIt': 'Russia',
-        'country_RussiaFr': 'Russie',
-        'country_RussiaZh': '俄罗斯',
-        'country_RussiaPt': 'Rússia',
         'point': '🎾 Очко заработал игрок {player}',
         'set_end': '🏆 Партия {set} завершена. Победил игрок {winner}',
         'set_start': '🎬 Начало {set}-й партии. Подает игрок {server}',
@@ -178,9 +154,6 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Password',
         'namePlaceholder': 'Name',
-        'player1Name': 'Alexey Smirnov',
-        'player2Name': 'Dmitry Petrov',
-        'country_Russia': 'Russia',
         'point': '🎾 Point scored by player {player}',
         'set_end': '🏆 Set {set} completed. Player {winner} wins',
         'set_start': '🎬 Start of set {set}. Player {server} serves',
@@ -273,9 +246,6 @@ const translations = {
         'emailPlaceholder': 'E-Mail',
         'passwordPlaceholder': 'Passwort',
         'namePlaceholder': 'Name',
-        'player1Name': 'Alexej Smirnow',
-        'player2Name': 'Dmitri Petrow',
-        'country_Russia': 'Russland',
         'point': '🎾 Punkt für Spieler {player}',
         'set_end': '🏆 Satz {set} beendet. Spieler {winner} gewinnt',
         'set_start': '🎬 Beginn von Satz {set}. Spieler {server} schlägt auf',
@@ -368,9 +338,6 @@ const translations = {
         'emailPlaceholder': 'Correo electrónico',
         'passwordPlaceholder': 'Contraseña',
         'namePlaceholder': 'Nombre',
-        'player1Name': 'Alexei Smirnov',
-        'player2Name': 'Dmitri Petrov',
-        'country_Russia': 'Rusia',
         'point': '🎾 Punto anotado por jugador {player}',
         'set_end': '🏆 Set {set} completado. Jugador {winner} gana',
         'set_start': '🎬 Inicio del set {set}. Saca el jugador {server}',
@@ -463,9 +430,6 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Password',
         'namePlaceholder': 'Nome',
-        'player1Name': 'Alexei Smirnov',
-        'player2Name': 'Dmitri Petrov',
-        'country_Russia': 'Russia',
         'point': '🎾 Punto segnato dal giocatore {player}',
         'set_end': '🏆 Set {set} completato. Giocatore {winner} vince',
         'set_start': '🎬 Inizio del set {set}. Batte il giocatore {server}',
@@ -558,9 +522,6 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Mot de passe',
         'namePlaceholder': 'Nom',
-        'player1Name': 'Alexeï Smirnov',
-        'player2Name': 'Dmitri Petrov',
-        'country_Russia': 'Russie',
         'point': '🎾 Point marqué par le joueur {player}',
         'set_end': '🏆 Set {set} terminé. Joueur {winner} gagne',
         'set_start': '🎬 Début du set {set}. Le joueur {server} sert',
@@ -653,9 +614,6 @@ const translations = {
         'emailPlaceholder': '电子邮箱',
         'passwordPlaceholder': '密码',
         'namePlaceholder': '姓名',
-        'player1Name': '阿列克谢·斯米尔诺夫',
-        'player2Name': '德米特里·彼得罗夫',
-        'country_Russia': '俄罗斯',
         'point': '🎾 选手{player}得分',
         'set_end': '🏆 第{set}局结束。选手{winner}获胜',
         'set_start': '🎬 第{set}局开始。选手{server}发球',
@@ -748,9 +706,6 @@ const translations = {
         'emailPlaceholder': 'E-mail',
         'passwordPlaceholder': 'Senha',
         'namePlaceholder': 'Nome',
-        'player1Name': 'Alexei Smirnov',
-        'player2Name': 'Dmitri Petrov',
-        'country_Russia': 'Rússia',
         'point': '🎾 Ponto marcado pelo jogador {player}',
         'set_end': '🏆 Set {set} concluído. Jogador {winner} vence',
         'set_start': '🎬 Início do set {set}. Jogador {server} saca',
@@ -808,7 +763,7 @@ function applyTranslations() {
         authTabs[1].textContent = trans.register;
     }
     
-    // Основные элементы интерфейса
+    // Основные элементы интерфейса (НЕ включая имена и страны игроков)
     const elements = {
         'mainTitle': trans.appName,
         'authTitle': '🏓 ' + trans.appName,
@@ -862,35 +817,8 @@ function applyTranslations() {
         }
     }
     
-    // ========== ПЕРЕВОД ИМЁН ИГРОКОВ ==========
-    const player1NameInput = document.getElementById('player1Name');
-    const player2NameInput = document.getElementById('player2Name');
-    
-    if (player1NameInput) {
-        player1NameInput.value = trans.player1Name;
-    }
-    if (player2NameInput) {
-        player2NameInput.value = trans.player2Name;
-    }
-    
-    // ========== ПЕРЕВОД СТРАН ==========
-    const player1CountryInput = document.getElementById('player1Country');
-    const player2CountryInput = document.getElementById('player2Country');
-    
-    if (player1CountryInput) {
-        player1CountryInput.value = trans.country_Russia;
-    }
-    if (player2CountryInput) {
-        player2CountryInput.value = trans.country_Russia;
-    }
-    
-    // Обновляем match
-    if (match) {
-        match.players[1].name = player1NameInput?.value || '';
-        match.players[2].name = player2NameInput?.value || '';
-        match.players[1].country = player1CountryInput?.value || '';
-        match.players[2].country = player2CountryInput?.value || '';
-    }
+    // ========== НЕ ПЕРЕВОДИМ ИМЕНА И СТРАНЫ ИГРОКОВ ==========
+    // Оставляем их как есть, ничего не меняем
     
     // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ
     const loginEmail = document.getElementById('loginEmail');
@@ -1051,7 +979,7 @@ class AuthSystem {
     }
 }
 
-// ==================== КЛАСС МАТЧА ====================
+// ==================== КЛАСС МАТЧА (полный, но сокращён для экономии места) ====================
 class TableTennisMatch {
     constructor() {
         this.matchId = Date.now();
@@ -1443,7 +1371,7 @@ function printProtocol() {
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
             <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
-            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</tr></tr>`).join('')}
+            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}<tr></tr>`).join('')}
             </table>
         </body></html>`);
         w.document.close();
