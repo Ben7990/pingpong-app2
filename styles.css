@@ -578,116 +578,167 @@ body {
     color: #999;
 }
 
-/* ========== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА (ВЕРТИКАЛЬНЫЙ РЕЖИМ) ========== */
-@media (max-width: 768px) {
+/* ========== АДАПТАЦИЯ ДЛЯ ВЕРТИКАЛЬНОГО РЕЖИМА ТЕЛЕФОНА (растягиваем в длину) ========== */
+@media (max-width: 768px) and (orientation: portrait) {
     body {
-        padding: 10px;
+        padding: 8px;
+    }
+    
+    .game-area {
+        padding: 12px;
     }
     
     .players-top-row {
-        gap: 10px;
+        gap: 12px;
+        margin-bottom: 12px;
     }
     
     .player-card {
-        padding: 10px;
+        padding: 12px;
     }
     
     .score-display {
-        font-size: 36px;
+        font-size: 44px;
     }
     
     .set-score {
-        font-size: 28px;
+        font-size: 34px;
     }
     
     .point-btn {
-        padding: 10px;
-        font-size: 12px;
+        padding: 14px;
+        font-size: 15px;
     }
     
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        padding: 8px 4px;
-        font-size: 10px;
-        white-space: normal;
-        line-height: 1.3;
+        padding: 12px 6px;
+        font-size: 12px;
+    }
+    
+    .player-buttons-col,
+    .center-buttons-col {
+        gap: 10px;
+        padding: 14px;
+    }
+    
+    .protocol-section {
+        padding: 14px;
+    }
+    
+    .log-area {
+        max-height: 160px;
+    }
+    
+    .protocol-info {
+        gap: 12px;
     }
     
     .export-btn {
-        white-space: normal;
-        font-size: 9px;
-    }
-    
-    .logout-btn, .sub-btn, .lang-toggle-btn {
-        font-size: 10px;
-        padding: 4px 8px;
-    }
-    
-    .header h1 {
-        font-size: 16px;
-    }
-    
-    .protocol-item input {
-        width: 100px;
+        padding: 10px 5px;
+        font-size: 11px;
     }
 }
 
-/* Для горизонтальной ориентации на телефоне */
+/* ========== АДАПТАЦИЯ ДЛЯ ГОРИЗОНТАЛЬНОГО РЕЖИМА (растягиваем по ширине) ========== */
+@media (orientation: landscape) {
+    body {
+        padding: 10px 20px;
+    }
+    
+    .container {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .players-top-row {
+        gap: 20px;
+    }
+    
+    .player-card {
+        padding: 15px;
+    }
+    
+    .score-display {
+        font-size: 48px;
+    }
+    
+    .set-score {
+        font-size: 38px;
+    }
+    
+    .three-columns {
+        gap: 25px;
+    }
+    
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+    
+    .log-area {
+        max-height: 140px;
+    }
+}
+
+/* Для горизонтальной ориентации на телефоне (ширина > высота) */
 @media (orientation: landscape) and (max-height: 600px) {
     .game-area {
         padding: 10px;
     }
     
     .players-top-row {
-        gap: 8px;
-        margin-bottom: 8px;
+        gap: 12px;
+        margin-bottom: 10px;
     }
     
     .player-card {
-        padding: 6px;
+        padding: 10px;
     }
     
     .score-display {
-        font-size: 28px;
+        font-size: 38px;
     }
     
     .set-score {
-        font-size: 24px;
+        font-size: 30px;
     }
     
     .point-btn {
-        padding: 8px;
-        font-size: 11px;
-    }
-    
-    .player-buttons-col,
-    .center-buttons-col {
-        padding: 8px;
-        gap: 5px;
+        padding: 10px;
+        font-size: 13px;
     }
     
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        padding: 6px 3px;
-        font-size: 9px;
+        padding: 8px 5px;
+        font-size: 10px;
     }
     
     .log-area {
-        max-height: 90px;
-    }
-    
-    .protocol-section {
-        padding: 8px;
-    }
-    
-    .app-footer {
-        padding: 6px 10px;
-        margin-top: 8px;
+        max-height: 100px;
     }
 }
 
-/* Для очень маленьких телефонов */
-@media (max-width: 480px) {
+/* Для горизонтальной ориентации на планшетах */
+@media (orientation: landscape) and (min-width: 768px) and (max-width: 1024px) {
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        font-size: 11px;
+    }
+    
+    .score-display {
+        font-size: 52px;
+    }
+    
+    .set-score {
+        font-size: 42px;
+    }
+}
+
+/* Для очень маленьких телефонов в вертикальном режиме */
+@media (max-width: 480px) and (orientation: portrait) {
     .players-top-row {
         flex-direction: column;
     }
@@ -698,25 +749,26 @@ body {
     
     .vs-area {
         order: 3;
-        margin-top: 5px;
+        margin-top: 8px;
     }
     
     .three-columns {
         flex-direction: row;
     }
     
+    .score-display {
+        font-size: 40px;
+    }
+    
+    .point-btn {
+        padding: 12px;
+        font-size: 13px;
+    }
+    
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        font-size: 9px;
-        padding: 6px 2px;
-    }
-    
-    .score-display {
-        font-size: 32px;
-    }
-    
-    .auth-card {
-        padding: 25px;
+        font-size: 10px;
+        padding: 10px 4px;
     }
 }
 
