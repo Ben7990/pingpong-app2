@@ -216,46 +216,49 @@ body {
     flex: 1;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 12px;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .player-header h2 {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .serve-indicator {
     background: #ff6b6b;
     color: white;
-    padding: 2px 6px;
+    padding: 3px 8px;
     border-radius: 20px;
-    font-size: 8px;
+    font-size: 10px;
     display: inline-block;
-    margin-top: 4px;
+    margin-top: 5px;
+    font-weight: bold;
 }
 
 .player-name, .player-country {
     width: 95%;
-    padding: 5px;
-    margin: 4px 0;
+    padding: 6px;
+    margin: 5px 0;
     border: 2px solid #ddd;
     border-radius: 6px;
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
+    font-weight: 500;
 }
 
 .score-display {
-    font-size: 36px;
+    font-size: 40px;
     font-weight: bold;
-    margin: 6px 0;
+    margin: 8px 0;
     color: #2c3e50;
 }
 
 .points-history {
-    font-size: 8px;
+    font-size: 10px;
     color: #666;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 .vs-area {
@@ -264,23 +267,23 @@ body {
 }
 
 .set-score {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
     color: #2c3e50;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .match-control-buttons {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 
 .reset-match, .start-match-btn, .finish-match-btn {
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: 8px 12px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 12px;
     border: none;
     font-weight: bold;
 }
@@ -300,7 +303,7 @@ body {
     color: white;
 }
 
-/* Кнопки очков */
+/* Кнопки очков - УВЕЛИЧЕН ШРИФТ */
 .game-buttons {
     display: flex;
     gap: 12px;
@@ -310,8 +313,8 @@ body {
 
 .point-btn {
     flex: 1;
-    padding: 12px;
-    font-size: 14px;
+    padding: 14px;
+    font-size: 16px;
     font-weight: bold;
     border: none;
     border-radius: 10px;
@@ -333,7 +336,7 @@ body {
     color: white;
 }
 
-/* Три колонки */
+/* Три колонки - УВЕЛИЧЕН ШРИФТ */
 .three-columns {
     display: flex;
     justify-content: space-between;
@@ -363,8 +366,8 @@ body {
 
 .player-buttons-col .special-btn {
     width: 100%;
-    padding: 12px 4px;
-    font-size: 11px;
+    padding: 12px 6px;
+    font-size: 13px;
     font-weight: bold;
     text-align: center;
 }
@@ -382,8 +385,8 @@ body {
 
 .center-buttons-col .control-btn {
     width: 100%;
-    padding: 12px 4px;
-    font-size: 11px;
+    padding: 12px 6px;
+    font-size: 13px;
     background: #607d8b;
     color: white;
     border: none;
@@ -426,7 +429,7 @@ body {
     color: white;
 }
 
-/* Protocol Section - журнал событий УМЕНЬШЕН до 5 строк */
+/* Protocol Section */
 .protocol-section {
     background: #fff;
     border: 1px solid #e0e0e0;
@@ -436,7 +439,7 @@ body {
 }
 
 .protocol-section h3 {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 10px;
     color: #2c3e50;
 }
@@ -456,20 +459,20 @@ body {
     gap: 6px;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .protocol-item strong {
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .protocol-item input {
-    font-size: 10px;
+    font-size: 11px;
     padding: 4px 6px;
     width: 110px;
 }
 
-/* ЖУРНАЛ СОБЫТИЙ - ТОЛЬКО 5 СТРОК С ПРОКРУТКОЙ */
+/* Журнал событий */
 .log-area {
     background: #2c3e50;
     color: #ecf0f1;
@@ -481,19 +484,19 @@ body {
 }
 
 .log-area h4 {
-    font-size: 11px;
+    font-size: 12px;
     margin-bottom: 6px;
     color: #ecf0f1;
 }
 
 #eventLog {
     font-family: 'Courier New', monospace;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 1.4;
 }
 
 #eventLog div {
-    padding: 3px 0;
+    padding: 4px 0;
     border-bottom: 1px solid #34495e;
 }
 
@@ -511,9 +514,10 @@ body {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 11px;
     transition: transform 0.2s;
     white-space: nowrap;
+    font-weight: 500;
 }
 
 .export-btn:hover {
@@ -525,7 +529,7 @@ body {
     background: #f5f5f5;
     padding: 8px 12px;
     text-align: center;
-    font-size: 9px;
+    font-size: 10px;
     border-top: 1px solid #ddd;
     margin-top: 12px;
 }
@@ -588,19 +592,27 @@ body {
         padding: 8px;
     }
     
+    .player-header h2 {
+        font-size: 14px;
+    }
+    
+    .player-name, .player-country {
+        font-size: 11px;
+    }
+    
     .score-display {
-        font-size: 28px;
+        font-size: 32px;
     }
     
     .point-btn {
-        padding: 10px;
-        font-size: 12px;
+        padding: 12px;
+        font-size: 14px;
     }
     
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        padding: 8px 3px;
-        font-size: 9px;
+        padding: 10px 4px;
+        font-size: 11px;
     }
     
     .log-area {
@@ -608,7 +620,7 @@ body {
     }
     
     #eventLog {
-        font-size: 9px;
+        font-size: 10px;
     }
 }
 
@@ -629,6 +641,17 @@ body {
     .three-columns {
         flex-direction: row;
     }
+    
+    .point-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        font-size: 10px;
+        padding: 8px 3px;
+    }
 }
 
 /* Горизонтальная ориентация */
@@ -643,22 +666,26 @@ body {
     }
     
     .player-card {
-        padding: 5px;
+        padding: 6px;
+    }
+    
+    .player-header h2 {
+        font-size: 12px;
     }
     
     .score-display {
-        font-size: 24px;
+        font-size: 26px;
     }
     
     .point-btn {
-        padding: 6px;
-        font-size: 11px;
+        padding: 8px;
+        font-size: 12px;
     }
     
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        padding: 5px 2px;
-        font-size: 8px;
+        padding: 6px 3px;
+        font-size: 10px;
     }
     
     .protocol-section {
@@ -670,12 +697,12 @@ body {
     }
     
     #eventLog {
-        font-size: 8px;
+        font-size: 9px;
     }
     
     .export-btn {
-        padding: 4px 2px;
-        font-size: 8px;
+        padding: 5px 3px;
+        font-size: 9px;
     }
 }
 
@@ -684,9 +711,18 @@ html[lang="de"] .player-buttons-col .special-btn,
 html[data-lang="de"] .player-buttons-col .special-btn,
 html[lang="de"] .center-buttons-col .control-btn,
 html[data-lang="de"] .center-buttons-col .control-btn {
-    font-size: 9px;
+    font-size: 11px;
     white-space: normal;
     line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+    html[lang="de"] .player-buttons-col .special-btn,
+    html[data-lang="de"] .player-buttons-col .special-btn,
+    html[lang="de"] .center-buttons-col .control-btn,
+    html[data-lang="de"] .center-buttons-col .control-btn {
+        font-size: 9px;
+    }
 }
 
 /* Language Menu */
