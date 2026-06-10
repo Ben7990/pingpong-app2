@@ -207,13 +207,13 @@ body {
     font-size: 9px;
 }
 
-/* Game Area - растягиваем на всю высоту */
+/* Game Area */
 .game-area {
     padding: 12px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    overflow-y: auto;
     min-height: 0;
 }
 
@@ -350,15 +350,14 @@ body {
     color: white;
 }
 
-/* Три колонки - одинаковой ширины */
+/* Три колонки */
 .three-columns {
     display: flex;
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 12px;
     flex-wrap: wrap;
-    flex: 1;
-    min-height: 0;
+    flex-shrink: 0;
 }
 
 .player-buttons-col {
@@ -416,7 +415,6 @@ body {
     background: #455a64;
 }
 
-/* Стили специальных кнопок */
 .special-btn {
     border: none;
     border-radius: 8px;
@@ -446,12 +444,12 @@ body {
     color: white;
 }
 
-/* Protocol Section - компактный */
+/* Protocol Section - журнал событий хорошо виден */
 .protocol-section {
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
-    padding: 8px;
+    padding: 10px;
     margin-top: 8px;
     flex-shrink: 0;
 }
@@ -492,21 +490,21 @@ body {
 .log-area {
     background: #2c3e50;
     color: #ecf0f1;
-    padding: 6px;
+    padding: 8px;
     border-radius: 8px;
     margin-bottom: 8px;
-    max-height: 100px;
+    max-height: 150px;
     overflow-y: auto;
 }
 
 .log-area h4 {
-    font-size: 10px;
-    margin-bottom: 4px;
+    font-size: 11px;
+    margin-bottom: 6px;
 }
 
 #eventLog {
     font-family: 'Courier New', monospace;
-    font-size: 8px;
+    font-size: 10px;
 }
 
 .export-buttons {
@@ -579,7 +577,7 @@ body {
     color: #999;
 }
 
-/* ========== ВЕРТИКАЛЬНЫЙ РЕЖИМ ТЕЛЕФОНА (РАСТЯГИВАЕМ НА ВСЮ ВЫСОТУ) ========== */
+/* ========== ВЕРТИКАЛЬНЫЙ РЕЖИМ ========== */
 @media (max-width: 768px) and (orientation: portrait) {
     body {
         padding: 5px;
@@ -614,7 +612,6 @@ body {
     .three-columns {
         gap: 8px;
         margin-bottom: 8px;
-        flex: 1;
     }
     
     .player-buttons-col,
@@ -630,11 +627,15 @@ body {
     }
     
     .log-area {
-        max-height: 110px;
+        max-height: 120px;
+    }
+    
+    #eventLog {
+        font-size: 9px;
     }
 }
 
-/* ========== ГОРИЗОНТАЛЬНЫЙ РЕЖИМ ТЕЛЕФОНА (ВСЁ ПОМЕЩАЕТСЯ) ========== */
+/* ========== ГОРИЗОНТАЛЬНЫЙ РЕЖИМ ТЕЛЕФОНА ========== */
 @media (orientation: landscape) and (max-height: 600px) {
     body {
         padding: 5px;
@@ -645,7 +646,7 @@ body {
     }
     
     .players-top-row {
-        gap: 8px;
+        gap: 6px;
         margin-bottom: 5px;
     }
     
@@ -654,20 +655,20 @@ body {
     }
     
     .player-header h2 {
-        font-size: 12px;
+        font-size: 11px;
     }
     
     .score-display {
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .set-score {
-        font-size: 22px;
+        font-size: 20px;
     }
     
     .point-btn {
-        padding: 6px;
-        font-size: 11px;
+        padding: 5px;
+        font-size: 10px;
     }
     
     .three-columns {
@@ -683,7 +684,7 @@ body {
     
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        padding: 6px 2px;
+        padding: 5px 2px;
         font-size: 8px;
     }
     
@@ -692,7 +693,11 @@ body {
     }
     
     .log-area {
-        max-height: 70px;
+        max-height: 100px;
+    }
+    
+    #eventLog {
+        font-size: 8px;
     }
     
     .export-btn {
@@ -706,7 +711,57 @@ body {
     }
 }
 
-/* Для очень маленьких телефонов в вертикальном режиме */
+/* ========== ПК и ПЛАНШЕТЫ (ГОРИЗОНТАЛЬНЫЙ РЕЖИМ) ========== */
+@media (min-width: 1024px) {
+    .game-area {
+        padding: 20px;
+    }
+    
+    .player-card {
+        padding: 15px;
+    }
+    
+    .player-header h2 {
+        font-size: 18px;
+    }
+    
+    .score-display {
+        font-size: 48px;
+    }
+    
+    .set-score {
+        font-size: 36px;
+    }
+    
+    .point-btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        padding: 15px 8px;
+        font-size: 13px;
+    }
+    
+    .log-area {
+        max-height: 200px;
+    }
+    
+    #eventLog {
+        font-size: 11px;
+    }
+    
+    .protocol-info {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    
+    .protocol-item input {
+        width: 130px;
+    }
+}
+
+/* Для очень маленьких телефонов */
 @media (max-width: 480px) and (orientation: portrait) {
     .players-top-row {
         flex-direction: column;
