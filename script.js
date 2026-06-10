@@ -97,7 +97,6 @@ const translations = {
         'vs': 'против',
         'winner': 'Победитель',
         'endTime': 'Время окончания',
-        // Словарь стран
         'country_Russia': 'Россия',
         'country_Chad': 'Чад',
         'country_Belarus': 'Беларусь',
@@ -199,7 +198,6 @@ const translations = {
         'vs': 'vs',
         'winner': 'Winner',
         'endTime': 'End time',
-        // Словарь стран
         'country_Russia': 'Russia',
         'country_Chad': 'Chad',
         'country_Belarus': 'Belarus',
@@ -301,7 +299,6 @@ const translations = {
         'vs': 'gegen',
         'winner': 'Sieger',
         'endTime': 'Endzeit',
-        // Словарь стран
         'country_Russia': 'Russland',
         'country_Chad': 'Tschad',
         'country_Belarus': 'Belarus',
@@ -403,7 +400,6 @@ const translations = {
         'vs': 'contra',
         'winner': 'Ganador',
         'endTime': 'Hora final',
-        // Словарь стран
         'country_Russia': 'Rusia',
         'country_Chad': 'Chad',
         'country_Belarus': 'Bielorrusia',
@@ -505,7 +501,6 @@ const translations = {
         'vs': 'contro',
         'winner': 'Vincitore',
         'endTime': 'Ora fine',
-        // Словарь стран
         'country_Russia': 'Russia',
         'country_Chad': 'Ciad',
         'country_Belarus': 'Bielorussia',
@@ -607,7 +602,6 @@ const translations = {
         'vs': 'contre',
         'winner': 'Vainqueur',
         'endTime': 'Heure de fin',
-        // Словарь стран
         'country_Russia': 'Russie',
         'country_Chad': 'Tchad',
         'country_Belarus': 'Biélorussie',
@@ -709,7 +703,6 @@ const translations = {
         'vs': '对阵',
         'winner': '获胜者',
         'endTime': '结束时间',
-        // Словарь стран
         'country_Russia': '俄罗斯',
         'country_Chad': '乍得',
         'country_Belarus': '白俄罗斯',
@@ -811,7 +804,6 @@ const translations = {
         'vs': 'contra',
         'winner': 'Vencedor',
         'endTime': 'Hora final',
-        // Словарь стран
         'country_Russia': 'Rússia',
         'country_Chad': 'Chade',
         'country_Belarus': 'Bielorrússia',
@@ -826,9 +818,7 @@ let originalNames = {
     player2: ''
 };
 
-// Функция перевода страны по словарю
 function translateCountry(countryName) {
-    // Словарь соответствий (русское название -> ключ для перевода)
     const countryMap = {
         'Россия': 'country_Russia',
         'Чад': 'country_Chad',
@@ -870,7 +860,15 @@ function applyTranslations() {
     const trans = translations[currentLang];
     if (!trans) return;
     
-    // ========== ПЕРЕВОД КНОПОК "ВХОД" И "РЕГИСТРАЦИЯ" ==========
+    // ========== ГЛАВНОЕ: ПЕРЕВОД КНОПОК "ВХОД" И "РЕГИСТРАЦИЯ" ==========
+    // Ищем все элементы с классом auth-tab (это кнопки входа и регистрации)
+    const authTabs = document.querySelectorAll('.auth-tab');
+    if (authTabs.length >= 2) {
+        authTabs[0].textContent = trans.login;      // Вход
+        authTabs[1].textContent = trans.register;   // Регистрация
+    }
+    
+    // Также обновляем конкретные ID на всякий случай
     const loginTab = document.getElementById('loginTab');
     const registerTab = document.getElementById('registerTab');
     if (loginTab) loginTab.textContent = trans.login;
@@ -934,13 +932,11 @@ function applyTranslations() {
     const player1NameInput = document.getElementById('player1Name');
     const player2NameInput = document.getElementById('player2Name');
     
-    // Сохраняем оригинальные имена при первом запуске
     if (originalNames.player1 === '' && player1NameInput) {
         originalNames.player1 = player1NameInput.value;
         originalNames.player2 = player2NameInput?.value || '';
     }
     
-    // Определяем, были ли введены кастомные имена
     const defaultRuPlayer1 = translations.ru.player1Name;
     const defaultRuPlayer2 = translations.ru.player2Name;
     
@@ -963,7 +959,7 @@ function applyTranslations() {
         }
     }
     
-    // ========== ПЕРЕВОД СТРАН (ВСЕГДА ПО СЛОВАРЮ) ==========
+    // ========== ПЕРЕВОД СТРАН ==========
     const player1CountryInput = document.getElementById('player1Country');
     const player2CountryInput = document.getElementById('player2Country');
     
@@ -1150,7 +1146,7 @@ class AuthSystem {
     }
 }
 
-// ==================== КЛАСС МАТЧА (сокращён для экономии места, но полный) ====================
+// ==================== КЛАСС МАТЧА ====================
 class TableTennisMatch {
     constructor() {
         this.matchId = Date.now();
