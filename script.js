@@ -21,7 +21,25 @@ const translations = {
         'forfeit': 'Неявка',
         'technical': 'Техпроблема',
         'finishMatchTitle': 'Завершение матча',
-        'finishMatchText': 'Выберите причину:'
+        'finishMatchText': 'Выберите причину:',
+        'point': 'Очко заработал игрок',
+        'set_end': 'Партия {set} завершена. Победил игрок {winner}',
+        'set_start': 'Начало {set}-й партии. Подает игрок {server}',
+        'serve_auto_change': 'Автоматическая смена подачи. Теперь подает игрок {server}',
+        'serve_manual_change': 'Ручная смена подачи. Теперь подает игрок {server}',
+        'side_change': 'Смена сторон',
+        'accelerate_on': 'Включена система ускорения',
+        'timeout': 'Тайм-аут взят игроком {player}',
+        'timeout_error': 'У игрока {player} нет тайм-аутов',
+        'warning': 'Предупреждение игроку {player}',
+        'yellow': 'Желтая карточка игроку {player}',
+        'red': 'КРАСНАЯ КАРТОЧКА игроку {player} - дисквалификация!',
+        'undo': 'Отмена последнего очка',
+        'match_start': 'Матч официально начат',
+        'match_end_sporting': 'Матч завершен. Победитель: игрок {winner}. Счет: {sets}',
+        'match_end_early': 'Матч завершен досрочно. Причина: {reason}',
+        'error_not_started': 'Матч еще не начат! Нажмите "НАЧАТЬ МАТЧ"',
+        'error_finished': 'Матч завершен, очки не начисляются'
     },
     en: {
         'appName': 'REFEREE PROTOCOL',
@@ -42,7 +60,25 @@ const translations = {
         'forfeit': 'Forfeit',
         'technical': 'Technical',
         'finishMatchTitle': 'Finish Match',
-        'finishMatchText': 'Select reason:'
+        'finishMatchText': 'Select reason:',
+        'point': 'Point scored by player',
+        'set_end': 'Set {set} completed. Player {winner} wins',
+        'set_start': 'Start of set {set}. Player {server} serves',
+        'serve_auto_change': 'Automatic serve change. Player {server} now serves',
+        'serve_manual_change': 'Manual serve change. Player {server} now serves',
+        'side_change': 'Side change',
+        'accelerate_on': 'Acceleration system activated',
+        'timeout': 'Timeout taken by player {player}',
+        'timeout_error': 'Player {player} has no timeouts left',
+        'warning': 'Warning to player {player}',
+        'yellow': 'Yellow card to player {player}',
+        'red': 'RED CARD to player {player} - disqualification!',
+        'undo': 'Last point undone',
+        'match_start': 'Match officially started',
+        'match_end_sporting': 'Match finished. Winner: player {winner}. Score: {sets}',
+        'match_end_early': 'Match finished early. Reason: {reason}',
+        'error_not_started': 'Match not started yet! Click "START MATCH"',
+        'error_finished': 'Match finished, no more points'
     },
     de: {
         'appName': 'SCHIEDSRICHTERPROTOKOLL',
@@ -63,7 +99,25 @@ const translations = {
         'forfeit': 'Nichtantritt',
         'technical': 'Technisch',
         'finishMatchTitle': 'Spiel beenden',
-        'finishMatchText': 'Grund wählen:'
+        'finishMatchText': 'Grund wählen:',
+        'point': 'Punkt für Spieler',
+        'set_end': 'Satz {set} beendet. Spieler {winner} gewinnt',
+        'set_start': 'Beginn von Satz {set}. Spieler {server} schlägt auf',
+        'serve_auto_change': 'Automatischer Aufschlagwechsel. Spieler {server} schlägt jetzt auf',
+        'serve_manual_change': 'Manueller Aufschlagwechsel. Spieler {server} schlägt jetzt auf',
+        'side_change': 'Seitenwechsel',
+        'accelerate_on': 'Beschleunigungssystem aktiviert',
+        'timeout': 'Auszeit genommen von Spieler {player}',
+        'timeout_error': 'Spieler {player} hat keine Auszeiten mehr',
+        'warning': 'Verwarnung für Spieler {player}',
+        'yellow': 'Gelbe Karte für Spieler {player}',
+        'red': 'ROTE KARTE für Spieler {player} - Disqualifikation!',
+        'undo': 'Letzter Punkt zurückgenommen',
+        'match_start': 'Spiel offiziell gestartet',
+        'match_end_sporting': 'Spiel beendet. Sieger: Spieler {winner}. Ergebnis: {sets}',
+        'match_end_early': 'Spiel vorzeitig beendet. Grund: {reason}',
+        'error_not_started': 'Spiel noch nicht gestartet! Klicken Sie "SPIEL STARTEN"',
+        'error_finished': 'Spiel beendet, keine weiteren Punkte'
     },
     es: {
         'appName': 'PROTOCOLO DE ÁRBITRO',
@@ -84,7 +138,25 @@ const translations = {
         'forfeit': 'No presentado',
         'technical': 'Técnico',
         'finishMatchTitle': 'Finalizar partido',
-        'finishMatchText': 'Seleccione razón:'
+        'finishMatchText': 'Seleccione razón:',
+        'point': 'Punto anotado por jugador',
+        'set_end': 'Set {set} completado. Jugador {winner} gana',
+        'set_start': 'Inicio del set {set}. Saca el jugador {server}',
+        'serve_auto_change': 'Cambio automático de saque. Ahora saca el jugador {server}',
+        'serve_manual_change': 'Cambio manual de saque. Ahora saca el jugador {server}',
+        'side_change': 'Cambio de lado',
+        'accelerate_on': 'Sistema de aceleración activado',
+        'timeout': 'Tiempo muerto solicitado por jugador {player}',
+        'timeout_error': 'El jugador {player} no tiene tiempos muertos',
+        'warning': 'Advertencia al jugador {player}',
+        'yellow': 'Tarjeta amarilla al jugador {player}',
+        'red': 'TARJETA ROJA al jugador {player} - descalificación!',
+        'undo': 'Último punto deshecho',
+        'match_start': 'Partido oficialmente iniciado',
+        'match_end_sporting': 'Partido finalizado. Ganador: jugador {winner}. Resultado: {sets}',
+        'match_end_early': 'Partido finalizado anticipadamente. Razón: {reason}',
+        'error_not_started': 'Partido no iniciado! Haga clic en "COMENZAR PARTIDO"',
+        'error_finished': 'Partido finalizado, no se pueden anotar más puntos'
     },
     it: {
         'appName': 'PROTOCOLLO ARBITRALE',
@@ -105,7 +177,25 @@ const translations = {
         'forfeit': 'Forfait',
         'technical': 'Tecnico',
         'finishMatchTitle': 'Termina partita',
-        'finishMatchText': 'Seleziona motivo:'
+        'finishMatchText': 'Seleziona motivo:',
+        'point': 'Punto segnato dal giocatore',
+        'set_end': 'Set {set} completato. Giocatore {winner} vince',
+        'set_start': 'Inizio del set {set}. Batte il giocatore {server}',
+        'serve_auto_change': 'Cambio automatico di battuta. Ora batte il giocatore {server}',
+        'serve_manual_change': 'Cambio manuale di battuta. Ora batte il giocatore {server}',
+        'side_change': 'Cambio di lato',
+        'accelerate_on': 'Sistema di accelerazione attivato',
+        'timeout': 'Time out richiesto dal giocatore {player}',
+        'timeout_error': 'Il giocatore {player} non ha time out',
+        'warning': 'Ammonizione al giocatore {player}',
+        'yellow': 'Cartellino giallo al giocatore {player}',
+        'red': 'CARTELLINO ROSSO al giocatore {player} - squalifica!',
+        'undo': 'Ultimo punto annullato',
+        'match_start': 'Partita ufficialmente iniziata',
+        'match_end_sporting': 'Partita terminata. Vincitore: giocatore {winner}. Risultato: {sets}',
+        'match_end_early': 'Partita terminata anticipatamente. Motivo: {reason}',
+        'error_not_started': 'Partita non iniziata! Clicca "INIZIA PARTITA"',
+        'error_finished': 'Partita terminata, non si possono assegnare punti'
     },
     fr: {
         'appName': 'PROTOCOLE D\'ARBITRAGE',
@@ -126,7 +216,25 @@ const translations = {
         'forfeit': 'Forfait',
         'technical': 'Technique',
         'finishMatchTitle': 'Terminer le match',
-        'finishMatchText': 'Choisissez la raison:'
+        'finishMatchText': 'Choisissez la raison:',
+        'point': 'Point marqué par le joueur',
+        'set_end': 'Set {set} terminé. Joueur {winner} gagne',
+        'set_start': 'Début du set {set}. Le joueur {server} sert',
+        'serve_auto_change': 'Changement de service automatique. Le joueur {server} sert maintenant',
+        'serve_manual_change': 'Changement de service manuel. Le joueur {server} sert maintenant',
+        'side_change': 'Changement de côté',
+        'accelerate_on': 'Système d\'accélération activé',
+        'timeout': 'Temps mort pris par le joueur {player}',
+        'timeout_error': 'Le joueur {player} n\'a plus de temps mort',
+        'warning': 'Avertissement au joueur {player}',
+        'yellow': 'Carton jaune au joueur {player}',
+        'red': 'CARTON ROUGE au joueur {player} - disqualification!',
+        'undo': 'Dernier point annulé',
+        'match_start': 'Match officiellement commencé',
+        'match_end_sporting': 'Match terminé. Vainqueur: joueur {winner}. Score: {sets}',
+        'match_end_early': 'Match terminé prématurément. Raison: {reason}',
+        'error_not_started': 'Match non commencé! Cliquez sur "COMMENCER LE MATCH"',
+        'error_finished': 'Match terminé, plus de points possibles'
     },
     zh: {
         'appName': '裁判记录表',
@@ -147,7 +255,25 @@ const translations = {
         'forfeit': '弃权',
         'technical': '技术问题',
         'finishMatchTitle': '结束比赛',
-        'finishMatchText': '选择原因：'
+        'finishMatchText': '选择原因：',
+        'point': '选手得分',
+        'set_end': '第{set}局结束。选手{winner}获胜',
+        'set_start': '第{set}局开始。选手{server}发球',
+        'serve_auto_change': '自动换发球。现在选手{server}发球',
+        'serve_manual_change': '手动换发球。现在选手{server}发球',
+        'side_change': '交换场地',
+        'accelerate_on': '加速系统已开启',
+        'timeout': '选手{player}请求暂停',
+        'timeout_error': '选手{player}没有暂停机会了',
+        'warning': '警告选手{player}',
+        'yellow': '黄牌警告选手{player}',
+        'red': '红牌罚下选手{player} - 取消比赛资格！',
+        'undo': '撤销最后一分',
+        'match_start': '比赛正式开始',
+        'match_end_sporting': '比赛结束。获胜者：选手{winner}。比分：{sets}',
+        'match_end_early': '比赛提前结束。原因：{reason}',
+        'error_not_started': '比赛尚未开始！请点击"开始比赛"',
+        'error_finished': '比赛已结束，不能再得分'
     },
     pt: {
         'appName': 'PROTOCOLO DO ÁRBITRO',
@@ -168,14 +294,33 @@ const translations = {
         'forfeit': 'Desistência',
         'technical': 'Técnico',
         'finishMatchTitle': 'Finalizar partida',
-        'finishMatchText': 'Selecione o motivo:'
+        'finishMatchText': 'Selecione o motivo:',
+        'point': 'Ponto marcado pelo jogador',
+        'set_end': 'Set {set} concluído. Jogador {winner} vence',
+        'set_start': 'Início do set {set}. Jogador {server} saca',
+        'serve_auto_change': 'Mudança automática de saque. Agora o jogador {server} saca',
+        'serve_manual_change': 'Mudança manual de saque. Agora o jogador {server} saca',
+        'side_change': 'Mudança de lado',
+        'accelerate_on': 'Sistema de aceleração ativado',
+        'timeout': 'Tempo técnico solicitado pelo jogador {player}',
+        'timeout_error': 'Jogador {player} não tem mais tempos técnicos',
+        'warning': 'Advertência ao jogador {player}',
+        'yellow': 'Cartão amarelo para o jogador {player}',
+        'red': 'CARTÃO VERMELHO para o jogador {player} - desclassificação!',
+        'undo': 'Último ponto desfeito',
+        'match_start': 'Partida oficialmente iniciada',
+        'match_end_sporting': 'Partida finalizada. Vencedor: jogador {winner}. Placar: {sets}',
+        'match_end_early': 'Partida finalizada antecipadamente. Motivo: {reason}',
+        'error_not_started': 'Partida não iniciada! Clique em "INICIAR PARTIDA"',
+        'error_finished': 'Partida finalizada, não é possível marcar pontos'
     }
 };
 
 let currentLang = localStorage.getItem('app_language') || 'ru';
 
 function t(key, params = {}) {
-    const text = translations[currentLang][key] || translations['ru'][key] || key;
+    let text = translations[currentLang][key];
+    if (!text) text = translations['ru'][key] || key;
     let result = text;
     for (const [k, v] of Object.entries(params)) {
         result = result.replace(new RegExp(`\\{${k}\\}`, 'g'), v);
@@ -202,13 +347,17 @@ function applyTranslations() {
     }
     
     const statusEl = document.getElementById('matchStatus');
-    if (statusEl && window.match && window.match) {
-        let status = statusEl.textContent.replace('● ', '');
-        if (status === 'ОЖИДАНИЕ НАЧАЛА' || status === 'WAITING' || status === 'WARTEN AUF START' || status === 'ESPERANDO INICIO' || status === 'IN ATTESA INIZIO' || status === 'EN ATTENTE' || status === '等待开始' || status === 'AGUARDANDO') status = t('waiting');
-        else if (status === 'В ИГРЕ' || status === 'PLAYING' || status === 'IM SPIEL' || status === 'EN JUEGO' || status === 'IN GIOCO' || status === 'EN COURS' || status === '比赛中' || status === 'EM JOGO') status = t('playing');
-        else if (status === 'ЗАВЕРШЕН' || status === 'FINISHED' || status === 'BEENDET' || status === 'FINALIZADO' || status === 'TERMINATA' || status === 'TERMINÉ' || status === '已结束' || status === 'FINALIZADA') status = t('finished');
-        else if (status === 'ДИСКВАЛИФИКАЦИЯ' || status === 'DISQUALIFIED' || status === 'DISQUALIFIZIERT' || status === 'DESCALIFICADO' || status === 'SQUALIFICATO' || status === 'DISQUALIFIÉ' || status === '取消资格' || status === 'DESCLASSIFICADO') status = t('disqualified');
-        statusEl.textContent = '● ' + status;
+    if (statusEl) {
+        let currentText = statusEl.textContent.replace('● ', '');
+        if (currentText.includes('ОЖИДАНИЕ') || currentText.includes('WAITING') || currentText.includes('WARTEN') || currentText.includes('ESPERANDO') || currentText.includes('ATTESA') || currentText.includes('ATTENTE') || currentText.includes('等待') || currentText.includes('AGUARDANDO')) {
+            statusEl.textContent = '● ' + t('waiting');
+        } else if (currentText.includes('В ИГРЕ') || currentText.includes('PLAYING') || currentText.includes('IM SPIEL') || currentText.includes('EN JUEGO') || currentText.includes('IN GIOCO') || currentText.includes('EN COURS') || currentText.includes('比赛') || currentText.includes('EM JOGO')) {
+            statusEl.textContent = '● ' + t('playing');
+        } else if (currentText.includes('ЗАВЕРШЕН') || currentText.includes('FINISHED') || currentText.includes('BEENDET') || currentText.includes('FINALIZADO') || currentText.includes('TERMINATA') || currentText.includes('TERMINÉ') || currentText.includes('结束') || currentText.includes('FINALIZADA')) {
+            statusEl.textContent = '● ' + t('finished');
+        } else if (currentText.includes('ДИСКВАЛИФИКАЦИЯ') || currentText.includes('DISQUALIFIED') || currentText.includes('DISQUALIFIZIERT') || currentText.includes('DESCALIFICADO') || currentText.includes('SQUALIFICATO') || currentText.includes('DISQUALIFIÉ') || currentText.includes('取消资格') || currentText.includes('DESCLASSIFICADO')) {
+            statusEl.textContent = '● ' + t('disqualified');
+        }
     }
 }
 
@@ -223,6 +372,7 @@ function setLanguage(lang) {
         document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
             btn.innerHTML = `🌐 ${langNames[lang]}`;
         });
+        // ОБНОВЛЯЕМ ЖУРНАЛ СОБЫТИЙ ПРИ СМЕНЕ ЯЗЫКА
         if (window.match && window.match.events) {
             updateEventLog();
         }
@@ -404,24 +554,27 @@ class TableTennisMatch {
     }
     
     getEventDescription(event) {
-        if (event.eventKey === 'point') return `🎾 ${t('point')} ${event.params.player} (${event.score})`;
-        if (event.eventKey === 'set_end') return `🏆 ${t('set_end').replace('{set}', event.params.set).replace('{winner}', event.params.winner)}`;
-        if (event.eventKey === 'set_start') return `🎬 ${t('set_start').replace('{set}', event.params.set).replace('{server}', event.params.server)}`;
-        if (event.eventKey === 'serve_auto_change') return `🔄 ${t('serve_auto_change').replace('{server}', event.params.server)}`;
-        if (event.eventKey === 'serve_manual_change') return `🖐️ ${t('serve_manual_change').replace('{server}', event.params.server)}`;
-        if (event.eventKey === 'side_change') return `↔ ${t('side_change')}`;
-        if (event.eventKey === 'accelerate_on') return `⚡ ${t('accelerate_on')}`;
-        if (event.eventKey === 'timeout') return `⏸ ${t('timeout').replace('{player}', event.params.player)}`;
-        if (event.eventKey === 'timeout_error') return `❌ ${t('timeout_error').replace('{player}', event.params.player)}`;
-        if (event.eventKey === 'warning') return `⚠️ ${t('warning').replace('{player}', event.params.player)}`;
-        if (event.eventKey === 'yellow') return `🟨 ${t('yellow').replace('{player}', event.params.player)}`;
-        if (event.eventKey === 'red') return `🟥 ${t('red').replace('{player}', event.params.player)}`;
-        if (event.eventKey === 'undo') return `↩ ${t('undo')}`;
-        if (event.eventKey === 'match_start') return `🏓 ${t('match_start')}`;
-        if (event.eventKey === 'match_end_sporting') return `🏁 ${t('match_end_sporting').replace('{winner}', event.params.winner).replace('{sets}', event.params.sets)}`;
-        if (event.eventKey === 'match_end_early') return `🏁 ${t('match_end_early').replace('{reason}', event.params.reason)}`;
-        if (event.eventKey === 'error_not_started') return `❌ ${t('error_not_started')}`;
-        if (event.eventKey === 'error_finished') return `❌ ${t('error_finished')}`;
+        const tKey = event.eventKey;
+        const params = event.params;
+        
+        if (tKey === 'point') return `🎾 ${t('point')} ${params.player} (${event.score})`;
+        if (tKey === 'set_end') return `🏆 ${t('set_end', { set: params.set, winner: params.winner })}`;
+        if (tKey === 'set_start') return `🎬 ${t('set_start', { set: params.set, server: params.server })}`;
+        if (tKey === 'serve_auto_change') return `🔄 ${t('serve_auto_change', { server: params.server })}`;
+        if (tKey === 'serve_manual_change') return `🖐️ ${t('serve_manual_change', { server: params.server })}`;
+        if (tKey === 'side_change') return `↔ ${t('side_change')}`;
+        if (tKey === 'accelerate_on') return `⚡ ${t('accelerate_on')}`;
+        if (tKey === 'timeout') return `⏸ ${t('timeout', { player: params.player })}`;
+        if (tKey === 'timeout_error') return `❌ ${t('timeout_error', { player: params.player })}`;
+        if (tKey === 'warning') return `⚠️ ${t('warning', { player: params.player })}`;
+        if (tKey === 'yellow') return `🟨 ${t('yellow', { player: params.player })}`;
+        if (tKey === 'red') return `🟥 ${t('red', { player: params.player })}`;
+        if (tKey === 'undo') return `↩ ${t('undo')}`;
+        if (tKey === 'match_start') return `🏓 ${t('match_start')}`;
+        if (tKey === 'match_end_sporting') return `🏁 ${t('match_end_sporting', { winner: params.winner, sets: params.sets })}`;
+        if (tKey === 'match_end_early') return `🏁 ${t('match_end_early', { reason: params.reason })}`;
+        if (tKey === 'error_not_started') return `❌ ${t('error_not_started')}`;
+        if (tKey === 'error_finished') return `❌ ${t('error_finished')}`;
         return event.eventKey;
     }
     
@@ -815,7 +968,7 @@ function printProtocol() {
             <h2>Результат</h2>
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
-            <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
+            <tr><th>Время</th><th>Событие</th><th>Счет</th></tr>
             ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
             </table>
         </body></html>`);
@@ -836,174 +989,6 @@ function downloadFile(content, filename, mimeType) {
 function openBoosty() {
     window.open('https://boosty.to/ben7990', '_blank');
 }
-
-// ==================== ДОБАВЛЯЕМ НЕДОСТАЮЩИЕ ПЕРЕВОДЫ ДЛЯ СОБЫТИЙ ====================
-// Расширяем переводы для всех языков
-const eventTranslations = {
-    ru: {
-        'point': 'Очко заработал игрок',
-        'set_end': 'Партия {set} завершена. Победил игрок {winner}',
-        'set_start': 'Начало {set}-й партии. Подает игрок {server}',
-        'serve_auto_change': 'Автоматическая смена подачи. Теперь подает игрок {server}',
-        'serve_manual_change': 'Ручная смена подачи. Теперь подает игрок {server}',
-        'side_change': 'Смена сторон',
-        'accelerate_on': 'Включена система ускорения',
-        'timeout': 'Тайм-аут взят игроком {player}',
-        'timeout_error': 'У игрока {player} нет тайм-аутов',
-        'warning': 'Предупреждение игроку {player}',
-        'yellow': 'Желтая карточка игроку {player}',
-        'red': 'КРАСНАЯ КАРТОЧКА игроку {player} - дисквалификация!',
-        'undo': 'Отмена последнего очка',
-        'match_start': 'Матч официально начат',
-        'match_end_sporting': 'Матч завершен. Победитель: игрок {winner}. Счет: {sets}',
-        'match_end_early': 'Матч завершен досрочно. Причина: {reason}',
-        'error_not_started': 'Матч еще не начат! Нажмите "НАЧАТЬ МАТЧ"',
-        'error_finished': 'Матч завершен, очки не начисляются'
-    },
-    en: {
-        'point': 'Point scored by player',
-        'set_end': 'Set {set} completed. Player {winner} wins',
-        'set_start': 'Start of set {set}. Player {server} serves',
-        'serve_auto_change': 'Automatic serve change. Player {server} now serves',
-        'serve_manual_change': 'Manual serve change. Player {server} now serves',
-        'side_change': 'Side change',
-        'accelerate_on': 'Acceleration system activated',
-        'timeout': 'Timeout taken by player {player}',
-        'timeout_error': 'Player {player} has no timeouts left',
-        'warning': 'Warning to player {player}',
-        'yellow': 'Yellow card to player {player}',
-        'red': 'RED CARD to player {player} - disqualification!',
-        'undo': 'Last point undone',
-        'match_start': 'Match officially started',
-        'match_end_sporting': 'Match finished. Winner: player {winner}. Score: {sets}',
-        'match_end_early': 'Match finished early. Reason: {reason}',
-        'error_not_started': 'Match not started yet! Click "START MATCH"',
-        'error_finished': 'Match finished, no more points'
-    },
-    de: {
-        'point': 'Punkt für Spieler',
-        'set_end': 'Satz {set} beendet. Spieler {winner} gewinnt',
-        'set_start': 'Beginn von Satz {set}. Spieler {server} schlägt auf',
-        'serve_auto_change': 'Automatischer Aufschlagwechsel. Spieler {server} schlägt jetzt auf',
-        'serve_manual_change': 'Manueller Aufschlagwechsel. Spieler {server} schlägt jetzt auf',
-        'side_change': 'Seitenwechsel',
-        'accelerate_on': 'Beschleunigungssystem aktiviert',
-        'timeout': 'Auszeit genommen von Spieler {player}',
-        'timeout_error': 'Spieler {player} hat keine Auszeiten mehr',
-        'warning': 'Verwarnung für Spieler {player}',
-        'yellow': 'Gelbe Karte für Spieler {player}',
-        'red': 'ROTE KARTE für Spieler {player} - Disqualifikation!',
-        'undo': 'Letzter Punkt zurückgenommen',
-        'match_start': 'Spiel offiziell gestartet',
-        'match_end_sporting': 'Spiel beendet. Sieger: Spieler {winner}. Ergebnis: {sets}',
-        'match_end_early': 'Spiel vorzeitig beendet. Grund: {reason}',
-        'error_not_started': 'Spiel noch nicht gestartet! Klicken Sie "SPIEL STARTEN"',
-        'error_finished': 'Spiel beendet, keine weiteren Punkte'
-    },
-    es: {
-        'point': 'Punto anotado por jugador',
-        'set_end': 'Set {set} completado. Jugador {winner} gana',
-        'set_start': 'Inicio del set {set}. Saca el jugador {server}',
-        'serve_auto_change': 'Cambio automático de saque. Ahora saca el jugador {server}',
-        'serve_manual_change': 'Cambio manual de saque. Ahora saca el jugador {server}',
-        'side_change': 'Cambio de lado',
-        'accelerate_on': 'Sistema de aceleración activado',
-        'timeout': 'Tiempo muerto solicitado por jugador {player}',
-        'timeout_error': 'El jugador {player} no tiene tiempos muertos',
-        'warning': 'Advertencia al jugador {player}',
-        'yellow': 'Tarjeta amarilla al jugador {player}',
-        'red': 'TARJETA ROJA al jugador {player} - descalificación!',
-        'undo': 'Último punto deshecho',
-        'match_start': 'Partido oficialmente iniciado',
-        'match_end_sporting': 'Partido finalizado. Ganador: jugador {winner}. Resultado: {sets}',
-        'match_end_early': 'Partido finalizado anticipadamente. Razón: {reason}',
-        'error_not_started': 'Partido no iniciado! Haga clic en "COMENZAR PARTIDO"',
-        'error_finished': 'Partido finalizado, no se pueden anotar más puntos'
-    },
-    it: {
-        'point': 'Punto segnato dal giocatore',
-        'set_end': 'Set {set} completato. Giocatore {winner} vince',
-        'set_start': 'Inizio del set {set}. Batte il giocatore {server}',
-        'serve_auto_change': 'Cambio automatico di battuta. Ora batte il giocatore {server}',
-        'serve_manual_change': 'Cambio manuale di battuta. Ora batte il giocatore {server}',
-        'side_change': 'Cambio di lato',
-        'accelerate_on': 'Sistema di accelerazione attivato',
-        'timeout': 'Time out richiesto dal giocatore {player}',
-        'timeout_error': 'Il giocatore {player} non ha time out',
-        'warning': 'Ammonizione al giocatore {player}',
-        'yellow': 'Cartellino giallo al giocatore {player}',
-        'red': 'CARTELLINO ROSSO al giocatore {player} - squalifica!',
-        'undo': 'Ultimo punto annullato',
-        'match_start': 'Partita ufficialmente iniziata',
-        'match_end_sporting': 'Partita terminata. Vincitore: giocatore {winner}. Risultato: {sets}',
-        'match_end_early': 'Partita terminata anticipatamente. Motivo: {reason}',
-        'error_not_started': 'Partita non iniziata! Clicca "INIZIA PARTITA"',
-        'error_finished': 'Partita terminata, non si possono assegnare punti'
-    },
-    fr: {
-        'point': 'Point marqué par le joueur',
-        'set_end': 'Set {set} terminé. Joueur {winner} gagne',
-        'set_start': 'Début du set {set}. Le joueur {server} sert',
-        'serve_auto_change': 'Changement de service automatique. Le joueur {server} sert maintenant',
-        'serve_manual_change': 'Changement de service manuel. Le joueur {server} sert maintenant',
-        'side_change': 'Changement de côté',
-        'accelerate_on': 'Système d\'accélération activé',
-        'timeout': 'Temps mort pris par le joueur {player}',
-        'timeout_error': 'Le joueur {player} n\'a plus de temps mort',
-        'warning': 'Avertissement au joueur {player}',
-        'yellow': 'Carton jaune au joueur {player}',
-        'red': 'CARTON ROUGE au joueur {player} - disqualification!',
-        'undo': 'Dernier point annulé',
-        'match_start': 'Match officiellement commencé',
-        'match_end_sporting': 'Match terminé. Vainqueur: joueur {winner}. Score: {sets}',
-        'match_end_early': 'Match terminé prématurément. Raison: {reason}',
-        'error_not_started': 'Match non commencé! Cliquez sur "COMMENCER LE MATCH"',
-        'error_finished': 'Match terminé, plus de points possibles'
-    },
-    zh: {
-        'point': '选手得分',
-        'set_end': '第{set}局结束。选手{winner}获胜',
-        'set_start': '第{set}局开始。选手{server}发球',
-        'serve_auto_change': '自动换发球。现在选手{server}发球',
-        'serve_manual_change': '手动换发球。现在选手{server}发球',
-        'side_change': '交换场地',
-        'accelerate_on': '加速系统已开启',
-        'timeout': '选手{player}请求暂停',
-        'timeout_error': '选手{player}没有暂停机会了',
-        'warning': '警告选手{player}',
-        'yellow': '黄牌警告选手{player}',
-        'red': '红牌罚下选手{player} - 取消比赛资格！',
-        'undo': '撤销最后一分',
-        'match_start': '比赛正式开始',
-        'match_end_sporting': '比赛结束。获胜者：选手{winner}。比分：{sets}',
-        'match_end_early': '比赛提前结束。原因：{reason}',
-        'error_not_started': '比赛尚未开始！请点击"开始比赛"',
-        'error_finished': '比赛已结束，不能再得分'
-    },
-    pt: {
-        'point': 'Ponto marcado pelo jogador',
-        'set_end': 'Set {set} concluído. Jogador {winner} vence',
-        'set_start': 'Início do set {set}. Jogador {server} saca',
-        'serve_auto_change': 'Mudança automática de saque. Agora o jogador {server} saca',
-        'serve_manual_change': 'Mudança manual de saque. Agora o jogador {server} saca',
-        'side_change': 'Mudança de lado',
-        'accelerate_on': 'Sistema de aceleração ativado',
-        'timeout': 'Tempo técnico solicitado pelo jogador {player}',
-        'timeout_error': 'Jogador {player} não tem mais tempos técnicos',
-        'warning': 'Advertência ao jogador {player}',
-        'yellow': 'Cartão amarelo para o jogador {player}',
-        'red': 'CARTÃO VERMELHO para o jogador {player} - desclassificação!',
-        'undo': 'Último ponto desfeito',
-        'match_start': 'Partida oficialmente iniciada',
-        'match_end_sporting': 'Partida finalizada. Vencedor: jogador {winner}. Placar: {sets}',
-        'match_end_early': 'Partida finalizada antecipadamente. Motivo: {reason}',
-        'error_not_started': 'Partida não iniciada! Clique em "INICIAR PARTIDA"',
-        'error_finished': 'Partida finalizada, não é possível marcar pontos'
-    }
-};
-
-// Обновляем функцию getEventDescription для использования переводов
-// (код выше уже обновлен)
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
@@ -1115,7 +1100,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     if (sendResetCodeBtn) {
-        sendResetCodeBtn.onclick = async () => {
+        sendResetCodeBtn.onclick = () => {
             const email = document.getElementById('resetEmail').value;
             if (!email) {
                 alert('Введите email');
@@ -1128,7 +1113,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Имитация отправки кода (в реальности нужен EmailJS)
             const code = Math.floor(100000 + Math.random() * 900000).toString();
             localStorage.setItem('reset_code_' + email, code);
             localStorage.setItem('reset_code_expiry_' + email, Date.now() + 15 * 60 * 1000);
