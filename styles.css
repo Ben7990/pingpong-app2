@@ -4,11 +4,16 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 15px;
+    padding: 10px;
     min-height: 100vh;
+    height: 100%;
 }
 
 .container {
@@ -18,6 +23,9 @@ body {
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Auth Screen */
@@ -27,6 +35,7 @@ body {
     align-items: center;
     min-height: 80vh;
     padding: 20px;
+    flex: 1;
 }
 
 .auth-card {
@@ -139,6 +148,7 @@ body {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
     padding: 15px;
+    flex-shrink: 0;
 }
 
 .header h1 {
@@ -176,30 +186,35 @@ body {
 /* Ad Banner */
 .ad-banner {
     background: linear-gradient(135deg, #ffd89b, #c7e9fb);
-    padding: 10px 15px;
+    padding: 8px 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
+    font-size: 11px;
     border-bottom: 1px solid #ddd;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 .upgrade-banner-btn {
     background: #ff4757;
     color: white;
     border: none;
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 10px;
 }
 
-/* Game Area */
+/* Game Area - растягиваем на всю высоту */
 .game-area {
     padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Верхняя строка с игроками */
@@ -210,6 +225,7 @@ body {
     gap: 15px;
     margin-bottom: 15px;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .player-card {
@@ -246,7 +262,7 @@ body {
 }
 
 .score-display {
-    font-size: 40px;
+    font-size: 42px;
     font-weight: bold;
     margin: 8px 0;
     color: #2c3e50;
@@ -264,7 +280,7 @@ body {
 }
 
 .set-score {
-    font-size: 32px;
+    font-size: 34px;
     font-weight: bold;
     color: #2c3e50;
     margin-bottom: 10px;
@@ -306,12 +322,13 @@ body {
     gap: 15px;
     margin-bottom: 15px;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .point-btn {
     flex: 1;
-    padding: 12px;
-    font-size: 14px;
+    padding: 14px;
+    font-size: 16px;
     font-weight: bold;
     border: none;
     border-radius: 10px;
@@ -333,23 +350,26 @@ body {
     color: white;
 }
 
-/* Три колонки */
+/* Три колонки - растягиваем */
 .three-columns {
     display: flex;
     justify-content: space-between;
     gap: 15px;
     margin-bottom: 15px;
     flex-wrap: wrap;
+    flex: 1;
+    min-height: 0;
 }
 
 .player-buttons-col {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     background: #f8f9fa;
-    padding: 12px;
+    padding: 15px;
     border-radius: 12px;
+    justify-content: space-around;
 }
 
 .player1-col {
@@ -362,8 +382,8 @@ body {
 
 .player-buttons-col .special-btn {
     width: 100%;
-    padding: 10px 6px;
-    font-size: 11px;
+    padding: 14px 6px;
+    font-size: 13px;
     font-weight: bold;
     text-align: center;
 }
@@ -372,16 +392,17 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     background: #e8ecf1;
-    padding: 12px;
+    padding: 15px;
     border-radius: 12px;
+    justify-content: space-around;
 }
 
 .center-buttons-col .control-btn {
     width: 100%;
-    padding: 10px 6px;
-    font-size: 11px;
+    padding: 14px 6px;
+    font-size: 13px;
     background: #607d8b;
     color: white;
     border: none;
@@ -442,13 +463,14 @@ body {
     background: #d32f2f;
 }
 
-/* Protocol Section */
+/* Protocol Section - компактный но читаемый */
 .protocol-section {
     background: #fff;
     border: 2px solid #e0e0e0;
     border-radius: 15px;
     padding: 12px;
     margin-top: 10px;
+    flex-shrink: 0;
 }
 
 .protocol-section h3 {
@@ -461,8 +483,8 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 10px;
-    margin-bottom: 12px;
-    padding: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
     background: #f8f9fa;
     border-radius: 10px;
 }
@@ -482,27 +504,27 @@ body {
 .protocol-item input {
     font-size: 10px;
     padding: 4px 8px;
-    width: 130px;
+    width: 120px;
 }
 
 .log-area {
     background: #2c3e50;
     color: #ecf0f1;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
-    margin-bottom: 12px;
-    max-height: 130px;
+    margin-bottom: 10px;
+    max-height: 120px;
     overflow-y: auto;
 }
 
 .log-area h4 {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-size: 11px;
 }
 
 #eventLog {
     font-family: 'Courier New', monospace;
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .export-buttons {
@@ -531,11 +553,12 @@ body {
 /* Футер */
 .app-footer {
     background: #f5f5f5;
-    padding: 10px 15px;
+    padding: 8px 12px;
     text-align: center;
-    font-size: 10px;
+    font-size: 9px;
     border-top: 1px solid #ddd;
-    margin-top: 15px;
+    margin-top: 10px;
+    flex-shrink: 0;
 }
 
 /* Modal */
@@ -578,123 +601,27 @@ body {
     color: #999;
 }
 
-/* ========== АДАПТАЦИЯ ДЛЯ ВЕРТИКАЛЬНОГО РЕЖИМА ТЕЛЕФОНА (растягиваем в длину) ========== */
+/* ========== АДАПТАЦИЯ ДЛЯ ВЕРТИКАЛЬНОГО РЕЖИМА ТЕЛЕФОНА ========== */
 @media (max-width: 768px) and (orientation: portrait) {
     body {
-        padding: 8px;
+        padding: 5px;
     }
     
-    .game-area {
-        padding: 12px;
-    }
-    
-    .players-top-row {
-        gap: 12px;
-        margin-bottom: 12px;
-    }
-    
-    .player-card {
-        padding: 12px;
-    }
-    
-    .score-display {
-        font-size: 44px;
-    }
-    
-    .set-score {
-        font-size: 34px;
-    }
-    
-    .point-btn {
-        padding: 14px;
-        font-size: 15px;
-    }
-    
-    .player-buttons-col .special-btn,
-    .center-buttons-col .control-btn {
-        padding: 12px 6px;
-        font-size: 12px;
-    }
-    
-    .player-buttons-col,
-    .center-buttons-col {
-        gap: 10px;
-        padding: 14px;
-    }
-    
-    .protocol-section {
-        padding: 14px;
-    }
-    
-    .log-area {
-        max-height: 160px;
-    }
-    
-    .protocol-info {
-        gap: 12px;
-    }
-    
-    .export-btn {
-        padding: 10px 5px;
-        font-size: 11px;
-    }
-}
-
-/* ========== АДАПТАЦИЯ ДЛЯ ГОРИЗОНТАЛЬНОГО РЕЖИМА (растягиваем по ширине) ========== */
-@media (orientation: landscape) {
-    body {
-        padding: 10px 20px;
-    }
-    
-    .container {
-        max-width: 100%;
-        width: 100%;
-    }
-    
-    .players-top-row {
-        gap: 20px;
-    }
-    
-    .player-card {
-        padding: 15px;
-    }
-    
-    .score-display {
-        font-size: 48px;
-    }
-    
-    .set-score {
-        font-size: 38px;
-    }
-    
-    .three-columns {
-        gap: 25px;
-    }
-    
-    .player-buttons-col .special-btn,
-    .center-buttons-col .control-btn {
-        padding: 12px 8px;
-        font-size: 12px;
-    }
-    
-    .log-area {
-        max-height: 140px;
-    }
-}
-
-/* Для горизонтальной ориентации на телефоне (ширина > высота) */
-@media (orientation: landscape) and (max-height: 600px) {
     .game-area {
         padding: 10px;
     }
     
     .players-top-row {
-        gap: 12px;
+        gap: 10px;
         margin-bottom: 10px;
     }
     
     .player-card {
         padding: 10px;
+    }
+    
+    .player-header h2 {
+        font-size: 14px;
     }
     
     .score-display {
@@ -706,38 +633,42 @@ body {
     }
     
     .point-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .three-columns {
+        gap: 10px;
+        margin-bottom: 10px;
+        flex: 1;
+    }
+    
+    .player-buttons-col,
+    .center-buttons-col {
         padding: 10px;
-        font-size: 13px;
+        gap: 8px;
     }
     
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
-        padding: 8px 5px;
-        font-size: 10px;
-    }
-    
-    .log-area {
-        max-height: 100px;
-    }
-}
-
-/* Для горизонтальной ориентации на планшетах */
-@media (orientation: landscape) and (min-width: 768px) and (max-width: 1024px) {
-    .player-buttons-col .special-btn,
-    .center-buttons-col .control-btn {
+        padding: 12px 5px;
         font-size: 11px;
     }
     
-    .score-display {
-        font-size: 52px;
+    .protocol-section {
+        padding: 10px;
     }
     
-    .set-score {
-        font-size: 42px;
+    .log-area {
+        max-height: 140px;
+    }
+    
+    .protocol-item input {
+        width: 100px;
     }
 }
 
-/* Для очень маленьких телефонов в вертикальном режиме */
+/* ========== ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ТЕЛЕФОНОВ ВЕРТИКАЛЬНО ========== */
 @media (max-width: 480px) and (orientation: portrait) {
     .players-top-row {
         flex-direction: column;
@@ -749,7 +680,7 @@ body {
     
     .vs-area {
         order: 3;
-        margin-top: 8px;
+        margin-top: 5px;
     }
     
     .three-columns {
@@ -757,11 +688,11 @@ body {
     }
     
     .score-display {
-        font-size: 40px;
+        font-size: 36px;
     }
     
     .point-btn {
-        padding: 12px;
+        padding: 10px;
         font-size: 13px;
     }
     
@@ -772,12 +703,85 @@ body {
     }
 }
 
-/* Для немецкого языка - чуть меньше шрифт */
+/* ========== АДАПТАЦИЯ ДЛЯ ГОРИЗОНТАЛЬНОГО РЕЖИМА ========== */
+@media (orientation: landscape) {
+    body {
+        padding: 8px 15px;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .players-top-row {
+        gap: 15px;
+    }
+    
+    .score-display {
+        font-size: 44px;
+    }
+    
+    .set-score {
+        font-size: 34px;
+    }
+    
+    .three-columns {
+        gap: 15px;
+    }
+    
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        padding: 12px 6px;
+        font-size: 12px;
+    }
+}
+
+/* Для горизонтальной ориентации на телефоне */
+@media (orientation: landscape) and (max-height: 600px) {
+    .game-area {
+        padding: 8px;
+    }
+    
+    .players-top-row {
+        gap: 10px;
+        margin-bottom: 8px;
+    }
+    
+    .player-card {
+        padding: 8px;
+    }
+    
+    .score-display {
+        font-size: 32px;
+    }
+    
+    .set-score {
+        font-size: 26px;
+    }
+    
+    .point-btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        padding: 8px 4px;
+        font-size: 10px;
+    }
+    
+    .log-area {
+        max-height: 90px;
+    }
+}
+
+/* Для немецкого языка */
 html[lang="de"] .player-buttons-col .special-btn,
 html[data-lang="de"] .player-buttons-col .special-btn,
 html[lang="de"] .center-buttons-col .control-btn,
 html[data-lang="de"] .center-buttons-col .control-btn {
-    font-size: 9px;
+    font-size: 10px;
     white-space: normal;
     line-height: 1.2;
 }
@@ -786,6 +790,15 @@ html[lang="de"] .export-btn,
 html[data-lang="de"] .export-btn {
     font-size: 8px;
     white-space: normal;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    html[lang="de"] .player-buttons-col .special-btn,
+    html[data-lang="de"] .player-buttons-col .special-btn,
+    html[lang="de"] .center-buttons-col .control-btn,
+    html[data-lang="de"] .center-buttons-col .control-btn {
+        font-size: 9px;
+    }
 }
 
 /* Language Menu */
