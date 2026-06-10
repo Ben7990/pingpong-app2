@@ -22,6 +22,42 @@ const translations = {
         'technical': 'Техпроблема',
         'finishMatchTitle': 'Завершение матча',
         'finishMatchText': 'Выберите причину:',
+        'player1Title': 'ИГРОК 1',
+        'player2Title': 'ИГРОК 2',
+        'serve': 'ПОДАЧА',
+        'newMatch': '🔄 НОВЫЙ МАТЧ',
+        'startMatch': '🎬 НАЧАТЬ МАТЧ',
+        'finishMatch': '🏁 ЗАВЕРШИТЬ',
+        'pointToPlayer1': '➕ ОЧКО ИГРОКУ 1',
+        'pointToPlayer2': '➕ ОЧКО ИГРОКУ 2',
+        'timeout': '⏸ ТАЙМ-АУТ',
+        'warning': '⚠️ ПРЕДУПРЕЖДЕНИЕ',
+        'yellow': '🟨 ЖЕЛТАЯ КАРТА',
+        'red': '🟥 КРАСНАЯ КАРТА',
+        'changeServe': '🔄 СМЕНА ПОДАЧИ',
+        'changeSide': '↔ СМЕНА СТОРОН',
+        'undoPoint': '↩ ОТМЕНА ОЧКА',
+        'accelerate': '⚡ УСКОРЕНИЕ',
+        'protocol': '📋 СУДЕЙСКИЙ ПРОТОКОЛ',
+        'referee': 'Главный судья:',
+        'startTime': 'Время начала:',
+        'currentTime': 'Текущее время:',
+        'status': 'Статус:',
+        'eventLog': 'ЖУРНАЛ СОБЫТИЙ',
+        'exportJSON': '💾 ЭКСПОРТ JSON',
+        'exportCSV': '📊 ЭКСПОРТ CSV (ANSI)',
+        'exportCSVUtf8': '📊 ЭКСПОРТ CSV (UTF-8)',
+        'print': '🖨 ПЕЧАТЬ ПРОТОКОЛА',
+        'adBanner': '📢 Если вам нравится приложение — поддержите проект на Boosty! →',
+        'buyPro': 'Поддержать',
+        'authAd': '📢 Бесплатная версия: 99 матчей • Поддержать проект можно на Boosty',
+        'resetPassword': '🔑 Забыли пароль?',
+        'sendCode': 'Отправить код',
+        'changePassword': 'Сменить пароль',
+        'enterEmail': 'Введите email, указанный при регистрации',
+        'enterCode': 'Введите код из письма',
+        'newPassword': 'Новый пароль',
+        'codeSent': 'Код отправлен на почту',
         'point': '🎾 Очко заработал игрок {player}',
         'set_end': '🏆 Партия {set} завершена. Победил игрок {winner}',
         'set_start': '🎬 Начало {set}-й партии. Подает игрок {server}',
@@ -29,11 +65,11 @@ const translations = {
         'serve_manual_change': '🖐️ Ручная смена подачи. Теперь подает игрок {server}',
         'side_change': '↔ Смена сторон',
         'accelerate_on': '⚡ Включена система ускорения',
-        'timeout': '⏸ Тайм-аут взят игроком {player}',
+        'timeout_event': '⏸ Тайм-аут взят игроком {player}',
         'timeout_error': '❌ У игрока {player} нет тайм-аутов',
-        'warning': '⚠️ Предупреждение игроку {player}',
-        'yellow': '🟨 Желтая карточка игроку {player}',
-        'red': '🟥 КРАСНАЯ КАРТОЧКА игроку {player} - дисквалификация!',
+        'warning_event': '⚠️ Предупреждение игроку {player}',
+        'yellow_event': '🟨 Желтая карточка игроку {player}',
+        'red_event': '🟥 КРАСНАЯ КАРТОЧКА игроку {player} - дисквалификация!',
         'undo': '↩ Отмена последнего очка',
         'match_start': '🏓 Матч официально начат',
         'match_end_sporting': '🏁 Матч завершен. Победитель: игрок {winner}. Счет: {sets}',
@@ -52,7 +88,6 @@ const translations = {
         'score': 'Счет',
         'vs': 'против',
         'winner': 'Победитель',
-        'status': 'Статус',
         'endTime': 'Время окончания'
     },
     en: {
@@ -75,6 +110,42 @@ const translations = {
         'technical': 'Technical',
         'finishMatchTitle': 'Finish Match',
         'finishMatchText': 'Select reason:',
+        'player1Title': 'PLAYER 1',
+        'player2Title': 'PLAYER 2',
+        'serve': 'SERVE',
+        'newMatch': '🔄 NEW MATCH',
+        'startMatch': '🎬 START MATCH',
+        'finishMatch': '🏁 FINISH',
+        'pointToPlayer1': '➕ POINT PLAYER 1',
+        'pointToPlayer2': '➕ POINT PLAYER 2',
+        'timeout': '⏸ TIMEOUT',
+        'warning': '⚠️ WARNING',
+        'yellow': '🟨 YELLOW CARD',
+        'red': '🟥 RED CARD',
+        'changeServe': '🔄 CHANGE SERVE',
+        'changeSide': '↔ CHANGE SIDES',
+        'undoPoint': '↩ UNDO POINT',
+        'accelerate': '⚡ ACCELERATION',
+        'protocol': '📋 MATCH PROTOCOL',
+        'referee': 'Referee:',
+        'startTime': 'Start time:',
+        'currentTime': 'Current time:',
+        'status': 'Status:',
+        'eventLog': 'EVENT LOG',
+        'exportJSON': '💾 EXPORT JSON',
+        'exportCSV': '📊 EXPORT CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORT CSV (UTF-8)',
+        'print': '🖨 PRINT PROTOCOL',
+        'adBanner': '📢 If you like the app — support the project on Boosty! →',
+        'buyPro': 'Support',
+        'authAd': '📢 Free version: 99 matches • Support the project on Boosty',
+        'resetPassword': '🔑 Forgot password?',
+        'sendCode': 'Send code',
+        'changePassword': 'Change password',
+        'enterEmail': 'Enter email address used during registration',
+        'enterCode': 'Enter the code from the email',
+        'newPassword': 'New password',
+        'codeSent': 'Code sent to email',
         'point': '🎾 Point scored by player {player}',
         'set_end': '🏆 Set {set} completed. Player {winner} wins',
         'set_start': '🎬 Start of set {set}. Player {server} serves',
@@ -82,11 +153,11 @@ const translations = {
         'serve_manual_change': '🖐️ Manual serve change. Player {server} now serves',
         'side_change': '↔ Side change',
         'accelerate_on': '⚡ Acceleration system activated',
-        'timeout': '⏸ Timeout taken by player {player}',
+        'timeout_event': '⏸ Timeout taken by player {player}',
         'timeout_error': '❌ Player {player} has no timeouts left',
-        'warning': '⚠️ Warning to player {player}',
-        'yellow': '🟨 Yellow card to player {player}',
-        'red': '🟥 RED CARD to player {player} - disqualification!',
+        'warning_event': '⚠️ Warning to player {player}',
+        'yellow_event': '🟨 Yellow card to player {player}',
+        'red_event': '🟥 RED CARD to player {player} - disqualification!',
         'undo': '↩ Last point undone',
         'match_start': '🏓 Match officially started',
         'match_end_sporting': '🏁 Match finished. Winner: player {winner}. Score: {sets}',
@@ -105,7 +176,6 @@ const translations = {
         'score': 'Score',
         'vs': 'vs',
         'winner': 'Winner',
-        'status': 'Status',
         'endTime': 'End time'
     },
     de: {
@@ -128,6 +198,42 @@ const translations = {
         'technical': 'Technisch',
         'finishMatchTitle': 'Spiel beenden',
         'finishMatchText': 'Grund wählen:',
+        'player1Title': 'SPIELER 1',
+        'player2Title': 'SPIELER 2',
+        'serve': 'AUFSCHLAG',
+        'newMatch': '🔄 NEUES SPIEL',
+        'startMatch': '🎬 SPIEL STARTEN',
+        'finishMatch': '🏁 BEENDEN',
+        'pointToPlayer1': '➕ PUNKT SPIELER 1',
+        'pointToPlayer2': '➕ PUNKT SPIELER 2',
+        'timeout': '⏸ AUSZEIT',
+        'warning': '⚠️ VERWARNUNG',
+        'yellow': '🟨 GELBE KARTE',
+        'red': '🟥 ROTE KARTE',
+        'changeServe': '🔄 AUFSCHLAG WECHSELN',
+        'changeSide': '↔ SEITEN WECHSELN',
+        'undoPoint': '↩ PUNKT ZURÜCKNEHMEN',
+        'accelerate': '⚡ BESCHLEUNIGUNG',
+        'protocol': '📋 SPIELPROTOKOLL',
+        'referee': 'Schiedsrichter:',
+        'startTime': 'Startzeit:',
+        'currentTime': 'Aktuelle Zeit:',
+        'status': 'Status:',
+        'eventLog': 'EREIGNISPROTOKOLL',
+        'exportJSON': '💾 EXPORT JSON',
+        'exportCSV': '📊 EXPORT CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORT CSV (UTF-8)',
+        'print': '🖨 PROTOKOLL DRUCKEN',
+        'adBanner': '📢 Unterstützen Sie das Projekt auf Boosty! →',
+        'buyPro': 'Unterstützen',
+        'authAd': '📢 Kostenlose Version: 99 Spiele • Unterstützen Sie das Projekt auf Boosty',
+        'resetPassword': '🔑 Passwort vergessen?',
+        'sendCode': 'Code senden',
+        'changePassword': 'Passwort ändern',
+        'enterEmail': 'E-Mail-Adresse eingeben',
+        'enterCode': 'Code aus der E-Mail eingeben',
+        'newPassword': 'Neues Passwort',
+        'codeSent': 'Code wurde gesendet',
         'point': '🎾 Punkt für Spieler {player}',
         'set_end': '🏆 Satz {set} beendet. Spieler {winner} gewinnt',
         'set_start': '🎬 Beginn von Satz {set}. Spieler {server} schlägt auf',
@@ -135,11 +241,11 @@ const translations = {
         'serve_manual_change': '🖐️ Manueller Aufschlagwechsel. Spieler {server} schlägt jetzt auf',
         'side_change': '↔ Seitenwechsel',
         'accelerate_on': '⚡ Beschleunigungssystem aktiviert',
-        'timeout': '⏸ Auszeit genommen von Spieler {player}',
+        'timeout_event': '⏸ Auszeit genommen von Spieler {player}',
         'timeout_error': '❌ Spieler {player} hat keine Auszeiten mehr',
-        'warning': '⚠️ Verwarnung für Spieler {player}',
-        'yellow': '🟨 Gelbe Karte für Spieler {player}',
-        'red': '🟥 ROTE KARTE für Spieler {player} - Disqualifikation!',
+        'warning_event': '⚠️ Verwarnung für Spieler {player}',
+        'yellow_event': '🟨 Gelbe Karte für Spieler {player}',
+        'red_event': '🟥 ROTE KARTE für Spieler {player} - Disqualifikation!',
         'undo': '↩ Letzter Punkt zurückgenommen',
         'match_start': '🏓 Spiel offiziell gestartet',
         'match_end_sporting': '🏁 Spiel beendet. Sieger: Spieler {winner}. Ergebnis: {sets}',
@@ -158,7 +264,6 @@ const translations = {
         'score': 'Punktstand',
         'vs': 'gegen',
         'winner': 'Sieger',
-        'status': 'Status',
         'endTime': 'Endzeit'
     },
     es: {
@@ -181,6 +286,42 @@ const translations = {
         'technical': 'Técnico',
         'finishMatchTitle': 'Finalizar partido',
         'finishMatchText': 'Seleccione razón:',
+        'player1Title': 'JUGADOR 1',
+        'player2Title': 'JUGADOR 2',
+        'serve': 'SACAR',
+        'newMatch': '🔄 NUEVO PARTIDO',
+        'startMatch': '🎬 COMENZAR PARTIDO',
+        'finishMatch': '🏁 FINALIZAR',
+        'pointToPlayer1': '➕ PUNTO JUGADOR 1',
+        'pointToPlayer2': '➕ PUNTO JUGADOR 2',
+        'timeout': '⏸ TIEMPO MUERTO',
+        'warning': '⚠️ ADVERTENCIA',
+        'yellow': '🟨 TARJETA AMARILLA',
+        'red': '🟥 TARJETA ROJA',
+        'changeServe': '🔄 CAMBIAR SAQUE',
+        'changeSide': '↔ CAMBIAR LADOS',
+        'undoPoint': '↩ DESHACER PUNTO',
+        'accelerate': '⚡ ACELERACIÓN',
+        'protocol': '📋 PROTOCOLO DEL PARTIDO',
+        'referee': 'Árbitro:',
+        'startTime': 'Hora de inicio:',
+        'currentTime': 'Hora actual:',
+        'status': 'Estado:',
+        'eventLog': 'REGISTRO DE EVENTOS',
+        'exportJSON': '💾 EXPORTAR JSON',
+        'exportCSV': '📊 EXPORTAR CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORTAR CSV (UTF-8)',
+        'print': '🖨 IMPRIMIR PROTOCOLO',
+        'adBanner': '📢 ¡Apoya el proyecto en Boosty! →',
+        'buyPro': 'Apoyar',
+        'authAd': '📢 Versión gratuita: 99 partidos • Apoya el proyecto en Boosty',
+        'resetPassword': '🔑 ¿Olvidó su contraseña?',
+        'sendCode': 'Enviar código',
+        'changePassword': 'Cambiar contraseña',
+        'enterEmail': 'Ingrese el email de registro',
+        'enterCode': 'Ingrese el código del email',
+        'newPassword': 'Nueva contraseña',
+        'codeSent': 'Código enviado',
         'point': '🎾 Punto anotado por jugador {player}',
         'set_end': '🏆 Set {set} completado. Jugador {winner} gana',
         'set_start': '🎬 Inicio del set {set}. Saca el jugador {server}',
@@ -188,11 +329,11 @@ const translations = {
         'serve_manual_change': '🖐️ Cambio manual de saque. Ahora saca el jugador {server}',
         'side_change': '↔ Cambio de lado',
         'accelerate_on': '⚡ Sistema de aceleración activado',
-        'timeout': '⏸ Tiempo muerto solicitado por jugador {player}',
+        'timeout_event': '⏸ Tiempo muerto solicitado por jugador {player}',
         'timeout_error': '❌ El jugador {player} no tiene tiempos muertos',
-        'warning': '⚠️ Advertencia al jugador {player}',
-        'yellow': '🟨 Tarjeta amarilla al jugador {player}',
-        'red': '🟥 TARJETA ROJA al jugador {player} - descalificación!',
+        'warning_event': '⚠️ Advertencia al jugador {player}',
+        'yellow_event': '🟨 Tarjeta amarilla al jugador {player}',
+        'red_event': '🟥 TARJETA ROJA al jugador {player} - descalificación!',
         'undo': '↩ Último punto deshecho',
         'match_start': '🏓 Partido oficialmente iniciado',
         'match_end_sporting': '🏁 Partido finalizado. Ganador: jugador {winner}. Resultado: {sets}',
@@ -211,7 +352,6 @@ const translations = {
         'score': 'Marcador',
         'vs': 'contra',
         'winner': 'Ganador',
-        'status': 'Estado',
         'endTime': 'Hora final'
     },
     it: {
@@ -234,6 +374,42 @@ const translations = {
         'technical': 'Tecnico',
         'finishMatchTitle': 'Termina partita',
         'finishMatchText': 'Seleziona motivo:',
+        'player1Title': 'GIOCATORE 1',
+        'player2Title': 'GIOCATORE 2',
+        'serve': 'BATTUTA',
+        'newMatch': '🔄 NUOVA PARTITA',
+        'startMatch': '🎬 INIZIA PARTITA',
+        'finishMatch': '🏁 TERMINA',
+        'pointToPlayer1': '➕ PUNTO GIOCATORE 1',
+        'pointToPlayer2': '➕ PUNTO GIOCATORE 2',
+        'timeout': '⏸ TIME OUT',
+        'warning': '⚠️ AMMONIZIONE',
+        'yellow': '🟨 CARTELLINO GIALLO',
+        'red': '🟥 CARTELLINO ROSSO',
+        'changeServe': '🔄 CAMBIA BATTUTA',
+        'changeSide': '↔ CAMBIA LATO',
+        'undoPoint': '↩ ANNULLA PUNTO',
+        'accelerate': '⚡ ACCELERAZIONE',
+        'protocol': '📋 PROTOCOLLO PARTITA',
+        'referee': 'Arbitro:',
+        'startTime': 'Ora inizio:',
+        'currentTime': 'Ora corrente:',
+        'status': 'Stato:',
+        'eventLog': 'REGISTRO EVENTI',
+        'exportJSON': '💾 ESPORTA JSON',
+        'exportCSV': '📊 ESPORTA CSV (ANSI)',
+        'exportCSVUtf8': '📊 ESPORTA CSV (UTF-8)',
+        'print': '🖨 STAMPA PROTOCOLLO',
+        'adBanner': '📢 Supporta il progetto su Boosty! →',
+        'buyPro': 'Supporta',
+        'authAd': '📢 Versione gratuita: 99 partite • Supporta il progetto su Boosty',
+        'resetPassword': '🔑 Password dimenticata?',
+        'sendCode': 'Invia codice',
+        'changePassword': 'Cambia password',
+        'enterEmail': 'Inserisci email di registrazione',
+        'enterCode': 'Inserisci il codice ricevuto',
+        'newPassword': 'Nuova password',
+        'codeSent': 'Codice inviato',
         'point': '🎾 Punto segnato dal giocatore {player}',
         'set_end': '🏆 Set {set} completato. Giocatore {winner} vince',
         'set_start': '🎬 Inizio del set {set}. Batte il giocatore {server}',
@@ -241,11 +417,11 @@ const translations = {
         'serve_manual_change': '🖐️ Cambio manuale di battuta. Ora batte il giocatore {server}',
         'side_change': '↔ Cambio di lato',
         'accelerate_on': '⚡ Sistema di accelerazione attivato',
-        'timeout': '⏸ Time out richiesto dal giocatore {player}',
+        'timeout_event': '⏸ Time out richiesto dal giocatore {player}',
         'timeout_error': '❌ Il giocatore {player} non ha time out',
-        'warning': '⚠️ Ammonizione al giocatore {player}',
-        'yellow': '🟨 Cartellino giallo al giocatore {player}',
-        'red': '🟥 CARTELLINO ROSSO al giocatore {player} - squalifica!',
+        'warning_event': '⚠️ Ammonizione al giocatore {player}',
+        'yellow_event': '🟨 Cartellino giallo al giocatore {player}',
+        'red_event': '🟥 CARTELLINO ROSSO al giocatore {player} - squalifica!',
         'undo': '↩ Ultimo punto annullato',
         'match_start': '🏓 Partita ufficialmente iniziata',
         'match_end_sporting': '🏁 Partita terminata. Vincitore: giocatore {winner}. Risultato: {sets}',
@@ -264,7 +440,6 @@ const translations = {
         'score': 'Punteggio',
         'vs': 'contro',
         'winner': 'Vincitore',
-        'status': 'Stato',
         'endTime': 'Ora fine'
     },
     fr: {
@@ -287,6 +462,42 @@ const translations = {
         'technical': 'Technique',
         'finishMatchTitle': 'Terminer le match',
         'finishMatchText': 'Choisissez la raison:',
+        'player1Title': 'JOUEUR 1',
+        'player2Title': 'JOUEUR 2',
+        'serve': 'SERVICE',
+        'newMatch': '🔄 NOUVEAU MATCH',
+        'startMatch': '🎬 COMMENCER',
+        'finishMatch': '🏁 TERMINER',
+        'pointToPlayer1': '➕ POINT JOUEUR 1',
+        'pointToPlayer2': '➕ POINT JOUEUR 2',
+        'timeout': '⏸ TEMPS MORT',
+        'warning': '⚠️ AVERTISSEMENT',
+        'yellow': '🟨 CARTON JAUNE',
+        'red': '🟥 CARTON ROUGE',
+        'changeServe': '🔄 CHANGER SERVICE',
+        'changeSide': '↔ CHANGER DE CÔTÉ',
+        'undoPoint': '↩ ANNULER LE POINT',
+        'accelerate': '⚡ ACCÉLÉRATION',
+        'protocol': '📋 PROTOCOLE DU MATCH',
+        'referee': 'Arbitre:',
+        'startTime': 'Heure de début:',
+        'currentTime': 'Heure actuelle:',
+        'status': 'Statut:',
+        'eventLog': 'JOURNAL DES ÉVÉNEMENTS',
+        'exportJSON': '💾 EXPORTER JSON',
+        'exportCSV': '📊 EXPORTER CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORTER CSV (UTF-8)',
+        'print': '🖨 IMPRIMER LE PROTOCOLE',
+        'adBanner': '📢 Soutenez le projet sur Boosty! →',
+        'buyPro': 'Soutenir',
+        'authAd': '📢 Version gratuite: 99 matchs • Soutenez le projet sur Boosty',
+        'resetPassword': '🔑 Mot de passe oublié?',
+        'sendCode': 'Envoyer le code',
+        'changePassword': 'Changer le mot de passe',
+        'enterEmail': 'Entrez l\'email d\'inscription',
+        'enterCode': 'Entrez le code reçu',
+        'newPassword': 'Nouveau mot de passe',
+        'codeSent': 'Code envoyé',
         'point': '🎾 Point marqué par le joueur {player}',
         'set_end': '🏆 Set {set} terminé. Joueur {winner} gagne',
         'set_start': '🎬 Début du set {set}. Le joueur {server} sert',
@@ -294,16 +505,16 @@ const translations = {
         'serve_manual_change': '🖐️ Changement de service manuel. Le joueur {server} sert maintenant',
         'side_change': '↔ Changement de côté',
         'accelerate_on': '⚡ Système d\'accélération activé',
-        'timeout': '⏸ Temps mort pris par le joueur {player}',
+        'timeout_event': '⏸ Temps mort pris par le joueur {player}',
         'timeout_error': '❌ Le joueur {player} n\'a plus de temps mort',
-        'warning': '⚠️ Avertissement au joueur {player}',
-        'yellow': '🟨 Carton jaune au joueur {player}',
-        'red': '🟥 CARTON ROUGE au joueur {player} - disqualification!',
+        'warning_event': '⚠️ Avertissement au joueur {player}',
+        'yellow_event': '🟨 Carton jaune au joueur {player}',
+        'red_event': '🟥 CARTON ROUGE au joueur {player} - disqualification!',
         'undo': '↩ Dernier point annulé',
         'match_start': '🏓 Match officiellement commencé',
         'match_end_sporting': '🏁 Match terminé. Vainqueur: joueur {winner}. Score: {sets}',
         'match_end_early': '🏁 Match terminé prématurément. Raison: {reason}',
-        'error_not_started': '❌ Match non commencé! Cliquez sur "COMMENCER LE MATCH"',
+        'error_not_started': '❌ Match non commencé! Cliquez sur "COMMENCER"',
         'error_finished': '❌ Match terminé, plus de points possibles',
         'exportTitle': 'Protocole du Match',
         'tournament': 'Tournoi',
@@ -317,7 +528,6 @@ const translations = {
         'score': 'Score',
         'vs': 'contre',
         'winner': 'Vainqueur',
-        'status': 'Statut',
         'endTime': 'Heure de fin'
     },
     zh: {
@@ -340,6 +550,42 @@ const translations = {
         'technical': '技术问题',
         'finishMatchTitle': '结束比赛',
         'finishMatchText': '选择原因：',
+        'player1Title': '选手 1',
+        'player2Title': '选手 2',
+        'serve': '发球',
+        'newMatch': '🔄 新比赛',
+        'startMatch': '🎬 开始比赛',
+        'finishMatch': '🏁 结束',
+        'pointToPlayer1': '➕ 选手1得分',
+        'pointToPlayer2': '➕ 选手2得分',
+        'timeout': '⏸ 暂停',
+        'warning': '⚠️ 警告',
+        'yellow': '🟨 黄牌',
+        'red': '🟥 红牌',
+        'changeServe': '🔄 换发球',
+        'changeSide': '↔ 交换场地',
+        'undoPoint': '↩ 撤销得分',
+        'accelerate': '⚡ 加速',
+        'protocol': '📋 比赛记录表',
+        'referee': '主裁判：',
+        'startTime': '开始时间：',
+        'currentTime': '当前时间：',
+        'status': '状态：',
+        'eventLog': '事件日志',
+        'exportJSON': '💾 导出 JSON',
+        'exportCSV': '📊 导出 CSV (ANSI)',
+        'exportCSVUtf8': '📊 导出 CSV (UTF-8)',
+        'print': '🖨 打印记录表',
+        'adBanner': '📢 在 Boosty 上支持项目！→',
+        'buyPro': '支持',
+        'authAd': '📢 免费版：99场比赛 • 在 Boosty 上支持项目',
+        'resetPassword': '🔑 忘记密码？',
+        'sendCode': '发送验证码',
+        'changePassword': '修改密码',
+        'enterEmail': '输入注册邮箱',
+        'enterCode': '输入邮件中的验证码',
+        'newPassword': '新密码',
+        'codeSent': '验证码已发送',
         'point': '🎾 选手{player}得分',
         'set_end': '🏆 第{set}局结束。选手{winner}获胜',
         'set_start': '🎬 第{set}局开始。选手{server}发球',
@@ -347,11 +593,11 @@ const translations = {
         'serve_manual_change': '🖐️ 手动换发球。现在选手{server}发球',
         'side_change': '↔ 交换场地',
         'accelerate_on': '⚡ 加速系统已开启',
-        'timeout': '⏸ 选手{player}请求暂停',
+        'timeout_event': '⏸ 选手{player}请求暂停',
         'timeout_error': '❌ 选手{player}没有暂停机会了',
-        'warning': '⚠️ 警告选手{player}',
-        'yellow': '🟨 黄牌警告选手{player}',
-        'red': '🟥 红牌罚下选手{player} - 取消比赛资格！',
+        'warning_event': '⚠️ 警告选手{player}',
+        'yellow_event': '🟨 黄牌警告选手{player}',
+        'red_event': '🟥 红牌罚下选手{player} - 取消比赛资格！',
         'undo': '↩ 撤销最后一分',
         'match_start': '🏓 比赛正式开始',
         'match_end_sporting': '🏁 比赛结束。获胜者：选手{winner}。比分：{sets}',
@@ -370,7 +616,6 @@ const translations = {
         'score': '比分',
         'vs': '对阵',
         'winner': '获胜者',
-        'status': '状态',
         'endTime': '结束时间'
     },
     pt: {
@@ -393,6 +638,42 @@ const translations = {
         'technical': 'Técnico',
         'finishMatchTitle': 'Finalizar partida',
         'finishMatchText': 'Selecione o motivo:',
+        'player1Title': 'JOGADOR 1',
+        'player2Title': 'JOGADOR 2',
+        'serve': 'SAQUE',
+        'newMatch': '🔄 NOVA PARTIDA',
+        'startMatch': '🎬 INICIAR',
+        'finishMatch': '🏁 FINALIZAR',
+        'pointToPlayer1': '➕ PONTO JOGADOR 1',
+        'pointToPlayer2': '➕ PONTO JOGADOR 2',
+        'timeout': '⏸ TEMPO TÉCNICO',
+        'warning': '⚠️ ADVERTÊNCIA',
+        'yellow': '🟨 CARTÃO AMARELO',
+        'red': '🟥 CARTÃO VERMELHO',
+        'changeServe': '🔄 TROCAR SAQUE',
+        'changeSide': '↔ TROCAR LADOS',
+        'undoPoint': '↩ DESFAZER PONTO',
+        'accelerate': '⚡ ACELERAÇÃO',
+        'protocol': '📋 PROTOCOLO DA PARTIDA',
+        'referee': 'Árbitro:',
+        'startTime': 'Hora de início:',
+        'currentTime': 'Hora atual:',
+        'status': 'Status:',
+        'eventLog': 'REGISTRO DE EVENTOS',
+        'exportJSON': '💾 EXPORTAR JSON',
+        'exportCSV': '📊 EXPORTAR CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORTAR CSV (UTF-8)',
+        'print': '🖨 IMPRIMIR PROTOCOLO',
+        'adBanner': '📢 Apoie o projeto no Boosty! →',
+        'buyPro': 'Apoiar',
+        'authAd': '📢 Versão gratuita: 99 partidas • Apoie o projeto no Boosty',
+        'resetPassword': '🔑 Esqueceu a senha?',
+        'sendCode': 'Enviar código',
+        'changePassword': 'Alterar senha',
+        'enterEmail': 'Digite o email de registro',
+        'enterCode': 'Digite o código recebido',
+        'newPassword': 'Nova senha',
+        'codeSent': 'Código enviado',
         'point': '🎾 Ponto marcado pelo jogador {player}',
         'set_end': '🏆 Set {set} concluído. Jogador {winner} vence',
         'set_start': '🎬 Início do set {set}. Jogador {server} saca',
@@ -400,16 +681,16 @@ const translations = {
         'serve_manual_change': '🖐️ Mudança manual de saque. Agora o jogador {server} saca',
         'side_change': '↔ Mudança de lado',
         'accelerate_on': '⚡ Sistema de aceleração ativado',
-        'timeout': '⏸ Tempo técnico solicitado pelo jogador {player}',
+        'timeout_event': '⏸ Tempo técnico solicitado pelo jogador {player}',
         'timeout_error': '❌ Jogador {player} não tem mais tempos técnicos',
-        'warning': '⚠️ Advertência ao jogador {player}',
-        'yellow': '🟨 Cartão amarelo para o jogador {player}',
-        'red': '🟥 CARTÃO VERMELHO para o jogador {player} - desclassificação!',
+        'warning_event': '⚠️ Advertência ao jogador {player}',
+        'yellow_event': '🟨 Cartão amarelo para o jogador {player}',
+        'red_event': '🟥 CARTÃO VERMELHO para o jogador {player} - desclassificação!',
         'undo': '↩ Último ponto desfeito',
         'match_start': '🏓 Partida oficialmente iniciada',
         'match_end_sporting': '🏁 Partida finalizada. Vencedor: jogador {winner}. Placar: {sets}',
         'match_end_early': '🏁 Partida finalizada antecipadamente. Motivo: {reason}',
-        'error_not_started': '❌ Partida não iniciada! Clique em "INICIAR PARTIDA"',
+        'error_not_started': '❌ Partida não iniciada! Clique em "INICIAR"',
         'error_finished': '❌ Partida finalizada, não é possível marcar pontos',
         'exportTitle': 'Protocolo da Partida',
         'tournament': 'Torneio',
@@ -423,14 +704,12 @@ const translations = {
         'score': 'Placar',
         'vs': 'contra',
         'winner': 'Vencedor',
-        'status': 'Status',
         'endTime': 'Hora final'
     }
 };
 
 let currentLang = localStorage.getItem('app_language') || 'ru';
 
-// Функция перевода
 function t(key, params = {}) {
     let text = translations[currentLang][key];
     if (!text) text = translations['ru'][key] || key;
@@ -439,6 +718,80 @@ function t(key, params = {}) {
         result = result.replace(new RegExp(`\\{${k}\\}`, 'g'), v);
     }
     return result;
+}
+
+function applyTranslations() {
+    const elements = {
+        'mainTitle': t('appName'),
+        'authTitle': '🏓 ' + t('appName'),
+        'loginTab': t('login'),
+        'registerTab': t('register'),
+        'doLogin': t('loginBtn'),
+        'doRegister': t('registerBtn'),
+        'logoutBtn': t('logout'),
+        'subscriptionBtn': t('support'),
+        'upgradeFromBanner': t('buyPro'),
+        'adBannerText': t('adBanner'),
+        'authAd': t('authAd'),
+        'player1Title': t('player1Title'),
+        'player2Title': t('player2Title'),
+        'serve1': '🎾 ' + t('serve'),
+        'serve2': '🎾 ' + t('serve'),
+        'resetMatch': t('newMatch'),
+        'startMatch': t('startMatch'),
+        'forceFinish': t('finishMatch'),
+        'point1': t('pointToPlayer1'),
+        'point2': t('pointToPlayer2'),
+        'timeout1': t('timeout'),
+        'timeout2': t('timeout'),
+        'warning1': t('warning'),
+        'warning2': t('warning'),
+        'yellowCard1': t('yellow'),
+        'yellowCard2': t('yellow'),
+        'redCard1': t('red'),
+        'redCard2': t('red'),
+        'changeServe': t('changeServe'),
+        'changeSide': t('changeSide'),
+        'undoPoint': t('undoPoint'),
+        'accelerate': t('accelerate'),
+        'protocolTitle': t('protocol'),
+        'refereeLabel': t('referee'),
+        'startTimeLabel': t('startTime'),
+        'currentTimeLabel': t('currentTime'),
+        'statusLabel': t('status'),
+        'eventLogTitle': t('eventLog'),
+        'exportJSON': t('exportJSON'),
+        'exportCSV': t('exportCSV'),
+        'exportCSV_UTF8': t('exportCSVUtf8'),
+        'printProtocol': t('print'),
+        'forgotPasswordBtn': t('resetPassword'),
+        'sendResetCode': t('sendCode'),
+        'confirmReset': t('changePassword'),
+        'modalSubtitle': t('enterEmail'),
+        'resetCodePlaceholder': t('enterCode'),
+        'newPasswordPlaceholder': t('newPassword')
+    };
+    
+    for (const [id, text] of Object.entries(elements)) {
+        const el = document.getElementById(id);
+        if (el && el.tagName !== 'INPUT') el.textContent = text;
+        if (el && el.tagName === 'INPUT' && (id === 'resetCodePlaceholder' || id === 'newPasswordPlaceholder')) {
+            el.placeholder = text;
+        }
+    }
+    
+    const resetModalSubtitle = document.querySelector('#resetPasswordModal p');
+    if (resetModalSubtitle) resetModalSubtitle.textContent = t('enterEmail');
+    
+    const resetStep2Text = document.querySelector('#resetStep2 p');
+    if (resetStep2Text) resetStep2Text.textContent = t('codeSent');
+    
+    const statusEl = document.getElementById('matchStatus');
+    if (statusEl && window.match) {
+        if (!window.match.isStarted) statusEl.textContent = '● ' + t('waiting');
+        else if (window.match && window.match.isFinished) statusEl.textContent = '● ' + t('finished');
+        else statusEl.textContent = '● ' + t('playing');
+    }
 }
 
 // ==================== АВТОРИЗАЦИЯ ====================
@@ -571,14 +924,13 @@ class TableTennisMatch {
         this.pointHistory = [];
     }
     
-    // Сохраняем событие с типом и параметрами (без перевода)
     logEvent(eventKey, params = {}, player = null) {
         this.events.push({ 
             id: this.events.length + 1, 
             timestamp: new Date().toISOString(), 
             time: new Date().toLocaleTimeString('ru-RU'), 
             eventKey: eventKey,
-            params: { ...params }, // копируем параметры
+            params: { ...params },
             player: player, 
             set: this.currentSet, 
             score: `${this.players[1].score}:${this.players[2].score}`, 
@@ -588,7 +940,6 @@ class TableTennisMatch {
         return this.events[this.events.length - 1];
     }
     
-    // Получить переведённое описание события (вызывается при каждом обновлении)
     getEventDescription(event) {
         const eventKey = event.eventKey;
         const params = event.params;
@@ -601,11 +952,11 @@ class TableTennisMatch {
             case 'serve_manual_change': return t('serve_manual_change', { server: params.server });
             case 'side_change': return t('side_change');
             case 'accelerate_on': return t('accelerate_on');
-            case 'timeout': return t('timeout', { player: params.player });
+            case 'timeout': return t('timeout_event', { player: params.player });
             case 'timeout_error': return t('timeout_error', { player: params.player });
-            case 'warning': return t('warning', { player: params.player });
-            case 'yellow': return t('yellow', { player: params.player });
-            case 'red': return t('red', { player: params.player });
+            case 'warning': return t('warning_event', { player: params.player });
+            case 'yellow': return t('yellow_event', { player: params.player });
+            case 'red': return t('red_event', { player: params.player });
             case 'undo': return t('undo');
             case 'match_start': return t('match_start');
             case 'match_end_sporting': return t('match_end_sporting', { winner: params.winner, sets: params.sets });
@@ -616,7 +967,6 @@ class TableTennisMatch {
         }
     }
     
-    // Перевести все события (вызывается при смене языка)
     translateAllEvents() {
         updateEventLog();
     }
@@ -794,7 +1144,6 @@ class TableTennisMatch {
     }
     
     getExportData() {
-        // При экспорте используем текущий язык для описаний
         const exportedEvents = this.events.map(e => ({
             time: e.time,
             description: this.getEventDescription(e),
@@ -881,6 +1230,7 @@ function initializeMatch() {
         return false;
     }
     match = new TableTennisMatch();
+    window.match = match;
     document.getElementById('startTime').textContent = '--:--:--';
     
     const p1Name = document.getElementById('player1Name');
@@ -1026,44 +1376,62 @@ function openBoosty() {
     window.open('https://boosty.to/ben7990', '_blank');
 }
 
-function applyTranslations() {
-    const elements = {
-        'mainTitle': t('appName'),
-        'authTitle': '🏓 ' + t('appName'),
-        'loginTab': t('login'),
-        'registerTab': t('register'),
-        'doLogin': t('loginBtn'),
-        'doRegister': t('registerBtn'),
-        'logoutBtn': t('logout'),
-        'subscriptionBtn': t('support'),
-        'upgradeFromBanner': t('support')
-    };
-    
-    for (const [id, text] of Object.entries(elements)) {
-        const el = document.getElementById(id);
-        if (el) el.textContent = text;
-    }
-    
-    const statusEl = document.getElementById('matchStatus');
-    if (statusEl && match) {
-        if (!match.isStarted) statusEl.textContent = '● ' + t('waiting');
-        else if (match.isFinished) statusEl.textContent = '● ' + t('finished');
-        else statusEl.textContent = '● ' + t('playing');
-    }
-}
-
 function setLanguage(lang) {
     if (translations[lang]) {
         currentLang = lang;
         localStorage.setItem('app_language', lang);
         document.documentElement.setAttribute('lang', lang);
         document.documentElement.setAttribute('data-lang', lang);
+        
+        // Применяем переводы ко всем элементам интерфейса
         applyTranslations();
+        
+        // Обновляем заголовки кнопок для игроков
+        document.querySelectorAll('.player-card .player-header h2').forEach((el, idx) => {
+            if (idx === 0) el.textContent = t('player1Title');
+            if (idx === 1) el.textContent = t('player2Title');
+        });
+        
+        // Обновляем индикаторы подачи
+        document.getElementById('serve1').innerHTML = '🎾 ' + t('serve');
+        document.getElementById('serve2').innerHTML = '🎾 ' + t('serve');
+        
+        // Обновляем названия кнопок
         const langNames = { ru: 'Русский', en: 'English', de: 'Deutsch', es: 'Español', it: 'Italiano', fr: 'Français', zh: '中文', pt: 'Português' };
         document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
             btn.innerHTML = `🌐 ${langNames[lang]}`;
         });
-        // ПЕРЕВОДИМ ВЕСЬ ЖУРНАЛ СОБЫТИЙ ПРИ СМЕНЕ ЯЗЫКА
+        
+        // Обновляем кнопки под игроками
+        const timeoutBtns = document.querySelectorAll('.player-buttons-col .special-btn:not(.warning):not(.yellow):not(.red)');
+        timeoutBtns.forEach(btn => btn.textContent = t('timeout'));
+        
+        const warningBtns = document.querySelectorAll('.special-btn.warning');
+        warningBtns.forEach(btn => btn.textContent = t('warning'));
+        
+        const yellowBtns = document.querySelectorAll('.special-btn.yellow');
+        yellowBtns.forEach(btn => btn.textContent = t('yellow'));
+        
+        const redBtns = document.querySelectorAll('.special-btn.red');
+        redBtns.forEach(btn => btn.textContent = t('red'));
+        
+        // Обновляем центральные кнопки
+        document.getElementById('changeServe').textContent = t('changeServe');
+        document.getElementById('changeSide').textContent = t('changeSide');
+        document.getElementById('undoPoint').textContent = t('undoPoint');
+        document.getElementById('accelerate').textContent = t('accelerate');
+        
+        // Обновляем кнопку завершения
+        document.getElementById('forceFinish').textContent = t('finishMatch');
+        
+        // Обновляем статус матча
+        if (match) {
+            if (!match.isStarted) document.getElementById('matchStatus').textContent = '● ' + t('waiting');
+            else if (match.isFinished) document.getElementById('matchStatus').textContent = '● ' + t('finished');
+            else document.getElementById('matchStatus').textContent = '● ' + t('playing');
+        }
+        
+        // Переводим весь журнал событий
         if (match && match.events) {
             updateEventLog();
         }
@@ -1084,11 +1452,11 @@ function showLanguageMenu() {
     
     const menu = document.createElement('div');
     menu.style.cssText = `position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border-radius:15px;padding:20px;box-shadow:0 10px 40px rgba(0,0,0,0.3);z-index:2000;min-width:280px;`;
-    menu.innerHTML = `<h3 style="margin-bottom:15px;text-align:center;">🌐 Выберите язык</h3>
+    menu.innerHTML = `<h3 style="margin-bottom:15px;text-align:center;">🌐 ${currentLang === 'ru' ? 'Выберите язык' : (currentLang === 'en' ? 'Select language' : 'Sprache wählen')}</h3>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
             ${languages.map(lang => `<button class="lang-option" data-lang="${lang.code}" style="padding:10px;border:none;background:${currentLang === lang.code ? '#3498db' : '#f0f0f0'};color:${currentLang === lang.code ? 'white' : '#333'};border-radius:8px;cursor:pointer;text-align:center;">${lang.flag} ${lang.name}</button>`).join('')}
         </div>
-        <button id="closeLangMenu" style="display:block;width:100%;padding:10px;margin-top:15px;border:none;background:#e74c3c;color:white;border-radius:8px;cursor:pointer;">✖ Закрыть</button>`;
+        <button id="closeLangMenu" style="display:block;width:100%;padding:10px;margin-top:15px;border:none;background:#e74c3c;color:white;border-radius:8px;cursor:pointer;">✖ ${currentLang === 'ru' ? 'Закрыть' : 'Close'}</button>`;
     document.body.appendChild(menu);
     document.querySelectorAll('.lang-option').forEach(btn => {
         btn.addEventListener('click', () => { setLanguage(btn.dataset.lang); menu.remove(); });
@@ -1175,7 +1543,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Переключение языка
     document.querySelectorAll('.lang-toggle-btn').forEach(btn => btn.onclick = showLanguageMenu);
     
-    // Восстановление пароля (простой вариант)
+    // Восстановление пароля
     const forgotBtn = document.getElementById('forgotPasswordBtn');
     const resetModal = document.getElementById('resetPasswordModal');
     const closeResetModal = document.querySelector('.close-reset-modal');
@@ -1190,6 +1558,9 @@ document.addEventListener('DOMContentLoaded', function() {
         closeResetModal.onclick = () => {
             resetModal.style.display = 'none';
             document.getElementById('resetStep2').style.display = 'none';
+            document.getElementById('resetEmail').value = '';
+            document.getElementById('resetCode').value = '';
+            document.getElementById('newPassword').value = '';
         };
     }
     
@@ -1208,7 +1579,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const code = Math.floor(100000 + Math.random() * 900000).toString();
             localStorage.setItem('reset_code_' + email, code);
             localStorage.setItem('reset_code_expiry_' + email, Date.now() + 15 * 60 * 1000);
-            alert(`Демо-режим: Ваш код для сброса пароля: ${code}`);
+            alert(`Демо-режим: Ваш код для сброса пароля: ${code}\nВ реальном приложении код придет на почту`);
             document.getElementById('resetStep2').style.display = 'block';
         };
     }
@@ -1223,16 +1594,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Заполните все поля');
                 return;
             }
+            if (newPassword.length < 4) {
+                alert('Пароль должен быть не менее 4 символов');
+                return;
+            }
             
             const savedCode = localStorage.getItem('reset_code_' + email);
             const expiry = localStorage.getItem('reset_code_expiry_' + email);
             
             if (!savedCode || !expiry) {
-                alert('Код не найден');
+                alert('Код не найден. Запросите новый.');
                 return;
             }
             if (Date.now() > parseInt(expiry)) {
-                alert('Код истёк');
+                alert('Код истёк. Запросите новый.');
                 return;
             }
             if (savedCode !== code) {
@@ -1247,8 +1622,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('pingpong_users', JSON.stringify(users));
                 localStorage.removeItem('reset_code_' + email);
                 localStorage.removeItem('reset_code_expiry_' + email);
-                alert('Пароль изменён!');
-                resetModal.style.display = 'none';
+                alert('Пароль успешно изменён! Теперь войдите.');
+                if (resetModal) resetModal.style.display = 'none';
+                document.getElementById('resetStep2').style.display = 'none';
                 document.getElementById('resetEmail').value = '';
                 document.getElementById('resetCode').value = '';
                 document.getElementById('newPassword').value = '';
