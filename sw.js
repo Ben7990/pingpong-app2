@@ -1,26 +1,34 @@
-const CACHE_NAME = 'pingpong-v2';
+const CACHE_NAME = 'pingpong-v7';
+
 const urlsToCache = [
     './',
     './index.html',
     './styles.css',
     './script.js',
-    './manifest.json'
+    './manifest.json',
+    './privacy.html'
 ];
 
 self.addEventListener('install', event => {
+    console.log('Service Worker установлен v7');
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(urlsToCache))
+            .then(cache => {
+                console.log('Кеш открыт');
+                return cache.addAll(urlsToCache);
+            })
             .then(() => self.skipWaiting())
     );
 });
 
 self.addEventListener('activate', event => {
+    console.log('Service Worker активирован v7');
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
                 cacheNames.map(cache => {
                     if (cache !== CACHE_NAME) {
+                        console.log('Удаляем старый кеш:', cache);
                         return caches.delete(cache);
                     }
                 })
