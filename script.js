@@ -14,8 +14,6 @@ const translations = {
         'playing': 'В ИГРЕ',
         'finished': 'ЗАВЕРШЕН',
         'disqualified': 'ДИСКВАЛИФИКАЦИЯ',
-        'limitWarning': '⚠️ У вас осталось ',
-        'limitWarning2': ' матчей. Поддержите проект!',
         'cancel': 'Отмена',
         'injury': 'Травма',
         'forfeit': 'Неявка',
@@ -48,9 +46,6 @@ const translations = {
         'exportCSV': '📊 ЭКСПОРТ CSV (ANSI)',
         'exportCSVUtf8': '📊 ЭКСПОРТ CSV (UTF-8)',
         'print': '🖨 ПЕЧАТЬ ПРОТОКОЛА',
-        'adBanner': '📢 Если вам нравится приложение — поддержите проект на Boosty! →',
-        'buyPro': 'Поддержать',
-        'authAd': '📢 Бесплатная версия: 99 матчей • Поддержать проект можно на Boosty',
         'resetPassword': '🔑 Забыли пароль?',
         'sendCode': 'Отправить код',
         'changePassword': 'Сменить пароль',
@@ -106,8 +101,6 @@ const translations = {
         'playing': 'PLAYING',
         'finished': 'FINISHED',
         'disqualified': 'DISQUALIFIED',
-        'limitWarning': '⚠️ You have ',
-        'limitWarning2': ' matches left. Support the project!',
         'cancel': 'Cancel',
         'injury': 'Injury',
         'forfeit': 'Forfeit',
@@ -140,9 +133,6 @@ const translations = {
         'exportCSV': '📊 EXPORT CSV (ANSI)',
         'exportCSVUtf8': '📊 EXPORT CSV (UTF-8)',
         'print': '🖨 PRINT PROTOCOL',
-        'adBanner': '📢 If you like the app — support the project on Boosty! →',
-        'buyPro': 'Support',
-        'authAd': '📢 Free version: 99 matches • Support the project on Boosty',
         'resetPassword': '🔑 Forgot password?',
         'sendCode': 'Send code',
         'changePassword': 'Change password',
@@ -198,8 +188,6 @@ const translations = {
         'playing': 'IM SPIEL',
         'finished': 'BEENDET',
         'disqualified': 'DISQUALIFIZIERT',
-        'limitWarning': '⚠️ Sie haben noch ',
-        'limitWarning2': ' Spiele übrig. Unterstützen Sie das Projekt!',
         'cancel': 'Abbrechen',
         'injury': 'Verletzung',
         'forfeit': 'Nichtantritt',
@@ -232,9 +220,6 @@ const translations = {
         'exportCSV': '📊 EXPORT CSV (ANSI)',
         'exportCSVUtf8': '📊 EXPORT CSV (UTF-8)',
         'print': '🖨 PROTOKOLL DRUCKEN',
-        'adBanner': '📢 Unterstützen Sie das Projekt auf Boosty! →',
-        'buyPro': 'Unterstützen',
-        'authAd': '📢 Kostenlose Version: 99 Spiele • Unterstützen Sie das Projekt auf Boosty',
         'resetPassword': '🔑 Passwort vergessen?',
         'sendCode': 'Code senden',
         'changePassword': 'Passwort ändern',
@@ -290,8 +275,6 @@ const translations = {
         'playing': 'EN JUEGO',
         'finished': 'FINALIZADO',
         'disqualified': 'DESCALIFICADO',
-        'limitWarning': '⚠️ Te quedan ',
-        'limitWarning2': ' partidos. ¡Apoya el proyecto!',
         'cancel': 'Cancelar',
         'injury': 'Lesión',
         'forfeit': 'No presentado',
@@ -324,9 +307,6 @@ const translations = {
         'exportCSV': '📊 EXPORTAR CSV (ANSI)',
         'exportCSVUtf8': '📊 EXPORTAR CSV (UTF-8)',
         'print': '🖨 IMPRIMIR PROTOCOLO',
-        'adBanner': '📢 ¡Apoya el proyecto en Boosty! →',
-        'buyPro': 'Apoyar',
-        'authAd': '📢 Versión gratuita: 99 partidos • Apoya el proyecto en Boosty',
         'resetPassword': '🔑 ¿Olvidó su contraseña?',
         'sendCode': 'Enviar código',
         'changePassword': 'Cambiar contraseña',
@@ -382,8 +362,6 @@ const translations = {
         'playing': 'IN GIOCO',
         'finished': 'TERMINATA',
         'disqualified': 'SQUALIFICATO',
-        'limitWarning': '⚠️ Hai ancora ',
-        'limitWarning2': ' partite. Supporta il progetto!',
         'cancel': 'Annulla',
         'injury': 'Infortunio',
         'forfeit': 'Forfait',
@@ -416,9 +394,6 @@ const translations = {
         'exportCSV': '📊 ESPORTA CSV (ANSI)',
         'exportCSVUtf8': '📊 ESPORTA CSV (UTF-8)',
         'print': '🖨 STAMPA PROTOCOLLO',
-        'adBanner': '📢 Supporta il progetto su Boosty! →',
-        'buyPro': 'Supporta',
-        'authAd': '📢 Versione gratuita: 99 partite • Supporta il progetto su Boosty',
         'resetPassword': '🔑 Password dimenticata?',
         'sendCode': 'Invia codice',
         'changePassword': 'Cambia password',
@@ -474,8 +449,6 @@ const translations = {
         'playing': 'EN COURS',
         'finished': 'TERMINÉ',
         'disqualified': 'DISQUALIFIÉ',
-        'limitWarning': '⚠️ Il vous reste ',
-        'limitWarning2': ' matchs. Soutenez le projet!',
         'cancel': 'Annuler',
         'injury': 'Blessure',
         'forfeit': 'Forfait',
@@ -508,9 +481,6 @@ const translations = {
         'exportCSV': '📊 EXPORTER CSV (ANSI)',
         'exportCSVUtf8': '📊 EXPORTER CSV (UTF-8)',
         'print': '🖨 IMPRIMER LE PROTOCOLE',
-        'adBanner': '📢 Soutenez le projet sur Boosty! →',
-        'buyPro': 'Soutenir',
-        'authAd': '📢 Version gratuite: 99 matchs • Soutenez le projet sur Boosty',
         'resetPassword': '🔑 Mot de passe oublié?',
         'sendCode': 'Envoyer le code',
         'changePassword': 'Changer le mot de passe',
@@ -566,8 +536,6 @@ const translations = {
         'playing': '比赛中',
         'finished': '已结束',
         'disqualified': '取消资格',
-        'limitWarning': '⚠️ 您还剩 ',
-        'limitWarning2': ' 场比赛。支持项目！',
         'cancel': '取消',
         'injury': '受伤',
         'forfeit': '弃权',
@@ -600,9 +568,6 @@ const translations = {
         'exportCSV': '📊 导出 CSV (ANSI)',
         'exportCSVUtf8': '📊 导出 CSV (UTF-8)',
         'print': '🖨 打印记录表',
-        'adBanner': '📢 在 Boosty 上支持项目！→',
-        'buyPro': '支持',
-        'authAd': '📢 免费版：99场比赛 • 在 Boosty 上支持项目',
         'resetPassword': '🔑 忘记密码？',
         'sendCode': '发送验证码',
         'changePassword': '修改密码',
@@ -658,8 +623,6 @@ const translations = {
         'playing': 'EM JOGO',
         'finished': 'FINALIZADA',
         'disqualified': 'DESCLASSIFICADO',
-        'limitWarning': '⚠️ Você tem ',
-        'limitWarning2': ' partidas. Apoie o projeto!',
         'cancel': 'Cancelar',
         'injury': 'Lesão',
         'forfeit': 'Desistência',
@@ -692,9 +655,6 @@ const translations = {
         'exportCSV': '📊 EXPORTAR CSV (ANSI)',
         'exportCSVUtf8': '📊 EXPORTAR CSV (UTF-8)',
         'print': '🖨 IMPRIMIR PROTOCOLO',
-        'adBanner': '📢 Apoie o projeto no Boosty! →',
-        'buyPro': 'Apoiar',
-        'authAd': '📢 Versão gratuita: 99 partidas • Apoie o projeto no Boosty',
         'resetPassword': '🔑 Esqueceu a senha?',
         'sendCode': 'Enviar código',
         'changePassword': 'Alterar senha',
@@ -771,9 +731,6 @@ function applyTranslations() {
         'doRegister': trans.registerBtn,
         'logoutBtn': trans.logout,
         'subscriptionBtn': trans.support,
-        'upgradeFromBanner': trans.buyPro,
-        'adBannerText': trans.adBanner,
-        'authAd': trans.authAd,
         'player1Title': trans.player1Title,
         'player2Title': trans.player2Title,
         'serve1': '🎾 ' + trans.serve,
@@ -903,7 +860,7 @@ class AuthSystem {
             password: encryptedPassword,
             isPro: false,
             matchesUsed: 0,
-            matchesLimit: 99,
+            matchesLimit: 999999,
             createdAt: new Date().toISOString()
         };
         this.users.push(newUser);
@@ -930,7 +887,7 @@ class AuthSystem {
     
     canStartNewMatch() {
         if (!this.currentUser) return false;
-        return (this.currentUser.matchesUsed || 0) < (this.currentUser.matchesLimit || 99);
+        return (this.currentUser.matchesUsed || 0) < (this.currentUser.matchesLimit || 999999);
     }
     
     incrementMatchesUsed() {
@@ -944,18 +901,12 @@ class AuthSystem {
     
     getMatchesLeft() {
         if (!this.currentUser) return 0;
-        const limit = this.currentUser.matchesLimit || 99;
+        const limit = this.currentUser.matchesLimit || 999999;
         const used = this.currentUser.matchesUsed || 0;
         return Math.max(0, limit - used);
     }
     
-    isPro() { return false; }
-    
-    updateMatchesDisplay() {
-        const matchesLeft = this.getMatchesLeft();
-        const display = document.getElementById('matchesCountDisplay');
-        if (display) display.textContent = `🎾 ${matchesLeft}/99`;
-    }
+    isPro() { return true; }
     
     showAuth() {
         document.getElementById('authScreen').style.display = 'flex';
@@ -966,10 +917,6 @@ class AuthSystem {
         document.getElementById('authScreen').style.display = 'none';
         document.getElementById('mainApp').style.display = 'block';
         document.getElementById('userNameDisplay').textContent = this.currentUser.name;
-        this.updateMatchesDisplay();
-        
-        const banner = document.getElementById('freeBanner');
-        if (banner) banner.style.display = 'flex';
         
         initializeMatch();
         setupEventListeners();
@@ -979,7 +926,7 @@ class AuthSystem {
     }
 }
 
-// ==================== КЛАСС МАТЧА (полный, но сокращён для экономии места) ====================
+// ==================== КЛАСС МАТЧА ====================
 class TableTennisMatch {
     constructor() {
         this.matchId = Date.now();
@@ -1119,7 +1066,6 @@ class TableTennisMatch {
         enableGameControls(false);
         if (window.auth && !window.auth.isPro() && this.isStarted) {
             window.auth.incrementMatchesUsed();
-            window.auth.updateMatchesDisplay();
         }
     }
     
@@ -1247,10 +1193,6 @@ function enableGameControls(enabled) {
 
 function initializeMatch() {
     if (!auth) return false;
-    if (!auth.canStartNewMatch() && !auth.isPro()) {
-        alert(t('limitWarning') + '99 ' + t('limitWarning2'));
-        return false;
-    }
     match = new TableTennisMatch();
     window.match = match;
     document.getElementById('startTime').textContent = '--:--:--';
@@ -1370,9 +1312,9 @@ function printProtocol() {
             <h2>Результат</h2>
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
-            <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
-            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}<tr></tr>`).join('')}
-            </table>
+            <table><th>Время</th><th>Событие</th><th>Счет</th><tr>
+            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
+        </table>
         </body></html>`);
         w.document.close();
         w.print();
@@ -1488,11 +1430,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     document.getElementById('logoutBtn').onclick = () => auth.logout();
-    
-    const supportBtns = document.querySelectorAll('#subscriptionBtn, #upgradeFromBanner');
-    supportBtns.forEach(btn => {
-        if (btn) btn.onclick = openBoosty;
-    });
     
     // Переключение табов
     document.querySelectorAll('.auth-tab').forEach(tab => {
