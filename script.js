@@ -766,30 +766,18 @@ function applyTranslations() {
         'printProtocol': t('print'),
         'forgotPasswordBtn': t('resetPassword'),
         'sendResetCode': t('sendCode'),
-        'confirmReset': t('changePassword'),
-        'modalSubtitle': t('enterEmail'),
-        'resetCodePlaceholder': t('enterCode'),
-        'newPasswordPlaceholder': t('newPassword')
+        'confirmReset': t('changePassword')
     };
     
     for (const [id, text] of Object.entries(elements)) {
         const el = document.getElementById(id);
         if (el && el.tagName !== 'INPUT') el.textContent = text;
-        if (el && el.tagName === 'INPUT' && (id === 'resetCodePlaceholder' || id === 'newPasswordPlaceholder')) {
-            el.placeholder = text;
-        }
     }
-    
-    const resetModalSubtitle = document.querySelector('#resetPasswordModal p');
-    if (resetModalSubtitle) resetModalSubtitle.textContent = t('enterEmail');
-    
-    const resetStep2Text = document.querySelector('#resetStep2 p');
-    if (resetStep2Text) resetStep2Text.textContent = t('codeSent');
     
     const statusEl = document.getElementById('matchStatus');
     if (statusEl && window.match) {
         if (!window.match.isStarted) statusEl.textContent = '● ' + t('waiting');
-        else if (window.match && window.match.isFinished) statusEl.textContent = '● ' + t('finished');
+        else if (window.match.isFinished) statusEl.textContent = '● ' + t('finished');
         else statusEl.textContent = '● ' + t('playing');
     }
 }
@@ -925,25 +913,24 @@ class TableTennisMatch {
     }
     
     logEvent(eventKey, params = {}, player = null) {
+        const description = this.getEventDescriptionText(eventKey, params);
         this.events.push({ 
             id: this.events.length + 1, 
             timestamp: new Date().toISOString(), 
             time: new Date().toLocaleTimeString('ru-RU'), 
             eventKey: eventKey,
             params: { ...params },
+            description: description,
             player: player, 
             set: this.currentSet, 
             score: `${this.players[1].score}:${this.players[2].score}`, 
             setsScore: `${this.players[1].sets}:${this.players[2].sets}` 
         });
-        updateEventLog();
+        this.updateEventLogDisplay();
         return this.events[this.events.length - 1];
     }
     
-    getEventDescription(event) {
-        const eventKey = event.eventKey;
-        const params = event.params;
-        
+    getEventDescriptionText(eventKey, params) {
         switch(eventKey) {
             case 'point': return t('point', { player: params.player });
             case 'set_end': return t('set_end', { set: params.set, winner: params.winner });
@@ -967,8 +954,17 @@ class TableTennisMatch {
         }
     }
     
-    translateAllEvents() {
-        updateEventLog();
+    updateEventLogDisplay() {
+        const log = document.getElementById('eventLog');
+        if (log) {
+            log.innerHTML = this.events.slice().reverse().slice(0, 30).map(e => 
+                `<div style="padding:5px;border-bottom:1px solid #34495e;font-size:11px;">
+                    <span style="color:#3498db;">[${e.time}]</span> 
+                    <span style="color:#ecf0f1;">${e.description}</span>
+                    <span style="color:#95a5a6;">(${e.score})</span>
+                </div>`
+            ).join('');
+        }
     }
     
     startMatch() {
@@ -1146,7 +1142,7 @@ class TableTennisMatch {
     getExportData() {
         const exportedEvents = this.events.map(e => ({
             time: e.time,
-            description: this.getEventDescription(e),
+            description: e.description,
             score: e.score
         }));
         
@@ -1163,52 +1159,6 @@ class TableTennisMatch {
             players: { 1: { name: this.players[1].name, sets: this.players[1].sets }, 2: { name: this.players[2].name, sets: this.players[2].sets } },
             events: exportedEvents
         };
-    }
-    
-    getPrintHTML() {
-        const data = this.getExportData();
-        return `<!DOCTYPE html>
-        <html>
-        <head><meta charset="UTF-8"><title>${t('exportTitle')}</title>
-        <style>
-            body { font-family: Arial; padding: 20px; margin: 0; }
-            h1 { color: #1e3c72; text-align: center; }
-            .info { margin: 20px 0; padding: 15px; background: #f5f5f5; border-radius: 8px; }
-            .info p { margin: 8px 0; }
-            table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-            th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-            th { background: #1e3c72; color: white; }
-            .result { font-size: 18px; font-weight: bold; text-align: center; margin: 20px 0; }
-            @media print { body { padding: 0; } }
-        </style>
-        </head>
-        <body>
-            <h1>${t('exportTitle')}</h1>
-            <div class="info">
-                <p><strong>${t('tournament')}:</strong> ${data.tournament}</p>
-                <p><strong>${t('date')}:</strong> ${data.date}</p>
-                <p><strong>${t('table')}:</strong> ${data.tableNumber}</p>
-                <p><strong>${t('refereeName')}:</strong> ${data.referee}</p>
-                <p><strong>${t('startTime')}:</strong> ${data.startTime || '--:--:--'}</p>
-                <p><strong>${t('endTime')}:</strong> ${data.endTime || '--:--:--'}</p>
-                <p><strong>${t('status')}:</strong> ${data.isFinished ? t('finished') : (data.isStarted ? t('playing') : t('waiting'))}</p>
-            </div>
-            <div class="result">
-                ${data.players[1].name} ${t('vs')} ${data.players[2].name}<br>
-                ${t('result')}: ${data.players[1].sets}:${data.players[2].sets}
-            </div>
-            <h2>${t('eventLogTitle')}</h2>
-            <table>
-                <thead><tr><th>${t('time')}</th><th>${t('event')}</th><th>${t('score')}</th></tr></thead>
-                <tbody>
-                    ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
-                </tbody>
-            </table>
-            <div style="margin-top: 30px; text-align: center; font-size: 12px; color: #888;">
-                ${t('exportTitle')} — ${new Date().toLocaleString()}
-            </div>
-        </body>
-        </html>`;
     }
 }
 
@@ -1307,22 +1257,7 @@ function updateUI() {
     document.getElementById('history1').textContent = last5Points1.map(p => '●').join(' ');
     document.getElementById('history2').textContent = last5Points2.map(p => '●').join(' ');
     
-    updateEventLog();
-}
-
-function updateEventLog() {
-    if (!match) return;
-    const log = document.getElementById('eventLog');
-    if (log) {
-        log.innerHTML = match.events.slice().reverse().slice(0, 20).map(e => {
-            const description = match.getEventDescription(e);
-            return `<div style="padding:5px;border-bottom:1px solid #34495e;font-size:11px;">
-                <span style="color:#3498db;">[${e.time}]</span> 
-                <span style="color:#ecf0f1;">${description}</span>
-                <span style="color:#95a5a6;">(${e.score})</span>
-            </div>`;
-        }).join('');
-    }
+    if (match.updateEventLogDisplay) match.updateEventLogDisplay();
 }
 
 function updateTime() {
@@ -1354,10 +1289,19 @@ function exportCSV(utf8) {
 
 function printProtocol() {
     if (!match) return;
-    const html = match.getPrintHTML();
+    const data = match.getExportData();
     const w = window.open('', '_blank');
     if (w) {
-        w.document.write(html);
+        w.document.write(`<html><head><title>Протокол матча</title><meta charset="UTF-8"><style>body{font-family:Arial;padding:20px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:8px}th{background:#f2f2f2}</style></head><body>
+            <h1>Судейский протокол</h1>
+            <p>Турнир: ${data.tournament} | Дата: ${data.date} | Стол: ${data.tableNumber} | Судья: ${data.referee}</p>
+            <h2>Результат</h2>
+            <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
+            <h2>Журнал событий</h2>
+            <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
+            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
+            </table>
+        </body></html>`);
         w.document.close();
         w.print();
     }
@@ -1382,58 +1326,13 @@ function setLanguage(lang) {
         localStorage.setItem('app_language', lang);
         document.documentElement.setAttribute('lang', lang);
         document.documentElement.setAttribute('data-lang', lang);
-        
-        // Применяем переводы ко всем элементам интерфейса
         applyTranslations();
-        
-        // Обновляем заголовки кнопок для игроков
-        document.querySelectorAll('.player-card .player-header h2').forEach((el, idx) => {
-            if (idx === 0) el.textContent = t('player1Title');
-            if (idx === 1) el.textContent = t('player2Title');
-        });
-        
-        // Обновляем индикаторы подачи
-        document.getElementById('serve1').innerHTML = '🎾 ' + t('serve');
-        document.getElementById('serve2').innerHTML = '🎾 ' + t('serve');
-        
-        // Обновляем названия кнопок
         const langNames = { ru: 'Русский', en: 'English', de: 'Deutsch', es: 'Español', it: 'Italiano', fr: 'Français', zh: '中文', pt: 'Português' };
         document.querySelectorAll('.lang-toggle-btn').forEach(btn => {
             btn.innerHTML = `🌐 ${langNames[lang]}`;
         });
-        
-        // Обновляем кнопки под игроками
-        const timeoutBtns = document.querySelectorAll('.player-buttons-col .special-btn:not(.warning):not(.yellow):not(.red)');
-        timeoutBtns.forEach(btn => btn.textContent = t('timeout'));
-        
-        const warningBtns = document.querySelectorAll('.special-btn.warning');
-        warningBtns.forEach(btn => btn.textContent = t('warning'));
-        
-        const yellowBtns = document.querySelectorAll('.special-btn.yellow');
-        yellowBtns.forEach(btn => btn.textContent = t('yellow'));
-        
-        const redBtns = document.querySelectorAll('.special-btn.red');
-        redBtns.forEach(btn => btn.textContent = t('red'));
-        
-        // Обновляем центральные кнопки
-        document.getElementById('changeServe').textContent = t('changeServe');
-        document.getElementById('changeSide').textContent = t('changeSide');
-        document.getElementById('undoPoint').textContent = t('undoPoint');
-        document.getElementById('accelerate').textContent = t('accelerate');
-        
-        // Обновляем кнопку завершения
-        document.getElementById('forceFinish').textContent = t('finishMatch');
-        
-        // Обновляем статус матча
-        if (match) {
-            if (!match.isStarted) document.getElementById('matchStatus').textContent = '● ' + t('waiting');
-            else if (match.isFinished) document.getElementById('matchStatus').textContent = '● ' + t('finished');
-            else document.getElementById('matchStatus').textContent = '● ' + t('playing');
-        }
-        
-        // Переводим весь журнал событий
         if (match && match.events) {
-            updateEventLog();
+            match.updateEventLogDisplay();
         }
     }
 }
@@ -1452,7 +1351,7 @@ function showLanguageMenu() {
     
     const menu = document.createElement('div');
     menu.style.cssText = `position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border-radius:15px;padding:20px;box-shadow:0 10px 40px rgba(0,0,0,0.3);z-index:2000;min-width:280px;`;
-    menu.innerHTML = `<h3 style="margin-bottom:15px;text-align:center;">🌐 ${currentLang === 'ru' ? 'Выберите язык' : (currentLang === 'en' ? 'Select language' : 'Sprache wählen')}</h3>
+    menu.innerHTML = `<h3 style="margin-bottom:15px;text-align:center;">🌐 ${currentLang === 'ru' ? 'Выберите язык' : 'Select language'}</h3>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
             ${languages.map(lang => `<button class="lang-option" data-lang="${lang.code}" style="padding:10px;border:none;background:${currentLang === lang.code ? '#3498db' : '#f0f0f0'};color:${currentLang === lang.code ? 'white' : '#333'};border-radius:8px;cursor:pointer;text-align:center;">${lang.flag} ${lang.name}</button>`).join('')}
         </div>
@@ -1466,6 +1365,8 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded fired');
+    
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
     
