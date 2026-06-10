@@ -58,6 +58,10 @@ const translations = {
         'enterCode': 'Введите код из письма',
         'newPassword': 'Новый пароль',
         'codeSent': 'Код отправлен на почту',
+        'privacy': '📄 Политика конфиденциальности',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Пароль',
+        'namePlaceholder': 'Имя',
         'point': '🎾 Очко заработал игрок {player}',
         'set_end': '🏆 Партия {set} завершена. Победил игрок {winner}',
         'set_start': '🎬 Начало {set}-й партии. Подает игрок {server}',
@@ -146,6 +150,10 @@ const translations = {
         'enterCode': 'Enter the code from the email',
         'newPassword': 'New password',
         'codeSent': 'Code sent to email',
+        'privacy': '📄 Privacy Policy',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Password',
+        'namePlaceholder': 'Name',
         'point': '🎾 Point scored by player {player}',
         'set_end': '🏆 Set {set} completed. Player {winner} wins',
         'set_start': '🎬 Start of set {set}. Player {server} serves',
@@ -234,6 +242,10 @@ const translations = {
         'enterCode': 'Code aus der E-Mail eingeben',
         'newPassword': 'Neues Passwort',
         'codeSent': 'Code wurde gesendet',
+        'privacy': '📄 Datenschutz',
+        'emailPlaceholder': 'E-Mail',
+        'passwordPlaceholder': 'Passwort',
+        'namePlaceholder': 'Name',
         'point': '🎾 Punkt für Spieler {player}',
         'set_end': '🏆 Satz {set} beendet. Spieler {winner} gewinnt',
         'set_start': '🎬 Beginn von Satz {set}. Spieler {server} schlägt auf',
@@ -322,6 +334,10 @@ const translations = {
         'enterCode': 'Ingrese el código del email',
         'newPassword': 'Nueva contraseña',
         'codeSent': 'Código enviado',
+        'privacy': '📄 Política de privacidad',
+        'emailPlaceholder': 'Correo electrónico',
+        'passwordPlaceholder': 'Contraseña',
+        'namePlaceholder': 'Nombre',
         'point': '🎾 Punto anotado por jugador {player}',
         'set_end': '🏆 Set {set} completado. Jugador {winner} gana',
         'set_start': '🎬 Inicio del set {set}. Saca el jugador {server}',
@@ -410,6 +426,10 @@ const translations = {
         'enterCode': 'Inserisci il codice ricevuto',
         'newPassword': 'Nuova password',
         'codeSent': 'Codice inviato',
+        'privacy': '📄 Politica sulla privacy',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Password',
+        'namePlaceholder': 'Nome',
         'point': '🎾 Punto segnato dal giocatore {player}',
         'set_end': '🏆 Set {set} completato. Giocatore {winner} vince',
         'set_start': '🎬 Inizio del set {set}. Batte il giocatore {server}',
@@ -498,6 +518,10 @@ const translations = {
         'enterCode': 'Entrez le code reçu',
         'newPassword': 'Nouveau mot de passe',
         'codeSent': 'Code envoyé',
+        'privacy': '📄 Politique de confidentialité',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Mot de passe',
+        'namePlaceholder': 'Nom',
         'point': '🎾 Point marqué par le joueur {player}',
         'set_end': '🏆 Set {set} terminé. Joueur {winner} gagne',
         'set_start': '🎬 Début du set {set}. Le joueur {server} sert',
@@ -586,6 +610,10 @@ const translations = {
         'enterCode': '输入邮件中的验证码',
         'newPassword': '新密码',
         'codeSent': '验证码已发送',
+        'privacy': '📄 隐私政策',
+        'emailPlaceholder': '电子邮箱',
+        'passwordPlaceholder': '密码',
+        'namePlaceholder': '姓名',
         'point': '🎾 选手{player}得分',
         'set_end': '🏆 第{set}局结束。选手{winner}获胜',
         'set_start': '🎬 第{set}局开始。选手{server}发球',
@@ -674,6 +702,10 @@ const translations = {
         'enterCode': 'Digite o código recebido',
         'newPassword': 'Nova senha',
         'codeSent': 'Código enviado',
+        'privacy': '📄 Política de privacidade',
+        'emailPlaceholder': 'E-mail',
+        'passwordPlaceholder': 'Senha',
+        'namePlaceholder': 'Nome',
         'point': '🎾 Ponto marcado pelo jogador {player}',
         'set_end': '🏆 Set {set} concluído. Jogador {winner} vence',
         'set_start': '🎬 Início do set {set}. Jogador {server} saca',
@@ -721,65 +753,106 @@ function t(key, params = {}) {
 }
 
 function applyTranslations() {
+    const t = translations[currentLang];
+    if (!t) return;
+    
+    // Основные элементы интерфейса
     const elements = {
-        'mainTitle': t('appName'),
-        'authTitle': '🏓 ' + t('appName'),
-        'loginTab': t('login'),
-        'registerTab': t('register'),
-        'doLogin': t('loginBtn'),
-        'doRegister': t('registerBtn'),
-        'logoutBtn': t('logout'),
-        'subscriptionBtn': t('support'),
-        'upgradeFromBanner': t('buyPro'),
-        'adBannerText': t('adBanner'),
-        'authAd': t('authAd'),
-        'player1Title': t('player1Title'),
-        'player2Title': t('player2Title'),
-        'serve1': '🎾 ' + t('serve'),
-        'serve2': '🎾 ' + t('serve'),
-        'resetMatch': t('newMatch'),
-        'startMatch': t('startMatch'),
-        'forceFinish': t('finishMatch'),
-        'point1': t('pointToPlayer1'),
-        'point2': t('pointToPlayer2'),
-        'timeout1': t('timeout'),
-        'timeout2': t('timeout'),
-        'warning1': t('warning'),
-        'warning2': t('warning'),
-        'yellowCard1': t('yellow'),
-        'yellowCard2': t('yellow'),
-        'redCard1': t('red'),
-        'redCard2': t('red'),
-        'changeServe': t('changeServe'),
-        'changeSide': t('changeSide'),
-        'undoPoint': t('undoPoint'),
-        'accelerate': t('accelerate'),
-        'protocolTitle': t('protocol'),
-        'refereeLabel': t('referee'),
-        'startTimeLabel': t('startTime'),
-        'currentTimeLabel': t('currentTime'),
-        'statusLabel': t('status'),
-        'eventLogTitle': t('eventLog'),
-        'exportJSON': t('exportJSON'),
-        'exportCSV': t('exportCSV'),
-        'exportCSV_UTF8': t('exportCSVUtf8'),
-        'printProtocol': t('print'),
-        'forgotPasswordBtn': t('resetPassword'),
-        'sendResetCode': t('sendCode'),
-        'confirmReset': t('changePassword')
+        'mainTitle': t.appName,
+        'authTitle': '🏓 ' + t.appName,
+        'loginTab': t.login,
+        'registerTab': t.register,
+        'doLogin': t.loginBtn,
+        'doRegister': t.registerBtn,
+        'logoutBtn': t.logout,
+        'subscriptionBtn': t.support,
+        'upgradeFromBanner': t.buyPro,
+        'adBannerText': t.adBanner,
+        'authAd': t.authAd,
+        'player1Title': t.player1Title,
+        'player2Title': t.player2Title,
+        'serve1': '🎾 ' + t.serve,
+        'serve2': '🎾 ' + t.serve,
+        'resetMatch': t.newMatch,
+        'startMatch': t.startMatch,
+        'forceFinish': t.finishMatch,
+        'point1': t.pointToPlayer1,
+        'point2': t.pointToPlayer2,
+        'timeout1': t.timeout,
+        'timeout2': t.timeout,
+        'warning1': t.warning,
+        'warning2': t.warning,
+        'yellowCard1': t.yellow,
+        'yellowCard2': t.yellow,
+        'redCard1': t.red,
+        'redCard2': t.red,
+        'changeServe': t.changeServe,
+        'changeSide': t.changeSide,
+        'undoPoint': t.undoPoint,
+        'accelerate': t.accelerate,
+        'protocolTitle': t.protocol,
+        'refereeLabel': t.referee,
+        'startTimeLabel': t.startTime,
+        'currentTimeLabel': t.currentTime,
+        'statusLabel': t.status,
+        'eventLogTitle': t.eventLog,
+        'exportJSON': t.exportJSON,
+        'exportCSV': t.exportCSV,
+        'exportCSV_UTF8': t.exportCSVUtf8,
+        'printProtocol': t.print,
+        'forgotPasswordBtn': t.resetPassword,
+        'sendResetCode': t.sendCode,
+        'confirmReset': t.changePassword
     };
     
     for (const [id, text] of Object.entries(elements)) {
         const el = document.getElementById(id);
-        if (el && el.tagName !== 'INPUT') el.textContent = text;
+        if (el && el.tagName !== 'INPUT') {
+            el.textContent = text;
+        }
     }
+    
+    // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ В ПОЛЯХ ВВОДА
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+    const regName = document.getElementById('regName');
+    const regEmail = document.getElementById('regEmail');
+    const regPassword = document.getElementById('regPassword');
+    const resetEmail = document.getElementById('resetEmail');
+    const resetCode = document.getElementById('resetCode');
+    const newPassword = document.getElementById('newPassword');
+    
+    if (loginEmail) loginEmail.placeholder = t.emailPlaceholder;
+    if (loginPassword) loginPassword.placeholder = t.passwordPlaceholder;
+    if (regName) regName.placeholder = t.namePlaceholder;
+    if (regEmail) regEmail.placeholder = t.emailPlaceholder;
+    if (regPassword) regPassword.placeholder = t.passwordPlaceholder;
+    if (resetEmail) resetEmail.placeholder = t.emailPlaceholder;
+    if (resetCode) resetCode.placeholder = t.enterCode;
+    if (newPassword) newPassword.placeholder = t.newPassword;
+    
+    // ПЕРЕВОД ССЫЛКИ "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ"
+    const privacyLink = document.querySelector('.auth-card a[href="privacy.html"]');
+    if (privacyLink) {
+        privacyLink.textContent = t.privacy;
+    }
+    
+    // ПЕРЕВОД ТЕКСТА В МОДАЛЬНОМ ОКНЕ ВОССТАНОВЛЕНИЯ ПАРОЛЯ
+    const resetModalTitle = document.querySelector('#resetPasswordModal h2');
+    if (resetModalTitle) resetModalTitle.textContent = '🔑 ' + t.resetPassword;
+    
+    const resetModalText = document.querySelector('#resetPasswordModal p');
+    if (resetModalText) resetModalText.textContent = t.enterEmail;
+    
+    const resetStep2Text = document.querySelector('#resetStep2 p');
+    if (resetStep2Text) resetStep2Text.textContent = t.codeSent;
     
     // Обновляем статус матча
     const statusEl = document.getElementById('matchStatus');
     if (statusEl && window.match) {
-        if (!window.match.isStarted) statusEl.textContent = '● ' + t('waiting');
-        else if (window.match.isFinished) statusEl.textContent = '● ' + t('finished');
-        else statusEl.textContent = '● ' + t('playing');
+        if (!window.match.isStarted) statusEl.textContent = '● ' + t.waiting;
+        else if (window.match.isFinished) statusEl.textContent = '● ' + t.finished;
+        else statusEl.textContent = '● ' + t.playing;
     }
     
     // При смене языка ПЕРЕВОДИМ ВЕСЬ ЖУРНАЛ СОБЫТИЙ
@@ -918,12 +991,10 @@ class TableTennisMatch {
         this.pointHistory = [];
     }
     
-    // Получить переведённое описание события
     getEventDescription(eventKey, params) {
         return t(eventKey, params);
     }
     
-    // Добавить событие в журнал
     addEvent(eventKey, params = {}, player = null) {
         const description = this.getEventDescription(eventKey, params);
         this.events.push({
@@ -942,11 +1013,9 @@ class TableTennisMatch {
         return this.events[this.events.length - 1];
     }
     
-    // Обновить отображение журнала (перевести все события)
     refreshEventLog() {
         const log = document.getElementById('eventLog');
         if (log) {
-            // Переводим каждое событие заново
             const translatedEvents = this.events.map(e => ({
                 ...e,
                 description: this.getEventDescription(e.eventKey, e.params)
@@ -1293,7 +1362,7 @@ function printProtocol() {
             <h2>Результат</h2>
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
-            </table><th>Время</th><th>Событие</th><th>Счет</th></tr>
+            <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
             ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
             </table>
         </body></html>`);
@@ -1322,7 +1391,6 @@ function setLanguage(lang) {
         document.documentElement.setAttribute('lang', lang);
         document.documentElement.setAttribute('data-lang', lang);
         
-        // Применяем переводы ко всем элементам интерфейса
         applyTranslations();
         
         const langNames = { ru: 'Русский', en: 'English', de: 'Deutsch', es: 'Español', it: 'Italiano', fr: 'Français', zh: '中文', pt: 'Português' };
@@ -1354,8 +1422,6 @@ function setLanguage(lang) {
             if (!match.isStarted) document.getElementById('matchStatus').textContent = '● ' + t('waiting');
             else if (match.isFinished) document.getElementById('matchStatus').textContent = '● ' + t('finished');
             else document.getElementById('matchStatus').textContent = '● ' + t('playing');
-            
-            // ПЕРЕВОДИМ ВЕСЬ ЖУРНАЛ СОБЫТИЙ
             match.refreshEventLog();
         }
     }
