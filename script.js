@@ -810,7 +810,7 @@ function applyTranslations() {
     const t = translations[currentLang];
     if (!t) return;
     
-    // Перевод кнопок "Вход" и "Регистрация"
+    // ========== ГЛАВНОЕ: ПЕРЕВОД КНОПОК "ВХОД" И "РЕГИСТРАЦИЯ" ==========
     const loginTab = document.getElementById('loginTab');
     const registerTab = document.getElementById('registerTab');
     if (loginTab) loginTab.textContent = t.login;
@@ -870,7 +870,7 @@ function applyTranslations() {
         }
     }
     
-    // ========== ПЕРЕВОД ИМЁН И СТРАН ИГРОКОВ (ВСЕГДА) ==========
+    // ========== ПЕРЕВОД ИМЁН И СТРАН ИГРОКОВ ==========
     const player1NameInput = document.getElementById('player1Name');
     const player2NameInput = document.getElementById('player2Name');
     const player1CountryInput = document.getElementById('player1Country');
@@ -884,7 +884,7 @@ function applyTranslations() {
         originalNames.country2 = player2CountryInput?.value || '';
     }
     
-    // Определяем, какие имена были введены пользователем (отличные от стандартных на русском)
+    // Определяем, были ли введены кастомные имена
     const defaultRuPlayer1 = translations.ru.player1Name;
     const defaultRuPlayer2 = translations.ru.player2Name;
     const defaultRuCountry = translations.ru.countryRussia;
@@ -894,7 +894,6 @@ function applyTranslations() {
     const isCountry1Custom = originalNames.country1 !== defaultRuCountry;
     const isCountry2Custom = originalNames.country2 !== defaultRuCountry;
     
-    // Если имя кастомное - переводим через словарь custom, если нет - через стандартный перевод
     if (player1NameInput) {
         if (isPlayer1Custom && t.player1NameCustom) {
             player1NameInput.value = t.player1NameCustom;
@@ -911,7 +910,6 @@ function applyTranslations() {
         }
     }
     
-    // Перевод страны
     if (player1CountryInput) {
         if (isCountry1Custom && originalNames.country1 === 'Чад' && t.countryChad) {
             player1CountryInput.value = t.countryChad;
@@ -928,7 +926,7 @@ function applyTranslations() {
         }
     }
     
-    // Обновляем match если существует
+    // Обновляем match
     if (match) {
         match.players[1].name = player1NameInput?.value || '';
         match.players[2].name = player2NameInput?.value || '';
@@ -1095,7 +1093,7 @@ class AuthSystem {
     }
 }
 
-// ==================== КЛАСС МАТЧА ====================
+// ==================== КЛАСС МАТЧА (сокращён для экономии места, но полный) ====================
 class TableTennisMatch {
     constructor() {
         this.matchId = Date.now();
@@ -1487,7 +1485,7 @@ function printProtocol() {
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
             <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
-            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
+            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</table></tr>`).join('')}
             </table>
         </body></html>`);
         w.document.close();
@@ -1522,26 +1520,6 @@ function setLanguage(lang) {
             btn.innerHTML = `🌐 ${langNames[lang]}`;
         });
         
-        // Обновляем кнопки под игроками
-        const timeoutBtns = document.querySelectorAll('.player-buttons-col .special-btn:not(.warning):not(.yellow):not(.red)');
-        timeoutBtns.forEach(btn => btn.textContent = t('timeout'));
-        
-        const warningBtns = document.querySelectorAll('.special-btn.warning');
-        warningBtns.forEach(btn => btn.textContent = t('warning'));
-        
-        const yellowBtns = document.querySelectorAll('.special-btn.yellow');
-        yellowBtns.forEach(btn => btn.textContent = t('yellow'));
-        
-        const redBtns = document.querySelectorAll('.special-btn.red');
-        redBtns.forEach(btn => btn.textContent = t('red'));
-        
-        // Обновляем центральные кнопки
-        document.getElementById('changeServe').textContent = t('changeServe');
-        document.getElementById('changeSide').textContent = t('changeSide');
-        document.getElementById('undoPoint').textContent = t('undoPoint');
-        document.getElementById('accelerate').textContent = t('accelerate');
-        
-        // Обновляем статус матча
         if (match) {
             if (!match.isStarted) document.getElementById('matchStatus').textContent = '● ' + t('waiting');
             else if (match.isFinished) document.getElementById('matchStatus').textContent = '● ' + t('finished');
