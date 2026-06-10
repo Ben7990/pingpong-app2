@@ -124,16 +124,6 @@ body {
     margin-top: 8px;
 }
 
-.ad-banner-small {
-    margin-top: 15px;
-    padding: 8px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    font-size: 10px;
-    color: #666;
-    text-align: center;
-}
-
 /* Header */
 .header {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -171,30 +161,6 @@ body {
     border-radius: 5px;
     font-size: 11px;
     background: rgba(255,255,255,0.9);
-}
-
-/* Ad Banner */
-.ad-banner {
-    background: linear-gradient(135deg, #ffd89b, #c7e9fb);
-    padding: 6px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 10px;
-    border-bottom: 1px solid #ddd;
-    flex-wrap: wrap;
-    gap: 6px;
-}
-
-.upgrade-banner-btn {
-    background: #ff4757;
-    color: white;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 9px;
 }
 
 /* Game Area */
