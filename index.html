@@ -11,7 +11,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
     <style>
-        /* Полноэкранный режим для PWA */
         @media (display-mode: standalone) {
             body {
                 padding-top: env(safe-area-inset-top);
@@ -57,7 +56,7 @@
                     <button id="doRegister" class="auth-btn">Зарегистрироваться</button>
                 </div>
                 
-                <div class="ad-banner-small" id="authAd">📢 Бесплатная версия: 99 матчей • Поддержать проект можно на Boosty</div>
+                <div class="ad-banner-small" id="authAd">📢 Бесплатная версия: 99 матчей</div>
             </div>
         </div>
 
@@ -87,7 +86,6 @@
                         <button id="langToggleMain" class="lang-toggle-btn">🌐 English</button>
                         <span id="userNameDisplay" style="font-size: 14px;"></span>
                         <span id="matchesCountDisplay" style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 20px;">🎾 99/99</span>
-                        <button id="subscriptionBtn" class="sub-btn">🙏 Поддержать</button>
                         <button id="logoutBtn" class="logout-btn">🚪 Выход</button>
                     </div>
                 </div>
@@ -98,10 +96,7 @@
                 </div>
             </div>
 
-            <div id="freeBanner" class="ad-banner" style="display: flex;">
-                <span id="adBannerText">📢 Если вам нравится приложение — поддержите проект на Boosty! →</span>
-                <button id="upgradeFromBanner" class="upgrade-banner-btn">Поддержать</button>
-            </div>
+            <!-- Баннер рекламы УДАЛЁН -->
 
             <div class="game-area">
                 <!-- Верхняя строка с игроками -->
@@ -199,18 +194,15 @@
                 <a href="privacy.html" target="_blank">📄 Политика конфиденциальности</a>
                 <span style="margin: 0 10px">•</span>
                 <span>📧 support@pingpong.pro</span>
-                <span style="margin: 0 10px">•</span>
-                <span>🙏 <a href="https://boosty.to/ben7990" target="_blank">Поддержать проект</a></span>
             </div>
         </div>
     </div>
 
-    <!-- Кнопка очистки кеша (только для разработки, на телефоне скрыта) -->
+    <!-- Кнопка очистки кеша (только для разработки) -->
     <button id="clearCacheBtn" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #e74c3c; color: white; border: none; border-radius: 20px; padding: 6px 12px; font-size: 10px; cursor: pointer; opacity: 0.5;">🗑️ Очистить кеш</button>
 
     <script src="script.js?v=7"></script>
     <script>
-        // Кнопка очистки кеша
         document.getElementById('clearCacheBtn')?.addEventListener('click', async () => {
             if ('caches' in window) {
                 const keys = await caches.keys();
@@ -220,7 +212,6 @@
             }
         });
         
-        // Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('./sw.js?v=7').catch(function(error) {
