@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Судья Пинг-Понг PRO | Система учета матчей</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1e3c72">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div class="container" id="app">
+        <!-- Экран авторизации -->
+        <div id="authScreen" class="auth-screen">
+            <div class="auth-card">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <button id="langToggleAuth" class="lang-toggle-btn">🌐 English</button>
+                    <a href="privacy.html" target="_blank" style="font-size: 12px; color: #666; text-decoration: none;">📄 Политика</a>
+                </div>
+                <h1 id="authTitle">🏓 Судья Пинг-Понг</h1>
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login" id="loginTab">Вход</button>
+                    <button class="auth-tab" data-tab="register" id="registerTab">Регистрация</button>
+                </div>
+                <div id="loginForm" class="auth-form active">
+                    <input type="email" id="loginEmail" placeholder="Email" class="auth-input">
+                    <div class="password-wrapper">
+                        <input type="password" id="loginPassword" placeholder="Пароль" class="auth-input">
+                        <button type="button" class="toggle-password" data-target="loginPassword">👁️</button>
+                    </div>
+                    <button id="doLogin" class="auth-btn">Войти</button>
+                </div>
+                <div id="registerForm" class="auth-form">
+                    <input type="text" id="regName" placeholder="Имя" class="auth-input">
+                    <input type="email" id="regEmail" placeholder="Email" class="auth-input">
+                    <div class="password-wrapper">
+                        <input type="password" id="regPassword" placeholder="Пароль" class="auth-input">
+                        <button type="button" class="toggle-password" data-target="regPassword">👁️</button>
+                    </div>
+                    <button id="doRegister" class="auth-btn">Зарегистрироваться</button>
+                </div>
+                <div class="ad-banner-small" id="authAd">
+                    📢 Бесплатная версия: 99 матчей • Поддержать проект можно на Boosty
+                </div>
+            </div>
+        </div>
+
+        <!-- Основное приложение (скрыто до авторизации) -->
+        <div id="mainApp" style="display: none;">
+            <div class="header">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <h1 id="mainTitle">🏓 СУДЕЙСКИЙ ПРОТОКОЛ</h1>
+                    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <button id="langToggleMain" class="lang-toggle-btn">🌐 English</button>
+                        <span id="userNameDisplay" style="font-size: 14px;"></span>
+                        <span id="matchesCountDisplay" style="font-size: 12px; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 20px;">🎾 99/99</span>
+                        <button id="subscriptionBtn" class="sub-btn">🙏 Поддержать</button>
+                        <button id="logoutBtn" class="logout-btn">🚪 Выход</button>
+                    </div>
+                </div>
+                <div class="tournament-info">
+                    <input type="text" id="tournamentName" placeholder="Название турнира" value="Чемпионат по настольному теннису 2026">
+                    <input type="date" id="matchDate" value="2026-06-10">
+                    <input type="text" id="tableNumber" placeholder="Номер стола" value="1">
+                </div>
+            </div>
+
+            <div id="freeBanner" class="ad-banner" style="display: flex;">
+                <span id="adBannerText">📢 Если вам нравится приложение — поддержите проект на Boosty! →</span>
+                <button id="upgradeFromBanner" class="upgrade-banner-btn">Поддержать</button>
+            </div>
+
+            <div class="game-area">
+                <!-- Верхняя строка: Игрок 1, VS, Игрок 2 -->
+                <div class="players-top-row">
+                    <div class="player-card player1">
+                        <div class="player-header">
+                            <h2 id="player1Title">ИГРОК 1</h2>
+                            <div class="serve-indicator" id="serve1">🎾 ПОДАЧА</div>
+                        </div>
+                        <input type="text" class="player-name" id="player1Name" placeholder="ФИО игрока" value="Алексей Смирнов">
+                        <input type="text" class="player-country" id="player1Country" placeholder="Страна" value="Россия">
+                        <div class="score-display" id="score1">0</div>
+                        <div class="points-history" id="history1"></div>
+                    </div>
+
+                    <div class="vs-area">
+                        <div class="set-score">
+                            <span id="sets1">0</span>
+                            <span>:</span>
+                            <span id="sets2">0</span>
+                        </div>
+                        <div class="match-control-buttons">
+                            <button class="reset-match" id="resetMatch">🔄 НОВЫЙ МАТЧ</button>
+                            <button class="start-match-btn" id="startMatch">🎬 НАЧАТЬ МАТЧ</button>
+                            <button class="finish-match-btn" id="forceFinish" disabled style="background: #e74c3c;">🏁 ЗАВЕРШИТЬ</button>
+                        </div>
+                    </div>
+
+                    <div class="player-card player2">
+                        <div class="player-header">
+                            <h2 id="player2Title">ИГРОК 2</h2>
+                            <div class="serve-indicator" id="serve2">🎾 ПОДАЧА</div>
+                        </div>
+                        <input type="text" class="player-name" id="player2Name" placeholder="ФИО игрока" value="Дмитрий Петров">
+                        <input type="text" class="player-country" id="player2Country" placeholder="Страна" value="Россия">
+                        <div class="score-display" id="score2">0</div>
+                        <div class="points-history" id="history2"></div>
+                    </div>
+                </div>
+
+                <!-- Кнопки очков (по центру) -->
+                <div class="game-buttons">
+                    <button class="point-btn player1-point" id="point1" disabled>➕ ОЧКО ИГРОКУ 1</button>
+                    <button class="point-btn player2-point" id="point2" disabled>➕ ОЧКО ИГРОКУ 2</button>
+                </div>
+
+                <!-- Три колонки: Игрок 1 | Центр | Игрок 2 -->
+                <div class="three-columns">
+                    <!-- Левая колонка - кнопки игрока 1 -->
+                    <div class="player-buttons-col player1-col">
+                        <button class="special-btn" id="timeout1" disabled>⏸ ТАЙМ-АУТ</button>
+                        <button class="special-btn warning" id="warning1" disabled>⚠ ПРЕДУПРЕЖДЕНИЕ</button>
+                        <button class="special-btn yellow" id="yellowCard1" disabled>🟨 ЖЕЛТАЯ КАРТА</button>
+                        <button class="special-btn red" id="redCard1" disabled>🟥 КРАСНАЯ КАРТА</button>
+                    </div>
+
+                    <!-- Центральная колонка - общие кнопки -->
+                    <div class="center-buttons-col">
+                        <button class="control-btn" id="changeServe" disabled>🔄 СМЕНА ПОДАЧИ</button>
+                        <button class="control-btn" id="changeSide" disabled>↔ СМЕНА СТОРОН</button>
+                        <button class="control-btn" id="undoPoint" disabled>↩ ОТМЕНА ОЧКА</button>
+                        <button class="control-btn" id="accelerate" disabled>⚡ УСКОРЕНИЕ</button>
+                    </div>
+
+                    <!-- Правая колонка - кнопки игрока 2 -->
+                    <div class="player-buttons-col player2-col">
+                        <button class="special-btn" id="timeout2" disabled>⏸ ТАЙМ-АУТ</button>
+                        <button class="special-btn warning" id="warning2" disabled>⚠ ПРЕДУПРЕЖДЕНИЕ</button>
+                        <button class="special-btn yellow" id="yellowCard2" disabled>🟨 ЖЕЛТАЯ КАРТА</button>
+                        <button class="special-btn red" id="redCard2" disabled>🟥 КРАСНАЯ КАРТА</button>
+                    </div>
+                </div>
+
+                <!-- Секция протокола -->
+                <div class="protocol-section">
+                    <h3 id="protocolTitle">📋 СУДЕЙСКИЙ ПРОТОКОЛ</h3>
+                    <div class="protocol-info">
+                        <div class="protocol-item">
+                            <strong id="refereeLabel">Главный судья:</strong>
+                            <input type="text" id="refereeName" placeholder="ФИО судьи" value="Иван Иванов">
+                        </div>
+                        <div class="protocol-item">
+                            <strong id="startTimeLabel">Время начала:</strong>
+                            <span id="startTime">--:--:--</span>
+                        </div>
+                        <div class="protocol-item">
+                            <strong id="currentTimeLabel">Текущее время:</strong>
+                            <span id="currentTime">--:--:--</span>
+                        </div>
+                        <div class="protocol-item">
+                            <strong id="statusLabel">Статус:</strong>
+                            <span id="matchStatus">● ОЖИДАНИЕ НАЧАЛА</span>
+                        </div>
+                    </div>
+                    
+                    <div class="log-area">
+                        <h4 id="eventLogTitle">ЖУРНАЛ СОБЫТИЙ</h4>
+                        <div id="eventLog"></div>
+                    </div>
+
+                    <div class="export-buttons">
+                        <button class="export-btn" id="exportJSON">💾 ЭКСПОРТ JSON</button>
+                        <button class="export-btn" id="exportCSV">📊 ЭКСПОРТ CSV (ANSI)</button>
+                        <button class="export-btn" id="exportCSV_UTF8">📊 ЭКСПОРТ CSV (UTF-8)</button>
+                        <button class="export-btn" id="printProtocol">🖨 ПЕЧАТЬ ПРОТОКОЛА</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Футер с контактами -->
+            <div class="app-footer" style="background: #f5f5f5; padding: 15px 20px; text-align: center; font-size: 12px; border-top: 1px solid #ddd; margin-top: 20px;">
+                <div style="margin-bottom: 8px;">
+                    <a href="privacy.html" target="_blank" style="color: #1e3c72; text-decoration: none;">📄 Политика конфиденциальности</a>
+                    <span style="margin: 0 10px">•</span>
+                    <span>📧 support@pingpong.pro</span>
+                    <span style="margin: 0 10px">•</span>
+                    <span>📱 Telegram: <a href="https://t.me/ben7990" target="_blank" style="color: #1e3c72;">@ben7990</a></span>
+                    <span style="margin: 0 10px">•</span>
+                    <span>🙏 <a href="https://boosty.to/ben7990" target="_blank" style="color: #1e3c72;">Поддержать проект</a></span>
+                </div>
+                <div style="color: #888;">
+                    По вопросам сотрудничества и поддержки: <strong>support@pingpong.pro</strong>
+                </div>
+                <div style="color: #aaa; margin-top: 8px; font-size: 10px;">
+                    © 2026 Судья Пинг-Понг PRO. Все права защищены.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('./sw.js').then(function(registration) {
+                    console.log('Service Worker зарегистрирован успешно:', registration);
+                }).catch(function(error) {
+                    console.log('Ошибка регистрации Service Worker:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
