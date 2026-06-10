@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Судья Пинг-Понг PRO | Система учета матчей</title>
-    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="styles.css?v=11">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3c72">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -109,6 +109,7 @@
                         <button id="langToggleMain" class="lang-toggle-btn">🌐 English</button>
                         <span id="userNameDisplay" style="font-size: 14px;"></span>
                         <button id="logoutBtn" class="logout-btn">🚪 Выход</button>
+                        <button id="deleteAccountBtn" class="logout-btn" style="background: #e74c3c;">🗑️ Удалить аккаунт</button>
                     </div>
                 </div>
                 <div class="tournament-info">
@@ -222,7 +223,7 @@
     <!-- Кнопка очистки кеша (только для разработки) -->
     <button id="clearCacheBtn" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #e74c3c; color: white; border: none; border-radius: 20px; padding: 6px 12px; font-size: 10px; cursor: pointer; opacity: 0.5;">🗑️ Очистить кеш</button>
 
-    <script src="script.js?v=9"></script>
+    <script src="script.js?v=11"></script>
     <script>
         document.getElementById('clearCacheBtn')?.addEventListener('click', async () => {
             if ('caches' in window) {
