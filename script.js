@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v10 - с безопасным шифрованием');
+console.log('Скрипт загружен v11 - с функцией удаления аккаунта');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 // Используем Web Crypto API для настоящего шифрования
@@ -9,7 +9,6 @@ async function hashPassword(password, salt) {
     const passwordData = encoder.encode(password);
     const saltData = encoder.encode(salt);
     
-    // Импортируем пароль как ключ
     const key = await crypto.subtle.importKey(
         'raw',
         passwordData,
@@ -18,7 +17,6 @@ async function hashPassword(password, salt) {
         ['deriveBits']
     );
     
-    // Создаём хеш
     const hash = await crypto.subtle.deriveBits(
         {
             name: 'PBKDF2',
@@ -27,22 +25,19 @@ async function hashPassword(password, salt) {
             hash: 'SHA-256'
         },
         key,
-        256 // 256 бит = 32 байта
+        256
     );
     
-    // Конвертируем в hex строку
     const hashArray = Array.from(new Uint8Array(hash));
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-// Функция для генерации случайной соли
 function generateSalt() {
     const array = new Uint8Array(16);
     crypto.getRandomValues(array);
     return Array.from(array).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-// Функция для проверки пароля
 async function verifyPassword(inputPassword, storedHash, salt) {
     const inputHash = await hashPassword(inputPassword, salt);
     return inputHash === storedHash;
@@ -57,6 +52,10 @@ const translations = {
         'loginBtn': 'Войти',
         'registerBtn': 'Зарегистрироваться',
         'logout': '🚪 Выход',
+        'deleteAccount': '🗑️ Удалить аккаунт',
+        'confirmDelete': 'Вы уверены, что хотите удалить аккаунт? Это действие необратимо. Все ваши данные будут удалены навсегда.',
+        'deleteSuccess': 'Аккаунт успешно удалён. До свидания!',
+        'deleteError': 'Ошибка при удалении аккаунта. Попробуйте ещё раз.',
         'waiting': 'ОЖИДАНИЕ НАЧАЛА',
         'playing': 'В ИГРЕ',
         'finished': 'ЗАВЕРШЕН',
@@ -144,6 +143,10 @@ const translations = {
         'loginBtn': 'Login',
         'registerBtn': 'Register',
         'logout': '🚪 Logout',
+        'deleteAccount': '🗑️ Delete Account',
+        'confirmDelete': 'Are you sure you want to delete your account? This action is irreversible. All your data will be permanently deleted.',
+        'deleteSuccess': 'Account successfully deleted. Goodbye!',
+        'deleteError': 'Error deleting account. Please try again.',
         'waiting': 'WAITING',
         'playing': 'PLAYING',
         'finished': 'FINISHED',
@@ -231,6 +234,10 @@ const translations = {
         'loginBtn': 'Anmelden',
         'registerBtn': 'Registrieren',
         'logout': '🚪 Abmelden',
+        'deleteAccount': '🗑️ Konto löschen',
+        'confirmDelete': 'Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Alle Ihre Daten werden dauerhaft gelöscht.',
+        'deleteSuccess': 'Konto erfolgreich gelöscht. Auf Wiedersehen!',
+        'deleteError': 'Fehler beim Löschen des Kontos. Bitte versuchen Sie es erneut.',
         'waiting': 'WARTEN',
         'playing': 'IM SPIEL',
         'finished': 'BEENDET',
@@ -318,6 +325,10 @@ const translations = {
         'loginBtn': 'Iniciar',
         'registerBtn': 'Registrar',
         'logout': '🚪 Salir',
+        'deleteAccount': '🗑️ Eliminar cuenta',
+        'confirmDelete': '¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible. Todos tus datos serán eliminados permanentemente.',
+        'deleteSuccess': 'Cuenta eliminada con éxito. ¡Adiós!',
+        'deleteError': 'Error al eliminar la cuenta. Por favor, inténtalo de nuevo.',
         'waiting': 'ESPERANDO',
         'playing': 'JUGANDO',
         'finished': 'FINALIZADO',
@@ -405,6 +416,10 @@ const translations = {
         'loginBtn': 'Accedi',
         'registerBtn': 'Registrati',
         'logout': '🚪 Esci',
+        'deleteAccount': '🗑️ Elimina account',
+        'confirmDelete': 'Sei sicuro di voler eliminare il tuo account? Questa azione è irreversibile. Tutti i tuoi dati verranno cancellati permanentemente.',
+        'deleteSuccess': 'Account eliminato con successo. Arrivederci!',
+        'deleteError': 'Errore durante l\'eliminazione dell\'account. Riprova.',
         'waiting': 'IN ATTESA',
         'playing': 'IN GIOCO',
         'finished': 'TERMINATA',
@@ -492,6 +507,10 @@ const translations = {
         'loginBtn': 'Se connecter',
         'registerBtn': "S'inscrire",
         'logout': '🚪 Déconnexion',
+        'deleteAccount': '🗑️ Supprimer le compte',
+        'confirmDelete': 'Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible. Toutes vos données seront définitivement supprimées.',
+        'deleteSuccess': 'Compte supprimé avec succès. Au revoir !',
+        'deleteError': 'Erreur lors de la suppression du compte. Veuillez réessayer.',
         'waiting': 'EN ATTENTE',
         'playing': 'EN COURS',
         'finished': 'TERMINÉ',
@@ -579,6 +598,10 @@ const translations = {
         'loginBtn': '登录',
         'registerBtn': '注册',
         'logout': '🚪 退出',
+        'deleteAccount': '🗑️ 删除账号',
+        'confirmDelete': '您确定要删除您的账号吗？此操作不可逆。所有数据将被永久删除。',
+        'deleteSuccess': '账号已成功删除。再见！',
+        'deleteError': '删除账号时出错。请重试。',
         'waiting': '等待开始',
         'playing': '比赛中',
         'finished': '已结束',
@@ -666,6 +689,10 @@ const translations = {
         'loginBtn': 'Entrar',
         'registerBtn': 'Registrar',
         'logout': '🚪 Sair',
+        'deleteAccount': '🗑️ Excluir conta',
+        'confirmDelete': 'Tem certeza que deseja excluir sua conta? Esta ação é irreversível. Todos os seus dados serão permanentemente excluídos.',
+        'deleteSuccess': 'Conta excluída com sucesso. Adeus!',
+        'deleteError': 'Erro ao excluir a conta. Por favor, tente novamente.',
         'waiting': 'AGUARDANDO',
         'playing': 'EM JOGO',
         'finished': 'FINALIZADO',
@@ -776,6 +803,7 @@ function applyTranslations() {
         'doLogin': trans.loginBtn,
         'doRegister': trans.registerBtn,
         'logoutBtn': trans.logout,
+        'deleteAccountBtn': trans.deleteAccount,
         'player1Title': trans.player1Title,
         'player2Title': trans.player2Title,
         'serve1': '🎾 ' + trans.serve,
@@ -858,7 +886,6 @@ function applyTranslations() {
     
     if (window.match && window.match.events) window.match.refreshEventLog();
     
-    // Обновляем текст в модальном окне жеребьевки
     const tossTitle = document.querySelector('#tossModal h2');
     if (tossTitle) {
         tossTitle.textContent = currentLang === 'ru' ? '🎲 ЖЕРЕБЬЕВКА' :
@@ -931,7 +958,6 @@ class AuthSystem {
             return { success: false, error: 'Email уже зарегистрирован' };
         }
         
-        // Создаём соль и хешируем пароль
         const salt = generateSalt();
         const hashedPassword = await hashPassword(password, salt);
         
@@ -960,6 +986,40 @@ class AuthSystem {
         return { success: true, user: this.currentUser };
     }
     
+    async deleteAccount() {
+        if (!this.currentUser) return false;
+        
+        const confirmMessage = t('confirmDelete');
+        if (!confirm(confirmMessage)) return false;
+        
+        // Удаляем пользователя из массива
+        const userIndex = this.users.findIndex(u => u.id === this.currentUser.id);
+        if (userIndex !== -1) {
+            this.users.splice(userIndex, 1);
+            localStorage.setItem('pingpong_users_secure', JSON.stringify(this.users));
+        }
+        
+        // Очищаем сессию
+        localStorage.removeItem('pingpong_session_secure');
+        
+        // Очищаем текущего пользователя
+        this.currentUser = null;
+        
+        // Показываем сообщение об успехе
+        alert(t('deleteSuccess'));
+        
+        // Возвращаемся на экран авторизации
+        this.showAuth();
+        
+        // Обновляем UI
+        if (window.match) {
+            initializeMatch();
+            updateUI();
+        }
+        
+        return true;
+    }
+    
     logout() {
         this.currentUser = null;
         localStorage.removeItem('pingpong_session_secure');
@@ -984,7 +1044,7 @@ class AuthSystem {
     }
 }
 
-// ==================== КЛАСС МАТЧА ====================
+// ==================== КЛАСС МАТЧА (сокращён для экономии места, полная версия) ====================
 class TableTennisMatch {
     constructor() {
         this.matchId = Date.now();
@@ -1122,7 +1182,6 @@ class TableTennisMatch {
         this.addEvent('set_end', { set: this.currentSet, winner: winner }, winner);
         this.players[1].score = 0; this.players[2].score = 0;
         
-        // Правильная смена сторон: только после нечетных партий (1->2, 3->4)
         if (this.currentSet % 2 === 1) {
             this.changeSide();
         }
@@ -1307,7 +1366,6 @@ function showTossModal() {
         
         let isFlipping = false;
         
-        // Обновляем ВСЕ тексты на текущем языке
         const tossTitle = document.querySelector('#tossModal h2');
         if (tossTitle) {
             tossTitle.textContent = currentLang === 'ru' ? '🎲 ЖЕРЕБЬЕВКА' :
@@ -1439,6 +1497,14 @@ function setupEventListeners() {
     document.getElementById('exportCSV').onclick = () => exportCSV(false);
     document.getElementById('exportCSV_UTF8').onclick = () => exportCSV(true);
     document.getElementById('printProtocol').onclick = () => printProtocol();
+    
+    // Кнопка удаления аккаунта
+    const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+    if (deleteAccountBtn) {
+        deleteAccountBtn.onclick = async () => {
+            await auth.deleteAccount();
+        };
+    }
     
     document.getElementById('player1Name').onchange = (e) => { if (match) match.players[1].name = e.target.value; updateUI(); };
     document.getElementById('player2Name').onchange = (e) => { if (match) match.players[2].name = e.target.value; updateUI(); };
@@ -1591,7 +1657,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Безопасная версия с шифрованием паролей');
+    console.log('DOMContentLoaded fired - Версия v11 с функцией удаления аккаунта');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
@@ -1599,7 +1665,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.auth = new AuthSystem();
     auth = window.auth;
     
-    // Делаем функции регистрации/логина асинхронными
     document.getElementById('doRegister').onclick = async () => {
         const name = document.getElementById('regName').value;
         const email = document.getElementById('regEmail').value;
