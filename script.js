@@ -65,6 +65,9 @@ const translations = {
         'player1Name': 'Алексей Смирнов',
         'player2Name': 'Дмитрий Петров',
         'countryRussia': 'Россия',
+        'countryChad': 'Чад',
+        'player1NameCustom': 'Турбин Сергей',
+        'player2NameCustom': 'Турбин Сергей',
         'point': '🎾 Очко заработал игрок {player}',
         'set_end': '🏆 Партия {set} завершена. Победил игрок {winner}',
         'set_start': '🎬 Начало {set}-й партии. Подает игрок {server}',
@@ -160,6 +163,9 @@ const translations = {
         'player1Name': 'Alexey Smirnov',
         'player2Name': 'Dmitry Petrov',
         'countryRussia': 'Russia',
+        'countryChad': 'Chad',
+        'player1NameCustom': 'Sergey Turbin',
+        'player2NameCustom': 'Sergey Turbin',
         'point': '🎾 Point scored by player {player}',
         'set_end': '🏆 Set {set} completed. Player {winner} wins',
         'set_start': '🎬 Start of set {set}. Player {server} serves',
@@ -255,6 +261,9 @@ const translations = {
         'player1Name': 'Alexej Smirnow',
         'player2Name': 'Dmitri Petrow',
         'countryRussia': 'Russland',
+        'countryChad': 'Tschad',
+        'player1NameCustom': 'Sergei Turbin',
+        'player2NameCustom': 'Sergei Turbin',
         'point': '🎾 Punkt für Spieler {player}',
         'set_end': '🏆 Satz {set} beendet. Spieler {winner} gewinnt',
         'set_start': '🎬 Beginn von Satz {set}. Spieler {server} schlägt auf',
@@ -350,6 +359,9 @@ const translations = {
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
         'countryRussia': 'Rusia',
+        'countryChad': 'Chad',
+        'player1NameCustom': 'Sergei Turbin',
+        'player2NameCustom': 'Sergei Turbin',
         'point': '🎾 Punto anotado por jugador {player}',
         'set_end': '🏆 Set {set} completado. Jugador {winner} gana',
         'set_start': '🎬 Inicio del set {set}. Saca el jugador {server}',
@@ -445,6 +457,9 @@ const translations = {
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
         'countryRussia': 'Russia',
+        'countryChad': 'Ciad',
+        'player1NameCustom': 'Sergei Turbin',
+        'player2NameCustom': 'Sergei Turbin',
         'point': '🎾 Punto segnato dal giocatore {player}',
         'set_end': '🏆 Set {set} completato. Giocatore {winner} vince',
         'set_start': '🎬 Inizio del set {set}. Batte il giocatore {server}',
@@ -540,6 +555,9 @@ const translations = {
         'player1Name': 'Alexeï Smirnov',
         'player2Name': 'Dmitri Petrov',
         'countryRussia': 'Russie',
+        'countryChad': 'Tchad',
+        'player1NameCustom': 'Sergueï Turbine',
+        'player2NameCustom': 'Sergueï Turbine',
         'point': '🎾 Point marqué par le joueur {player}',
         'set_end': '🏆 Set {set} terminé. Joueur {winner} gagne',
         'set_start': '🎬 Début du set {set}. Le joueur {server} sert',
@@ -635,6 +653,9 @@ const translations = {
         'player1Name': '阿列克谢·斯米尔诺夫',
         'player2Name': '德米特里·彼得罗夫',
         'countryRussia': '俄罗斯',
+        'countryChad': '乍得',
+        'player1NameCustom': '谢尔盖·图尔宾',
+        'player2NameCustom': '谢尔盖·图尔宾',
         'point': '🎾 选手{player}得分',
         'set_end': '🏆 第{set}局结束。选手{winner}获胜',
         'set_start': '🎬 第{set}局开始。选手{server}发球',
@@ -730,6 +751,9 @@ const translations = {
         'player1Name': 'Alexei Smirnov',
         'player2Name': 'Dmitri Petrov',
         'countryRussia': 'Rússia',
+        'countryChad': 'Chade',
+        'player1NameCustom': 'Sergei Turbin',
+        'player2NameCustom': 'Sergei Turbin',
         'point': '🎾 Ponto marcado pelo jogador {player}',
         'set_end': '🏆 Set {set} concluído. Jogador {winner} vence',
         'set_start': '🎬 Início do set {set}. Jogador {server} saca',
@@ -765,7 +789,12 @@ const translations = {
 };
 
 let currentLang = localStorage.getItem('app_language') || 'ru';
-let userChangedNames = { player1: false, player2: false, country1: false, country2: false };
+let originalNames = {
+    player1: '',
+    player2: '',
+    country1: '',
+    country2: ''
+};
 
 function t(key, params = {}) {
     let text = translations[currentLang][key];
@@ -781,7 +810,7 @@ function applyTranslations() {
     const t = translations[currentLang];
     if (!t) return;
     
-    // ====== ВАЖНО: ПЕРЕВОД КНОПОК "ВХОД" И "РЕГИСТРАЦИЯ" ======
+    // Перевод кнопок "Вход" и "Регистрация"
     const loginTab = document.getElementById('loginTab');
     const registerTab = document.getElementById('registerTab');
     if (loginTab) loginTab.textContent = t.login;
@@ -841,49 +870,70 @@ function applyTranslations() {
         }
     }
     
-    // ПЕРЕВОД ИМЁН И СТРАН ИГРОКОВ (только если пользователь их не менял)
+    // ========== ПЕРЕВОД ИМЁН И СТРАН ИГРОКОВ (ВСЕГДА) ==========
     const player1NameInput = document.getElementById('player1Name');
     const player2NameInput = document.getElementById('player2Name');
     const player1CountryInput = document.getElementById('player1Country');
     const player2CountryInput = document.getElementById('player2Country');
     
-    if (!userChangedNames.player1 && player1NameInput) {
-        player1NameInput.value = t.player1Name;
-    }
-    if (!userChangedNames.player2 && player2NameInput) {
-        player2NameInput.value = t.player2Name;
-    }
-    if (!userChangedNames.country1 && player1CountryInput) {
-        player1CountryInput.value = t.countryRussia;
-    }
-    if (!userChangedNames.country2 && player2CountryInput) {
-        player2CountryInput.value = t.countryRussia;
+    // Сохраняем оригинальные имена при первом запуске
+    if (originalNames.player1 === '' && player1NameInput) {
+        originalNames.player1 = player1NameInput.value;
+        originalNames.player2 = player2NameInput?.value || '';
+        originalNames.country1 = player1CountryInput?.value || '';
+        originalNames.country2 = player2CountryInput?.value || '';
     }
     
-    // Обработчики для отслеживания изменений пользователем
-    if (player1NameInput && !player1NameInput.hasAttribute('data-listener')) {
-        player1NameInput.setAttribute('data-listener', 'true');
-        player1NameInput.addEventListener('input', () => {
-            userChangedNames.player1 = true;
-        });
+    // Определяем, какие имена были введены пользователем (отличные от стандартных на русском)
+    const defaultRuPlayer1 = translations.ru.player1Name;
+    const defaultRuPlayer2 = translations.ru.player2Name;
+    const defaultRuCountry = translations.ru.countryRussia;
+    
+    const isPlayer1Custom = originalNames.player1 !== defaultRuPlayer1;
+    const isPlayer2Custom = originalNames.player2 !== defaultRuPlayer2;
+    const isCountry1Custom = originalNames.country1 !== defaultRuCountry;
+    const isCountry2Custom = originalNames.country2 !== defaultRuCountry;
+    
+    // Если имя кастомное - переводим через словарь custom, если нет - через стандартный перевод
+    if (player1NameInput) {
+        if (isPlayer1Custom && t.player1NameCustom) {
+            player1NameInput.value = t.player1NameCustom;
+        } else {
+            player1NameInput.value = t.player1Name;
+        }
     }
-    if (player2NameInput && !player2NameInput.hasAttribute('data-listener')) {
-        player2NameInput.setAttribute('data-listener', 'true');
-        player2NameInput.addEventListener('input', () => {
-            userChangedNames.player2 = true;
-        });
+    
+    if (player2NameInput) {
+        if (isPlayer2Custom && t.player2NameCustom) {
+            player2NameInput.value = t.player2NameCustom;
+        } else {
+            player2NameInput.value = t.player2Name;
+        }
     }
-    if (player1CountryInput && !player1CountryInput.hasAttribute('data-listener')) {
-        player1CountryInput.setAttribute('data-listener', 'true');
-        player1CountryInput.addEventListener('input', () => {
-            userChangedNames.country1 = true;
-        });
+    
+    // Перевод страны
+    if (player1CountryInput) {
+        if (isCountry1Custom && originalNames.country1 === 'Чад' && t.countryChad) {
+            player1CountryInput.value = t.countryChad;
+        } else {
+            player1CountryInput.value = t.countryRussia;
+        }
     }
-    if (player2CountryInput && !player2CountryInput.hasAttribute('data-listener')) {
-        player2CountryInput.setAttribute('data-listener', 'true');
-        player2CountryInput.addEventListener('input', () => {
-            userChangedNames.country2 = true;
-        });
+    
+    if (player2CountryInput) {
+        if (isCountry2Custom && originalNames.country2 === 'Чад' && t.countryChad) {
+            player2CountryInput.value = t.countryChad;
+        } else {
+            player2CountryInput.value = t.countryRussia;
+        }
+    }
+    
+    // Обновляем match если существует
+    if (match) {
+        match.players[1].name = player1NameInput?.value || '';
+        match.players[2].name = player2NameInput?.value || '';
+        match.players[1].country = player1CountryInput?.value || '';
+        match.players[2].country = player2CountryInput?.value || '';
     }
     
     // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ
@@ -1436,8 +1486,8 @@ function printProtocol() {
             <h2>Результат</h2>
             <p>${data.players[1].name} vs ${data.players[2].name} | Счет: ${data.players[1].sets}:${data.players[2].sets}</p>
             <h2>Журнал событий</h2>
-            <tr><th>Время</th><th>Событие</th><th>Счет</th></tr>
-            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}<tr></tr>`).join('')}
+            <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
+            ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
             </table>
         </body></html>`);
         w.document.close();
