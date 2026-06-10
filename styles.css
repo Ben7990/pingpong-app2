@@ -4,15 +4,11 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 10px;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .container {
@@ -22,9 +18,6 @@ body {
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     overflow: hidden;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Auth Screen */
@@ -34,7 +27,6 @@ body {
     align-items: center;
     min-height: 80vh;
     padding: 20px;
-    flex: 1;
 }
 
 .auth-card {
@@ -147,7 +139,6 @@ body {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
     padding: 12px;
-    flex-shrink: 0;
 }
 
 .header h1 {
@@ -193,7 +184,6 @@ body {
     border-bottom: 1px solid #ddd;
     flex-wrap: wrap;
     gap: 6px;
-    flex-shrink: 0;
 }
 
 .upgrade-banner-btn {
@@ -207,14 +197,9 @@ body {
     font-size: 9px;
 }
 
-/* Game Area */
+/* Game Area - позволяет скроллить всю страницу */
 .game-area {
     padding: 12px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    min-height: 0;
 }
 
 /* Верхняя строка с игроками */
@@ -225,7 +210,6 @@ body {
     gap: 12px;
     margin-bottom: 12px;
     flex-wrap: wrap;
-    flex-shrink: 0;
 }
 
 .player-card {
@@ -322,7 +306,6 @@ body {
     gap: 12px;
     margin-bottom: 12px;
     flex-wrap: wrap;
-    flex-shrink: 0;
 }
 
 .point-btn {
@@ -357,7 +340,6 @@ body {
     gap: 12px;
     margin-bottom: 12px;
     flex-wrap: wrap;
-    flex-shrink: 0;
 }
 
 .player-buttons-col {
@@ -444,14 +426,13 @@ body {
     color: white;
 }
 
-/* ========== ЖУРНАЛ СОБЫТИЙ - УВЕЛИЧЕН И ВИДИМ ========== */
+/* Protocol Section - журнал событий, виден всегда */
 .protocol-section {
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
     padding: 12px;
     margin-top: 8px;
-    flex-shrink: 0;
 }
 
 .protocol-section h3 {
@@ -488,16 +469,15 @@ body {
     width: 110px;
 }
 
-/* ЖУРНАЛ СОБЫТИЙ - ОСНОВНАЯ ОБЛАСТЬ */
+/* ЖУРНАЛ СОБЫТИЙ - ВИДЕН ВСЕГДА, БЕЗ СКРЫТИЯ */
 .log-area {
     background: #2c3e50;
     color: #ecf0f1;
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 12px;
-    min-height: 150px;
-    max-height: 250px;
-    overflow-y: auto;
+    max-height: none;
+    overflow-y: visible;
 }
 
 .log-area h4 {
@@ -512,7 +492,6 @@ body {
     line-height: 1.5;
 }
 
-/* Стили для записей в журнале */
 #eventLog div {
     padding: 4px 0;
     border-bottom: 1px solid #34495e;
@@ -544,12 +523,11 @@ body {
 /* Футер */
 .app-footer {
     background: #f5f5f5;
-    padding: 6px 10px;
+    padding: 8px 12px;
     text-align: center;
     font-size: 9px;
     border-top: 1px solid #ddd;
-    margin-top: 8px;
-    flex-shrink: 0;
+    margin-top: 12px;
 }
 
 /* Modal */
@@ -592,39 +570,41 @@ body {
     color: #999;
 }
 
-/* Адаптация для разных размеров экрана */
-@media (max-width: 768px) and (orientation: portrait) {
-    .log-area {
-        max-height: 200px;
-        min-height: 120px;
+/* Адаптация для телефонов */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
     }
-    #eventLog {
-        font-size: 10px;
+    
+    .game-area {
+        padding: 8px;
     }
-}
-
-@media (orientation: landscape) and (max-height: 600px) {
-    .log-area {
-        max-height: 140px;
-        min-height: 100px;
+    
+    .players-top-row {
+        gap: 8px;
     }
-    #eventLog {
-        font-size: 9px;
+    
+    .player-card {
+        padding: 8px;
     }
+    
+    .score-display {
+        font-size: 28px;
+    }
+    
+    .point-btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+    
     .player-buttons-col .special-btn,
     .center-buttons-col .control-btn {
         padding: 8px 3px;
         font-size: 9px;
     }
-}
-
-@media (min-width: 1024px) {
-    .log-area {
-        max-height: 300px;
-        min-height: 180px;
-    }
+    
     #eventLog {
-        font-size: 12px;
+        font-size: 10px;
     }
 }
 
@@ -632,19 +612,62 @@ body {
     .players-top-row {
         flex-direction: column;
     }
+    
     .player-card {
         width: 100%;
     }
+    
     .vs-area {
         order: 3;
         margin-top: 5px;
     }
+    
     .three-columns {
         flex-direction: row;
     }
-    .log-area {
-        max-height: 180px;
-        min-height: 100px;
+}
+
+/* Горизонтальная ориентация */
+@media (orientation: landscape) and (max-height: 600px) {
+    .game-area {
+        padding: 6px;
+    }
+    
+    .players-top-row {
+        gap: 6px;
+        margin-bottom: 6px;
+    }
+    
+    .player-card {
+        padding: 5px;
+    }
+    
+    .score-display {
+        font-size: 24px;
+    }
+    
+    .point-btn {
+        padding: 6px;
+        font-size: 11px;
+    }
+    
+    .player-buttons-col .special-btn,
+    .center-buttons-col .control-btn {
+        padding: 5px 2px;
+        font-size: 8px;
+    }
+    
+    .protocol-section {
+        padding: 6px;
+    }
+    
+    #eventLog {
+        font-size: 9px;
+    }
+    
+    .export-btn {
+        padding: 4px 2px;
+        font-size: 8px;
     }
 }
 
