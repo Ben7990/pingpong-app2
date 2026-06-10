@@ -1,6 +1,6 @@
-console.log('Скрипт загружен v8');
+console.log('Скрипт загружен v9');
 
-// ==================== ПЕРЕВОДЫ (8 ЯЗЫКОВ) ====================
+// ==================== ПЕРЕВОДЫ (8 ЯЗЫКОВ - ВСЕ РАБОТАЮТ) ====================
 const translations = {
     ru: {
         'appName': 'СУДЕЙСКИЙ ПРОТОКОЛ',
@@ -87,9 +87,7 @@ const translations = {
         'vs': 'против',
         'winner': 'Победитель',
         'endTime': 'Время окончания',
-        'toss_winner': '🎲 Жеребьевка: выиграл игрок {winner}. Право подачи у игрока {server}',
-        'match_saved': '💾 Протокол матча сохранен в архиве',
-        'saved_matches': 'Архив матчей'
+        'toss_winner': '🎲 Жеребьевка: выиграл игрок {winner}. Право подачи у игрока {server}'
     },
     en: {
         'appName': 'REFEREE PROTOCOL',
@@ -176,9 +174,7 @@ const translations = {
         'vs': 'vs',
         'winner': 'Winner',
         'endTime': 'End time',
-        'toss_winner': '🎲 Toss: player {winner} wins. Player {server} serves',
-        'match_saved': '💾 Match protocol saved to archive',
-        'saved_matches': 'Match Archive'
+        'toss_winner': '🎲 Toss: player {winner} wins. Player {server} serves'
     },
     de: {
         'appName': 'SCHIEDSRICHTERPROTOKOLL',
@@ -220,7 +216,7 @@ const translations = {
         'status': 'Status:',
         'eventLog': 'EREIGNISSE',
         'exportJSON': '💾 EXPORT JSON',
-        'exportCSV': '📊 EXPORT CSV',
+        'exportCSV': '📊 EXPORT CSV (ANSI)',
         'exportCSVUtf8': '📊 EXPORT CSV (UTF-8)',
         'print': '🖨 DRUCKEN',
         'resetPassword': '🔑 Passwort vergessen?',
@@ -265,9 +261,7 @@ const translations = {
         'vs': 'gegen',
         'winner': 'Sieger',
         'endTime': 'Endzeit',
-        'toss_winner': '🎲 Los: Spieler {winner} gewinnt. Spieler {server} schlägt auf',
-        'match_saved': '💾 Spiel gespeichert',
-        'saved_matches': 'Spielarchiv'
+        'toss_winner': '🎲 Los: Spieler {winner} gewinnt. Spieler {server} schlägt auf'
     },
     es: {
         'appName': 'PROTOCOLO ARBITRAL',
@@ -309,7 +303,7 @@ const translations = {
         'status': 'Estado:',
         'eventLog': 'REGISTRO',
         'exportJSON': '💾 EXPORTAR JSON',
-        'exportCSV': '📊 EXPORTAR CSV',
+        'exportCSV': '📊 EXPORTAR CSV (ANSI)',
         'exportCSVUtf8': '📊 EXPORTAR CSV (UTF-8)',
         'print': '🖨 IMPRIMIR',
         'resetPassword': '🔑 ¿Olvidó contraseña?',
@@ -354,9 +348,355 @@ const translations = {
         'vs': 'vs',
         'winner': 'Ganador',
         'endTime': 'Fin',
-        'toss_winner': '🎲 Sorteo: gana jugador {winner}. Saca jugador {server}',
-        'match_saved': '💾 Partido guardado',
-        'saved_matches': 'Archivo'
+        'toss_winner': '🎲 Sorteo: gana jugador {winner}. Saca jugador {server}'
+    },
+    it: {
+        'appName': 'PROTOCOLLO ARBITRALE',
+        'login': 'Accedi',
+        'register': 'Registrati',
+        'loginBtn': 'Accedi',
+        'registerBtn': 'Registrati',
+        'logout': '🚪 Esci',
+        'waiting': 'IN ATTESA',
+        'playing': 'IN GIOCO',
+        'finished': 'TERMINATA',
+        'disqualified': 'SQUALIFICATO',
+        'cancel': 'Annulla',
+        'injury': 'Infortunio',
+        'forfeit': 'Forfait',
+        'technical': 'Tecnico',
+        'finishMatchTitle': 'Termina partita',
+        'finishMatchText': 'Motivo:',
+        'player1Title': 'GIOCATORE 1',
+        'player2Title': 'GIOCATORE 2',
+        'serve': 'BATTUTA',
+        'newMatch': '🔄 NUOVA PARTITA',
+        'startMatch': '🎬 INIZIA',
+        'finishMatch': '🏁 TERMINA',
+        'pointToPlayer1': '➕ PUNTO G1',
+        'pointToPlayer2': '➕ PUNTO G2',
+        'timeout': '⏸ TIME OUT',
+        'warning': '⚠️ AMMONIZIONE',
+        'yellow': '🟨 CARTELLINO GIALLO',
+        'red': '🟥 CARTELLINO ROSSO',
+        'changeServe': '🔄 CAMBIA BATTUTA',
+        'changeSide': '↔ CAMBIA LATO',
+        'undoPoint': '↩ ANNULLA',
+        'accelerate': '⚡ ACCELERAZIONE',
+        'protocol': '📋 PROTOCOLLO',
+        'referee': 'Arbitro:',
+        'startTime': 'Inizio:',
+        'currentTime': 'Ora:',
+        'status': 'Stato:',
+        'eventLog': 'REGISTRO',
+        'exportJSON': '💾 ESPORTA JSON',
+        'exportCSV': '📊 ESPORTA CSV (ANSI)',
+        'exportCSVUtf8': '📊 ESPORTA CSV (UTF-8)',
+        'print': '🖨 STAMPA',
+        'resetPassword': '🔑 Password dimenticata?',
+        'sendCode': 'Invia codice',
+        'changePassword': 'Cambia password',
+        'enterEmail': 'Email di registrazione',
+        'enterCode': 'Codice ricevuto',
+        'newPassword': 'Nuova password',
+        'codeSent': 'Codice inviato',
+        'privacy': '📄 Privacy',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Password',
+        'namePlaceholder': 'Nome',
+        'point': '🎾 Punto giocatore {player}',
+        'set_end': '🏆 Set {set} completato. Vince giocatore {winner}',
+        'set_start': '🎬 Set {set}. Batte giocatore {server}',
+        'serve_auto_change': '🔄 Cambio battuta. Batte giocatore {server}',
+        'serve_manual_change': '🖐️ Cambio manuale. Batte giocatore {server}',
+        'side_change': '↔ Cambio lato (set {set})',
+        'accelerate_on': '⚡ Accelerazione attivata',
+        'timeout_event': '⏸ Time out giocatore {player}',
+        'timeout_error': '❌ Nessun time out',
+        'warning_event': '⚠️ Ammonizione giocatore {player}',
+        'yellow_event': '🟨 Cartellino giallo giocatore {player}',
+        'red_event': '🟥 CARTELLINO ROSSO - squalifica!',
+        'undo': '↩ Ultimo punto annullato',
+        'match_start': '🏓 Partita iniziata. Batte giocatore {server}',
+        'match_end_sporting': '🏁 Partita terminata. Vince giocatore {winner}. {sets}',
+        'match_end_early': '🏁 Terminata anticipatamente. Motivo: {reason}',
+        'error_not_started': '❌ Partita non iniziata!',
+        'error_finished': '❌ Partita terminata',
+        'exportTitle': 'Protocollo',
+        'tournament': 'Torneo',
+        'date': 'Data',
+        'table': 'Tavolo',
+        'refereeName': 'Arbitro',
+        'result': 'Risultato',
+        'eventLogTitle': 'Registro',
+        'time': 'Ora',
+        'event': 'Evento',
+        'score': 'Punteggio',
+        'vs': 'vs',
+        'winner': 'Vincitore',
+        'endTime': 'Fine',
+        'toss_winner': '🎲 Sorteggio: vince giocatore {winner}. Batte giocatore {server}'
+    },
+    fr: {
+        'appName': 'PROTOCOLE ARBITRAL',
+        'login': 'Connexion',
+        'register': 'Inscription',
+        'loginBtn': 'Se connecter',
+        'registerBtn': "S'inscrire",
+        'logout': '🚪 Déconnexion',
+        'waiting': 'EN ATTENTE',
+        'playing': 'EN COURS',
+        'finished': 'TERMINÉ',
+        'disqualified': 'DISQUALIFIÉ',
+        'cancel': 'Annuler',
+        'injury': 'Blessure',
+        'forfeit': 'Forfait',
+        'technical': 'Technique',
+        'finishMatchTitle': 'Terminer le match',
+        'finishMatchText': 'Raison:',
+        'player1Title': 'JOUEUR 1',
+        'player2Title': 'JOUEUR 2',
+        'serve': 'SERVICE',
+        'newMatch': '🔄 NOUVEAU MATCH',
+        'startMatch': '🎬 COMMENCER',
+        'finishMatch': '🏁 TERMINER',
+        'pointToPlayer1': '➕ POINT J1',
+        'pointToPlayer2': '➕ POINT J2',
+        'timeout': '⏸ TEMPS MORT',
+        'warning': '⚠️ AVERTISSEMENT',
+        'yellow': '🟨 CARTON JAUNE',
+        'red': '🟥 CARTON ROUGE',
+        'changeServe': '🔄 CHANGER SERVICE',
+        'changeSide': '↔ CHANGER CÔTÉ',
+        'undoPoint': '↩ ANNULER',
+        'accelerate': '⚡ ACCÉLÉRATION',
+        'protocol': '📋 PROTOCOLE',
+        'referee': 'Arbitre:',
+        'startTime': 'Début:',
+        'currentTime': 'Actuel:',
+        'status': 'Statut:',
+        'eventLog': 'JOURNAL',
+        'exportJSON': '💾 EXPORTER JSON',
+        'exportCSV': '📊 EXPORTER CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORTER CSV (UTF-8)',
+        'print': '🖨 IMPRIMER',
+        'resetPassword': '🔑 Mot de passe oublié?',
+        'sendCode': 'Envoyer code',
+        'changePassword': 'Changer mot de passe',
+        'enterEmail': 'Email inscription',
+        'enterCode': 'Code reçu',
+        'newPassword': 'Nouveau mot de passe',
+        'codeSent': 'Code envoyé',
+        'privacy': '📄 Confidentialité',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Mot de passe',
+        'namePlaceholder': 'Nom',
+        'point': '🎾 Point joueur {player}',
+        'set_end': '🏆 Set {set} terminé. Joueur {winner} gagne',
+        'set_start': '🎬 Set {set}. Joueur {server} sert',
+        'serve_auto_change': '🔄 Changement service. Joueur {server} sert',
+        'serve_manual_change': '🖐️ Changement manuel. Joueur {server} sert',
+        'side_change': '↔ Changement côté (set {set})',
+        'accelerate_on': '⚡ Accélération activée',
+        'timeout_event': '⏸ Temps mort joueur {player}',
+        'timeout_error': '❌ Plus de temps mort',
+        'warning_event': '⚠️ Avertissement joueur {player}',
+        'yellow_event': '🟨 Carton jaune joueur {player}',
+        'red_event': '🟥 CARTON ROUGE - disqualification!',
+        'undo': '↩ Dernier point annulé',
+        'match_start': '🏓 Match commencé. Joueur {server} sert',
+        'match_end_sporting': '🏁 Match terminé. Vainqueur: joueur {winner}. {sets}',
+        'match_end_early': '🏁 Terminé tôt. Raison: {reason}',
+        'error_not_started': '❌ Match non commencé!',
+        'error_finished': '❌ Match terminé',
+        'exportTitle': 'Protocole',
+        'tournament': 'Tournoi',
+        'date': 'Date',
+        'table': 'Table',
+        'refereeName': 'Arbitre',
+        'result': 'Résultat',
+        'eventLogTitle': 'Journal',
+        'time': 'Heure',
+        'event': 'Événement',
+        'score': 'Score',
+        'vs': 'vs',
+        'winner': 'Vainqueur',
+        'endTime': 'Fin',
+        'toss_winner': '🎲 Tirage: joueur {winner} gagne. Joueur {server} sert'
+    },
+    zh: {
+        'appName': '裁判记录表',
+        'login': '登录',
+        'register': '注册',
+        'loginBtn': '登录',
+        'registerBtn': '注册',
+        'logout': '🚪 退出',
+        'waiting': '等待开始',
+        'playing': '比赛中',
+        'finished': '已结束',
+        'disqualified': '取消资格',
+        'cancel': '取消',
+        'injury': '受伤',
+        'forfeit': '弃权',
+        'technical': '技术问题',
+        'finishMatchTitle': '结束比赛',
+        'finishMatchText': '选择原因：',
+        'player1Title': '选手 1',
+        'player2Title': '选手 2',
+        'serve': '发球',
+        'newMatch': '🔄 新比赛',
+        'startMatch': '🎬 开始',
+        'finishMatch': '🏁 结束',
+        'pointToPlayer1': '➕ 选手1得分',
+        'pointToPlayer2': '➕ 选手2得分',
+        'timeout': '⏸ 暂停',
+        'warning': '⚠️ 警告',
+        'yellow': '🟨 黄牌',
+        'red': '🟥 红牌',
+        'changeServe': '🔄 换发球',
+        'changeSide': '↔ 交换场地',
+        'undoPoint': '↩ 撤销得分',
+        'accelerate': '⚡ 加速',
+        'protocol': '📋 比赛记录表',
+        'referee': '主裁判：',
+        'startTime': '开始时间：',
+        'currentTime': '当前时间：',
+        'status': '状态：',
+        'eventLog': '事件日志',
+        'exportJSON': '💾 导出 JSON',
+        'exportCSV': '📊 导出 CSV (ANSI)',
+        'exportCSVUtf8': '📊 导出 CSV (UTF-8)',
+        'print': '🖨 打印',
+        'resetPassword': '🔑 忘记密码？',
+        'sendCode': '发送验证码',
+        'changePassword': '修改密码',
+        'enterEmail': '输入注册邮箱',
+        'enterCode': '输入验证码',
+        'newPassword': '新密码',
+        'codeSent': '验证码已发送',
+        'privacy': '📄 隐私政策',
+        'emailPlaceholder': '电子邮箱',
+        'passwordPlaceholder': '密码',
+        'namePlaceholder': '姓名',
+        'point': '🎾 选手{player}得分',
+        'set_end': '🏆 第{set}局结束。选手{winner}获胜',
+        'set_start': '🎬 第{set}局开始。选手{server}发球',
+        'serve_auto_change': '🔄 自动换发球。现在选手{server}发球',
+        'serve_manual_change': '🖐️ 手动换发球。现在选手{server}发球',
+        'side_change': '↔ 交换场地（第{set}局后）',
+        'accelerate_on': '⚡ 加速系统已开启',
+        'timeout_event': '⏸ 选手{player}请求暂停',
+        'timeout_error': '❌ 选手{player}没有暂停机会了',
+        'warning_event': '⚠️ 警告选手{player}',
+        'yellow_event': '🟨 黄牌警告选手{player}',
+        'red_event': '🟥 红牌罚下选手{player} - 取消比赛资格！',
+        'undo': '↩ 撤销最后一分',
+        'match_start': '🏓 比赛正式开始。选手{server}先发球',
+        'match_end_sporting': '🏁 比赛结束。获胜者：选手{winner}。比分：{sets}',
+        'match_end_early': '🏁 比赛提前结束。原因：{reason}',
+        'error_not_started': '❌ 比赛尚未开始！请点击"开始"',
+        'error_finished': '❌ 比赛已结束，不能再得分',
+        'exportTitle': '比赛记录表',
+        'tournament': '比赛名称',
+        'date': '日期',
+        'table': '球台号',
+        'refereeName': '主裁判',
+        'result': '比赛结果',
+        'eventLogTitle': '事件日志',
+        'time': '时间',
+        'event': '事件',
+        'score': '比分',
+        'vs': '对阵',
+        'winner': '获胜者',
+        'endTime': '结束时间',
+        'toss_winner': '🎲 抽签：选手{winner}获胜。选手{server}发球'
+    },
+    pt: {
+        'appName': 'PROTOCOLO ARBITRAL',
+        'login': 'Entrar',
+        'register': 'Registrar',
+        'loginBtn': 'Entrar',
+        'registerBtn': 'Registrar',
+        'logout': '🚪 Sair',
+        'waiting': 'AGUARDANDO',
+        'playing': 'EM JOGO',
+        'finished': 'FINALIZADO',
+        'disqualified': 'DESCLASSIFICADO',
+        'cancel': 'Cancelar',
+        'injury': 'Lesão',
+        'forfeit': 'Desistência',
+        'technical': 'Técnico',
+        'finishMatchTitle': 'Finalizar partida',
+        'finishMatchText': 'Motivo:',
+        'player1Title': 'JOGADOR 1',
+        'player2Title': 'JOGADOR 2',
+        'serve': 'SAQUE',
+        'newMatch': '🔄 NOVA PARTIDA',
+        'startMatch': '🎬 INICIAR',
+        'finishMatch': '🏁 FINALIZAR',
+        'pointToPlayer1': '➕ PONTO J1',
+        'pointToPlayer2': '➕ PONTO J2',
+        'timeout': '⏸ TEMPO',
+        'warning': '⚠️ ADVERTÊNCIA',
+        'yellow': '🟨 CARTÃO AMARELO',
+        'red': '🟥 CARTÃO VERMELHO',
+        'changeServe': '🔄 TROCAR SAQUE',
+        'changeSide': '↔ TROCAR LADO',
+        'undoPoint': '↩ DESFAZER',
+        'accelerate': '⚡ ACELERAÇÃO',
+        'protocol': '📋 PROTOCOLO',
+        'referee': 'Árbitro:',
+        'startTime': 'Início:',
+        'currentTime': 'Agora:',
+        'status': 'Status:',
+        'eventLog': 'REGISTRO',
+        'exportJSON': '💾 EXPORTAR JSON',
+        'exportCSV': '📊 EXPORTAR CSV (ANSI)',
+        'exportCSVUtf8': '📊 EXPORTAR CSV (UTF-8)',
+        'print': '🖨 IMPRIMIR',
+        'resetPassword': '🔑 Esqueceu a senha?',
+        'sendCode': 'Enviar código',
+        'changePassword': 'Alterar senha',
+        'enterEmail': 'Email de registro',
+        'enterCode': 'Código recebido',
+        'newPassword': 'Nova senha',
+        'codeSent': 'Código enviado',
+        'privacy': '📄 Privacidade',
+        'emailPlaceholder': 'Email',
+        'passwordPlaceholder': 'Senha',
+        'namePlaceholder': 'Nome',
+        'point': '🎾 Ponto jogador {player}',
+        'set_end': '🏆 Set {set} concluído. Jogador {winner} vence',
+        'set_start': '🎬 Set {set}. Jogador {server} saca',
+        'serve_auto_change': '🔄 Troca de saque. Jogador {server} saca',
+        'serve_manual_change': '🖐️ Troca manual. Jogador {server} saca',
+        'side_change': '↔ Troca de lado (set {set})',
+        'accelerate_on': '⚡ Aceleração ativada',
+        'timeout_event': '⏸ Tempo jogador {player}',
+        'timeout_error': '❌ Sem tempos',
+        'warning_event': '⚠️ Advertência jogador {player}',
+        'yellow_event': '🟨 Cartão amarelo jogador {player}',
+        'red_event': '🟥 CARTÃO VERMELHO - desclassificado!',
+        'undo': '↩ Último ponto desfeito',
+        'match_start': '🏓 Partida iniciada. Jogador {server} saca',
+        'match_end_sporting': '🏁 Partida finalizada. Vencedor: jogador {winner}. {sets}',
+        'match_end_early': '🏁 Finalizada cedo. Motivo: {reason}',
+        'error_not_started': '❌ Partida não iniciada!',
+        'error_finished': '❌ Partida finalizada',
+        'exportTitle': 'Protocolo',
+        'tournament': 'Torneio',
+        'date': 'Data',
+        'table': 'Mesa',
+        'refereeName': 'Árbitro',
+        'result': 'Resultado',
+        'eventLogTitle': 'Registro',
+        'time': 'Hora',
+        'event': 'Evento',
+        'score': 'Placar',
+        'vs': 'vs',
+        'winner': 'Vencedor',
+        'endTime': 'Fim',
+        'toss_winner': '🎲 Sorteio: jogador {winner} vence. Jogador {server} saca'
     }
 };
 
@@ -469,6 +809,38 @@ function applyTranslations() {
     }
     
     if (window.match && window.match.events) window.match.refreshEventLog();
+    
+    // Обновляем текст в модальном окне жеребьевки
+    const tossTitle = document.querySelector('#tossModal h2');
+    if (tossTitle) tossTitle.textContent = '🎲 ' + (currentLang === 'ru' ? 'ЖЕРЕБЬЕВКА' : 
+        currentLang === 'en' ? 'TOSS' :
+        currentLang === 'de' ? 'LOS' :
+        currentLang === 'es' ? 'SORTEO' :
+        currentLang === 'it' ? 'SORTEGGIO' :
+        currentLang === 'fr' ? 'TIRAGE' :
+        currentLang === 'zh' ? '抽签' : 'SORTEIO');
+    
+    const tossResultSpan = document.getElementById('tossResult');
+    if (tossResultSpan && !window.tossInProgress) {
+        tossResultSpan.textContent = currentLang === 'ru' ? 'Кликните на монетку, чтобы подбросить' :
+            currentLang === 'en' ? 'Click the coin to flip' :
+            currentLang === 'de' ? 'Klicken Sie auf die Münze' :
+            currentLang === 'es' ? 'Haz clic en la moneda' :
+            currentLang === 'it' ? 'Clicca sulla moneta' :
+            currentLang === 'fr' ? 'Cliquez sur la pièce' :
+            currentLang === 'zh' ? '点击硬币抛掷' : 'Clique na moeda';
+        
+        const skipTossBtn = document.getElementById('skipToss');
+        if (skipTossBtn) {
+            skipTossBtn.textContent = currentLang === 'ru' ? 'Пропустить (подает Игрок 1)' :
+                currentLang === 'en' ? 'Skip (Player 1 serves)' :
+                currentLang === 'de' ? 'Überspringen (Spieler 1 schlägt auf)' :
+                currentLang === 'es' ? 'Saltar (Jugador 1 saca)' :
+                currentLang === 'it' ? 'Salta (Giocatore 1 batte)' :
+                currentLang === 'fr' ? 'Ignorer (Joueur 1 sert)' :
+                currentLang === 'zh' ? '跳过（选手1发球）' : 'Pular (Jogador 1 saca)';
+        }
+    }
 }
 
 // ==================== АВТОРИЗАЦИЯ ====================
@@ -540,7 +912,6 @@ class AuthSystem {
         updateTime();
         if (window.timeInterval) clearInterval(window.timeInterval);
         window.timeInterval = setInterval(updateTime, 1000);
-        loadSavedMatchesList();
     }
 }
 
@@ -565,7 +936,6 @@ class TableTennisMatch {
         this.currentSet = 1;
         this.setHistory = [];
         this.pointHistory = [];
-        this.sideChangeLastSet = 0;
     }
     
     getEventDescription(eventKey, params) {
@@ -617,7 +987,6 @@ class TableTennisMatch {
         document.getElementById('matchStatus').textContent = '● ' + t('playing');
         enableGameControls(true);
         this.updateServeIndicator();
-        document.getElementById('saveMatch').disabled = false;
         return true;
     }
     
@@ -684,7 +1053,7 @@ class TableTennisMatch {
         this.addEvent('set_end', { set: this.currentSet, winner: winner }, winner);
         this.players[1].score = 0; this.players[2].score = 0;
         
-        // ПРАВИЛЬНАЯ СМЕНА СТОРОН: только после нечетных партий (1->2, 3->4)
+        // Правильная смена сторон: только после нечетных партий (1->2, 3->4)
         if (this.currentSet % 2 === 1) {
             this.changeSide();
         }
@@ -707,7 +1076,6 @@ class TableTennisMatch {
         this.addEvent(eventKey, params, null);
         document.getElementById('matchStatus').textContent = '● ' + t('finished');
         enableGameControls(false);
-        document.getElementById('saveMatch').disabled = false;
     }
     
     forceFinish(reason) {
@@ -821,19 +1189,8 @@ class TableTennisMatch {
                 2: { name: this.players[2].name, country: this.players[2].country, sets: this.players[2].sets } 
             },
             setHistory: this.setHistory,
-            events: exportedEvents,
-            savedAt: new Date().toISOString()
+            events: exportedEvents
         };
-    }
-    
-    saveToArchive() {
-        const savedMatches = JSON.parse(localStorage.getItem('pingpong_saved_matches') || '[]');
-        const matchData = this.getExportData();
-        savedMatches.unshift(matchData);
-        if (savedMatches.length > 50) savedMatches.pop();
-        localStorage.setItem('pingpong_saved_matches', JSON.stringify(savedMatches));
-        loadSavedMatchesList();
-        alert(t('match_saved'));
     }
 }
 
@@ -868,7 +1225,6 @@ function initializeMatch() {
     document.getElementById('matchStatus').textContent = '● ' + t('waiting');
     updateUI();
     enableGameControls(false);
-    document.getElementById('saveMatch').disabled = true;
     return true;
 }
 
@@ -882,6 +1238,23 @@ function showTossModal() {
         
         let isFlipping = false;
         
+        // Обновляем текст на текущем языке
+        tossResult.textContent = currentLang === 'ru' ? 'Кликните на монетку, чтобы подбросить' :
+            currentLang === 'en' ? 'Click the coin to flip' :
+            currentLang === 'de' ? 'Klicken Sie auf die Münze' :
+            currentLang === 'es' ? 'Haz clic en la moneda' :
+            currentLang === 'it' ? 'Clicca sulla moneta' :
+            currentLang === 'fr' ? 'Cliquez sur la pièce' :
+            currentLang === 'zh' ? '点击硬币抛掷' : 'Clique na moeda';
+        
+        skipTossBtn.textContent = currentLang === 'ru' ? 'Пропустить (подает Игрок 1)' :
+            currentLang === 'en' ? 'Skip (Player 1 serves)' :
+            currentLang === 'de' ? 'Überspringen (Spieler 1 schlägt auf)' :
+            currentLang === 'es' ? 'Saltar (Jugador 1 saca)' :
+            currentLang === 'it' ? 'Salta (Giocatore 1 batte)' :
+            currentLang === 'fr' ? 'Ignorer (Joueur 1 sert)' :
+            currentLang === 'zh' ? '跳过（选手1发球）' : 'Pular (Jogador 1 saca)';
+        
         const flipCoin = () => {
             if (isFlipping) return;
             isFlipping = true;
@@ -890,10 +1263,41 @@ function showTossModal() {
                 const result = Math.random() < 0.5 ? 1 : 2;
                 coinDisplay.classList.remove('coin-animation');
                 coinDisplay.textContent = result === 1 ? '🎾' : '🏓';
-                tossResult.textContent = result === 1 ? 'Победил ИГРОК 1! Он выбирает право подачи.' : 'Победил ИГРОК 2! Он выбирает право подачи.';
+                
+                const winnerText = result === 1 ? 
+                    (currentLang === 'ru' ? 'Победил ИГРОК 1! Он выбирает право подачи.' :
+                     currentLang === 'en' ? 'PLAYER 1 wins! They choose who serves.' :
+                     currentLang === 'de' ? 'SPIELER 1 gewinnt! Er wählt den Aufschlag.' :
+                     currentLang === 'es' ? '¡Gana el JUGADOR 1! Elige quien saca.' :
+                     currentLang === 'it' ? 'Vince il GIOCATORE 1! Sceglie chi batte.' :
+                     currentLang === 'fr' ? 'Le JOUEUR 1 gagne! Il choisit qui sert.' :
+                     currentLang === 'zh' ? '选手1获胜！他选择谁发球。' : 'JOGADOR 1 vence! Ele escolhe quem saca.') :
+                    (currentLang === 'ru' ? 'Победил ИГРОК 2! Он выбирает право подачи.' :
+                     currentLang === 'en' ? 'PLAYER 2 wins! They choose who serves.' :
+                     currentLang === 'de' ? 'SPIELER 2 gewinnt! Er wählt den Aufschlag.' :
+                     currentLang === 'es' ? '¡Gana el JUGADOR 2! Elige quien saca.' :
+                     currentLang === 'it' ? 'Vince il GIOCATORE 2! Sceglie chi batte.' :
+                     currentLang === 'fr' ? 'Le JOUEUR 2 gagne! Il choisit qui sert.' :
+                     currentLang === 'zh' ? '选手2获胜！他选择谁发球。' : 'JOGADOR 2 vence! Ele escolhe quem saca.');
+                
+                tossResult.textContent = winnerText;
                 
                 setTimeout(() => {
-                    const serveChoice = confirm(result === 1 ? 'Игрок 1 выиграл жребий. Передать подачу Игроку 1?' : 'Игрок 2 выиграл жребий. Передать подачу Игроку 2?');
+                    const serveChoice = confirm(result === 1 ? 
+                        (currentLang === 'ru' ? 'Игрок 1 выиграл жребий. Передать подачу Игроку 1?' :
+                         currentLang === 'en' ? 'Player 1 won the toss. Give serve to Player 1?' :
+                         currentLang === 'de' ? 'Spieler 1 gewann den Münzwurf. Aufschlag an Spieler 1?' :
+                         currentLang === 'es' ? 'El Jugador 1 ganó el sorteo. ¿Dar saque al Jugador 1?' :
+                         currentLang === 'it' ? 'Il Giocatore 1 ha vinto il sorteggio. Dare la battuta al Giocatore 1?' :
+                         currentLang === 'fr' ? 'Le Joueur 1 a gagné le tirage. Donner le service au Joueur 1?' :
+                         currentLang === 'zh' ? '选手1赢得了抛硬币。让选手1发球？' : 'Jogador 1 venceu o sorteio. Dar saque para o Jogador 1?') :
+                        (currentLang === 'ru' ? 'Игрок 2 выиграл жребий. Передать подачу Игроку 2?' :
+                         currentLang === 'en' ? 'Player 2 won the toss. Give serve to Player 2?' :
+                         currentLang === 'de' ? 'Spieler 2 gewann den Münzwurf. Aufschlag an Spieler 2?' :
+                         currentLang === 'es' ? 'El Jugador 2 ganó el sorteo. ¿Dar saque al Jugador 2?' :
+                         currentLang === 'it' ? 'Il Giocatore 2 ha vinto il sorteggio. Dare la battuta al Giocatore 2?' :
+                         currentLang === 'fr' ? 'Le Joueur 2 a gagné le tirage. Donner le service au Joueur 2?' :
+                         currentLang === 'zh' ? '选手2赢得了抛硬币。让选手2发球？' : 'Jogador 2 venceu o sorteio. Dar saque para o Jogador 2?'));
                     const server = serveChoice ? result : (result === 1 ? 2 : 1);
                     resolve(server);
                     modal.style.display = 'none';
@@ -910,7 +1314,6 @@ function showTossModal() {
         
         modal.style.display = 'flex';
         coinDisplay.textContent = '🪙';
-        tossResult.textContent = 'Кликните на монетку, чтобы подбросить';
     });
 }
 
@@ -919,72 +1322,6 @@ async function startMatchWithToss() {
     const server = await showTossModal();
     match.startMatch(server);
     document.getElementById('startTime').textContent = match.startTime;
-    updateUI();
-}
-
-function loadSavedMatchesList() {
-    const savedMatches = JSON.parse(localStorage.getItem('pingpong_saved_matches') || '[]');
-    const container = document.getElementById('savedMatchesList');
-    if (!container) return;
-    
-    if (savedMatches.length === 0) {
-        container.innerHTML = '<p style="text-align: center; color: #666;">Нет сохраненных матчей</p>';
-        return;
-    }
-    
-    container.innerHTML = savedMatches.map((m, idx) => `
-        <div class="saved-match-item" data-index="${idx}">
-            <strong>${m.tournament || 'Турнир'}</strong><br>
-            ${m.players[1].name} vs ${m.players[2].name}<br>
-            <span class="match-date">📅 ${m.date || 'Дата не указана'} | 🏆 ${m.players[1].sets}:${m.players[2].sets}</span>
-        </div>
-    `).join('');
-    
-    document.querySelectorAll('.saved-match-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const idx = parseInt(item.dataset.index);
-            const matchData = savedMatches[idx];
-            if (confirm('Загрузить этот матч? Текущий протокол будет потерян.')) {
-                loadMatchFromArchive(matchData);
-                document.getElementById('savedMatchesModal').style.display = 'none';
-            }
-        });
-    });
-}
-
-function loadMatchFromArchive(data) {
-    initializeMatch();
-    match.matchId = data.matchId;
-    match.startTime = data.startTime;
-    match.endTime = data.endTime;
-    match.isStarted = data.isStarted;
-    match.isFinished = data.isFinished;
-    match.players[1].sets = data.players[1].sets;
-    match.players[2].sets = data.players[2].sets;
-    match.players[1].name = data.players[1].name;
-    match.players[2].name = data.players[2].name;
-    match.players[1].country = data.players[1].country;
-    match.players[2].country = data.players[2].country;
-    match.events = data.events.map(e => ({ ...e, description: e.description }));
-    match.setHistory = data.setHistory || [];
-    
-    document.getElementById('tournamentName').value = data.tournament || '';
-    document.getElementById('matchDate').value = data.date || '';
-    document.getElementById('tableNumber').value = data.tableNumber || '';
-    document.getElementById('refereeName').value = data.referee || '';
-    document.getElementById('startTime').textContent = data.startTime || '--:--:--';
-    document.getElementById('player1Name').value = data.players[1].name;
-    document.getElementById('player2Name').value = data.players[2].name;
-    document.getElementById('player1Country').value = data.players[1].country || '';
-    document.getElementById('player2Country').value = data.players[2].country || '';
-    
-    if (data.isStarted) {
-        document.getElementById('matchStatus').textContent = '● ' + (data.isFinished ? t('finished') : t('playing'));
-        enableGameControls(!data.isFinished);
-        if (!data.isFinished) document.getElementById('saveMatch').disabled = false;
-    }
-    
-    match.refreshEventLog();
     updateUI();
 }
 
@@ -1008,21 +1345,10 @@ function setupEventListeners() {
     document.getElementById('accelerate').onclick = () => { match.accelerate(); updateUI(); };
     document.getElementById('forceFinish').onclick = () => showFinishDialog();
     document.getElementById('resetMatch').onclick = () => { if (confirm(t('cancel'))) initializeMatch(); };
-    document.getElementById('saveMatch').onclick = () => { if (match) match.saveToArchive(); };
     document.getElementById('exportJSON').onclick = () => exportJSON();
     document.getElementById('exportCSV').onclick = () => exportCSV(false);
     document.getElementById('exportCSV_UTF8').onclick = () => exportCSV(true);
     document.getElementById('printProtocol').onclick = () => printProtocol();
-    document.getElementById('showSavedMatches').onclick = () => {
-        loadSavedMatchesList();
-        document.getElementById('savedMatchesModal').style.display = 'flex';
-    };
-    document.getElementById('closeSavedModal').onclick = () => {
-        document.getElementById('savedMatchesModal').style.display = 'none';
-    };
-    document.querySelector('.close-saved-modal')?.addEventListener('click', () => {
-        document.getElementById('savedMatchesModal').style.display = 'none';
-    });
     
     document.getElementById('player1Name').onchange = (e) => { if (match) match.players[1].name = e.target.value; updateUI(); };
     document.getElementById('player2Name').onchange = (e) => { if (match) match.players[2].name = e.target.value; updateUI(); };
@@ -1108,7 +1434,7 @@ function printProtocol() {
             <h2>Журнал событий</h2>
             <table><th>Время</th><th>Событие</th><th>Счет</th></tr>
             ${data.events.map(e => `<tr><td>${e.time}</td><td>${e.description}</td><td>${e.score}</td></tr>`).join('')}
-            </table>
+        </table>
         </body></html>`);
         w.document.close();
         w.print();
