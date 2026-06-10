@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Судья Пинг-Понг PRO | Система учета матчей</title>
-    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="stylesheet" href="styles.css?v=9">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3c72">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -28,32 +28,6 @@
             animation: spin 0.5s ease-out;
             display: inline-block;
             font-size: 48px;
-        }
-        
-        /* Стиль для списка прошлых матчей */
-        .saved-matches-list {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-        
-        .saved-match-item {
-            background: #f8f9fa;
-            margin-bottom: 8px;
-            padding: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s;
-            border-left: 3px solid #3498db;
-        }
-        
-        .saved-match-item:hover {
-            background: #e8ecf1;
-        }
-        
-        .match-date {
-            font-size: 11px;
-            color: #666;
-            margin-top: 4px;
         }
     </style>
 </head>
@@ -126,25 +100,12 @@
             </div>
         </div>
 
-        <!-- Модальное окно загрузки прошлых матчей -->
-        <div id="savedMatchesModal" class="modal" style="display: none;">
-            <div class="modal-content" style="max-width: 500px;">
-                <span class="close-saved-modal" style="float: right; cursor: pointer; font-size: 24px;">&times;</span>
-                <h2>📋 ПРОШЛЫЕ МАТЧИ</h2>
-                <div id="savedMatchesList" class="saved-matches-list">
-                    <p style="text-align: center; color: #666;">Нет сохраненных матчей</p>
-                </div>
-                <button id="closeSavedModal" class="auth-btn" style="background: #95a5a6; margin-top: 15px;">Закрыть</button>
-            </div>
-        </div>
-
         <!-- Основное приложение -->
         <div id="mainApp" style="display: none;">
             <div class="header">
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                     <h1 id="mainTitle">🏓 СУДЕЙСКИЙ ПРОТОКОЛ</h1>
                     <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                        <button id="showSavedMatches" class="logout-btn" style="background: #27ae60;">📋 Архив</button>
                         <button id="langToggleMain" class="lang-toggle-btn">🌐 English</button>
                         <span id="userNameDisplay" style="font-size: 14px;"></span>
                         <button id="logoutBtn" class="logout-btn">🚪 Выход</button>
@@ -180,7 +141,6 @@
                             <button class="reset-match" id="resetMatch">🔄 НОВЫЙ МАТЧ</button>
                             <button class="start-match-btn" id="startMatch">🎬 НАЧАТЬ МАТЧ</button>
                             <button class="finish-match-btn" id="forceFinish" disabled>🏁 ЗАВЕРШИТЬ</button>
-                            <button class="save-match-btn" id="saveMatch" disabled style="background: #27ae60; color: white; padding: 8px 12px; border-radius: 8px; border: none; font-weight: bold; margin-top: 5px;">💾 СОХРАНИТЬ ПРОТОКОЛ</button>
                         </div>
                     </div>
 
@@ -262,7 +222,7 @@
     <!-- Кнопка очистки кеша (только для разработки) -->
     <button id="clearCacheBtn" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #e74c3c; color: white; border: none; border-radius: 20px; padding: 6px 12px; font-size: 10px; cursor: pointer; opacity: 0.5;">🗑️ Очистить кеш</button>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=9"></script>
     <script>
         document.getElementById('clearCacheBtn')?.addEventListener('click', async () => {
             if ('caches' in window) {
