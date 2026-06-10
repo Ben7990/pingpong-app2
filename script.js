@@ -1,6 +1,54 @@
-console.log('Скрипт загружен v9');
+console.log('Скрипт загружен v10 - с безопасным шифрованием');
 
-// ==================== ПЕРЕВОДЫ (8 ЯЗЫКОВ - ВСЕ РАБОТАЮТ) ====================
+// ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
+// Используем Web Crypto API для настоящего шифрования
+
+// Функция для создания хеша пароля (PBKDF2)
+async function hashPassword(password, salt) {
+    const encoder = new TextEncoder();
+    const passwordData = encoder.encode(password);
+    const saltData = encoder.encode(salt);
+    
+    // Импортируем пароль как ключ
+    const key = await crypto.subtle.importKey(
+        'raw',
+        passwordData,
+        { name: 'PBKDF2' },
+        false,
+        ['deriveBits']
+    );
+    
+    // Создаём хеш
+    const hash = await crypto.subtle.deriveBits(
+        {
+            name: 'PBKDF2',
+            salt: saltData,
+            iterations: 100000,
+            hash: 'SHA-256'
+        },
+        key,
+        256 // 256 бит = 32 байта
+    );
+    
+    // Конвертируем в hex строку
+    const hashArray = Array.from(new Uint8Array(hash));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Функция для генерации случайной соли
+function generateSalt() {
+    const array = new Uint8Array(16);
+    crypto.getRandomValues(array);
+    return Array.from(array).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Функция для проверки пароля
+async function verifyPassword(inputPassword, storedHash, salt) {
+    const inputHash = await hashPassword(inputPassword, salt);
+    return inputHash === storedHash;
+}
+
+// ==================== ПЕРЕВОДЫ (8 ЯЗЫКОВ) ====================
 const translations = {
     ru: {
         'appName': 'СУДЕЙСКИЙ ПРОТОКОЛ',
@@ -856,21 +904,21 @@ function applyTranslations() {
     }
 }
 
-// ==================== АВТОРИЗАЦИЯ ====================
+// ==================== БЕЗОПАСНАЯ АВТОРИЗАЦИЯ ====================
 class AuthSystem {
     constructor() {
         this.currentUser = null;
-        this.users = JSON.parse(localStorage.getItem('pingpong_users') || '[]');
+        this.users = JSON.parse(localStorage.getItem('pingpong_users_secure') || '[]');
         this.init();
     }
     
-    init() {
-        const savedSession = localStorage.getItem('pingpong_session');
+    async init() {
+        const savedSession = localStorage.getItem('pingpong_session_secure');
         if (savedSession) {
-            const user = JSON.parse(savedSession);
-            const found = this.users.find(u => u.email === user.email);
+            const session = JSON.parse(savedSession);
+            const found = this.users.find(u => u.email === session.email);
             if (found) {
-                this.currentUser = found;
+                this.currentUser = { id: found.id, name: found.name, email: found.email };
                 this.showMainApp();
                 return;
             }
@@ -878,35 +926,43 @@ class AuthSystem {
         this.showAuth();
     }
     
-    register(name, email, password) {
+    async register(name, email, password) {
         if (this.users.find(u => u.email === email)) {
             return { success: false, error: 'Email уже зарегистрирован' };
         }
-        const encryptedPassword = btoa(password);
+        
+        // Создаём соль и хешируем пароль
+        const salt = generateSalt();
+        const hashedPassword = await hashPassword(password, salt);
+        
         const newUser = {
             id: Date.now(),
             name: name,
             email: email,
-            password: encryptedPassword,
+            passwordHash: hashedPassword,
+            salt: salt,
             createdAt: new Date().toISOString()
         };
         this.users.push(newUser);
-        localStorage.setItem('pingpong_users', JSON.stringify(this.users));
-        return { success: true, user: newUser };
+        localStorage.setItem('pingpong_users_secure', JSON.stringify(this.users));
+        return { success: true, user: { id: newUser.id, name: newUser.name, email: newUser.email } };
     }
     
-    login(email, password) {
-        const encryptedPassword = btoa(password);
-        const user = this.users.find(u => u.email === email && u.password === encryptedPassword);
+    async login(email, password) {
+        const user = this.users.find(u => u.email === email);
         if (!user) return { success: false, error: 'Неверный email или пароль' };
-        this.currentUser = user;
-        localStorage.setItem('pingpong_session', JSON.stringify({ email: user.email }));
-        return { success: true, user: user };
+        
+        const isValid = await verifyPassword(password, user.passwordHash, user.salt);
+        if (!isValid) return { success: false, error: 'Неверный email или пароль' };
+        
+        this.currentUser = { id: user.id, name: user.name, email: user.email };
+        localStorage.setItem('pingpong_session_secure', JSON.stringify({ email: user.email, expires: Date.now() + 86400000 }));
+        return { success: true, user: this.currentUser };
     }
     
     logout() {
         this.currentUser = null;
-        localStorage.removeItem('pingpong_session');
+        localStorage.removeItem('pingpong_session_secure');
         this.showAuth();
     }
     
@@ -1535,7 +1591,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired');
+    console.log('DOMContentLoaded fired - Безопасная версия с шифрованием паролей');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
@@ -1543,7 +1599,8 @@ document.addEventListener('DOMContentLoaded', function() {
     window.auth = new AuthSystem();
     auth = window.auth;
     
-    document.getElementById('doRegister').onclick = () => {
+    // Делаем функции регистрации/логина асинхронными
+    document.getElementById('doRegister').onclick = async () => {
         const name = document.getElementById('regName').value;
         const email = document.getElementById('regEmail').value;
         const password = document.getElementById('regPassword').value;
@@ -1557,7 +1614,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        const res = auth.register(name, email, password);
+        const res = await auth.register(name, email, password);
         if (res.success) {
             alert('Регистрация успешна! Теперь войдите.');
             document.querySelector('.auth-tab[data-tab="login"]').click();
@@ -1567,10 +1624,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    document.getElementById('doLogin').onclick = () => {
+    document.getElementById('doLogin').onclick = async () => {
         const email = document.getElementById('loginEmail').value;
         const password = document.getElementById('loginPassword').value;
-        const res = auth.login(email, password);
+        const res = await auth.login(email, password);
         if (res.success) {
             auth.showMainApp();
         } else {
@@ -1632,7 +1689,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Введите email');
                 return;
             }
-            const users = JSON.parse(localStorage.getItem('pingpong_users') || '[]');
+            const users = JSON.parse(localStorage.getItem('pingpong_users_secure') || '[]');
             if (!users.find(u => u.email === email)) {
                 alert('Пользователь с таким email не найден');
                 return;
@@ -1646,7 +1703,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     if (confirmResetBtn) {
-        confirmResetBtn.onclick = () => {
+        confirmResetBtn.onclick = async () => {
             const email = document.getElementById('resetEmail').value;
             const code = document.getElementById('resetCode').value;
             const newPassword = document.getElementById('newPassword').value;
@@ -1676,11 +1733,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            const users = JSON.parse(localStorage.getItem('pingpong_users') || '[]');
+            const users = JSON.parse(localStorage.getItem('pingpong_users_secure') || '[]');
             const userIndex = users.findIndex(u => u.email === email);
             if (userIndex !== -1) {
-                users[userIndex].password = btoa(newPassword);
-                localStorage.setItem('pingpong_users', JSON.stringify(users));
+                const newSalt = generateSalt();
+                const newHash = await hashPassword(newPassword, newSalt);
+                users[userIndex].passwordHash = newHash;
+                users[userIndex].salt = newSalt;
+                localStorage.setItem('pingpong_users_secure', JSON.stringify(users));
                 localStorage.removeItem('reset_code_' + email);
                 localStorage.removeItem('reset_code_expiry_' + email);
                 alert('Пароль успешно изменён! Теперь войдите.');
