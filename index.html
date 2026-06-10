@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Судья Пинг-Понг PRO | Система учета матчей</title>
-    <link rel="stylesheet" href="styles.css?v=7">
-    <link rel="manifest" href="manifest.json?v=7">
+    <link rel="stylesheet" href="styles.css?v=8">
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3c72">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -14,8 +14,46 @@
         @media (display-mode: standalone) {
             body {
                 padding-top: env(safe-area-inset-top);
-                padding-bottom: env(safe-area-inset-bottom);
+                padding-bottom: env(safe-area-inset-top);
             }
+        }
+        
+        /* Анимация для жеребьевки */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .coin-animation {
+            animation: spin 0.5s ease-out;
+            display: inline-block;
+            font-size: 48px;
+        }
+        
+        /* Стиль для списка прошлых матчей */
+        .saved-matches-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .saved-match-item {
+            background: #f8f9fa;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-left: 3px solid #3498db;
+        }
+        
+        .saved-match-item:hover {
+            background: #e8ecf1;
+        }
+        
+        .match-date {
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
         }
     </style>
 </head>
@@ -75,12 +113,38 @@
             </div>
         </div>
 
+        <!-- Модальное окно жеребьевки -->
+        <div id="tossModal" class="modal" style="display: none;">
+            <div class="modal-content" style="max-width: 350px;">
+                <h2>🎲 ЖЕРЕБЬЕВКА</h2>
+                <div style="text-align: center; padding: 20px;">
+                    <div id="coinDisplay" style="font-size: 64px; margin: 20px 0;">🪙</div>
+                    <p id="tossResult" style="font-size: 16px; margin: 10px 0;">Кликните на монетку, чтобы подбросить</p>
+                    <button id="doToss" class="auth-btn" style="background: #f39c12;">🎲 ПОДБРОСИТЬ МОНЕТКУ</button>
+                    <button id="skipToss" class="forgot-password-btn" style="margin-top: 10px;">Пропустить (подает Игрок 1)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Модальное окно загрузки прошлых матчей -->
+        <div id="savedMatchesModal" class="modal" style="display: none;">
+            <div class="modal-content" style="max-width: 500px;">
+                <span class="close-saved-modal" style="float: right; cursor: pointer; font-size: 24px;">&times;</span>
+                <h2>📋 ПРОШЛЫЕ МАТЧИ</h2>
+                <div id="savedMatchesList" class="saved-matches-list">
+                    <p style="text-align: center; color: #666;">Нет сохраненных матчей</p>
+                </div>
+                <button id="closeSavedModal" class="auth-btn" style="background: #95a5a6; margin-top: 15px;">Закрыть</button>
+            </div>
+        </div>
+
         <!-- Основное приложение -->
         <div id="mainApp" style="display: none;">
             <div class="header">
                 <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                     <h1 id="mainTitle">🏓 СУДЕЙСКИЙ ПРОТОКОЛ</h1>
                     <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                        <button id="showSavedMatches" class="logout-btn" style="background: #27ae60;">📋 Архив</button>
                         <button id="langToggleMain" class="lang-toggle-btn">🌐 English</button>
                         <span id="userNameDisplay" style="font-size: 14px;"></span>
                         <button id="logoutBtn" class="logout-btn">🚪 Выход</button>
@@ -88,12 +152,10 @@
                 </div>
                 <div class="tournament-info">
                     <input type="text" id="tournamentName" placeholder="Название турнира" value="Чемпионат 2026">
-                    <input type="date" id="matchDate" value="2026-06-18">
+                    <input type="date" id="matchDate" value="2026-06-11">
                     <input type="text" id="tableNumber" placeholder="Номер стола" value="1">
                 </div>
             </div>
-
-            <!-- Баннер рекламы УДАЛЁН -->
 
             <div class="game-area">
                 <!-- Верхняя строка с игроками -->
@@ -101,7 +163,7 @@
                     <div class="player-card player1">
                         <div class="player-header">
                             <h2 id="player1Title">ИГРОК 1</h2>
-                            <div class="serve-indicator" id="serve1">🎾 ПОДАЧА</div>
+                            <div class="serve-indicator" id="serve1" style="display: none;">🎾 ПОДАЧА</div>
                         </div>
                         <input type="text" class="player-name" id="player1Name" placeholder="ФИО игрока" value="Алексей Смирнов">
                         <input type="text" class="player-country" id="player1Country" placeholder="Страна" value="Россия">
@@ -113,17 +175,19 @@
                         <div class="set-score">
                             <span id="sets1">0</span><span>:</span><span id="sets2">0</span>
                         </div>
+                        <div id="deuceIndicator" style="font-size: 11px; color: #e74c3c; margin-bottom: 5px; display: none;">⚡ ДЮС (10:10)</div>
                         <div class="match-control-buttons">
                             <button class="reset-match" id="resetMatch">🔄 НОВЫЙ МАТЧ</button>
                             <button class="start-match-btn" id="startMatch">🎬 НАЧАТЬ МАТЧ</button>
                             <button class="finish-match-btn" id="forceFinish" disabled>🏁 ЗАВЕРШИТЬ</button>
+                            <button class="save-match-btn" id="saveMatch" disabled style="background: #27ae60; color: white; padding: 8px 12px; border-radius: 8px; border: none; font-weight: bold; margin-top: 5px;">💾 СОХРАНИТЬ ПРОТОКОЛ</button>
                         </div>
                     </div>
 
                     <div class="player-card player2">
                         <div class="player-header">
                             <h2 id="player2Title">ИГРОК 2</h2>
-                            <div class="serve-indicator" id="serve2">🎾 ПОДАЧА</div>
+                            <div class="serve-indicator" id="serve2" style="display: none;">🎾 ПОДАЧА</div>
                         </div>
                         <input type="text" class="player-name" id="player2Name" placeholder="ФИО игрока" value="Дмитрий Петров">
                         <input type="text" class="player-country" id="player2Country" placeholder="Страна" value="Россия">
@@ -198,7 +262,7 @@
     <!-- Кнопка очистки кеша (только для разработки) -->
     <button id="clearCacheBtn" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #e74c3c; color: white; border: none; border-radius: 20px; padding: 6px 12px; font-size: 10px; cursor: pointer; opacity: 0.5;">🗑️ Очистить кеш</button>
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
     <script>
         document.getElementById('clearCacheBtn')?.addEventListener('click', async () => {
             if ('caches' in window) {
@@ -211,7 +275,7 @@
         
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('./sw.js?v=7').catch(function(error) {
+                navigator.serviceWorker.register('./sw.js').catch(function(error) {
                     console.log('Service Worker error:', error);
                 });
             });
