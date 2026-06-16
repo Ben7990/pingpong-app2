@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v16 - полная версия с исправленной жеребьёвкой');
+console.log('Скрипт загружен v19 - полная версия с переводами статуса');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 
@@ -98,7 +98,7 @@ const translations = {
         'enterCode': 'Введите код из письма',
         'newPassword': 'Новый пароль',
         'codeSent': 'Код отправлен на почту',
-        'privacy': '📄 Политика конфиденциальности',
+        'privacy': 'Политика конфиденциальности',
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Пароль',
         'namePlaceholder': 'Имя',
@@ -138,7 +138,20 @@ const translations = {
         'toss_winner': '🎲 Жеребьевка: выиграл игрок {winner}. Право подачи у игрока {server}',
         'set': 'Партия',
         'player1': 'Игрок 1',
-        'player2': 'Игрок 2'
+        'player2': 'Игрок 2',
+        'fillAllFields': 'Заполните все поля',
+        'passwordMinLength': 'Пароль должен быть не менее 4 символов',
+        'registerSuccess': 'Регистрация успешна! Теперь войдите.',
+        'emailAlreadyExists': 'Email уже зарегистрирован',
+        'invalidEmailOrPassword': 'Неверный email или пароль',
+        'userNotFound': 'Пользователь с таким email не найден',
+        'codeSentDemo': 'Демо-режим: Ваш код для сброса пароля: {code}\nВ реальном приложении код придет на почту',
+        'codeNotFound': 'Код не найден. Запросите новый.',
+        'codeExpired': 'Код истёк. Запросите новый.',
+        'invalidCode': 'Неверный код',
+        'passwordChangedSuccess': 'Пароль успешно изменён! Теперь войдите.',
+        'enterEmail': 'Введите email',
+        'allowPopups': 'Пожалуйста, разрешите всплывающие окна для печати протокола'
     },
     en: {
         'appName': 'REFEREE PROTOCOL',
@@ -195,7 +208,7 @@ const translations = {
         'enterCode': 'Enter the code from the email',
         'newPassword': 'New password',
         'codeSent': 'Code sent to email',
-        'privacy': '📄 Privacy Policy',
+        'privacy': 'Privacy Policy',
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Password',
         'namePlaceholder': 'Name',
@@ -235,7 +248,20 @@ const translations = {
         'toss_winner': '🎲 Toss: player {winner} wins. Player {server} serves',
         'set': 'Set',
         'player1': 'Player 1',
-        'player2': 'Player 2'
+        'player2': 'Player 2',
+        'fillAllFields': 'Fill in all fields',
+        'passwordMinLength': 'Password must be at least 4 characters',
+        'registerSuccess': 'Registration successful! Please login.',
+        'emailAlreadyExists': 'Email already registered',
+        'invalidEmailOrPassword': 'Invalid email or password',
+        'userNotFound': 'User with this email not found',
+        'codeSentDemo': 'Demo mode: Your password reset code: {code}\nIn real app the code will be sent to email',
+        'codeNotFound': 'Code not found. Request a new one.',
+        'codeExpired': 'Code expired. Request a new one.',
+        'invalidCode': 'Invalid code',
+        'passwordChangedSuccess': 'Password changed successfully! Please login.',
+        'enterEmail': 'Enter email',
+        'allowPopups': 'Please allow popups for printing the protocol'
     },
     de: {
         'appName': 'SCHIEDSRICHTERPROTOKOLL',
@@ -292,7 +318,7 @@ const translations = {
         'enterCode': 'Code aus der E-Mail eingeben',
         'newPassword': 'Neues Passwort',
         'codeSent': 'Code wurde gesendet',
-        'privacy': '📄 Datenschutz',
+        'privacy': 'Datenschutz',
         'emailPlaceholder': 'E-Mail',
         'passwordPlaceholder': 'Passwort',
         'namePlaceholder': 'Name',
@@ -332,7 +358,20 @@ const translations = {
         'toss_winner': '🎲 Los: Spieler {winner} gewinnt. Spieler {server} schlägt auf',
         'set': 'Satz',
         'player1': 'Spieler 1',
-        'player2': 'Spieler 2'
+        'player2': 'Spieler 2',
+        'fillAllFields': 'Füllen Sie alle Felder aus',
+        'passwordMinLength': 'Passwort muss mindestens 4 Zeichen haben',
+        'registerSuccess': 'Registrierung erfolgreich! Bitte anmelden.',
+        'emailAlreadyExists': 'E-Mail bereits registriert',
+        'invalidEmailOrPassword': 'Ungültige E-Mail oder Passwort',
+        'userNotFound': 'Benutzer mit dieser E-Mail nicht gefunden',
+        'codeSentDemo': 'Demo-Modus: Ihr Code zum Zurücksetzen des Passworts: {code}\nIn der echten App wird der Code per E-Mail gesendet',
+        'codeNotFound': 'Code nicht gefunden. Fordern Sie einen neuen an.',
+        'codeExpired': 'Code abgelaufen. Fordern Sie einen neuen an.',
+        'invalidCode': 'Ungültiger Code',
+        'passwordChangedSuccess': 'Passwort erfolgreich geändert! Bitte anmelden.',
+        'enterEmail': 'E-Mail eingeben',
+        'allowPopups': 'Bitte erlauben Sie Popups für das Drucken des Protokolls'
     },
     es: {
         'appName': 'PROTOCOLO ARBITRAL',
@@ -389,7 +428,7 @@ const translations = {
         'enterCode': 'Código del email',
         'newPassword': 'Nueva contraseña',
         'codeSent': 'Código enviado',
-        'privacy': '📄 Privacidad',
+        'privacy': 'Privacidad',
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Contraseña',
         'namePlaceholder': 'Nombre',
@@ -429,7 +468,20 @@ const translations = {
         'toss_winner': '🎲 Sorteo: gana jugador {winner}. Saca jugador {server}',
         'set': 'Set',
         'player1': 'Jugador 1',
-        'player2': 'Jugador 2'
+        'player2': 'Jugador 2',
+        'fillAllFields': 'Complete todos los campos',
+        'passwordMinLength': 'La contraseña debe tener al menos 4 caracteres',
+        'registerSuccess': '¡Registro exitoso! Por favor, inicie sesión.',
+        'emailAlreadyExists': 'Email ya registrado',
+        'invalidEmailOrPassword': 'Email o contraseña incorrectos',
+        'userNotFound': 'Usuario con este email no encontrado',
+        'codeSentDemo': 'Modo demo: Su código para restablecer contraseña: {code}\nEn la aplicación real el código llegará por email',
+        'codeNotFound': 'Código no encontrado. Solicite uno nuevo.',
+        'codeExpired': 'Código expirado. Solicite uno nuevo.',
+        'invalidCode': 'Código inválido',
+        'passwordChangedSuccess': '¡Contraseña cambiada con éxito! Por favor, inicie sesión.',
+        'enterEmail': 'Ingrese email',
+        'allowPopups': 'Por favor, permita ventanas emergentes para imprimir el protocolo'
     },
     it: {
         'appName': 'PROTOCOLLO ARBITRALE',
@@ -486,7 +538,7 @@ const translations = {
         'enterCode': 'Codice ricevuto',
         'newPassword': 'Nuova password',
         'codeSent': 'Codice inviato',
-        'privacy': '📄 Privacy',
+        'privacy': 'Privacy',
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Password',
         'namePlaceholder': 'Nome',
@@ -526,7 +578,20 @@ const translations = {
         'toss_winner': '🎲 Sorteggio: vince giocatore {winner}. Batte giocatore {server}',
         'set': 'Set',
         'player1': 'Giocatore 1',
-        'player2': 'Giocatore 2'
+        'player2': 'Giocatore 2',
+        'fillAllFields': 'Compila tutti i campi',
+        'passwordMinLength': 'La password deve avere almeno 4 caratteri',
+        'registerSuccess': 'Registrazione completata! Accedi.',
+        'emailAlreadyExists': 'Email già registrata',
+        'invalidEmailOrPassword': 'Email o password non validi',
+        'userNotFound': 'Utente con questa email non trovato',
+        'codeSentDemo': 'Modalità demo: Il tuo codice per reimpostare la password: {code}\nNell\'app reale il codice verrà inviato via email',
+        'codeNotFound': 'Codice non trovato. Richiedine uno nuovo.',
+        'codeExpired': 'Codice scaduto. Richiedine uno nuovo.',
+        'invalidCode': 'Codice non valido',
+        'passwordChangedSuccess': 'Password modificata con successo! Accedi.',
+        'enterEmail': 'Inserisci email',
+        'allowPopups': 'Consenti i popup per stampare il protocollo'
     },
     fr: {
         'appName': 'PROTOCOLE ARBITRAL',
@@ -583,7 +648,7 @@ const translations = {
         'enterCode': 'Code reçu',
         'newPassword': 'Nouveau mot de passe',
         'codeSent': 'Code envoyé',
-        'privacy': '📄 Confidentialité',
+        'privacy': 'Confidentialité',
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Mot de passe',
         'namePlaceholder': 'Nom',
@@ -623,7 +688,20 @@ const translations = {
         'toss_winner': '🎲 Tirage: joueur {winner} gagne. Joueur {server} sert',
         'set': 'Set',
         'player1': 'Joueur 1',
-        'player2': 'Joueur 2'
+        'player2': 'Joueur 2',
+        'fillAllFields': 'Remplissez tous les champs',
+        'passwordMinLength': 'Le mot de passe doit comporter au moins 4 caractères',
+        'registerSuccess': 'Inscription réussie! Veuillez vous connecter.',
+        'emailAlreadyExists': 'Email déjà enregistré',
+        'invalidEmailOrPassword': 'Email ou mot de passe invalide',
+        'userNotFound': 'Utilisateur avec cet email non trouvé',
+        'codeSentDemo': 'Mode démo: Votre code de réinitialisation: {code}\nDans l\'application réelle, le code sera envoyé par email',
+        'codeNotFound': 'Code non trouvé. Demandez-en un nouveau.',
+        'codeExpired': 'Code expiré. Demandez-en un nouveau.',
+        'invalidCode': 'Code invalide',
+        'passwordChangedSuccess': 'Mot de passe modifié avec succès! Veuillez vous connecter.',
+        'enterEmail': 'Entrez email',
+        'allowPopups': 'Veuillez autoriser les popups pour imprimer le protocole'
     },
     zh: {
         'appName': '裁判记录表',
@@ -680,7 +758,7 @@ const translations = {
         'enterCode': '输入验证码',
         'newPassword': '新密码',
         'codeSent': '验证码已发送',
-        'privacy': '📄 隐私政策',
+        'privacy': '隐私政策',
         'emailPlaceholder': '电子邮箱',
         'passwordPlaceholder': '密码',
         'namePlaceholder': '姓名',
@@ -720,7 +798,20 @@ const translations = {
         'toss_winner': '🎲 抽签：选手{winner}获胜。选手{server}发球',
         'set': '局',
         'player1': '选手1',
-        'player2': '选手2'
+        'player2': '选手2',
+        'fillAllFields': '请填写所有字段',
+        'passwordMinLength': '密码至少需要4个字符',
+        'registerSuccess': '注册成功！请登录。',
+        'emailAlreadyExists': '邮箱已注册',
+        'invalidEmailOrPassword': '邮箱或密码错误',
+        'userNotFound': '未找到该邮箱的用户',
+        'codeSentDemo': '演示模式：您的重置密码验证码：{code}\n在真实应用中，验证码将发送到邮箱',
+        'codeNotFound': '验证码未找到。请重新获取。',
+        'codeExpired': '验证码已过期。请重新获取。',
+        'invalidCode': '验证码无效',
+        'passwordChangedSuccess': '密码修改成功！请登录。',
+        'enterEmail': '请输入邮箱',
+        'allowPopups': '请允许弹出窗口以打印记录表'
     },
     pt: {
         'appName': 'PROTOCOLO ARBITRAL',
@@ -777,7 +868,7 @@ const translations = {
         'enterCode': 'Código recebido',
         'newPassword': 'Nova senha',
         'codeSent': 'Código enviado',
-        'privacy': '📄 Privacidade',
+        'privacy': 'Privacidade',
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Senha',
         'namePlaceholder': 'Nome',
@@ -817,7 +908,20 @@ const translations = {
         'toss_winner': '🎲 Sorteio: jogador {winner} vence. Jogador {server} saca',
         'set': 'Set',
         'player1': 'Jogador 1',
-        'player2': 'Jogador 2'
+        'player2': 'Jogador 2',
+        'fillAllFields': 'Preencha todos os campos',
+        'passwordMinLength': 'A senha deve ter pelo menos 4 caracteres',
+        'registerSuccess': 'Registro bem-sucedido! Faça login.',
+        'emailAlreadyExists': 'Email já registrado',
+        'invalidEmailOrPassword': 'Email ou senha inválidos',
+        'userNotFound': 'Usuário com este email não encontrado',
+        'codeSentDemo': 'Modo demo: Seu código para redefinir senha: {code}\nNo aplicativo real o código será enviado por email',
+        'codeNotFound': 'Código não encontrado. Solicite um novo.',
+        'codeExpired': 'Código expirado. Solicite um novo.',
+        'invalidCode': 'Código inválido',
+        'passwordChangedSuccess': 'Senha alterada com sucesso! Faça login.',
+        'enterEmail': 'Digite o email',
+        'allowPopups': 'Por favor, permita popups para imprimir o protocolo'
     }
 };
 
@@ -892,7 +996,9 @@ function applyTranslations() {
         'printProtocol': trans.print,
         'forgotPasswordBtn': trans.resetPassword,
         'sendResetCode': trans.sendCode,
-        'confirmReset': trans.changePassword
+        'confirmReset': trans.changePassword,
+        'privacyLinkAuth': '📄 ' + trans.privacy,
+        'privacyLinkFooter': '📄 ' + trans.privacy
     };
     
     for (const [id, text] of Object.entries(textElements)) {
@@ -901,6 +1007,13 @@ function applyTranslations() {
             el.textContent = text;
         }
     }
+    
+    // Дополнительная проверка для ссылок "Политика"
+    const privacyLinkAuth = getElement('privacyLinkAuth');
+    if (privacyLinkAuth) privacyLinkAuth.textContent = '📄 ' + trans.privacy;
+    
+    const privacyLinkFooter = getElement('privacyLinkFooter');
+    if (privacyLinkFooter) privacyLinkFooter.textContent = '📄 ' + trans.privacy;
     
     const serve1 = getElement('serve1');
     const serve2 = getElement('serve2');
@@ -923,9 +1036,6 @@ function applyTranslations() {
         if (el) el.placeholder = placeholder;
     }
     
-    const privacyLink = document.querySelector('.auth-card a[href="privacy.html"]');
-    if (privacyLink) privacyLink.textContent = trans.privacy;
-    
     const resetModalTitle = document.querySelector('#resetPasswordModal h2');
     if (resetModalTitle) resetModalTitle.textContent = '🔑 ' + trans.resetPassword;
     
@@ -935,11 +1045,16 @@ function applyTranslations() {
     const resetStep2Text = document.querySelector('#resetStep2 p');
     if (resetStep2Text) resetStep2Text.textContent = trans.codeSent;
     
+    // ОБНОВЛЯЕМ СТАТУС МАТЧА
     const statusEl = getElement('matchStatus');
     if (statusEl && window.match) {
-        if (!window.match.isStarted) statusEl.textContent = '● ' + trans.waiting;
-        else if (window.match.isFinished) statusEl.textContent = '● ' + trans.finished;
-        else statusEl.textContent = '● ' + trans.playing;
+        if (!window.match.isStarted) {
+            statusEl.textContent = '● ' + trans.waiting;
+        } else if (window.match.isFinished) {
+            statusEl.textContent = '● ' + trans.finished;
+        } else {
+            statusEl.textContent = '● ' + trans.playing;
+        }
     }
     
     if (window.match && window.match.events) window.match.refreshEventLog();
@@ -1002,7 +1117,7 @@ function exportToPDF() {
     
     const printWindow = window.open('', '_blank');
     if (!printWindow) {
-        alert('Пожалуйста, разрешите всплывающие окна для печати протокола');
+        alert(t('allowPopups'));
         return;
     }
     
@@ -1158,7 +1273,7 @@ class AuthSystem {
     
     async register(name, email, password) {
         if (this.users.find(u => u.email === email)) {
-            return { success: false, error: 'Email уже зарегистрирован' };
+            return { success: false, error: t('emailAlreadyExists') };
         }
         
         const salt = generateSalt();
@@ -1179,10 +1294,10 @@ class AuthSystem {
     
     async login(email, password) {
         const user = this.users.find(u => u.email === email);
-        if (!user) return { success: false, error: 'Неверный email или пароль' };
+        if (!user) return { success: false, error: t('invalidEmailOrPassword') };
         
         const isValid = await verifyPassword(password, user.passwordHash, user.salt);
-        if (!isValid) return { success: false, error: 'Неверный email или пароль' };
+        if (!isValid) return { success: false, error: t('invalidEmailOrPassword') };
         
         this.currentUser = { id: user.id, name: user.name, email: user.email };
         localStorage.setItem('pingpong_session_secure', JSON.stringify({ email: user.email, expires: Date.now() + 86400000 }));
@@ -1597,7 +1712,7 @@ function initializeMatch() {
     return true;
 }
 
-// ==================== ИСПРАВЛЕННАЯ ФУНКЦИЯ ЖЕРЕБЬЁВКИ (ВСЕ ЯЗЫКИ) ====================
+// ==================== ИСПРАВЛЕННАЯ ФУНКЦИЯ ЖЕРЕБЬЁВКИ ====================
 function showTossModal() {
     return new Promise((resolve) => {
         const modal = getElement('tossModal');
@@ -1608,7 +1723,6 @@ function showTossModal() {
         
         let isFlipping = false;
         
-        // Функция для обновления текстов на текущем языке
         function updateTossTexts() {
             const tossTitle = document.querySelector('#tossModal h2');
             if (tossTitle) {
@@ -1652,7 +1766,6 @@ function showTossModal() {
             }
         }
         
-        // Устанавливаем начальные тексты
         updateTossTexts();
         
         if (modal) modal.style.display = 'flex';
@@ -1722,15 +1835,6 @@ function showTossModal() {
             resolve(1);
             if (modal) modal.style.display = 'none';
         };
-        
-        // Добавляем слушатель для закрытия модального окна при клике вне его
-        if (modal) {
-            modal.onclick = function(e) {
-                if (e.target === modal) {
-                    // Не закрываем - только по кнопкам
-                }
-            };
-        }
     });
 }
 
@@ -1976,7 +2080,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Полная версия с 8 языками v16');
+    console.log('DOMContentLoaded fired - Полная версия с переводами статуса v19');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
@@ -1992,17 +2096,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const password = getElement('regPassword')?.value;
             
             if (!name || !email || !password) {
-                alert('Заполните все поля');
+                alert(t('fillAllFields'));
                 return;
             }
             if (password.length < 4) {
-                alert('Пароль должен быть не менее 4 символов');
+                alert(t('passwordMinLength'));
                 return;
             }
             
             const res = await auth.register(name, email, password);
             if (res.success) {
-                alert('Регистрация успешна! Теперь войдите.');
+                alert(t('registerSuccess'));
                 const loginTab = document.querySelector('.auth-tab[data-tab="login"]');
                 if (loginTab) loginTab.click();
                 const loginEmail = getElement('loginEmail');
@@ -2088,18 +2192,18 @@ document.addEventListener('DOMContentLoaded', function() {
         sendResetCodeBtn.onclick = () => {
             const email = getElement('resetEmail')?.value;
             if (!email) {
-                alert('Введите email');
+                alert(t('enterEmail'));
                 return;
             }
             const users = JSON.parse(localStorage.getItem('pingpong_users_secure') || '[]');
             if (!users.find(u => u.email === email)) {
-                alert('Пользователь с таким email не найден');
+                alert(t('userNotFound'));
                 return;
             }
             const code = Math.floor(100000 + Math.random() * 900000).toString();
             localStorage.setItem('reset_code_' + email, code);
             localStorage.setItem('reset_code_expiry_' + email, Date.now() + 15 * 60 * 1000);
-            alert(`Демо-режим: Ваш код для сброса пароля: ${code}\nВ реальном приложении код придет на почту`);
+            alert(t('codeSentDemo', { code: code }));
             const resetStep2 = getElement('resetStep2');
             if (resetStep2) resetStep2.style.display = 'block';
         };
@@ -2112,11 +2216,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const newPassword = getElement('newPassword')?.value;
             
             if (!code || !newPassword) {
-                alert('Заполните все поля');
+                alert(t('fillAllFields'));
                 return;
             }
             if (newPassword.length < 4) {
-                alert('Пароль должен быть не менее 4 символов');
+                alert(t('passwordMinLength'));
                 return;
             }
             
@@ -2124,15 +2228,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const expiry = localStorage.getItem('reset_code_expiry_' + email);
             
             if (!savedCode || !expiry) {
-                alert('Код не найден. Запросите новый.');
+                alert(t('codeNotFound'));
                 return;
             }
             if (Date.now() > parseInt(expiry)) {
-                alert('Код истёк. Запросите новый.');
+                alert(t('codeExpired'));
                 return;
             }
             if (savedCode !== code) {
-                alert('Неверный код');
+                alert(t('invalidCode'));
                 return;
             }
             
@@ -2146,7 +2250,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem('pingpong_users_secure', JSON.stringify(users));
                 localStorage.removeItem('reset_code_' + email);
                 localStorage.removeItem('reset_code_expiry_' + email);
-                alert('Пароль успешно изменён! Теперь войдите.');
+                alert(t('passwordChangedSuccess'));
                 if (resetModal) resetModal.style.display = 'none';
                 const resetStep2 = getElement('resetStep2');
                 const resetEmail = getElement('resetEmail');
