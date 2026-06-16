@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v23 - исправление статуса и даты');
+console.log('Скрипт загружен v24 - полная версия с исправлением статуса');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 
@@ -1119,6 +1119,9 @@ function applyTranslations() {
         } else {
             statusEl.textContent = '● ' + trans.playing;
         }
+    } else if (statusEl) {
+        // Если матча ещё нет, показываем "ОЖИДАНИЕ НАЧАЛА" на текущем языке
+        statusEl.textContent = '● ' + trans.waiting;
     }
     
     if (window.match && window.match.events) window.match.refreshEventLog();
@@ -2114,6 +2117,9 @@ function setLanguage(lang) {
             } else {
                 matchStatus.textContent = '● ' + t('playing');
             }
+        } else if (matchStatus) {
+            // Если матча ещё нет
+            matchStatus.textContent = '● ' + t('waiting');
         }
         
         if (window.match && window.match.events) {
@@ -2151,7 +2157,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Полная версия с исправлением статуса v23');
+    console.log('DOMContentLoaded fired - Полная версия с исправлением статуса v24');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
