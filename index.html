@@ -2,19 +2,88 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
     <title>Судья Пинг-Понг PRO | Система учета матчей</title>
-    <link rel="stylesheet" href="styles.css?v=13">
+    <link rel="stylesheet" href="styles.css?v=18">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3c72">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
+    
     <style>
-        @media (display-mode: standalone) {
+        /* Принудительная горизонтальная ориентация */
+        @media (orientation: portrait) and (max-width: 768px) {
             body {
-                padding-top: env(safe-area-inset-top);
-                padding-bottom: env(safe-area-inset-top);
+                transform: rotate(90deg);
+                transform-origin: center center;
+                width: 100vh;
+                height: 100vw;
+                overflow-x: hidden;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            
+            .container {
+                width: 100vh;
+                height: 100vw;
+                max-width: 100vh;
+                max-height: 100vw;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            
+            /* Скрываем скролл при повороте */
+            ::-webkit-scrollbar {
+                width: 0;
+                background: transparent;
+            }
+        }
+        
+        /* Для устройств с display-mode: standalone (PWA) */
+        @media (display-mode: standalone) and (orientation: portrait) and (max-width: 768px) {
+            body {
+                transform: rotate(90deg);
+                transform-origin: center center;
+                width: 100vh;
+                height: 100vw;
+                overflow-x: hidden;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            
+            .container {
+                width: 100vh;
+                height: 100vw;
+                max-width: 100vh;
+                max-height: 100vw;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            
+            ::-webkit-scrollbar {
+                width: 0;
+                background: transparent;
+            }
+        }
+        
+        @media (orientation: landscape) {
+            body {
+                transform: none;
+                width: 100%;
+                height: 100%;
+                position: static;
+                overflow: auto;
+            }
+            
+            .container {
+                width: 100%;
+                max-width: 1400px;
+                height: auto;
+                max-height: none;
+                overflow: visible;
             }
         }
         
@@ -28,6 +97,15 @@
             animation: spin 0.5s ease-out;
             display: inline-block;
             font-size: 48px;
+        }
+        
+        /* Исправляем высоту на мобильных */
+        @media (max-width: 768px) {
+            html, body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
         }
     </style>
 </head>
@@ -114,7 +192,7 @@
                 </div>
                 <div class="tournament-info">
                     <input type="text" id="tournamentName" placeholder="Название турнира" value="Чемпионат 2026">
-                    <input type="date" id="matchDate" value="2026-06-11">
+                    <input type="date" id="matchDate" value="2026-06-16">
                     <input type="text" id="tableNumber" placeholder="Номер стола" value="1">
                 </div>
             </div>
@@ -224,8 +302,37 @@
     <!-- Кнопка очистки кеша (только для разработки) -->
     <button id="clearCacheBtn" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #e74c3c; color: white; border: none; border-radius: 20px; padding: 6px 12px; font-size: 10px; cursor: pointer; opacity: 0.5;">🗑️ Очистить кеш</button>
 
-    <script src="script.js?v=13"></script>
+    <script src="script.js?v=18"></script>
     <script>
+        // Проверяем, находится ли устройство в портретной ориентации на телефоне
+        function fixOrientation() {
+            const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            
+            if (isMobile && isPortrait) {
+                // Принудительно поворачиваем через CSS (уже сделано в стилях)
+                // Дополнительно корректируем высоту для избежания скролла
+                document.body.style.height = window.innerWidth + 'px';
+                document.body.style.width = window.innerHeight + 'px';
+            }
+        }
+        
+        // Запускаем при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(fixOrientation, 100);
+        });
+        
+        // При изменении ориентации
+        window.addEventListener('orientationchange', function() {
+            setTimeout(fixOrientation, 300);
+        });
+        
+        // При изменении размера
+        window.addEventListener('resize', function() {
+            setTimeout(fixOrientation, 200);
+        });
+        
+        // Очистка кеша
         document.getElementById('clearCacheBtn')?.addEventListener('click', async () => {
             if ('caches' in window) {
                 const keys = await caches.keys();
