@@ -24,6 +24,30 @@
             padding: 40px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
+        .lang-selector {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .lang-selector button {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        .lang-selector button:hover {
+            background: #f0f0f0;
+        }
+        .lang-selector button.active {
+            background: #1e3c72;
+            color: white;
+            border-color: #1e3c72;
+        }
         h1 {
             color: #1e3c72;
             margin-bottom: 10px;
@@ -93,119 +117,778 @@
             color: #888;
             font-size: 12px;
         }
+        .highlight {
+            background: #e8f5e9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🏓 Политика конфиденциальности</h1>
-        <div class="effective">Дата вступления в силу: 11 июня 2026 г.</div>
-
-        <div class="security-badge">
-            🔐 ВАШИ ДАННЫЕ ПОД ЗАЩИТОЙ 🔐<br>
-            Шифрование паролей: PBKDF2 с солью (100 000 итераций) — банковский стандарт безопасности
+        <!-- Выбор языка -->
+        <div class="lang-selector">
+            <button class="active" data-lang="ru">🇷🇺 Русский</button>
+            <button data-lang="en">🇬🇧 English</button>
+            <button data-lang="de">🇩🇪 Deutsch</button>
+            <button data-lang="es">🇪🇸 Español</button>
+            <button data-lang="it">🇮🇹 Italiano</button>
+            <button data-lang="fr">🇫🇷 Français</button>
+            <button data-lang="zh">🇨🇳 中文</button>
+            <button data-lang="pt">🇵🇹 Português</button>
         </div>
 
-        <h2>1. Общие положения</h2>
-        <p>Настоящая Политика конфиденциальности описывает, как приложение <strong>«Судья Пинг-Понг PRO»</strong> (далее — «Приложение») собирает, использует и защищает информацию, которую вы предоставляете при использовании Приложения.</p>
-        <p>Использование Приложения означает ваше полное согласие с условиями настоящей Политики. Если вы не согласны с условиями, пожалуйста, не используйте Приложение.</p>
+        <!-- РУССКИЙ -->
+        <div id="content-ru" class="content active">
+            <h1>🏓 Политика конфиденциальности</h1>
+            <div class="effective">Дата вступления в силу: 11 июня 2026 г.</div>
 
-        <h2>2. Какие данные мы собираем</h2>
-        <p><strong>2.1. Данные, которые вы предоставляете добровольно:</strong></p>
-        <ul>
-            <li><strong>Имя и фамилия</strong> — указываются при регистрации, используются для отображения в интерфейсе</li>
-            <li><strong>Адрес электронной почты</strong> — используется для входа в Приложение и восстановления доступа</li>
-            <li><strong>Результаты матчей и судейские протоколы</strong> — создаваемый вами контент, который вы можете экспортировать</li>
-        </ul>
+            <div class="security-badge">
+                🔐 ВАШИ ДАННЫЕ ПОД ЗАЩИТОЙ 🔐<br>
+                Шифрование паролей: PBKDF2 с солью (100 000 итераций) — банковский стандарт безопасности<br>
+                📁 ВСЕ ДАННЫЕ ХРАНЯТСЯ ТОЛЬКО НА ВАШЕМ УСТРОЙСТВЕ
+            </div>
 
-        <p><strong>2.2. Данные, которые мы НЕ собираем:</strong></p>
-        <ul>
-            <li><strong>Мы НЕ собираем и НЕ храним платёжные данные</strong> (номера карт, CVC-коды, пароли от банков). Все платежи обрабатываются через сервис Boosty, который имеет собственную лицензию на обработку платежей.</li>
-            <li><strong>Мы НЕ передаём ваши данные третьим лицам</strong>, за исключением случаев, прямо предусмотренных законодательством РФ.</li>
-            <li><strong>Мы НЕ используем ваши данные для рекламных рассылок</strong> без вашего согласия.</li>
-            <li><strong>Мы НЕ храним ваши пароли в открытом виде</strong> — используется промышленное шифрование.</li>
-        </ul>
+            <h2>1. Общие положения</h2>
+            <p>Настоящая Политика конфиденциальности описывает, как приложение <strong>«Судья Пинг-Понг PRO»</strong> (далее — «Приложение») обрабатывает и защищает информацию при использовании Приложения.</p>
+            <p><strong>Важнейший принцип Приложения:</strong> все данные хранятся исключительно на вашем устройстве. Мы не собираем, не храним и не передаём ваши данные на какие-либо серверы. Приложение работает полностью автономно (offline-first) и не требует подключения к интернету для основных функций.</p>
+            <p>Использование Приложения означает ваше полное согласие с условиями настоящей Политики. Если вы не согласны с условиями, пожалуйста, не используйте Приложение.</p>
 
-        <h2>3. Как мы защищаем ваши данные</h2>
-        <p>Безопасность ваших данных — наш приоритет. Мы используем следующие меры защиты:</p>
-        <ul>
-            <li><strong>🔐 Профессиональное шифрование паролей:</strong> все пароли шифруются с помощью алгоритма <strong>PBKDF2 с солью и 100 000 итерациями хеширования</strong> — это современный стандарт, используемый в банковских и государственных системах (аналогично шифрованию в онлайн-банках). Даже при получении доступа к хранилищу данных злоумышленник не сможет восстановить ваш пароль.</li>
-            <li><strong>🎲 Индивидуальная соль:</strong> для каждого пароля генерируется уникальная криптографическая соль (16 байт случайных данных), что делает невозможным использование радужных таблиц для взлома. Даже если два пользователя выберут одинаковый пароль, в хранилище они будут выглядеть по-разному.</li>
-            <li><strong>🔄 Криптостойкий алгоритм:</strong> используется Web Crypto API — встроенный в браузер криптографический модуль, который считается безопасным для финансовых операций.</li>
-            <li><strong>💻 Локальное хранение:</strong> все данные хранятся только на вашем устройстве. Мы не используем внешние серверы для хранения пользовательских данных.</li>
-            <li><strong>🔒 HTTPS:</strong> всё соединение защищено протоколом HTTPS, исключающим перехват данных при передаче.</li>
-            <li><strong>🚫 Отсутствие внешних серверов:</strong> Приложение работает полностью на вашем устройстве, данные не передаются на сторонние серверы.</li>
-        </ul>
+            <h2>2. Какие данные обрабатываются на вашем устройстве</h2>
+            <p><strong>2.1. Данные, которые вы предоставляете добровольно и которые хранятся ТОЛЬКО локально:</strong></p>
+            <ul>
+                <li><strong>Имя и фамилия</strong> — указываются при регистрации, используются для отображения в интерфейсе. Хранятся только на вашем устройстве.</li>
+                <li><strong>Адрес электронной почты</strong> — используется для входа в Приложение и восстановления доступа. Хранится только на вашем устройстве в зашифрованном виде.</li>
+                <li><strong>Пароль</strong> — НЕ хранится вовсе. Хранится только криптографический хеш пароля (невозможно восстановить пароль из хеша).</li>
+                <li><strong>Результаты матчей и судейские протоколы</strong> — создаваемый вами контент, который <strong>НИКУДА НЕ ПЕРЕДАЁТСЯ</strong>. Вы можете экспортировать его в JSON/CSV для печати или архивации, но эти данные покидают ваше устройство только по вашему явному действию (экспорт).</li>
+                <li><strong>Настройки интерфейса</strong> (выбранный язык) — сохраняются локально для вашего удобства.</li>
+            </ul>
 
-        <h2>4. Ваши права</h2>
-        <p>В соответствии с Федеральным законом «О персональных данных» №152-ФЗ, вы имеете право:</p>
-        <ul>
-            <li><strong>На доступ к вашим данным</strong> — вы можете запросить копию всех данных, которые мы храним о вас</li>
-            <li><strong>На исправление неточных данных</strong> — если какая-то информация неверна, вы можете её изменить</li>
-            <li><strong>На удаление аккаунта</strong> — вы можете удалить свой аккаунт в любой момент (для этого достаточно очистить данные браузера)</li>
-            <li><strong>На отзыв согласия</strong> — вы можете отозвать согласие на обработку данных</li>
-        </ul>
-        <p>Для реализации любого из этих прав достаточно написать нам на email, указанный в разделе «Контакты».</p>
+            <p><strong>2.2. Данные, которые мы НЕ собираем и НЕ храним:</strong></p>
+            <ul>
+                <li><strong>Мы НЕ собираем результаты матчей на сервер</strong> — всё остаётся только на вашем устройстве.</li>
+                <li><strong>Мы НЕ собираем платёжные данные</strong> — в приложении нет платежей и донатов.</li>
+                <li><strong>Мы НЕ передаём ваши данные третьим лицам</strong> — потому что мы их физически не имеем.</li>
+                <li><strong>Мы НЕ используем ваши данные для рекламных рассылок</strong> — у нас нет ваших контактов на сервере.</li>
+                <li><strong>Мы НЕ храним ваши пароли в открытом виде</strong> — используется промышленное шифрование.</li>
+                <li><strong>Мы НЕ имеем доступа к вашим протоколам матчей</strong> — они хранятся только в вашем браузере.</li>
+                <li><strong>Мы НЕ используем аналитику и трекеры</strong> — мы не следим за вашими действиями в приложении.</li>
+            </ul>
 
-        <h2>5. Хранение данных и сроки</h2>
-        <p>Ваши данные хранятся локально на вашем устройстве. При удалении аккаунта (очистке данных браузера) все ваши данные удаляются без возможности восстановления. Вы также можете очистить данные через настройки браузера. Хеши паролей хранятся бессрочно до момента удаления аккаунта.</p>
+            <h2>3. Как мы защищаем ваши данные</h2>
+            <p>Безопасность ваших данных — наш приоритет. Мы используем следующие меры защиты:</p>
+            <ul>
+                <li><strong>🔐 Профессиональное шифрование паролей:</strong> все пароли шифруются с помощью алгоритма <strong>PBKDF2 с солью и 100 000 итерациями хеширования</strong> — это современный стандарт, используемый в банковских и государственных системах (аналогично шифрованию в онлайн-банках). Даже при получении доступа к хранилищу данных злоумышленник не сможет восстановить ваш пароль.</li>
+                <li><strong>🎲 Индивидуальная соль:</strong> для каждого пароля генерируется уникальная криптографическая соль (16 байт случайных данных), что делает невозможным использование радужных таблиц для взлома. Даже если два пользователя выберут одинаковый пароль, в хранилище они будут выглядеть по-разному.</li>
+                <li><strong>🔄 Криптостойкий алгоритм:</strong> используется Web Crypto API — встроенный в браузер криптографический модуль, который считается безопасным для финансовых операций.</li>
+                <li><strong>💻 Полностью локальное хранение:</strong> мы принципиально не используем внешние серверы для хранения пользовательских данных. Вся информация (включая протоколы матчей) остаётся на вашем устройстве.</li>
+                <li><strong>🔒 HTTPS:</strong> всё соединение защищено протоколом HTTPS, исключающим перехват данных при передаче (актуально для загрузки приложения).</li>
+                <li><strong>🚫 Отсутствие аналитики:</strong> в приложении нет счетчиков, трекеров и систем аналитики.</li>
+            </ul>
 
-        <h2>6. Использование файлов cookie и локального хранилища</h2>
-        <p>Приложение использует локальное хранилище браузера (localStorage) для сохранения:</p>
-        <ul>
-            <li>Зашифрованных данных авторизации (только хеш пароля и соль, сам пароль не хранится)</li>
-            <li>Настроек интерфейса (выбранный язык)</li>
-            <li>Истории матчей и протоколов</li>
-        </ul>
-        <p>Эти данные не передаются третьим лицам и используются только для работы Приложения. Вся чувствительная информация хранится в зашифрованном виде.</p>
+            <h2>4. Экспорт и передача данных</h2>
+            <p>Приложение предоставляет функции экспорта данных (<span class="highlight">JSON</span> и <span class="highlight">CSV</span>) для вашего удобства. Эти функции работают следующим образом:</p>
+            <ul>
+                <li>Данные никогда не передаются на сервер автоматически.</li>
+                <li>При нажатии кнопки экспорта файл создаётся и сохраняется на ваше устройство через стандартный диалог сохранения браузера.</li>
+                <li>Вы сами решаете, куда сохранить файл и кому его передать.</li>
+                <li>Приложение не отслеживает экспортированные файлы и не имеет к ним доступа после экспорта.</li>
+            </ul>
 
-        <h2>7. Платежи и пожертвования</h2>
-        <p>Приложение использует <strong>Boosty</strong> для приёма добровольных пожертвований и поддержки от пользователей. Мы не обрабатываем платежи самостоятельно — вся платёжная информация обрабатывается сервисом Boosty в соответствии с их <a href="https://boosty.to/legal/privacy" target="_blank">Политикой конфиденциальности</a>.</p>
-        <p><strong>Важно:</strong> Все пожертвования являются добровольными. PRO-функции в текущей версии Приложения предоставляются бесплатно. Пожертвования направлены на поддержку развития проекта.</p>
+            <h2>5. Удаление данных</h2>
+            <p>Все данные хранятся локально в вашем браузере в <span class="highlight">localStorage</span>. Чтобы удалить все данные:</p>
+            <ul>
+                <li><strong>В интерфейсе приложения:</strong> нажмите кнопку <strong>"🗑️ Удалить аккаунт"</strong> в главном меню.</li>
+                <li><strong>Через настройки браузера:</strong> очистите данные сайта (Настройки → Конфиденциальность → Очистить данные).</li>
+            </ul>
+            <p>После удаления данные восстановить невозможно.</p>
 
-        <div class="contact-block">
-            <strong>📧 По всем вопросам, связанным с обработкой персональных данных:</strong><br>
-            <a href="mailto:support@pingpong.pro">support@pingpong.pro</a><br>
-            <small>Ответ на запрос направляется в течение 30 дней в соответствии с 152-ФЗ</small>
+            <h2>6. Отсутствие платежей</h2>
+            <p>Приложение <strong>полностью бесплатное</strong> и не содержит платных подписок, внутренних покупок или рекламы. Все функции доступны без ограничений.</p>
+
+            <div class="contact-block">
+                <strong>📧 По всем вопросам:</strong><br>
+                <a href="mailto:support@pingpong.pro">support@pingpong.pro</a>
+            </div>
+
+            <div class="contact-block">
+                <strong>💬 Связь с разработчиком:</strong><br>
+                📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
+                📧 Email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a>
+            </div>
+
+            <a href="index.html" class="back-btn">← Вернуться в приложение</a>
+            
+            <footer>
+                © 2026 Судья Пинг-Понг PRO. Все права защищены.<br>
+                Версия: v19 — полностью локальное хранение + шифрование PBKDF2
+            </footer>
         </div>
 
-        <div class="contact-block">
-            <strong>💬 Другие способы связи:</strong><br>
-            📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
-            📧 Альтернативный email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a><br>
-            🌐 Boosty: <a href="https://boosty.to/ben7990" target="_blank">https://boosty.to/ben7990</a>
+        <!-- АНГЛИЙСКИЙ -->
+        <div id="content-en" class="content">
+            <h1>🏓 Privacy Policy</h1>
+            <div class="effective">Effective date: June 11, 2026</div>
+
+            <div class="security-badge">
+                🔐 YOUR DATA IS PROTECTED 🔐<br>
+                Password encryption: PBKDF2 with salt (100,000 iterations) — banking security standard<br>
+                📁 ALL DATA STORED ONLY ON YOUR DEVICE
+            </div>
+
+            <h2>1. General Provisions</h2>
+            <p>This Privacy Policy describes how the <strong>«Referee Ping-Pong PRO»</strong> application (hereinafter — the «Application») processes and protects information when using the Application.</p>
+            <p><strong>The most important principle of the Application:</strong> all data is stored exclusively on your device. We do not collect, store, or transmit your data to any servers. The application works completely offline (offline-first) and does not require an internet connection for basic functions.</p>
+            <p>Using the Application means your full agreement with the terms of this Policy. If you do not agree with the terms, please do not use the Application.</p>
+
+            <h2>2. What data is processed on your device</h2>
+            <p><strong>2.1. Data you voluntarily provide and stored ONLY locally:</strong></p>
+            <ul>
+                <li><strong>First and last name</strong> — provided during registration, used for display in the interface. Stored only on your device.</li>
+                <li><strong>Email address</strong> — used for login and password recovery. Stored only on your device in encrypted form.</li>
+                <li><strong>Password</strong> — NOT stored at all. Only the cryptographic hash of the password is stored (impossible to recover the password from the hash).</li>
+                <li><strong>Match results and referee protocols</strong> — content you create that is <strong>NEVER TRANSMITTED</strong>. You can export it to JSON/CSV for printing or archiving, but this data leaves your device only by your explicit action (export).</li>
+                <li><strong>Interface settings</strong> (selected language) — saved locally for your convenience.</li>
+            </ul>
+
+            <p><strong>2.2. Data we DO NOT collect or store:</strong></p>
+            <ul>
+                <li><strong>We DO NOT collect match results to the server</strong> — everything remains only on your device.</li>
+                <li><strong>We DO NOT collect payment data</strong> — the application has no payments or donations.</li>
+                <li><strong>We DO NOT transfer your data to third parties</strong> — because we do not physically have it.</li>
+                <li><strong>We DO NOT use your data for advertising mailings</strong> — we do not have your contacts on the server.</li>
+                <li><strong>We DO NOT store your passwords in plain text</strong> — industrial encryption is used.</li>
+                <li><strong>We DO NOT have access to your match protocols</strong> — they are stored only in your browser.</li>
+                <li><strong>We DO NOT use analytics and trackers</strong> — we do not track your actions in the application.</li>
+            </ul>
+
+            <h2>3. How we protect your data</h2>
+            <p>Data security is our priority. We use the following protection measures:</p>
+            <ul>
+                <li><strong>🔐 Professional password encryption:</strong> all passwords are encrypted using the <strong>PBKDF2 algorithm with salt and 100,000 hashing iterations</strong> — this is a modern standard used in banking and government systems (similar to encryption in online banks). Even if an attacker gains access to the data storage, they will not be able to recover your password.</li>
+                <li><strong>🎲 Individual salt:</strong> a unique cryptographic salt (16 bytes of random data) is generated for each password, making the use of rainbow tables for cracking impossible. Even if two users choose the same password, they will look different in storage.</li>
+                <li><strong>🔄 Cryptographically strong algorithm:</strong> Web Crypto API is used — a built-in browser cryptographic module considered safe for financial operations.</li>
+                <li><strong>💻 Fully local storage:</strong> we fundamentally do not use external servers for storing user data. All information (including match protocols) remains on your device.</li>
+                <li><strong>🔒 HTTPS:</strong> all connections are protected by HTTPS protocol, preventing data interception during transmission (relevant for loading the application).</li>
+                <li><strong>🚫 No analytics:</strong> the application has no counters, trackers, or analytics systems.</li>
+            </ul>
+
+            <h2>4. Export and data transfer</h2>
+            <p>The application provides data export functions (<span class="highlight">JSON</span> and <span class="highlight">CSV</span>) for your convenience. These functions work as follows:</p>
+            <ul>
+                <li>Data is never automatically transmitted to the server.</li>
+                <li>When you click the export button, a file is created and saved to your device through the standard browser save dialog.</li>
+                <li>You decide where to save the file and who to share it with.</li>
+                <li>The application does not track exported files and has no access to them after export.</li>
+            </ul>
+
+            <h2>5. Data deletion</h2>
+            <p>All data is stored locally in your browser in <span class="highlight">localStorage</span>. To delete all data:</p>
+            <ul>
+                <li><strong>In the application interface:</strong> click the <strong>"🗑️ Delete Account"</strong> button in the main menu.</li>
+                <li><strong>Through browser settings:</strong> clear site data (Settings → Privacy → Clear data).</li>
+            </ul>
+            <p>After deletion, data cannot be recovered.</p>
+
+            <h2>6. No payments</h2>
+            <p>The application is <strong>completely free</strong> and contains no paid subscriptions, in-app purchases, or advertising. All features are available without restrictions.</p>
+
+            <div class="contact-block">
+                <strong>📧 For any questions:</strong><br>
+                <a href="mailto:support@pingpong.pro">support@pingpong.pro</a>
+            </div>
+
+            <div class="contact-block">
+                <strong>💬 Contact the developer:</strong><br>
+                📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
+                📧 Email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a>
+            </div>
+
+            <a href="index.html" class="back-btn">← Back to application</a>
+            
+            <footer>
+                © 2026 Referee Ping-Pong PRO. All rights reserved.<br>
+                Version: v19 — fully local storage + PBKDF2 encryption
+            </footer>
         </div>
 
-        <h2>8. Технические детали безопасности</h2>
-        <p>Для технически подкованных пользователей:</p>
-        <ul>
-            <li><strong>Алгоритм:</strong> PBKDF2 (Password-Based Key Derivation Function 2)</li>
-            <li><strong>Хеш-функция:</strong> SHA-256</li>
-            <li><strong>Количество итераций:</strong> 100 000 (рекомендовано NIST)</li>
-            <li><strong>Длина соли:</strong> 128 бит (16 байт криптостойкой случайности)</li>
-            <li><strong>Длина выходного хеша:</strong> 256 бит (32 байта)</li>
-            <li><strong>Источник случайности:</strong> crypto.getRandomValues() — криптостойкий генератор</li>
-        </ul>
-        <p>Такая конфигурация делает перебор паролей методом "грубой силы" практически невозможным даже при наличии вычислительных кластеров.</p>
+        <!-- НЕМЕЦКИЙ -->
+        <div id="content-de" class="content">
+            <h1>🏓 Datenschutzerklärung</h1>
+            <div class="effective">Gültig ab: 11. Juni 2026</div>
 
-        <h2>9. Изменения в Политике конфиденциальности</h2>
-        <p>Мы оставляем за собой право вносить изменения в настоящую Политику. О всех существенных изменениях мы уведомим через Приложение. Текущая версия всегда доступна по этой ссылке.</p>
+            <div class="security-badge">
+                🔐 IHRE DATEN SIND GESCHÜTZT 🔐<br>
+                Passwortverschlüsselung: PBKDF2 mit Salt (100.000 Iterationen) — Bankensicherheitsstandard<br>
+                📁 ALLE DATEN WERDEN NUR AUF IHREM GERÄT GESPEICHERT
+            </div>
 
-        <h2>10. Контактная информация</h2>
-        <p>По всем вопросам, связанным с Приложением или обработкой данных, вы можете связаться с нами:</p>
-        <ul>
-            <li><strong>Email для юридических вопросов:</strong> support@pingpong.pro</li>
-            <li><strong>Email разработчика:</strong> ben7990@gmail.com</li>
-            <li><strong>Telegram:</strong> @ben7990</li>
-            <li><strong>Сайт:</strong> https://ваш-логин.github.io/pingpong/</li>
-            <li><strong>Boosty:</strong> https://boosty.to/ben7990</li>
-        </ul>
+            <h2>1. Allgemeine Bestimmungen</h2>
+            <p>Diese Datenschutzerklärung beschreibt, wie die Anwendung <strong>«Schiedsrichter Ping-Pong PRO»</strong> (im Folgenden — die «Anwendung») Informationen bei der Nutzung der Anwendung verarbeitet und schützt.</p>
+            <p><strong>Das wichtigste Prinzip der Anwendung:</strong> alle Daten werden ausschließlich auf Ihrem Gerät gespeichert. Wir sammeln, speichern oder übertragen Ihre Daten nicht an Server. Die Anwendung funktioniert vollständig offline (offline-first) und benötigt für grundlegende Funktionen keine Internetverbindung.</p>
+            <p>Die Nutzung der Anwendung bedeutet Ihr vollständiges Einverständnis mit den Bedingungen dieser Erklärung. Wenn Sie mit den Bedingungen nicht einverstanden sind, nutzen Sie bitte die Anwendung nicht.</p>
 
-        <a href="index.html" class="back-btn">← Вернуться в приложение</a>
-        
-        <footer>
-            © 2026 Судья Пинг-Понг PRO. Все права защищены.<br>
-            Версия приложения: v10 с промышленным шифрованием паролей (PBKDF2)
-        </footer>
+            <h2>2. Welche Daten auf Ihrem Gerät verarbeitet werden</h2>
+            <p><strong>2.1. Daten, die Sie freiwillig angeben und die NUR lokal gespeichert werden:</strong></p>
+            <ul>
+                <li><strong>Vor- und Nachname</strong> — bei der Registrierung angegeben, werden in der Oberfläche angezeigt. Werden nur auf Ihrem Gerät gespeichert.</li>
+                <li><strong>E-Mail-Adresse</strong> — wird für den Login und die Wiederherstellung des Zugangs verwendet. Wird nur auf Ihrem Gerät verschlüsselt gespeichert.</li>
+                <li><strong>Passwort</strong> — wird GAR NICHT gespeichert. Gespeichert wird nur der kryptografische Hash des Passworts (es ist unmöglich, das Passwort aus dem Hash wiederherzustellen).</li>
+                <li><strong>Spielergebnisse und Schiedsrichterprotokolle</strong> — von Ihnen erstellte Inhalte, die <strong>NIE ÜBERTRAGEN</strong> werden. Sie können sie zur Archivierung oder zum Ausdrucken als JSON/CSV exportieren, aber diese Daten verlassen Ihr Gerät nur durch Ihre ausdrückliche Aktion (Export).</li>
+                <li><strong>Oberflächeneinstellungen</strong> (ausgewählte Sprache) — werden lokal für Ihre Bequemlichkeit gespeichert.</li>
+            </ul>
+
+            <p><strong>2.2. Daten, die wir NICHT sammeln oder speichern:</strong></p>
+            <ul>
+                <li><strong>Wir sammeln KEINE Spielergebnisse auf dem Server</strong> — alles bleibt nur auf Ihrem Gerät.</li>
+                <li><strong>Wir sammeln KEINE Zahlungsdaten</strong> — die Anwendung hat keine Zahlungen oder Spenden.</li>
+                <li><strong>Wir übertragen Ihre Daten NICHT an Dritte</strong> — weil wir sie physisch nicht haben.</li>
+                <li><strong>Wir verwenden Ihre Daten NICHT für Werbemailings</strong> — wir haben Ihre Kontakte nicht auf dem Server.</li>
+                <li><strong>Wir speichern Ihre Passwörter NICHT im Klartext</strong> — es wird industrielle Verschlüsselung verwendet.</li>
+                <li><strong>Wir haben KEINEN Zugang zu Ihren Spielprotokollen</strong> — sie werden nur in Ihrem Browser gespeichert.</li>
+                <li><strong>Wir verwenden KEINE Analysen und Tracker</strong> — wir verfolgen Ihre Aktionen in der Anwendung nicht.</li>
+            </ul>
+
+            <h2>3. Wie wir Ihre Daten schützen</h2>
+            <p>Die Sicherheit Ihrer Daten ist unsere Priorität. Wir verwenden die folgenden Schutzmaßnahmen:</p>
+            <ul>
+                <li><strong>🔐 Professionelle Passwortverschlüsselung:</strong> alle Passwörter werden mit dem <strong>PBKDF2-Algorithmus mit Salt und 100.000 Hash-Iterationen</strong> verschlüsselt — dies ist ein moderner Standard, der in Bank- und Staatssystemen verwendet wird (ähnlich der Verschlüsselung in Online-Banken). Selbst wenn ein Angreifer Zugang zum Datenspeicher erhält, kann er Ihr Passwort nicht wiederherstellen.</li>
+                <li><strong>🎲 Individuelles Salt:</strong> für jedes Passwort wird ein eindeutiges kryptografisches Salt (16 Byte Zufallsdaten) generiert, was die Verwendung von Rainbow-Tabellen zum Knacken unmöglich macht. Selbst wenn zwei Benutzer dasselbe Passwort wählen, sehen sie im Speicher unterschiedlich aus.</li>
+                <li><strong>🔄 Kryptografisch starker Algorithmus:</strong> es wird die Web Crypto API verwendet — ein in den Browser integriertes kryptografisches Modul, das als sicher für Finanztransaktionen gilt.</li>
+                <li><strong>💻 Vollständig lokale Speicherung:</strong> wir verwenden grundsätzlich keine externen Server für die Speicherung von Benutzerdaten. Alle Informationen (einschließlich Spielprotokolle) bleiben auf Ihrem Gerät.</li>
+                <li><strong>🔒 HTTPS:</strong> alle Verbindungen sind durch das HTTPS-Protokoll geschützt, das die Datenübertragung beim Laden der Anwendung absichert.</li>
+                <li><strong>🚫 Keine Analyse:</strong> die Anwendung enthält keine Zähler, Tracker oder Analysesysteme.</li>
+            </ul>
+
+            <h2>4. Export und Datenübertragung</h2>
+            <p>Die Anwendung bietet Funktionen zum Datenexport (<span class="highlight">JSON</span> und <span class="highlight">CSV</span>) für Ihre Bequemlichkeit. Diese Funktionen funktionieren wie folgt:</p>
+            <ul>
+                <li>Daten werden niemals automatisch an den Server übertragen.</li>
+                <li>Beim Klicken auf die Exporttaste wird eine Datei erstellt und über den Standarddialog des Browsers auf Ihrem Gerät gespeichert.</li>
+                <li>Sie entscheiden, wo Sie die Datei speichern und wem Sie sie geben.</li>
+                <li>Die Anwendung verfolgt exportierte Dateien nicht und hat nach dem Export keinen Zugriff mehr darauf.</li>
+            </ul>
+
+            <h2>5. Löschen von Daten</h2>
+            <p>Alle Daten werden lokal in Ihrem Browser in <span class="highlight">localStorage</span> gespeichert. So löschen Sie alle Daten:</p>
+            <ul>
+                <li><strong>In der Anwendungsoberfläche:</strong> klicken Sie auf die Schaltfläche <strong>"🗑️ Konto löschen"</strong> im Hauptmenü.</li>
+                <li><strong>Über die Browsereinstellungen:</strong> löschen Sie die Websitedaten (Einstellungen → Datenschutz → Daten löschen).</li>
+            </ul>
+            <p>Nach dem Löschen können die Daten nicht wiederhergestellt werden.</p>
+
+            <h2>6. Keine Zahlungen</h2>
+            <p>Die Anwendung ist <strong>vollständig kostenlos</strong> und enthält keine kostenpflichtigen Abonnements, In-App-Käufe oder Werbung. Alle Funktionen sind ohne Einschränkungen verfügbar.</p>
+
+            <div class="contact-block">
+                <strong>📧 Bei Fragen:</strong><br>
+                <a href="mailto:support@pingpong.pro">support@pingpong.pro</a>
+            </div>
+
+            <div class="contact-block">
+                <strong>💬 Kontakt zum Entwickler:</strong><br>
+                📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
+                📧 Email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a>
+            </div>
+
+            <a href="index.html" class="back-btn">← Zurück zur Anwendung</a>
+            
+            <footer>
+                © 2026 Schiedsrichter Ping-Pong PRO. Alle Rechte vorbehalten.<br>
+                Version: v19 — vollständig lokale Speicherung + PBKDF2-Verschlüsselung
+            </footer>
+        </div>
+
+        <!-- ИСПАНСКИЙ -->
+        <div id="content-es" class="content">
+            <h1>🏓 Política de Privacidad</h1>
+            <div class="effective">Fecha de entrada en vigor: 11 de junio de 2026</div>
+
+            <div class="security-badge">
+                🔐 SUS DATOS ESTÁN PROTEGIDOS 🔐<br>
+                Cifrado de contraseñas: PBKDF2 con sal (100.000 iteraciones) — estándar de seguridad bancaria<br>
+                📁 TODOS LOS DATOS SE ALMACENAN SOLO EN SU DISPOSITIVO
+            </div>
+
+            <h2>1. Disposiciones generales</h2>
+            <p>Esta Política de Privacidad describe cómo la aplicación <strong>«Árbitro Ping-Pong PRO»</strong> (en adelante — la «Aplicación») procesa y protege la información al utilizar la Aplicación.</p>
+            <p><strong>El principio más importante de la Aplicación:</strong> todos los datos se almacenan exclusivamente en su dispositivo. No recopilamos, almacenamos ni transmitimos sus datos a ningún servidor. La aplicación funciona completamente sin conexión (offline-first) y no requiere conexión a Internet para funciones básicas.</p>
+            <p>El uso de la Aplicación implica su total acuerdo con los términos de esta Política. Si no está de acuerdo con los términos, no utilice la Aplicación.</p>
+
+            <h2>2. Qué datos se procesan en su dispositivo</h2>
+            <p><strong>2.1. Datos que usted proporciona voluntariamente y que se almacenan SOLO localmente:</strong></p>
+            <ul>
+                <li><strong>Nombre y apellido</strong> — se proporcionan durante el registro, se utilizan para mostrar en la interfaz. Se almacenan solo en su dispositivo.</li>
+                <li><strong>Dirección de correo electrónico</strong> — se utiliza para iniciar sesión y recuperar el acceso. Se almacena solo en su dispositivo de forma cifrada.</li>
+                <li><strong>Contraseña</strong> — NO se almacena en absoluto. Solo se almacena el hash criptográfico de la contraseña (imposible de recuperar la contraseña del hash).</li>
+                <li><strong>Resultados de partidos y protocolos arbitrales</strong> — contenido que usted crea y que <strong>NUNCA SE TRANSMITE</strong>. Puede exportarlo a JSON/CSV para imprimir o archivar, pero estos datos salen de su dispositivo solo por su acción explícita (exportación).</li>
+                <li><strong>Configuración de la interfaz</strong> (idioma seleccionado) — se guarda localmente para su comodidad.</li>
+            </ul>
+
+            <p><strong>2.2. Datos que NO recopilamos ni almacenamos:</strong></p>
+            <ul>
+                <li><strong>NO recopilamos resultados de partidos en el servidor</strong> — todo permanece solo en su dispositivo.</li>
+                <li><strong>NO recopilamos datos de pago</strong> — la aplicación no tiene pagos ni donaciones.</li>
+                <li><strong>NO transferimos sus datos a terceros</strong> — porque no los tenemos físicamente.</li>
+                <li><strong>NO utilizamos sus datos para envíos publicitarios</strong> — no tenemos sus contactos en el servidor.</li>
+                <li><strong>NO almacenamos sus contraseñas en texto plano</strong> — se utiliza cifrado industrial.</li>
+                <li><strong>NO tenemos acceso a sus protocolos de partidos</strong> — se almacenan solo en su navegador.</li>
+                <li><strong>NO utilizamos analíticas ni rastreadores</strong> — no rastreamos sus acciones en la aplicación.</li>
+            </ul>
+
+            <h2>3. Cómo protegemos sus datos</h2>
+            <p>La seguridad de sus datos es nuestra prioridad. Utilizamos las siguientes medidas de protección:</p>
+            <ul>
+                <li><strong>🔐 Cifrado profesional de contraseñas:</strong> todas las contraseñas se cifran con el algoritmo <strong>PBKDF2 con sal y 100.000 iteraciones de hash</strong> — este es un estándar moderno utilizado en sistemas bancarios y gubernamentales (similar al cifrado en la banca en línea). Incluso si un atacante obtiene acceso al almacenamiento de datos, no podrá recuperar su contraseña.</li>
+                <li><strong>🎲 Sal individual:</strong> se genera una sal criptográfica única (16 bytes de datos aleatorios) para cada contraseña, lo que hace imposible el uso de tablas arcoíris para descifrar. Incluso si dos usuarios eligen la misma contraseña, se verán diferentes en el almacenamiento.</li>
+                <li><strong>🔄 Algoritmo criptográficamente fuerte:</strong> se utiliza Web Crypto API — un módulo criptográfico integrado en el navegador que se considera seguro para operaciones financieras.</li>
+                <li><strong>💻 Almacenamiento completamente local:</strong> no utilizamos servidores externos para almacenar datos de usuarios. Toda la información (incluidos los protocolos de partidos) permanece en su dispositivo.</li>
+                <li><strong>🔒 HTTPS:</strong> todas las conexiones están protegidas por el protocolo HTTPS, que evita la interceptación de datos durante la transmisión.</li>
+                <li><strong>🚫 Sin análisis:</strong> la aplicación no tiene contadores, rastreadores ni sistemas de análisis.</li>
+            </ul>
+
+            <h2>4. Exportación y transferencia de datos</h2>
+            <p>La aplicación proporciona funciones de exportación de datos (<span class="highlight">JSON</span> y <span class="highlight">CSV</span>) para su comodidad. Estas funciones funcionan de la siguiente manera:</p>
+            <ul>
+                <li>Los datos nunca se transmiten automáticamente al servidor.</li>
+                <li>Al hacer clic en el botón de exportación, se crea un archivo y se guarda en su dispositivo a través del diálogo estándar de guardado del navegador.</li>
+                <li>Usted decide dónde guardar el archivo y con quién compartirlo.</li>
+                <li>La aplicación no rastrea los archivos exportados y no tiene acceso a ellos después de la exportación.</li>
+            </ul>
+
+            <h2>5. Eliminación de datos</h2>
+            <p>Todos los datos se almacenan localmente en su navegador en <span class="highlight">localStorage</span>. Para eliminar todos los datos:</p>
+            <ul>
+                <li><strong>En la interfaz de la aplicación:</strong> haga clic en el botón <strong>"🗑️ Eliminar cuenta"</strong> en el menú principal.</li>
+                <li><strong>A través de la configuración del navegador:</strong> borre los datos del sitio (Configuración → Privacidad → Borrar datos).</li>
+            </ul>
+            <p>Después de la eliminación, los datos no se pueden recuperar.</p>
+
+            <h2>6. Sin pagos</h2>
+            <p>La aplicación es <strong>completamente gratuita</strong> y no contiene suscripciones de pago, compras dentro de la aplicación ni publicidad. Todas las funciones están disponibles sin restricciones.</p>
+
+            <div class="contact-block">
+                <strong>📧 Para cualquier pregunta:</strong><br>
+                <a href="mailto:support@pingpong.pro">support@pingpong.pro</a>
+            </div>
+
+            <div class="contact-block">
+                <strong>💬 Contacto con el desarrollador:</strong><br>
+                📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
+                📧 Email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a>
+            </div>
+
+            <a href="index.html" class="back-btn">← Volver a la aplicación</a>
+            
+            <footer>
+                © 2026 Árbitro Ping-Pong PRO. Todos los derechos reservados.<br>
+                Versión: v19 — almacenamiento completamente local + cifrado PBKDF2
+            </footer>
+        </div>
+
+        <!-- ИТАЛЬЯНСКИЙ -->
+        <div id="content-it" class="content">
+            <h1>🏓 Politica sulla Privacy</h1>
+            <div class="effective">Data di entrata in vigore: 11 giugno 2026</div>
+
+            <div class="security-badge">
+                🔐 I TUOI DATI SONO PROTETTI 🔐<br>
+                Crittografia password: PBKDF2 con salt (100.000 iterazioni) — standard di sicurezza bancario<br>
+                📁 TUTTI I DATI SONO MEMORIZZATI SOLO SUL TUO DISPOSITIVO
+            </div>
+
+            <h2>1. Disposizioni generali</h2>
+            <p>Questa Informativa sulla Privacy descrive come l'applicazione <strong>«Arbitro Ping-Pong PRO»</strong> (di seguito — l'«Applicazione») elabora e protegge le informazioni durante l'utilizzo dell'Applicazione.</p>
+            <p><strong>Il principio più importante dell'Applicazione:</strong> tutti i dati sono memorizzati esclusivamente sul tuo dispositivo. Non raccogliamo, memorizziamo o trasmettiamo i tuoi dati a nessun server. L'applicazione funziona completamente offline (offline-first) e non richiede una connessione Internet per le funzioni di base.</p>
+            <p>L'utilizzo dell'Applicazione implica il tuo pieno accordo con i termini di questa Informativa. Se non sei d'accordo con i termini, ti preghiamo di non utilizzare l'Applicazione.</p>
+
+            <h2>2. Quali dati vengono elaborati sul tuo dispositivo</h2>
+            <p><strong>2.1. Dati che fornisci volontariamente e che vengono memorizzati SOLO localmente:</strong></p>
+            <ul>
+                <li><strong>Nome e cognome</strong> — forniti durante la registrazione, utilizzati per la visualizzazione nell'interfaccia. Memorizzati solo sul tuo dispositivo.</li>
+                <li><strong>Indirizzo email</strong> — utilizzato per l'accesso e il recupero della password. Memorizzato solo sul tuo dispositivo in forma crittografata.</li>
+                <li><strong>Password</strong> — NON viene memorizzata affatto. Viene memorizzato solo l'hash crittografico della password (impossibile recuperare la password dall'hash).</li>
+                <li><strong>Risultati delle partite e protocolli arbitrali</strong> — contenuto che crei e che <strong>NON VIENE MAI TRASMESSO</strong>. Puoi esportarlo in JSON/CSV per la stampa o l'archiviazione, ma questi dati lasciano il tuo dispositivo solo per tua esplicita azione (esportazione).</li>
+                <li><strong>Impostazioni dell'interfaccia</strong> (lingua selezionata) — salvate localmente per tua comodità.</li>
+            </ul>
+
+            <p><strong>2.2. Dati che NON raccogliamo né memorizziamo:</strong></p>
+            <ul>
+                <li><strong>NON raccogliamo i risultati delle partite sul server</strong> — tutto rimane solo sul tuo dispositivo.</li>
+                <li><strong>NON raccogliamo dati di pagamento</strong> — l'applicazione non ha pagamenti o donazioni.</li>
+                <li><strong>NON trasferiamo i tuoi dati a terzi</strong> — perché non li abbiamo fisicamente.</li>
+                <li><strong>NON utilizziamo i tuoi dati per mailing pubblicitari</strong> — non abbiamo i tuoi contatti sul server.</li>
+                <li><strong>NON memorizziamo le tue password in chiaro</strong> — viene utilizzata la crittografia industriale.</li>
+                <li><strong>NON abbiamo accesso ai tuoi protocolli di partita</strong> — sono memorizzati solo nel tuo browser.</li>
+                <li><strong>NON utilizziamo analisi e tracker</strong> — non tracciamo le tue azioni nell'applicazione.</li>
+            </ul>
+
+            <h2>3. Come proteggiamo i tuoi dati</h2>
+            <p>La sicurezza dei tuoi dati è la nostra priorità. Utilizziamo le seguenti misure di protezione:</p>
+            <ul>
+                <li><strong>🔐 Crittografia professionale delle password:</strong> tutte le password vengono crittografate utilizzando l'algoritmo <strong>PBKDF2 con salt e 100.000 iterazioni di hash</strong> — questo è uno standard moderno utilizzato nei sistemi bancari e governativi (simile alla crittografia nelle banche online). Anche se un malintenzionato ottiene l'accesso al deposito dei dati, non sarà in grado di recuperare la tua password.</li>
+                <li><strong>🎲 Salt individuale:</strong> viene generato un salt crittografico univoco (16 byte di dati casuali) per ogni password, rendendo impossibile l'uso di tabelle arcobaleno per il cracking. Anche se due utenti scelgono la stessa password, appariranno diversi nel deposito.</li>
+                <li><strong>🔄 Algoritmo crittograficamente forte:</strong> viene utilizzata Web Crypto API — un modulo crittografico integrato nel browser considerato sicuro per le operazioni finanziarie.</li>
+                <li><strong>💻 Archiviazione completamente locale:</strong> non utilizziamo server esterni per memorizzare i dati degli utenti. Tutte le informazioni (inclusi i protocolli di partita) rimangono sul tuo dispositivo.</li>
+                <li><strong>🔒 HTTPS:</strong> tutte le connessioni sono protette dal protocollo HTTPS, che impedisce l'intercettazione dei dati durante la trasmissione.</li>
+                <li><strong>🚫 Nessuna analisi:</strong> l'applicazione non ha contatori, tracker o sistemi di analisi.</li>
+            </ul>
+
+            <h2>4. Esportazione e trasferimento dei dati</h2>
+            <p>L'applicazione fornisce funzioni di esportazione dei dati (<span class="highlight">JSON</span> e <span class="highlight">CSV</span>) per tua comodità. Queste funzioni funzionano come segue:</p>
+            <ul>
+                <li>I dati non vengono mai trasmessi automaticamente al server.</li>
+                <li>Quando clicchi sul pulsante di esportazione, viene creato un file e salvato sul tuo dispositivo attraverso il dialogo standard di salvataggio del browser.</li>
+                <li>Tu decidi dove salvare il file e con chi condividerlo.</li>
+                <li>L'applicazione non traccia i file esportati e non ha accesso ad essi dopo l'esportazione.</li>
+            </ul>
+
+            <h2>5. Cancellazione dei dati</h2>
+            <p>Tutti i dati sono memorizzati localmente nel tuo browser in <span class="highlight">localStorage</span>. Per eliminare tutti i dati:</p>
+            <ul>
+                <li><strong>Nell'interfaccia dell'applicazione:</strong> clicca sul pulsante <strong>"🗑️ Elimina account"</strong> nel menu principale.</li>
+                <li><strong>Attraverso le impostazioni del browser:</strong> cancella i dati del sito (Impostazioni → Privacy → Cancella dati).</li>
+            </ul>
+            <p>Dopo la cancellazione, i dati non possono essere recuperati.</p>
+
+            <h2>6. Nessun pagamento</h2>
+            <p>L'applicazione è <strong>completamente gratuita</strong> e non contiene abbonamenti a pagamento, acquisti in-app o pubblicità. Tutte le funzioni sono disponibili senza restrizioni.</p>
+
+            <div class="contact-block">
+                <strong>📧 Per qualsiasi domanda:</strong><br>
+                <a href="mailto:support@pingpong.pro">support@pingpong.pro</a>
+            </div>
+
+            <div class="contact-block">
+                <strong>💬 Contatta lo sviluppatore:</strong><br>
+                📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
+                📧 Email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a>
+            </div>
+
+            <a href="index.html" class="back-btn">← Torna all'applicazione</a>
+            
+            <footer>
+                © 2026 Arbitro Ping-Pong PRO. Tutti i diritti riservati.<br>
+                Versione: v19 — archiviazione completamente locale + crittografia PBKDF2
+            </footer>
+        </div>
+
+        <!-- ФРАНЦУЗСКИЙ -->
+        <div id="content-fr" class="content">
+            <h1>🏓 Politique de Confidentialité</h1>
+            <div class="effective">Date d'entrée en vigueur: 11 juin 2026</div>
+
+            <div class="security-badge">
+                🔐 VOS DONNÉES SONT PROTÉGÉES 🔐<br>
+                Chiffrement des mots de passe: PBKDF2 avec sel (100 000 itérations) — standard de sécurité bancaire<br>
+                📁 TOUTES LES DONNÉES SONT STOCKÉES UNIQUEMENT SUR VOTRE APPAREIL
+            </div>
+
+            <h2>1. Dispositions générales</h2>
+            <p>La présente Politique de Confidentialité décrit comment l'application <strong>«Arbitre Ping-Pong PRO»</strong> (ci-après — l'«Application») traite et protège les informations lors de l'utilisation de l'Application.</p>
+            <p><strong>Le principe le plus important de l'Application:</strong> toutes les données sont stockées exclusivement sur votre appareil. Nous ne collectons, ne stockons ni ne transmettons vos données à des serveurs. L'application fonctionne entièrement hors ligne (offline-first) et ne nécessite pas de connexion Internet pour les fonctions de base.</p>
+            <p>L'utilisation de l'Application signifie votre entière acceptation des termes de cette Politique. Si vous n'acceptez pas les termes, veuillez ne pas utiliser l'Application.</p>
+
+            <h2>2. Quelles données sont traitées sur votre appareil</h2>
+            <p><strong>2.1. Données que vous fournissez volontairement et qui sont stockées UNIQUEMENT localement:</strong></p>
+            <ul>
+                <li><strong>Nom et prénom</strong> — fournis lors de l'inscription, utilisés pour l'affichage dans l'interface. Stockés uniquement sur votre appareil.</li>
+                <li><strong>Adresse email</strong> — utilisée pour la connexion et la récupération de l'accès. Stockée uniquement sur votre appareil sous forme cryptée.</li>
+                <li><strong>Mot de passe</strong> — N'EST PAS stocké du tout. Seul le hash cryptographique du mot de passe est stocké (impossible de récupérer le mot de passe à partir du hash).</li>
+                <li><strong>Résultats de matchs et protocoles d'arbitrage</strong> — contenu que vous créez et qui <strong>N'EST JAMAIS TRANSMIS</strong>. Vous pouvez l'exporter en JSON/CSV pour l'impression ou l'archivage, mais ces données quittent votre appareil uniquement par votre action explicite (exportation).</li>
+                <li><strong>Paramètres de l'interface</strong> (langue sélectionnée) — sauvegardés localement pour votre confort.</li>
+            </ul>
+
+            <p><strong>2.2. Données que nous NE collectons PAS et NE stockons PAS:</strong></p>
+            <ul>
+                <li><strong>Nous NE collectons PAS les résultats de matchs sur le serveur</strong> — tout reste uniquement sur votre appareil.</li>
+                <li><strong>Nous NE collectons PAS de données de paiement</strong> — l'application n'a pas de paiements ni de dons.</li>
+                <li><strong>Nous NE transférons PAS vos données à des tiers</strong> — parce que nous ne les possédons pas physiquement.</li>
+                <li><strong>Nous N'utilisons PAS vos données pour des envois publicitaires</strong> — nous n'avons pas vos contacts sur le serveur.</li>
+                <li><strong>Nous NE stockons PAS vos mots de passe en clair</strong> — un chiffrement industriel est utilisé.</li>
+                <li><strong>Nous N'avons PAS accès à vos protocoles de match</strong> — ils sont stockés uniquement dans votre navigateur.</li>
+                <li><strong>Nous N'utilisons PAS d'analytiques ni de trackers</strong> — nous ne suivons pas vos actions dans l'application.</li>
+            </ul>
+
+            <h2>3. Comment nous protégeons vos données</h2>
+            <p>La sécurité de vos données est notre priorité. Nous utilisons les mesures de protection suivantes:</p>
+            <ul>
+                <li><strong>🔐 Chiffrement professionnel des mots de passe:</strong> tous les mots de passe sont chiffrés à l'aide de l'algorithme <strong>PBKDF2 avec sel et 100 000 itérations de hachage</strong> — c'est un standard moderne utilisé dans les systèmes bancaires et gouvernementaux (similaire au chiffrement dans les banques en ligne). Même si un attaquant accède au stockage des données, il ne pourra pas récupérer votre mot de passe.</li>
+                <li><strong>🎲 Sel individuel:</strong> un sel cryptographique unique (16 octets de données aléatoires) est généré pour chaque mot de passe, rendant impossible l'utilisation de tables arc-en-ciel pour le craquage. Même si deux utilisateurs choisissent le même mot de passe, ils apparaîtront différemment dans le stockage.</li>
+                <li><strong>🔄 Algorithme cryptographiquement fort:</strong> Web Crypto API est utilisé — un module cryptographique intégré au navigateur considéré comme sûr pour les opérations financières.</li>
+                <li><strong>💻 Stockage entièrement local:</strong> nous n'utilisons pas de serveurs externes pour stocker les données des utilisateurs. Toutes les informations (y compris les protocoles de match) restent sur votre appareil.</li>
+                <li><strong>🔒 HTTPS:</strong> toutes les connexions sont protégées par le protocole HTTPS, empêchant l'interception des données pendant la transmission.</li>
+                <li><strong>🚫 Pas d'analytique:</strong> l'application ne contient pas de compteurs, de trackers ou de systèmes d'analyse.</li>
+            </ul>
+
+            <h2>4. Exportation et transfert de données</h2>
+            <p>L'application fournit des fonctions d'exportation de données (<span class="highlight">JSON</span> et <span class="highlight">CSV</span>) pour votre confort. Ces fonctions fonctionnent comme suit:</p>
+            <ul>
+                <li>Les données ne sont jamais transmises automatiquement au serveur.</li>
+                <li>Lorsque vous cliquez sur le bouton d'exportation, un fichier est créé et sauvegardé sur votre appareil via la boîte de dialogue standard de sauvegarde du navigateur.</li>
+                <li>Vous décidez où enregistrer le fichier et avec qui le partager.</li>
+                <li>L'application ne suit pas les fichiers exportés et n'y a pas accès après l'exportation.</li>
+            </ul>
+
+            <h2>5. Suppression des données</h2>
+            <p>Toutes les données sont stockées localement dans votre navigateur dans <span class="highlight">localStorage</span>. Pour supprimer toutes les données:</p>
+            <ul>
+                <li><strong>Dans l'interface de l'application:</strong> cliquez sur le bouton <strong>"🗑️ Supprimer le compte"</strong> dans le menu principal.</li>
+                <li><strong>Via les paramètres du navigateur:</strong> effacez les données du site (Paramètres → Confidentialité → Effacer les données).</li>
+            </ul>
+            <p>Après la suppression, les données ne peuvent pas être récupérées.</p>
+
+            <h2>6. Pas de paiements</h2>
+            <p>L'application est <strong>entièrement gratuite</strong> et ne contient pas d'abonnements payants, d'achats intégrés ou de publicité. Toutes les fonctions sont disponibles sans restrictions.</p>
+
+            <div class="contact-block">
+                <strong>📧 Pour toute question:</strong><br>
+                <a href="mailto:support@pingpong.pro">support@pingpong.pro</a>
+            </div>
+
+            <div class="contact-block">
+                <strong>💬 Contacter le développeur:</strong><br>
+                📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
+                📧 Email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a>
+            </div>
+
+            <a href="index.html" class="back-btn">← Retourner à l'application</a>
+            
+            <footer>
+                © 2026 Arbitre Ping-Pong PRO. Tous droits réservés.<br>
+                Version: v19 — stockage entièrement local + chiffrement PBKDF2
+            </footer>
+        </div>
+
+        <!-- КИТАЙСКИЙ -->
+        <div id="content-zh" class="content">
+            <h1>🏓 隐私政策</h1>
+            <div class="effective">生效日期：2026年6月11日</div>
+
+            <div class="security-badge">
+                🔐 您的数据受到保护 🔐<br>
+                密码加密：PBKDF2 加盐（100,000 次迭代）— 银行级安全标准<br>
+                📁 所有数据仅存储在您的设备上
+            </div>
+
+            <h2>1. 总则</h2>
+            <p>本隐私政策描述了 <strong>«裁判乒乓球 PRO»</strong> 应用程序（以下简称「应用程序」）在使用过程中如何处理和保护信息。</p>
+            <p><strong>应用程序最重要的原则：</strong>所有数据仅存储在您的设备上。我们不收集、存储或传输您的数据到任何服务器。应用程序完全离线运行（离线优先），基本功能不需要互联网连接。</p>
+            <p>使用应用程序即表示您完全同意本政策的条款。如果您不同意条款，请不要使用应用程序。</p>
+
+            <h2>2. 您的设备上处理哪些数据</h2>
+            <p><strong>2.1. 您自愿提供且仅存储在本地数据：</strong></p>
+            <ul>
+                <li><strong>姓名</strong> — 注册时提供，用于界面显示。仅存储在您的设备上。</li>
+                <li><strong>电子邮件地址</strong> — 用于登录和恢复访问。仅以加密形式存储在您的设备上。</li>
+                <li><strong>密码</strong> — 根本不存储。仅存储密码的加密哈希（无法从哈希中恢复密码）。</li>
+                <li><strong>比赛结果和裁判记录</strong> — 您创建的内容 <strong>绝不传输</strong>。您可以导出为 JSON/CSV 进行打印或归档，但这些数据仅在您明确操作（导出）时离开您的设备。</li>
+                <li><strong>界面设置</strong>（所选语言）— 本地保存以方便您使用。</li>
+            </ul>
+
+            <p><strong>2.2. 我们不收集或不存储的数据：</strong></p>
+            <ul>
+                <li><strong>我们不收集服务器上的比赛结果</strong> — 一切仅保留在您的设备上。</li>
+                <li><strong>我们不收集支付数据</strong> — 应用程序没有付款或捐赠。</li>
+                <li><strong>我们不将您的数据传输给第三方</strong> — 因为我们没有您的数据。</li>
+                <li><strong>我们不将您的数据用于广告邮件</strong> — 服务器上没有您的联系方式。</li>
+                <li><strong>我们不存储明文密码</strong> — 使用工业级加密。</li>
+                <li><strong>我们无权访问您的比赛记录</strong> — 它们仅存储在您的浏览器中。</li>
+                <li><strong>我们不使用分析工具和追踪器</strong> — 我们不跟踪您在应用程序中的操作。</li>
+            </ul>
+
+            <h2>3. 我们如何保护您的数据</h2>
+            <p>数据安全是我们的首要任务。我们使用以下保护措施：</p>
+            <ul>
+                <li><strong>🔐 专业密码加密：</strong>所有密码使用 <strong>PBKDF2 加盐和 100,000 次哈希迭代</strong> 算法加密 — 这是银行和政府系统中使用的现代标准（类似于网上银行加密）。即使攻击者获得数据存储访问权限，也无法恢复您的密码。</li>
+                <li><strong>🎲 个性化盐值：</strong>为每个密码生成唯一的加密盐值（16字节随机数据），使彩虹表破解无法进行。即使两个用户选择相同的密码，在存储中也会看起来不同。</li>
+                <li><strong>🔄 加密强度高的算法：</strong>使用 Web Crypto API — 浏览器内置的加密模块，被认为对金融操作安全。</li>
+                <li><strong>💻 完全本地存储：</strong>我们不使用外部服务器存储用户数据。所有信息（包括比赛记录）都保留在您的设备上。</li>
+                <li><strong>🔒 HTTPS：</strong>所有连接受 HTTPS 协议保护，防止数据传输过程中被截获。</li>
+                <li><strong>🚫 无分析工具：</strong>应用程序没有计数器、追踪器或分析系统。</li>
+            </ul>
+
+            <h2>4. 数据导出和传输</h2>
+            <p>应用程序提供数据导出功能（<span class="highlight">JSON</span> 和 <span class="highlight">CSV</span>）以方便您使用。这些功能的工作方式如下：</p>
+            <ul>
+                <li>数据永远不会自动传输到服务器。</li>
+                <li>当您点击导出按钮时，文件会通过浏览器的标准保存对话框创建并保存到您的设备。</li>
+                <li>您决定保存文件的位置以及与谁共享。</li>
+                <li>应用程序不会跟踪导出的文件，导出后也无法访问它们。</li>
+            </ul>
+
+            <h2>5. 数据删除</h2>
+            <p>所有数据都存储在您浏览器的 <span class="highlight">localStorage</span> 中。要删除所有数据：</p>
+            <ul>
+                <li><strong>在应用程序界面中：</strong>点击主菜单中的 <strong>"🗑️ 删除账号"</strong> 按钮。</li>
+                <li><strong>通过浏览器设置：</strong>清除网站数据（设置 → 隐私 → 清除数据）。</li>
+            </ul>
+            <p>删除后，数据无法恢复。</p>
+
+            <h2>6. 无付款</h2>
+            <p>应用程序 <strong>完全免费</strong>，不包含付费订阅、应用内购买或广告。所有功能无限制可用。</p>
+
+            <div class="contact-block">
+                <strong>📧 如有任何问题：</strong><br>
+                <a href="mailto:support@pingpong.pro">support@pingpong.pro</a>
+            </div>
+
+            <div class="contact-block">
+                <strong>💬 联系开发者：</strong><br>
+                📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
+                📧 Email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a>
+            </div>
+
+            <a href="index.html" class="back-btn">← 返回应用程序</a>
+            
+            <footer>
+                © 2026 裁判乒乓球 PRO。保留所有权利。<br>
+                版本：v19 — 完全本地存储 + PBKDF2 加密
+            </footer>
+        </div>
+
+        <!-- ПОРТУГАЛЬСКИЙ -->
+        <div id="content-pt" class="content">
+            <h1>🏓 Política de Privacidade</h1>
+            <div class="effective">Data de entrada em vigor: 11 de junho de 2026</div>
+
+            <div class="security-badge">
+                🔐 SEUS DADOS ESTÃO PROTEGIDOS 🔐<br>
+                Criptografia de senhas: PBKDF2 com salt (100.000 iterações) — padrão de segurança bancária<br>
+                📁 TODOS OS DADOS SÃO ARMAZENADOS APENAS NO SEU DISPOSITIVO
+            </div>
+
+            <h2>1. Disposições gerais</h2>
+            <p>Esta Política de Privacidade descreve como o aplicativo <strong>«Árbitro Ping-Pong PRO»</strong> (doravante — o «Aplicativo») processa e protege as informações durante o uso do Aplicativo.</p>
+            <p><strong>O princípio mais importante do Aplicativo:</strong> todos os dados são armazenados exclusivamente no seu dispositivo. Não coletamos, armazenamos ou transmitimos seus dados para servidores. O aplicativo funciona completamente offline (offline-first) e não requer conexão com a Internet para funções básicas.</p>
+            <p>O uso do Aplicativo significa sua concordância total com os termos desta Política. Se você não concorda com os termos, não use o Aplicativo.</p>
+
+            <h2>2. Quais dados são processados no seu dispositivo</h2>
+            <p><strong>2.1. Dados que você fornece voluntariamente e que são armazenados APENAS localmente:</strong></p>
+            <ul>
+                <li><strong>Nome e sobrenome</strong> — fornecidos durante o registro, usados para exibição na interface. Armazenados apenas no seu dispositivo.</li>
+                <li><strong>Endereço de email</strong> — usado para login e recuperação de acesso. Armazenado apenas no seu dispositivo de forma criptografada.</li>
+                <li><strong>Senha</strong> — NÃO é armazenada. Apenas o hash criptográfico da senha é armazenado (impossível recuperar a senha a partir do hash).</li>
+                <li><strong>Resultados de partidas e protocolos arbitrais</strong> — conteúdo que você cria e que <strong>NUNCA É TRANSMITIDO</strong>. Você pode exportá-lo para JSON/CSV para impressão ou arquivamento, mas esses dados saem do seu dispositivo apenas por sua ação explícita (exportação).</li>
+                <li><strong>Configurações da interface</strong> (idioma selecionado) — salvas localmente para sua conveniência.</li>
+            </ul>
+
+            <p><strong>2.2. Dados que NÃO coletamos ou armazenamos:</strong></p>
+            <ul>
+                <li><strong>NÃO coletamos resultados de partidas no servidor</strong> — tudo permanece apenas no seu dispositivo.</li>
+                <li><strong>NÃO coletamos dados de pagamento</strong> — o aplicativo não tem pagamentos ou doações.</li>
+                <li><strong>NÃO transferimos seus dados para terceiros</strong> — porque não os temos fisicamente.</li>
+                <li><strong>NÃO usamos seus dados para envios publicitários</strong> — não temos seus contatos no servidor.</li>
+                <li><strong>NÃO armazenamos suas senhas em texto plano</strong> — é usada criptografia industrial.</li>
+                <li><strong>NÃO temos acesso aos seus protocolos de partida</strong> — eles são armazenados apenas no seu navegador.</li>
+                <li><strong>NÃO usamos análises e rastreadores</strong> — não rastreamos suas ações no aplicativo.</li>
+            </ul>
+
+            <h2>3. Como protegemos seus dados</h2>
+            <p>A segurança dos seus dados é nossa prioridade. Usamos as seguintes medidas de proteção:</p>
+            <ul>
+                <li><strong>🔐 Criptografia profissional de senhas:</strong> todas as senhas são criptografadas usando o algoritmo <strong>PBKDF2 com salt e 100.000 iterações de hash</strong> — este é um padrão moderno usado em sistemas bancários e governamentais (semelhante à criptografia em bancos online). Mesmo que um invasor obtenha acesso ao armazenamento de dados, não poderá recuperar sua senha.</li>
+                <li><strong>🎲 Salt individual:</strong> um salt criptográfico único (16 bytes de dados aleatórios) é gerado para cada senha, tornando impossível o uso de tabelas rainbow para quebra. Mesmo que dois usuários escolham a mesma senha, eles parecerão diferentes no armazenamento.</li>
+                <li><strong>🔄 Algoritmo criptograficamente forte:</strong> é usada Web Crypto API — um módulo criptográfico integrado ao navegador considerado seguro para operações financeiras.</li>
+                <li><strong>💻 Armazenamento completamente local:</strong> não usamos servidores externos para armazenar dados do usuário. Todas as informações (incluindo protocolos de partida) permanecem no seu dispositivo.</li>
+                <li><strong>🔒 HTTPS:</strong> todas as conexões são protegidas pelo protocolo HTTPS, evitando a interceptação de dados durante a transmissão.</li>
+                <li><strong>🚫 Sem análises:</strong> o aplicativo não tem contadores, rastreadores ou sistemas de análise.</li>
+            </ul>
+
+            <h2>4. Exportação e transferência de dados</h2>
+            <p>O aplicativo fornece funções de exportação de dados (<span class="highlight">JSON</span> e <span class="highlight">CSV</span>) para sua conveniência. Estas funções funcionam da seguinte forma:</p>
+            <ul>
+                <li>Os dados nunca são transmitidos automaticamente ao servidor.</li>
+                <li>Ao clicar no botão de exportação, um arquivo é criado e salvo no seu dispositivo através do diálogo padrão de salvamento do navegador.</li>
+                <li>Você decide onde salvar o arquivo e com quem compartilhá-lo.</li>
+                <li>O aplicativo não rastreia os arquivos exportados e não tem acesso a eles após a exportação.</li>
+            </ul>
+
+            <h2>5. Exclusão de dados</h2>
+            <p>Todos os dados são armazenados localmente no seu navegador em <span class="highlight">localStorage</span>. Para excluir todos os dados:</p>
+            <ul>
+                <li><strong>Na interface do aplicativo:</strong> clique no botão <strong>"🗑️ Excluir conta"</strong> no menu principal.</li>
+                <li><strong>Através das configurações do navegador:</strong> limpe os dados do site (Configurações → Privacidade → Limpar dados).</li>
+            </ul>
+            <p>Após a exclusão, os dados não podem ser recuperados.</p>
+
+            <h2>6. Sem pagamentos</h2>
+            <p>O aplicativo é <strong>completamente gratuito</strong> e não contém assinaturas pagas, compras dentro do aplicativo ou publicidade. Todos os recursos estão disponíveis sem restrições.</p>
+
+            <div class="contact-block">
+                <strong>📧 Para qualquer dúvida:</strong><br>
+                <a href="mailto:support@pingpong.pro">support@pingpong.pro</a>
+            </div>
+
+            <div class="contact-block">
+                <strong>💬 Contato com o desenvolvedor:</strong><br>
+                📱 Telegram: <a href="https://t.me/ben7990" target="_blank">@ben7990</a><br>
+                📧 Email: <a href="mailto:ben7990@gmail.com">ben7990@gmail.com</a>
+            </div>
+
+            <a href="index.html" class="back-btn">← Voltar ao aplicativo</a>
+            
+            <footer>
+                © 2026 Árbitro Ping-Pong PRO. Todos os direitos reservados.<br>
+                Versão: v19 — armazenamento completamente local + criptografia PBKDF2
+            </footer>
+        </div>
     </div>
+
+    <script>
+        // Получаем язык из localStorage или используем русский по умолчанию
+        const savedLang = localStorage.getItem('app_language') || 'ru';
+        
+        // Функция для переключения языка
+        function switchLanguage(lang) {
+            // Скрываем все контенты
+            document.querySelectorAll('.content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Показываем выбранный язык
+            const targetContent = document.getElementById('content-' + lang);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+            
+            // Обновляем активную кнопку
+            document.querySelectorAll('.lang-selector button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Сохраняем выбранный язык в localStorage
+            localStorage.setItem('app_language', lang);
+        }
+        
+        // Добавляем обработчики на кнопки выбора языка
+        document.querySelectorAll('.lang-selector button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                switchLanguage(this.dataset.lang);
+            });
+        });
+        
+        // При загрузке страницы устанавливаем сохранённый язык
+        document.addEventListener('DOMContentLoaded', function() {
+            // Проверяем, есть ли сохранённый язык
+            const storedLang = localStorage.getItem('app_language');
+            if (storedLang && document.getElementById('content-' + storedLang)) {
+                switchLanguage(storedLang);
+            } else {
+                // Если нет сохранённого языка, используем русский
+                switchLanguage('ru');
+            }
+        });
+    </script>
 </body>
 </html>
