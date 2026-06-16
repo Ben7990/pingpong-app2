@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v21 - перевод всех плейсхолдеров');
+console.log('Скрипт загружен v22 - перевод для даты');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 
@@ -102,9 +102,9 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Пароль',
         'namePlaceholder': 'Имя',
-        // Плейсхолдеры для полей ввода
         'tournamentPlaceholder': 'Название турнира',
         'tablePlaceholder': 'Номер стола',
+        'datePlaceholder': 'Выберите дату',
         'playerNamePlaceholder': 'ФИО игрока',
         'countryPlaceholder': 'Страна',
         'refereePlaceholder': 'ФИО судьи',
@@ -218,9 +218,9 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Password',
         'namePlaceholder': 'Name',
-        // Плейсхолдеры для полей ввода
         'tournamentPlaceholder': 'Tournament name',
         'tablePlaceholder': 'Table number',
+        'datePlaceholder': 'Select date',
         'playerNamePlaceholder': 'Player name',
         'countryPlaceholder': 'Country',
         'refereePlaceholder': 'Referee name',
@@ -336,6 +336,7 @@ const translations = {
         'namePlaceholder': 'Name',
         'tournamentPlaceholder': 'Turniername',
         'tablePlaceholder': 'Tischnummer',
+        'datePlaceholder': 'Datum wählen',
         'playerNamePlaceholder': 'Spielername',
         'countryPlaceholder': 'Land',
         'refereePlaceholder': 'Schiedsrichter',
@@ -451,6 +452,7 @@ const translations = {
         'namePlaceholder': 'Nombre',
         'tournamentPlaceholder': 'Nombre del torneo',
         'tablePlaceholder': 'Número de mesa',
+        'datePlaceholder': 'Seleccionar fecha',
         'playerNamePlaceholder': 'Nombre del jugador',
         'countryPlaceholder': 'País',
         'refereePlaceholder': 'Árbitro',
@@ -566,6 +568,7 @@ const translations = {
         'namePlaceholder': 'Nome',
         'tournamentPlaceholder': 'Nome torneo',
         'tablePlaceholder': 'Numero tavolo',
+        'datePlaceholder': 'Seleziona data',
         'playerNamePlaceholder': 'Nome giocatore',
         'countryPlaceholder': 'Paese',
         'refereePlaceholder': 'Arbitro',
@@ -681,6 +684,7 @@ const translations = {
         'namePlaceholder': 'Nom',
         'tournamentPlaceholder': 'Nom du tournoi',
         'tablePlaceholder': 'Numéro de table',
+        'datePlaceholder': 'Choisir la date',
         'playerNamePlaceholder': 'Nom du joueur',
         'countryPlaceholder': 'Pays',
         'refereePlaceholder': 'Arbitre',
@@ -796,6 +800,7 @@ const translations = {
         'namePlaceholder': '姓名',
         'tournamentPlaceholder': '比赛名称',
         'tablePlaceholder': '球台号',
+        'datePlaceholder': '选择日期',
         'playerNamePlaceholder': '选手姓名',
         'countryPlaceholder': '国家',
         'refereePlaceholder': '主裁判',
@@ -911,6 +916,7 @@ const translations = {
         'namePlaceholder': 'Nome',
         'tournamentPlaceholder': 'Nome do torneio',
         'tablePlaceholder': 'Número da mesa',
+        'datePlaceholder': 'Selecionar data',
         'playerNamePlaceholder': 'Nome do jogador',
         'countryPlaceholder': 'País',
         'refereePlaceholder': 'Árbitro',
@@ -1064,6 +1070,13 @@ function applyTranslations() {
     for (const [id, placeholder] of Object.entries(placeholderElements)) {
         const el = getElement(id);
         if (el) el.placeholder = placeholder;
+    }
+    
+    // ПЕРЕВОД ПЛЕЙСХОЛДЕРА ДЛЯ ДАТЫ
+    const dateInput = getElement('matchDate');
+    if (dateInput) {
+        dateInput.placeholder = trans.datePlaceholder;
+        dateInput.lang = currentLang;
     }
     
     const privacyLinkAuth = getElement('privacyLinkAuth');
@@ -2137,7 +2150,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Полная версия с переводами плейсхолдеров v21');
+    console.log('DOMContentLoaded fired - Полная версия с переводом даты v22');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
