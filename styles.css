@@ -577,7 +577,6 @@ body {
         padding: 6px;
     }
     
-    /* Уменьшаем отступы между карточками */
     .players-top-row {
         gap: 6px;
         margin-bottom: 8px;
@@ -620,7 +619,6 @@ body {
         font-size: 10px;
     }
     
-    /* Кнопки очков */
     .game-buttons {
         gap: 8px;
     }
@@ -630,7 +628,6 @@ body {
         font-size: 13px;
     }
     
-    /* Три колонки - уменьшаем отступы */
     .three-columns {
         gap: 6px;
     }
@@ -646,7 +643,6 @@ body {
         font-size: 10px;
     }
     
-    /* Протокол */
     .protocol-section {
         padding: 8px;
     }
@@ -717,7 +713,6 @@ body {
         padding: 6px;
     }
     
-    /* Компактный режим для горизонтальной ориентации */
     .players-top-row {
         gap: 8px;
         margin-bottom: 6px;
@@ -868,7 +863,6 @@ body {
 
 /* ==================== УЛУЧШЕНИЯ ДОСТУПНОСТИ ==================== */
 
-/* Фокус для всех интерактивных элементов */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
@@ -879,18 +873,15 @@ select:focus-visible {
     z-index: 1;
 }
 
-/* Увеличенная контрастность для текста */
 .player-card, .protocol-section, .log-area {
     color: #2c3e50;
 }
 
-/* Индикаторы для людей с ограниченным зрением */
 .serve-indicator {
     background: #e74c3c;
     border: 1px solid #c0392b;
 }
 
-/* Улучшенная контрастность для дюса */
 #deuceIndicator {
     background: #e74c3c;
     color: white;
@@ -900,7 +891,6 @@ select:focus-visible {
     font-weight: bold;
 }
 
-/* Анимации для лучшего UX */
 button {
     transition: all 0.2s ease;
 }
@@ -909,7 +899,6 @@ button:active {
     transform: scale(0.97);
 }
 
-/* Улучшенная читаемость на маленьких экранах */
 @media (max-width: 480px) {
     body {
         font-size: 14px;
@@ -929,7 +918,6 @@ button:active {
     }
 }
 
-/* Немецкий язык - более длинные слова */
 html[lang="de"] .player-buttons-col .special-btn,
 html[data-lang="de"] .player-buttons-col .special-btn,
 html[lang="de"] .center-buttons-col .control-btn,
@@ -957,7 +945,6 @@ html[data-lang="de"] .center-buttons-col .control-btn {
     }
 }
 
-/* Language Menu */
 .language-menu {
     animation: fadeIn 0.3s ease;
 }
@@ -973,7 +960,6 @@ html[data-lang="de"] .center-buttons-col .control-btn {
     }
 }
 
-/* Анимация для жеребьевки */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -985,7 +971,6 @@ html[data-lang="de"] .center-buttons-col .control-btn {
     font-size: 48px;
 }
 
-/* Список сохраненных матчей */
 .saved-matches-list {
     max-height: 300px;
     overflow-y: auto;
