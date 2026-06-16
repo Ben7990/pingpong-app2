@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v22 - перевод для даты');
+console.log('Скрипт загружен v23 - исправление статуса и даты');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 
@@ -104,7 +104,7 @@ const translations = {
         'namePlaceholder': 'Имя',
         'tournamentPlaceholder': 'Название турнира',
         'tablePlaceholder': 'Номер стола',
-        'datePlaceholder': 'Выберите дату',
+        'datePlaceholder': 'ДД.ММ.ГГГГ',
         'playerNamePlaceholder': 'ФИО игрока',
         'countryPlaceholder': 'Страна',
         'refereePlaceholder': 'ФИО судьи',
@@ -220,7 +220,7 @@ const translations = {
         'namePlaceholder': 'Name',
         'tournamentPlaceholder': 'Tournament name',
         'tablePlaceholder': 'Table number',
-        'datePlaceholder': 'Select date',
+        'datePlaceholder': 'DD.MM.YYYY',
         'playerNamePlaceholder': 'Player name',
         'countryPlaceholder': 'Country',
         'refereePlaceholder': 'Referee name',
@@ -336,7 +336,7 @@ const translations = {
         'namePlaceholder': 'Name',
         'tournamentPlaceholder': 'Turniername',
         'tablePlaceholder': 'Tischnummer',
-        'datePlaceholder': 'Datum wählen',
+        'datePlaceholder': 'TT.MM.JJJJ',
         'playerNamePlaceholder': 'Spielername',
         'countryPlaceholder': 'Land',
         'refereePlaceholder': 'Schiedsrichter',
@@ -452,7 +452,7 @@ const translations = {
         'namePlaceholder': 'Nombre',
         'tournamentPlaceholder': 'Nombre del torneo',
         'tablePlaceholder': 'Número de mesa',
-        'datePlaceholder': 'Seleccionar fecha',
+        'datePlaceholder': 'DD.MM.AAAA',
         'playerNamePlaceholder': 'Nombre del jugador',
         'countryPlaceholder': 'País',
         'refereePlaceholder': 'Árbitro',
@@ -568,7 +568,7 @@ const translations = {
         'namePlaceholder': 'Nome',
         'tournamentPlaceholder': 'Nome torneo',
         'tablePlaceholder': 'Numero tavolo',
-        'datePlaceholder': 'Seleziona data',
+        'datePlaceholder': 'GG.MM.AAAA',
         'playerNamePlaceholder': 'Nome giocatore',
         'countryPlaceholder': 'Paese',
         'refereePlaceholder': 'Arbitro',
@@ -684,7 +684,7 @@ const translations = {
         'namePlaceholder': 'Nom',
         'tournamentPlaceholder': 'Nom du tournoi',
         'tablePlaceholder': 'Numéro de table',
-        'datePlaceholder': 'Choisir la date',
+        'datePlaceholder': 'JJ.MM.AAAA',
         'playerNamePlaceholder': 'Nom du joueur',
         'countryPlaceholder': 'Pays',
         'refereePlaceholder': 'Arbitre',
@@ -800,7 +800,7 @@ const translations = {
         'namePlaceholder': '姓名',
         'tournamentPlaceholder': '比赛名称',
         'tablePlaceholder': '球台号',
-        'datePlaceholder': '选择日期',
+        'datePlaceholder': '年.月.日',
         'playerNamePlaceholder': '选手姓名',
         'countryPlaceholder': '国家',
         'refereePlaceholder': '主裁判',
@@ -916,7 +916,7 @@ const translations = {
         'namePlaceholder': 'Nome',
         'tournamentPlaceholder': 'Nome do torneio',
         'tablePlaceholder': 'Número da mesa',
-        'datePlaceholder': 'Selecionar data',
+        'datePlaceholder': 'DD.MM.AAAA',
         'playerNamePlaceholder': 'Nome do jogador',
         'countryPlaceholder': 'País',
         'refereePlaceholder': 'Árbitro',
@@ -1056,10 +1056,11 @@ function applyTranslations() {
         }
     }
     
-    // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ ДЛЯ ВСЕХ ПОЛЕЙ ВВОДА
+    // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ
     const placeholderElements = {
         'tournamentName': trans.tournamentPlaceholder,
         'tableNumber': trans.tablePlaceholder,
+        'matchDate': trans.datePlaceholder,
         'player1Name': trans.playerNamePlaceholder,
         'player2Name': trans.playerNamePlaceholder,
         'player1Country': trans.countryPlaceholder,
@@ -1070,13 +1071,6 @@ function applyTranslations() {
     for (const [id, placeholder] of Object.entries(placeholderElements)) {
         const el = getElement(id);
         if (el) el.placeholder = placeholder;
-    }
-    
-    // ПЕРЕВОД ПЛЕЙСХОЛДЕРА ДЛЯ ДАТЫ
-    const dateInput = getElement('matchDate');
-    if (dateInput) {
-        dateInput.placeholder = trans.datePlaceholder;
-        dateInput.lang = currentLang;
     }
     
     const privacyLinkAuth = getElement('privacyLinkAuth');
@@ -1115,6 +1109,7 @@ function applyTranslations() {
     const resetStep2Text = document.querySelector('#resetStep2 p');
     if (resetStep2Text) resetStep2Text.textContent = trans.codeSent;
     
+    // ОБНОВЛЯЕМ СТАТУС МАТЧА
     const statusEl = getElement('matchStatus');
     if (statusEl && window.match) {
         if (!window.match.isStarted) {
@@ -2109,14 +2104,20 @@ function setLanguage(lang) {
             btn.innerHTML = `🌐 ${langNames[lang]}`;
         });
         
-        if (match) {
-            const matchStatus = getElement('matchStatus');
-            if (matchStatus) {
-                if (!match.isStarted) matchStatus.textContent = '● ' + t('waiting');
-                else if (match.isFinished) matchStatus.textContent = '● ' + t('finished');
-                else matchStatus.textContent = '● ' + t('playing');
+        // ПРИНУДИТЕЛЬНО ОБНОВЛЯЕМ СТАТУС
+        const matchStatus = getElement('matchStatus');
+        if (matchStatus && window.match) {
+            if (!window.match.isStarted) {
+                matchStatus.textContent = '● ' + t('waiting');
+            } else if (window.match.isFinished) {
+                matchStatus.textContent = '● ' + t('finished');
+            } else {
+                matchStatus.textContent = '● ' + t('playing');
             }
-            match.refreshEventLog();
+        }
+        
+        if (window.match && window.match.events) {
+            window.match.refreshEventLog();
         }
     }
 }
@@ -2150,7 +2151,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Полная версия с переводом даты v22');
+    console.log('DOMContentLoaded fired - Полная версия с исправлением статуса v23');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
