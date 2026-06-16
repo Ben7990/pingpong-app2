@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v19 - полная версия с переводами статуса');
+console.log('Скрипт загружен v20 - пустые поля по умолчанию');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 
@@ -1008,7 +1008,6 @@ function applyTranslations() {
         }
     }
     
-    // Дополнительная проверка для ссылок "Политика"
     const privacyLinkAuth = getElement('privacyLinkAuth');
     if (privacyLinkAuth) privacyLinkAuth.textContent = '📄 ' + trans.privacy;
     
@@ -1045,7 +1044,6 @@ function applyTranslations() {
     const resetStep2Text = document.querySelector('#resetStep2 p');
     if (resetStep2Text) resetStep2Text.textContent = trans.codeSent;
     
-    // ОБНОВЛЯЕМ СТАТУС МАТЧА
     const statusEl = getElement('matchStatus');
     if (statusEl && window.match) {
         if (!window.match.isStarted) {
@@ -1074,7 +1072,7 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-// ==================== ОБНОВЛЁННЫЙ ЭКСПОРТ CSV ====================
+// ==================== ЭКСПОРТ CSV ====================
 function exportCSV(utf8) {
     if (!match) return;
     const data = match.getExportData();
@@ -1683,6 +1681,7 @@ function enableGameControls(enabled) {
     });
 }
 
+// ==================== ИСПРАВЛЕННАЯ ФУНКЦИЯ initializeMatch ====================
 function initializeMatch() {
     if (!auth) return false;
     match = new TableTennisMatch();
@@ -1694,15 +1693,17 @@ function initializeMatch() {
     const deuceDiv = getElement('deuceIndicator');
     if (deuceDiv) deuceDiv.style.display = 'none';
     
+    // Читаем значения из полей ввода (они могут быть пустыми)
     const p1Name = getElement('player1Name');
     const p2Name = getElement('player2Name');
     const p1Country = getElement('player1Country');
     const p2Country = getElement('player2Country');
     
-    if (p1Name) match.players[1].name = p1Name.value;
-    if (p2Name) match.players[2].name = p2Name.value;
-    if (p1Country) match.players[1].country = p1Country.value;
-    if (p2Country) match.players[2].country = p2Country.value;
+    // Устанавливаем значения из полей (если они есть)
+    if (p1Name) match.players[1].name = p1Name.value || '';
+    if (p2Name) match.players[2].name = p2Name.value || '';
+    if (p1Country) match.players[1].country = p1Country.value || '';
+    if (p2Country) match.players[2].country = p2Country.value || '';
     
     const matchStatus = getElement('matchStatus');
     if (matchStatus) matchStatus.textContent = '● ' + t('waiting');
@@ -1712,7 +1713,7 @@ function initializeMatch() {
     return true;
 }
 
-// ==================== ИСПРАВЛЕННАЯ ФУНКЦИЯ ЖЕРЕБЬЁВКИ ====================
+// ==================== ФУНКЦИЯ ЖЕРЕБЬЁВКИ ====================
 function showTossModal() {
     return new Promise((resolve) => {
         const modal = getElement('tossModal');
@@ -2080,7 +2081,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Полная версия с переводами статуса v19');
+    console.log('DOMContentLoaded fired - Полная версия с пустыми полями v20');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
