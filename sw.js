@@ -1,6 +1,5 @@
-const CACHE_NAME = 'pingpong-v11';
+const CACHE_NAME = 'pingpong-v19';
 
-// Полный список файлов для кеширования
 const urlsToCache = [
     './',
     './index.html',
@@ -8,7 +7,6 @@ const urlsToCache = [
     './script.js',
     './manifest.json',
     './privacy.html',
-    // Иконки - создадим их через эмодзи и CSS
     './icon-72.png',
     './icon-96.png',
     './icon-128.png',
@@ -16,18 +14,15 @@ const urlsToCache = [
     './icon-152.png',
     './icon-192.png',
     './icon-384.png',
-    './icon-512.png',
-    './favicon.ico'
+    './icon-512.png'
 ];
 
-// Устанавливаем Service Worker
 self.addEventListener('install', event => {
-    console.log('Service Worker установлен v11');
+    console.log('Service Worker установлен v19');
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
                 console.log('Кеш открыт');
-                // Кешируем каждый файл отдельно, чтобы избежать ошибок при отсутствии иконок
                 return Promise.allSettled(
                     urlsToCache.map(url => {
                         return cache.add(url).catch(err => {
@@ -40,9 +35,8 @@ self.addEventListener('install', event => {
     );
 });
 
-// Активируем Service Worker
 self.addEventListener('activate', event => {
-    console.log('Service Worker активирован v11');
+    console.log('Service Worker активирован v19');
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
@@ -57,7 +51,6 @@ self.addEventListener('activate', event => {
     );
 });
 
-// Перехватываем запросы
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
@@ -66,11 +59,9 @@ self.addEventListener('fetch', event => {
                     return response;
                 }
                 return fetch(event.request).then(response => {
-                    // Проверяем, что получили валидный ответ
                     if (!response || response.status !== 200 || response.type !== 'basic') {
                         return response;
                     }
-                    // Кешируем только успешные ответы
                     const responseToCache = response.clone();
                     caches.open(CACHE_NAME).then(cache => {
                         cache.put(event.request, responseToCache);
