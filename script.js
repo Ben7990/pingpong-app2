@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v20 - пустые поля по умолчанию');
+console.log('Скрипт загружен v21 - перевод всех плейсхолдеров');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 
@@ -102,6 +102,12 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Пароль',
         'namePlaceholder': 'Имя',
+        // Плейсхолдеры для полей ввода
+        'tournamentPlaceholder': 'Название турнира',
+        'tablePlaceholder': 'Номер стола',
+        'playerNamePlaceholder': 'ФИО игрока',
+        'countryPlaceholder': 'Страна',
+        'refereePlaceholder': 'ФИО судьи',
         'point': '🎾 Очко заработал игрок {player}',
         'point_accelerated': '⚡ Очко (ускорение) заработал игрок {player}',
         'set_end': '🏆 Партия {set} завершена. Победил игрок {winner}',
@@ -212,6 +218,12 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Password',
         'namePlaceholder': 'Name',
+        // Плейсхолдеры для полей ввода
+        'tournamentPlaceholder': 'Tournament name',
+        'tablePlaceholder': 'Table number',
+        'playerNamePlaceholder': 'Player name',
+        'countryPlaceholder': 'Country',
+        'refereePlaceholder': 'Referee name',
         'point': '🎾 Point scored by player {player}',
         'point_accelerated': '⚡ Point (acceleration) scored by player {player}',
         'set_end': '🏆 Set {set} completed. Player {winner} wins',
@@ -322,6 +334,11 @@ const translations = {
         'emailPlaceholder': 'E-Mail',
         'passwordPlaceholder': 'Passwort',
         'namePlaceholder': 'Name',
+        'tournamentPlaceholder': 'Turniername',
+        'tablePlaceholder': 'Tischnummer',
+        'playerNamePlaceholder': 'Spielername',
+        'countryPlaceholder': 'Land',
+        'refereePlaceholder': 'Schiedsrichter',
         'point': '🎾 Punkt für Spieler {player}',
         'point_accelerated': '⚡ Punkt (Beschleunigung) für Spieler {player}',
         'set_end': '🏆 Satz {set} beendet. Spieler {winner} gewinnt',
@@ -432,6 +449,11 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Contraseña',
         'namePlaceholder': 'Nombre',
+        'tournamentPlaceholder': 'Nombre del torneo',
+        'tablePlaceholder': 'Número de mesa',
+        'playerNamePlaceholder': 'Nombre del jugador',
+        'countryPlaceholder': 'País',
+        'refereePlaceholder': 'Árbitro',
         'point': '🎾 Punto jugador {player}',
         'point_accelerated': '⚡ Punto (aceleración) jugador {player}',
         'set_end': '🏆 Set {set} completado. Gana jugador {winner}',
@@ -542,6 +564,11 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Password',
         'namePlaceholder': 'Nome',
+        'tournamentPlaceholder': 'Nome torneo',
+        'tablePlaceholder': 'Numero tavolo',
+        'playerNamePlaceholder': 'Nome giocatore',
+        'countryPlaceholder': 'Paese',
+        'refereePlaceholder': 'Arbitro',
         'point': '🎾 Punto giocatore {player}',
         'point_accelerated': '⚡ Punto (accelerazione) giocatore {player}',
         'set_end': '🏆 Set {set} completato. Vince giocatore {winner}',
@@ -652,6 +679,11 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Mot de passe',
         'namePlaceholder': 'Nom',
+        'tournamentPlaceholder': 'Nom du tournoi',
+        'tablePlaceholder': 'Numéro de table',
+        'playerNamePlaceholder': 'Nom du joueur',
+        'countryPlaceholder': 'Pays',
+        'refereePlaceholder': 'Arbitre',
         'point': '🎾 Point joueur {player}',
         'point_accelerated': '⚡ Point (accélération) joueur {player}',
         'set_end': '🏆 Set {set} terminé. Joueur {winner} gagne',
@@ -762,6 +794,11 @@ const translations = {
         'emailPlaceholder': '电子邮箱',
         'passwordPlaceholder': '密码',
         'namePlaceholder': '姓名',
+        'tournamentPlaceholder': '比赛名称',
+        'tablePlaceholder': '球台号',
+        'playerNamePlaceholder': '选手姓名',
+        'countryPlaceholder': '国家',
+        'refereePlaceholder': '主裁判',
         'point': '🎾 选手{player}得分',
         'point_accelerated': '⚡ 得分（加速）选手{player}',
         'set_end': '🏆 第{set}局结束。选手{winner}获胜',
@@ -872,6 +909,11 @@ const translations = {
         'emailPlaceholder': 'Email',
         'passwordPlaceholder': 'Senha',
         'namePlaceholder': 'Nome',
+        'tournamentPlaceholder': 'Nome do torneio',
+        'tablePlaceholder': 'Número da mesa',
+        'playerNamePlaceholder': 'Nome do jogador',
+        'countryPlaceholder': 'País',
+        'refereePlaceholder': 'Árbitro',
         'point': '🎾 Ponto jogador {player}',
         'point_accelerated': '⚡ Ponto (aceleração) jogador {player}',
         'set_end': '🏆 Set {set} concluído. Jogador {winner} vence',
@@ -1006,6 +1048,22 @@ function applyTranslations() {
         if (el && el.tagName !== 'INPUT') {
             el.textContent = text;
         }
+    }
+    
+    // ПЕРЕВОД ПЛЕЙСХОЛДЕРОВ ДЛЯ ВСЕХ ПОЛЕЙ ВВОДА
+    const placeholderElements = {
+        'tournamentName': trans.tournamentPlaceholder,
+        'tableNumber': trans.tablePlaceholder,
+        'player1Name': trans.playerNamePlaceholder,
+        'player2Name': trans.playerNamePlaceholder,
+        'player1Country': trans.countryPlaceholder,
+        'player2Country': trans.countryPlaceholder,
+        'refereeName': trans.refereePlaceholder
+    };
+    
+    for (const [id, placeholder] of Object.entries(placeholderElements)) {
+        const el = getElement(id);
+        if (el) el.placeholder = placeholder;
     }
     
     const privacyLinkAuth = getElement('privacyLinkAuth');
@@ -1693,13 +1751,11 @@ function initializeMatch() {
     const deuceDiv = getElement('deuceIndicator');
     if (deuceDiv) deuceDiv.style.display = 'none';
     
-    // Читаем значения из полей ввода (они могут быть пустыми)
     const p1Name = getElement('player1Name');
     const p2Name = getElement('player2Name');
     const p1Country = getElement('player1Country');
     const p2Country = getElement('player2Country');
     
-    // Устанавливаем значения из полей (если они есть)
     if (p1Name) match.players[1].name = p1Name.value || '';
     if (p2Name) match.players[2].name = p2Name.value || '';
     if (p1Country) match.players[1].country = p1Country.value || '';
@@ -2081,7 +2137,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Полная версия с пустыми полями v20');
+    console.log('DOMContentLoaded fired - Полная версия с переводами плейсхолдеров v21');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
