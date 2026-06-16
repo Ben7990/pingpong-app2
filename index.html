@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
     <title>Судья Пинг-Понг PRO | Система учета матчей</title>
-    <link rel="stylesheet" href="styles.css?v=19">
+    <link rel="stylesheet" href="styles.css?v=20">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3c72">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -188,8 +188,8 @@
                 </div>
                 <div class="tournament-info">
                     <input type="text" id="tournamentName" placeholder="Название турнира" value="">
-                    <input type="date" id="matchDate" value="2026-06-16">
-                    <input type="text" id="tableNumber" placeholder="Номер стола" value="1">
+                    <input type="date" id="matchDate">
+                    <input type="text" id="tableNumber" placeholder="Номер стола" value="">
                 </div>
             </div>
 
@@ -201,8 +201,8 @@
                             <h2 id="player1Title">ИГРОК 1</h2>
                             <div class="serve-indicator" id="serve1" style="display: none;">🎾 ПОДАЧА</div>
                         </div>
-                        <input type="text" class="player-name" id="player1Name" placeholder="ФИО игрока" value="Алексей Смирнов">
-                        <input type="text" class="player-country" id="player1Country" placeholder="Страна" value="Россия">
+                        <input type="text" class="player-name" id="player1Name" placeholder="ФИО игрока" value="">
+                        <input type="text" class="player-country" id="player1Country" placeholder="Страна" value="">
                         <div class="score-display" id="score1">0</div>
                         <div class="points-history" id="history1"></div>
                     </div>
@@ -224,8 +224,8 @@
                             <h2 id="player2Title">ИГРОК 2</h2>
                             <div class="serve-indicator" id="serve2" style="display: none;">🎾 ПОДАЧА</div>
                         </div>
-                        <input type="text" class="player-name" id="player2Name" placeholder="ФИО игрока" value="Дмитрий Петров">
-                        <input type="text" class="player-country" id="player2Country" placeholder="Страна" value="Россия">
+                        <input type="text" class="player-name" id="player2Name" placeholder="ФИО игрока" value="">
+                        <input type="text" class="player-country" id="player2Country" placeholder="Страна" value="">
                         <div class="score-display" id="score2">0</div>
                         <div class="points-history" id="history2"></div>
                     </div>
@@ -265,7 +265,7 @@
                 <div class="protocol-section">
                     <h3 id="protocolTitle">📋 СУДЕЙСКИЙ ПРОТОКОЛ</h3>
                     <div class="protocol-info">
-                        <div class="protocol-item"><strong id="refereeLabel">Главный судья:</strong><input type="text" id="refereeName" placeholder="ФИО судьи" value="Иван Иванов"></div>
+                        <div class="protocol-item"><strong id="refereeLabel">Главный судья:</strong><input type="text" id="refereeName" placeholder="ФИО судьи" value=""></div>
                         <div class="protocol-item"><strong id="startTimeLabel">Время начала:</strong><span id="startTime">--:--:--</span></div>
                         <div class="protocol-item"><strong id="currentTimeLabel">Текущее время:</strong><span id="currentTime">--:--:--</span></div>
                         <div class="protocol-item"><strong id="statusLabel">Статус:</strong><span id="matchStatus">● ОЖИДАНИЕ НАЧАЛА</span></div>
@@ -298,7 +298,7 @@
     <!-- Кнопка очистки кеша (только для разработки) -->
     <button id="clearCacheBtn" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #e74c3c; color: white; border: none; border-radius: 20px; padding: 6px 12px; font-size: 10px; cursor: pointer; opacity: 0.5;">🗑️ Очистить кеш</button>
 
-    <script src="script.js?v=19"></script>
+    <script src="script.js?v=20"></script>
     <script>
         // Проверяем, находится ли устройство в портретной ориентации на телефоне
         function fixOrientation() {
