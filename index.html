@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
     <title>Судья Пинг-Понг PRO | Система учета матчей</title>
-    <link rel="stylesheet" href="styles.css?v=24">
+    <link rel="stylesheet" href="styles.css?v=25">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3c72">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -295,10 +295,7 @@
         </div>
     </div>
 
-    <!-- Кнопка очистки кеша (только для разработки) -->
-    <button id="clearCacheBtn" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #e74c3c; color: white; border: none; border-radius: 20px; padding: 6px 12px; font-size: 10px; cursor: pointer; opacity: 0.5;">🗑️ Очистить кеш</button>
-
-    <script src="script.js?v=24"></script>
+    <script src="script.js?v=25"></script>
     <script>
         // Проверяем, находится ли устройство в портретной ориентации на телефоне
         function fixOrientation() {
@@ -321,15 +318,6 @@
         
         window.addEventListener('resize', function() {
             setTimeout(fixOrientation, 200);
-        });
-        
-        document.getElementById('clearCacheBtn')?.addEventListener('click', async () => {
-            if ('caches' in window) {
-                const keys = await caches.keys();
-                await Promise.all(keys.map(key => caches.delete(key)));
-                alert('Кеш очищен! Страница будет перезагружена');
-                location.reload();
-            }
         });
         
         if ('serviceWorker' in navigator) {
