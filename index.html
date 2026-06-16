@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
     <title>Судья Пинг-Понг PRO | Система учета матчей</title>
-    <link rel="stylesheet" href="styles.css?v=18">
+    <link rel="stylesheet" href="styles.css?v=19">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1e3c72">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,14 +34,12 @@
                 overflow-x: hidden;
             }
             
-            /* Скрываем скролл при повороте */
             ::-webkit-scrollbar {
                 width: 0;
                 background: transparent;
             }
         }
         
-        /* Для устройств с display-mode: standalone (PWA) */
         @media (display-mode: standalone) and (orientation: portrait) and (max-width: 768px) {
             body {
                 transform: rotate(90deg);
@@ -87,7 +85,6 @@
             }
         }
         
-        /* Анимация для жеребьевки */
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -99,7 +96,6 @@
             font-size: 48px;
         }
         
-        /* Исправляем высоту на мобильных */
         @media (max-width: 768px) {
             html, body {
                 margin: 0;
@@ -116,7 +112,7 @@
             <div class="auth-card">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                     <button id="langToggleAuth" class="lang-toggle-btn">🌐 English</button>
-                    <a href="privacy.html" target="_blank" style="font-size: 12px; color: #666; text-decoration: none;">📄 Политика</a>
+                    <a href="privacy.html" target="_blank" id="privacyLinkAuth" style="font-size: 12px; color: #666; text-decoration: none;">📄 Политика</a>
                 </div>
                 <h1 id="authTitle">🏓 Судья Пинг-Понг</h1>
                 <div class="auth-tabs">
@@ -191,7 +187,7 @@
                     </div>
                 </div>
                 <div class="tournament-info">
-                    <input type="text" id="tournamentName" placeholder="Название турнира" value="Чемпионат 2026">
+                    <input type="text" id="tournamentName" placeholder="Название турнира" value="">
                     <input type="date" id="matchDate" value="2026-06-16">
                     <input type="text" id="tableNumber" placeholder="Номер стола" value="1">
                 </div>
@@ -292,7 +288,7 @@
 
             <!-- Футер -->
             <div class="app-footer">
-                <a href="privacy.html" target="_blank">📄 Политика конфиденциальности</a>
+                <a href="privacy.html" target="_blank" id="privacyLinkFooter">📄 Политика конфиденциальности</a>
                 <span style="margin: 0 10px">•</span>
                 <span>📧 support@pingpong.pro</span>
             </div>
@@ -302,7 +298,7 @@
     <!-- Кнопка очистки кеша (только для разработки) -->
     <button id="clearCacheBtn" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999; background: #e74c3c; color: white; border: none; border-radius: 20px; padding: 6px 12px; font-size: 10px; cursor: pointer; opacity: 0.5;">🗑️ Очистить кеш</button>
 
-    <script src="script.js?v=18"></script>
+    <script src="script.js?v=19"></script>
     <script>
         // Проверяем, находится ли устройство в портретной ориентации на телефоне
         function fixOrientation() {
@@ -310,29 +306,23 @@
             const isMobile = window.matchMedia('(max-width: 768px)').matches;
             
             if (isMobile && isPortrait) {
-                // Принудительно поворачиваем через CSS (уже сделано в стилях)
-                // Дополнительно корректируем высоту для избежания скролла
                 document.body.style.height = window.innerWidth + 'px';
                 document.body.style.width = window.innerHeight + 'px';
             }
         }
         
-        // Запускаем при загрузке
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(fixOrientation, 100);
         });
         
-        // При изменении ориентации
         window.addEventListener('orientationchange', function() {
             setTimeout(fixOrientation, 300);
         });
         
-        // При изменении размера
         window.addEventListener('resize', function() {
             setTimeout(fixOrientation, 200);
         });
         
-        // Очистка кеша
         document.getElementById('clearCacheBtn')?.addEventListener('click', async () => {
             if ('caches' in window) {
                 const keys = await caches.keys();
