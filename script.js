@@ -1,4 +1,4 @@
-console.log('Скрипт загружен v15 - полная версия с 8 языками');
+console.log('Скрипт загружен v16 - полная версия с исправленной жеребьёвкой');
 
 // ==================== БЕЗОПАСНОСТЬ: ШИФРОВАНИЕ ПАРОЛЕЙ ====================
 
@@ -1134,11 +1134,7 @@ function exportToPDF() {
     printWindow.document.close();
 }
 
-// Далее идут те же функции: AuthSystem, TableTennisMatch и инициализация
-// (продолжение следует, но из-за ограничения по длине сообщения, 
-// остальные функции такие же как в предыдущей версии)
-
-// ==================== АВТОРИЗАЦИЯ ====================
+// ==================== БЕЗОПАСНАЯ АВТОРИЗАЦИЯ ====================
 class AuthSystem {
     constructor() {
         this.currentUser = null;
@@ -1601,6 +1597,7 @@ function initializeMatch() {
     return true;
 }
 
+// ==================== ИСПРАВЛЕННАЯ ФУНКЦИЯ ЖЕРЕБЬЁВКИ (ВСЕ ЯЗЫКИ) ====================
 function showTossModal() {
     return new Promise((resolve) => {
         const modal = getElement('tossModal');
@@ -1610,6 +1607,53 @@ function showTossModal() {
         const skipTossBtn = getElement('skipToss');
         
         let isFlipping = false;
+        
+        // Функция для обновления текстов на текущем языке
+        function updateTossTexts() {
+            const tossTitle = document.querySelector('#tossModal h2');
+            if (tossTitle) {
+                tossTitle.textContent = currentLang === 'ru' ? '🎲 ЖЕРЕБЬЕВКА' :
+                    currentLang === 'en' ? '🎲 TOSS' :
+                    currentLang === 'de' ? '🎲 LOS' :
+                    currentLang === 'es' ? '🎲 SORTEO' :
+                    currentLang === 'it' ? '🎲 SORTEGGIO' :
+                    currentLang === 'fr' ? '🎲 TIRAGE' :
+                    currentLang === 'zh' ? '🎲 抽签' : '🎲 SORTEIO';
+            }
+            
+            if (tossResult && !isFlipping) {
+                tossResult.textContent = currentLang === 'ru' ? 'Кликните на монетку, чтобы подбросить' :
+                    currentLang === 'en' ? 'Click the coin to flip' :
+                    currentLang === 'de' ? 'Klicken Sie auf die Münze' :
+                    currentLang === 'es' ? 'Haz clic en la moneda' :
+                    currentLang === 'it' ? 'Clicca sulla moneta' :
+                    currentLang === 'fr' ? 'Cliquez sur la pièce' :
+                    currentLang === 'zh' ? '点击硬币抛掷' : 'Clique na moeda';
+            }
+            
+            if (doTossBtn) {
+                doTossBtn.textContent = currentLang === 'ru' ? '🎲 ПОДБРОСИТЬ МОНЕТКУ' :
+                    currentLang === 'en' ? '🎲 FLIP COIN' :
+                    currentLang === 'de' ? '🎲 MÜNZE WERFEN' :
+                    currentLang === 'es' ? '🎲 LANZAR MONEDA' :
+                    currentLang === 'it' ? '🎲 LANCIARE MONETA' :
+                    currentLang === 'fr' ? '🎲 LANCER LA PIÈCE' :
+                    currentLang === 'zh' ? '🎲 抛硬币' : '🎲 LANÇAR MOEDA';
+            }
+            
+            if (skipTossBtn) {
+                skipTossBtn.textContent = currentLang === 'ru' ? 'Пропустить (подает Игрок 1)' :
+                    currentLang === 'en' ? 'Skip (Player 1 serves)' :
+                    currentLang === 'de' ? 'Überspringen (Spieler 1 schlägt auf)' :
+                    currentLang === 'es' ? 'Saltar (Jugador 1 saca)' :
+                    currentLang === 'it' ? 'Salta (Giocatore 1 batte)' :
+                    currentLang === 'fr' ? 'Ignorer (Joueur 1 sert)' :
+                    currentLang === 'zh' ? '跳过（选手1发球）' : 'Pular (Jogador 1 saca)';
+            }
+        }
+        
+        // Устанавливаем начальные тексты
+        updateTossTexts();
         
         if (modal) modal.style.display = 'flex';
         if (coinDisplay) coinDisplay.textContent = '🪙';
@@ -1625,17 +1669,45 @@ function showTossModal() {
                     coinDisplay.textContent = result === 1 ? '🎾' : '🏓';
                 }
                 
-                const winnerText = result === 1 ? 
-                    (currentLang === 'ru' ? 'Победил ИГРОК 1! Он выбирает право подачи.' : 'PLAYER 1 wins! They choose who serves.') :
-                    (currentLang === 'ru' ? 'Победил ИГРОК 2! Он выбирает право подачи.' : 'PLAYER 2 wins! They choose who serves.');
+                let winnerText, confirmMessage;
+                
+                if (result === 1) {
+                    winnerText = currentLang === 'ru' ? 'Победил ИГРОК 1! Он выбирает право подачи.' :
+                        currentLang === 'en' ? 'PLAYER 1 wins! They choose who serves.' :
+                        currentLang === 'de' ? 'SPIELER 1 gewinnt! Er wählt den Aufschlag.' :
+                        currentLang === 'es' ? '¡Gana el JUGADOR 1! Elige quien saca.' :
+                        currentLang === 'it' ? 'Vince il GIOCATORE 1! Sceglie chi batte.' :
+                        currentLang === 'fr' ? 'Le JOUEUR 1 gagne! Il choisit qui sert.' :
+                        currentLang === 'zh' ? '选手1获胜！他选择谁发球。' : 'JOGADOR 1 vence! Ele escolhe quem saca.';
+                    
+                    confirmMessage = currentLang === 'ru' ? 'Игрок 1 выиграл жребий. Передать подачу Игроку 1?' :
+                        currentLang === 'en' ? 'Player 1 won the toss. Give serve to Player 1?' :
+                        currentLang === 'de' ? 'Spieler 1 gewann den Münzwurf. Aufschlag an Spieler 1?' :
+                        currentLang === 'es' ? 'El Jugador 1 ganó el sorteo. ¿Dar saque al Jugador 1?' :
+                        currentLang === 'it' ? 'Il Giocatore 1 ha vinto il sorteggio. Dare la battuta al Giocatore 1?' :
+                        currentLang === 'fr' ? 'Le Joueur 1 a gagné le tirage. Donner le service au Joueur 1?' :
+                        currentLang === 'zh' ? '选手1赢得了抛硬币。让选手1发球？' : 'Jogador 1 venceu o sorteio. Dar saque para o Jogador 1?';
+                } else {
+                    winnerText = currentLang === 'ru' ? 'Победил ИГРОК 2! Он выбирает право подачи.' :
+                        currentLang === 'en' ? 'PLAYER 2 wins! They choose who serves.' :
+                        currentLang === 'de' ? 'SPIELER 2 gewinnt! Er wählt den Aufschlag.' :
+                        currentLang === 'es' ? '¡Gana el JUGADOR 2! Elige quien saca.' :
+                        currentLang === 'it' ? 'Vince il GIOCATORE 2! Sceglie chi batte.' :
+                        currentLang === 'fr' ? 'Le JOUEUR 2 gagne! Il choisit qui sert.' :
+                        currentLang === 'zh' ? '选手2获胜！他选择谁发球。' : 'JOGADOR 2 vence! Ele escolhe quem saca.';
+                    
+                    confirmMessage = currentLang === 'ru' ? 'Игрок 2 выиграл жребий. Передать подачу Игроку 2?' :
+                        currentLang === 'en' ? 'Player 2 won the toss. Give serve to Player 2?' :
+                        currentLang === 'de' ? 'Spieler 2 gewann den Münzwurf. Aufschlag an Spieler 2?' :
+                        currentLang === 'es' ? 'El Jugador 2 ganó el sorteo. ¿Dar saque al Jugador 2?' :
+                        currentLang === 'it' ? 'Il Giocatore 2 ha vinto il sorteggio. Dare la battuta al Giocatore 2?' :
+                        currentLang === 'fr' ? 'Le Joueur 2 a gagné le tirage. Donner le service au Joueur 2?' :
+                        currentLang === 'zh' ? '选手2赢得了抛硬币。让选手2发球？' : 'Jogador 2 venceu o sorteio. Dar saque para o Jogador 2?';
+                }
                 
                 if (tossResult) tossResult.textContent = winnerText;
                 
                 setTimeout(() => {
-                    const confirmMessage = result === 1 ? 
-                        (currentLang === 'ru' ? 'Игрок 1 выиграл жребий. Передать подачу Игроку 1?' : 'Player 1 won the toss. Give serve to Player 1?') :
-                        (currentLang === 'ru' ? 'Игрок 2 выиграл жребий. Передать подачу Игроку 2?' : 'Player 2 won the toss. Give serve to Player 2?');
-                    
                     const serveChoice = confirm(confirmMessage);
                     const server = serveChoice ? result : (result === 1 ? 2 : 1);
                     resolve(server);
@@ -1650,6 +1722,15 @@ function showTossModal() {
             resolve(1);
             if (modal) modal.style.display = 'none';
         };
+        
+        // Добавляем слушатель для закрытия модального окна при клике вне его
+        if (modal) {
+            modal.onclick = function(e) {
+                if (e.target === modal) {
+                    // Не закрываем - только по кнопкам
+                }
+            };
+        }
     });
 }
 
@@ -1895,7 +1976,7 @@ function showLanguageMenu() {
 
 // ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOMContentLoaded fired - Полная версия с 8 языками v15');
+    console.log('DOMContentLoaded fired - Полная версия с 8 языками v16');
     
     document.documentElement.setAttribute('lang', currentLang);
     document.documentElement.setAttribute('data-lang', currentLang);
